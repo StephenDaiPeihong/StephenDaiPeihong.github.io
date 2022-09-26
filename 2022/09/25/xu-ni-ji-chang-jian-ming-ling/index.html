@@ -12,12 +12,12 @@
 
 2）cd命令
 作用：切换目录
-格式：cd  目标
+格式：cd &amp;nbsp;目标
 
 
 举例
-#1 切换到根目录cd &amp;#x2F;
-#2 切换到home目录cd &amp;#x">
+#1 切换到根目录cd /
+#2 切换到home目录cd /ho">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -64,7 +64,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -415,21 +418,21 @@
 <hr>
 <h2 id="2）cd命令"><a href="#2）cd命令" class="headerlink" title="2）cd命令"></a>2）cd命令</h2><ul>
 <li><strong>作用</strong>：切换目录</li>
-<li><strong>格式</strong>：cd  目标</li>
+<li><strong>格式</strong>：cd &nbsp;目标</li>
 </ul>
 <blockquote>
 <p>举例</p>
-<p>#1 切换到根目录<br>cd &#x2F;</p>
-<p>#2 切换到home目录<br>cd &#x2F;home</p>
-<p>#3 切换到tmp目录<br>cd &#x2F;tmp</p>
-<p>#4 切换到&#x2F;etc&#x2F;sysconfig<br>cd &#x2F;etc&#x2F;sysconfig</p>
+<p>#1 切换到根目录<br>cd /</p>
+<p>#2 切换到home目录<br>cd /home</p>
+<p>#3 切换到tmp目录<br>cd /tmp</p>
+<p>#4 切换到/etc/sysconfig<br>cd /etc/sysconfig</p>
 <p>#5 切换到上一级目录<br>cd ..</p>
 <p>#6 切换上次所在的目录<br>cd -</p>
 </blockquote>
 <hr>
 <h2 id="3）ls命令"><a href="#3）ls命令" class="headerlink" title="3）ls命令"></a>3）ls命令</h2><ol>
 <li><strong>作用</strong>：查看目录下有哪些文件</li>
-<li><strong>格式</strong>：ls  [选项]  [路径]<br><strong>3.路径</strong>：</li>
+<li><strong>格式</strong>：ls &nbsp;[选项] &nbsp;[路径]<br><strong>3.路径</strong>：</li>
 </ol>
 <ul>
 <li>在执行命令的时候，如果不指定路径，则查看的是当前目录下的文件；如果指定路径，则查看指定路径下的文件<br><strong>4.选项：</strong></li>
@@ -439,13 +442,13 @@
 <blockquote>
 <p>举例</p>
 <p>#1 查看当前位置下有哪些文件<br>ls</p>
-<p>#2 查看etc下有哪些文件<br>方法1：先切换到etc下，然后执行ls<br>[root@localhost home]# cd &#x2F;etc<br>[root@localhost etc]# ls</p>
-<p>方法2：在执行ls的时候，指定路径<br>[root@localhost home]# ls &#x2F;etc</p>
-<p>#3 查看根下有哪些文件<br>方法1：<br>[root@localhost home]# cd &#x2F;<br>[root@localhost &#x2F;]# ls</p>
-<p>方法2：<br>[root@localhost home]# ls &#x2F;</p>
-<p>#4 查看home目录下的所有的文件的文件名<br>[root@localhost &#x2F;]# ls &#x2F;home</p>
-<p>#5 查了根目录下所有文件的属性，包括隐藏文件<br>[root@localhost &#x2F;]# ls -al &#x2F;  
- </p>
+<p>#2 查看etc下有哪些文件<br>方法1：先切换到etc下，然后执行ls<br>[root@localhost home]# cd /etc<br>[root@localhost etc]# ls</p>
+<p>方法2：在执行ls的时候，指定路径<br>[root@localhost home]# ls /etc</p>
+<p>#3 查看根下有哪些文件<br>方法1：<br>[root@localhost home]# cd /<br>[root@localhost /]# ls</p>
+<p>方法2：<br>[root@localhost home]# ls /</p>
+<p>#4 查看home目录下的所有的文件的文件名<br>[root@localhost /]# ls /home</p>
+<p>#5 查了根目录下所有文件的属性，包括隐藏文件<br>[root@localhost /]# ls -al /  
+&nbsp;</p>
 </blockquote>
 <p><strong>补充知识1：</strong>linux中，文件的类型主要有两种</p>
 <ul>
@@ -457,22 +460,22 @@
 <li>文件的属性仅仅和创建这个文件的命令相关<hr>
 <h2 id="4）touch命令"><a href="#4）touch命令" class="headerlink" title="4）touch命令"></a>4）touch命令</h2><strong>作用</strong>：创建空白一般文件</li>
 </ul>
-<p>       <strong>格式</strong>：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;<strong>格式</strong>：</p>
 <blockquote>
-<p>格式1：touch  文件名           # 在当前位置下创建文件<br>格式2：touch  &#x2F;路径&#x2F;文件名      # 在指定的位置下创建文件</p>
+<p>格式1：touch &nbsp;文件名 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # 在当前位置下创建文件<br>格式2：touch &nbsp;/路径/文件名 &nbsp; &nbsp; &nbsp;# 在指定的位置下创建文件</p>
 </blockquote>
 <blockquote>
 <p><strong>例子</strong>：</p>
 <p>#1 创建文件qq.txt<br>[root@localhost home]# touch qq.txt</p>
-<p>#2 在tmp下创建qq.txt<br>方法1：先切换到tmp下，然后创建<br>[root@localhost home]# cd &#x2F;tmp<br>[root@localhost tmp]# touch qq.txt</p>
-<p>方法2：[root@localhost home]# touch &#x2F;tmp&#x2F;qq.txt</p>
-<p>#3 解释下面的命令<br>touch  baidu.txt          # 在当前位置下创建baidu.txt<br>touch  &#x2F;baidu.txt         # 在根下创建baidu.txt<br>touch  &#x2F;home&#x2F;baidu.txt    # 在home下创建baidu.txt</p>
+<p>#2 在tmp下创建qq.txt<br>方法1：先切换到tmp下，然后创建<br>[root@localhost home]# cd /tmp<br>[root@localhost tmp]# touch qq.txt</p>
+<p>方法2：[root@localhost home]# touch /tmp/qq.txt</p>
+<p>#3 解释下面的命令<br>touch &nbsp;baidu.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 在当前位置下创建baidu.txt<br>touch &nbsp;/baidu.txt &nbsp; &nbsp; &nbsp; &nbsp; # 在根下创建baidu.txt<br>touch &nbsp;/home/baidu.txt &nbsp; &nbsp;# 在home下创建baidu.txt</p>
 </blockquote>
 <hr>
 <h2 id="5）mkdir命令"><a href="#5）mkdir命令" class="headerlink" title="5）mkdir命令"></a>5）mkdir命令</h2><p><strong>作用</strong>：创建目录【创建文件夹】</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>格式1：mkdir  [选项]   目录名<br>格式2：mkdir  [选项]   &#x2F;路径&#x2F;目录名</p>
+<p>格式1：mkdir&nbsp; [选项]   目录名<br>格式2：mkdir &nbsp;[选项] &nbsp; /路径/目录名</p>
 </blockquote>
 <p><strong>选项：</strong></p>
 <ul>
@@ -480,12 +483,12 @@
 </ul>
 <blockquote>
 <p>举例：</p>
-<p>#1 创建目录book1<br>mkdir  book1</p>
-<p>#2 在home下创建目录book2<br>方法1：先切换，在创建<br>cd &#x2F;home<br>mkdir book2</p>
-<p>方法2：<br>mkdir &#x2F;home&#x2F;book2</p>
-<p>#3 在根下创建目录book3<br>mkdir &#x2F;book3</p>
-<p>#4 创建一组文件夹d1&#x2F;d2&#x2F;d3&#x2F;d4<br>方法1：逐个创建<br>mkdir d1<br>mkdir d1&#x2F;d2<br>mkdir d1&#x2F;d2&#x2F;d3<br>mkdir d1&#x2F;d2&#x2F;d3&#x2F;d4</p>
-<p>方法2：逐个创建<br>mkdir -p d1&#x2F;d2&#x2F;d3&#x2F;d4</p>
+<p>#1 创建目录book1<br>mkdir &nbsp;book1</p>
+<p>#2 在home下创建目录book2<br>方法1：先切换，在创建<br>cd /home<br>mkdir book2</p>
+<p>方法2：<br>mkdir /home/book2</p>
+<p>#3 在根下创建目录book3<br>mkdir /book3</p>
+<p>#4 创建一组文件夹d1/d2/d3/d4<br>方法1：逐个创建<br>mkdir d1<br>mkdir d1/d2<br>mkdir d1/d2/d3<br>mkdir d1/d2/d3/d4</p>
+<p>方法2：逐个创建<br>mkdir -p d1/d2/d3/d4</p>
 </blockquote>
 <hr>
 <p><strong>6）clear命令</strong></p>
@@ -494,7 +497,7 @@
 <hr>
 <h2 id="7）cp命令"><a href="#7）cp命令" class="headerlink" title="7）cp命令"></a><strong>7）cp命令</strong></h2><p><strong>作用</strong>：复制文件和目录<br><strong>格式</strong>：</p>
 <blockquote>
-<p>格式1：cp  [选项]  源文件  目标位置           复制过去后，名字不变<br>格式2：cp  [选项]  源文件  目标位置&#x2F;新名字     复制过去后，名字改为新的</p>
+<p>格式1：cp &nbsp;[选项] &nbsp;源文件 &nbsp;目标位置 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 复制过去后，名字不变<br>格式2：cp &nbsp;[选项] &nbsp;源文件 &nbsp;目标位置/新名字 &nbsp; &nbsp; 复制过去后，名字改为新的</p>
 </blockquote>
 <p><strong>选项</strong>：</p>
 <ul>
@@ -503,27 +506,27 @@
 </ul>
 <blockquote>
 <p>举例：</p>
-<p>#1 将&#x2F;etc&#x2F;passwd 复制到home下<br>[root@localhost tmp]# cp &#x2F;etc&#x2F;passwd &#x2F;home&#x2F;</p>
-<p>#2 将&#x2F;etc&#x2F;passwd 复制到根下<br>[root@localhost tmp]# cp &#x2F;etc&#x2F;passwd  &#x2F;</p>
-<p>#3 将&#x2F;etc&#x2F;passwd 复制到home下，复制后的名字变成qq<br>[root@localhost tmp]# cp &#x2F;etc&#x2F;passwd &#x2F;home&#x2F;qq</p>
-<p>#4 将tmp下的目录d1复制到home下【d1是前面的例子中创建的】<br>[root@localhost tmp]# cp  -a  &#x2F;tmp&#x2F;d1  &#x2F;home&#x2F;</p>
+<p>#1 将/etc/passwd 复制到home下<br>[root@localhost tmp]# cp /etc/passwd /home/</p>
+<p>#2 将/etc/passwd 复制到根下<br>[root@localhost tmp]# cp /etc/passwd &nbsp;/</p>
+<p>#3 将/etc/passwd 复制到home下，复制后的名字变成qq<br>[root@localhost tmp]# cp /etc/passwd /home/qq</p>
+<p>#4 将tmp下的目录d1复制到home下【d1是前面的例子中创建的】<br>[root@localhost tmp]# cp &nbsp;-a &nbsp;/tmp/d1 &nbsp;/home/</p>
 </blockquote>
 <h2 id="8）mv命令"><a href="#8）mv命令" class="headerlink" title="8）mv命令"></a><strong>8）mv命令</strong></h2><p><strong>作用</strong>：移动文件和目录<br><strong>格式：</strong></p>
 <blockquote>
-<p><strong>mv  源文件  目标位置<br>mv  原文件  目标位置&#x2F;新名字</strong></p>
+<p><strong>mv &nbsp;源文件 &nbsp;目标位置<br>mv &nbsp;原文件 &nbsp;目标位置/新名字</strong></p>
 </blockquote>
 <blockquote>
 <p>举例</p>
-<p>#1 在home下新建一个测试文件，t.txt<br>[root@localhost tmp]# touch &#x2F;home&#x2F;t.txt</p>
-<p>#2 将上例中的t.txt移动到根下<br>[root@localhost tmp]# mv &#x2F;home&#x2F;t.txt &#x2F;</p>
-<p>#3 将上例中的t.txt移动到根下，并改名为tt.txt<br>[root@localhost tmp]# mv &#x2F;home&#x2F;t.txt &#x2F;tt.txt</p>
-<p>#4 将根下的tt.txt 改名为ttt.txt【原地改名】<br>[root@localhost tmp]# mv  &#x2F;tt.txt  &#x2F;ttt.txt</p>
+<p>#1 在home下新建一个测试文件，t.txt<br>[root@localhost tmp]# touch /home/t.txt</p>
+<p>#2 将上例中的t.txt移动到根下<br>[root@localhost tmp]# mv /home/t.txt /</p>
+<p>#3 将上例中的t.txt移动到根下，并改名为tt.txt<br>[root@localhost tmp]# mv /home/t.txt /tt.txt</p>
+<p>#4 将根下的tt.txt 改名为ttt.txt【原地改名】<br>[root@localhost tmp]# mv &nbsp;/tt.txt &nbsp;/ttt.txt</p>
 </blockquote>
 <hr>
 <h2 id="9）rm命令"><a href="#9）rm命令" class="headerlink" title="9）rm命令"></a><strong>9）rm命令</strong></h2><p><strong>作用</strong>：删除文件</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>格式1：rm  [选项]  文件<br>格式2：rm  [选项]  路径&#x2F;文件</p>
+<p>格式1：rm &nbsp;[选项] &nbsp;文件<br>格式2：rm &nbsp;[选项] &nbsp;路径/文件</p>
 </blockquote>
 <p><strong>选项</strong>：</p>
 <ul>
@@ -534,9 +537,9 @@
 </ul>
 <blockquote>
 <p>举例</p>
-<p>#1 删除当前目录下的a.txt<br>rm  -rf  a.txt</p>
-<p>#2 删除根目录下的a.txt<br>rm  -fr &#x2F;a.txt</p>
-<p>#3 删除home下的a.txt<br>rm  -r -f &#x2F;home&#x2F;a.txt</p>
+<p>#1 删除当前目录下的a.txt<br>rm &nbsp;-rf &nbsp;a.txt</p>
+<p>#2 删除根目录下的a.txt<br>rm &nbsp;-fr /a.txt</p>
+<p>#3 删除home下的a.txt<br>rm &nbsp;-r -f /home/a.txt</p>
 </blockquote>
 <p><strong>注意</strong>：</p>
 <ul>
@@ -546,10 +549,10 @@
 </li>
 </ul>
 <blockquote>
-<p>touch  a         在当前位置下，创建文件a<br>touch  &#x2F;home&#x2F;a   在home目录下，创建文件a</p>
-<p>mkdir b<br>mkdir &#x2F;home&#x2F;b</p>
-<p>cp c       &#x2F;home&#x2F;   将当前目录下的c复制到home目录下<br>cp &#x2F;tmp&#x2F;c  &#x2F;home    将tmp目录下的c复制到home下</p>
-<p>mv d       &#x2F;home    将当前目录下的d移动home目录下<br>md &#x2F;tmp&#x2F;d  &#x2F;home    将tmp目录下的d移动到home目录下</p>
+<p>touch &nbsp;a &nbsp; &nbsp; &nbsp; &nbsp; 在当前位置下，创建文件a<br>touch &nbsp;/home/a &nbsp; 在home目录下，创建文件a</p>
+<p>mkdir b<br>mkdir /home/b</p>
+<p>cp c &nbsp; &nbsp; &nbsp; /home/ &nbsp; 将当前目录下的c复制到home目录下<br>cp /tmp/c &nbsp;/home &nbsp; &nbsp;将tmp目录下的c复制到home下</p>
+<p>mv d &nbsp; &nbsp; &nbsp; /home &nbsp; &nbsp;将当前目录下的d移动home目录下<br>md /tmp/d &nbsp;/home &nbsp; &nbsp;将tmp目录下的d移动到home目录下</p>
 </blockquote>
 <h2 id="10）通配符"><a href="#10）通配符" class="headerlink" title="10）通配符"></a>10）通配符</h2><ul>
 <li><p>通配符：就是具有特殊含义的符号</p>
@@ -558,35 +561,35 @@
 </li>
 </ul>
 <blockquote>
-<p>*  代表的是任意多个任意的字符【0个、1个、多个】<br>?  代表的是任意一个字符【1个】</p>
+<p>* &nbsp;代表的是任意多个任意的字符【0个、1个、多个】<br>? &nbsp;代表的是任意一个字符【1个】</p>
 </blockquote>
 <h2 id="11）cat命令"><a href="#11）cat命令" class="headerlink" title="11）cat命令"></a>11）cat命令</h2><p><strong>作用</strong>：读取文件的内容【比较合适读取行数较少的文件】</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>cat  路径&#x2F;文件名</p>
+<p>cat &nbsp;路径/文件名</p>
 </blockquote>
 <blockquote>
 <p>案例</p>
-<p># 准备测试文件<br>[root@localhost ~]# cp &#x2F;etc&#x2F;passwd &#x2F;home&#x2F;</p>
-<p># 查看home下的passwd文件中的内容<br>[root@localhost ~]# cat &#x2F;home&#x2F;passwd </p>
+<p># 准备测试文件<br>[root@localhost ~]# cp /etc/passwd /home/</p>
+<p># 查看home下的passwd文件中的内容<br>[root@localhost ~]# cat /home/passwd&nbsp;</p>
 </blockquote>
 <h2 id="12）head命令"><a href="#12）head命令" class="headerlink" title="12）head命令"></a>12）head命令</h2><p><strong>作用</strong>：查看文件的前若干行，默认是看前10行</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>head  [选项]   路径&#x2F;文件</p>
+<p>head &nbsp;[选项] &nbsp; 路径/文件</p>
 </blockquote>
 <p><strong>选项</strong>：</p>
 <ul>
 <li>-n #：指定看前几行</li>
 </ul>
 <blockquote>
-<p># 准备测试文件<br>[root@localhost home]# for i in {1..500}; do echo $i &gt;&gt; &#x2F;home&#x2F;qq.txt ;done</p>
-<p># 操作示例<br>[root@localhost home]# head qq.txt        # 看前10行<br>[root@localhost home]# head -n20 qq.txt   # 看前20行<br>[root@localhost home]# head -n3 qq.txt    # 看前3行</p>
+<p># 准备测试文件<br>[root@localhost home]# for i in {1..500}; do echo $i &gt;&gt; /home/qq.txt ;done</p>
+<p># 操作示例<br>[root@localhost home]# head qq.txt &nbsp; &nbsp; &nbsp; &nbsp;# 看前10行<br>[root@localhost home]# head -n20 qq.txt &nbsp; # 看前20行<br>[root@localhost home]# head -n3 qq.txt &nbsp; &nbsp;# 看前3行</p>
 </blockquote>
 <h2 id="13）tail命令"><a href="#13）tail命令" class="headerlink" title="13）tail命令"></a>13）tail命令</h2><p><strong>作用</strong>：查看文件的最后若干行，默认是看最后10行</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>tail  [选项]   路径&#x2F;文件</p>
+<p>tail &nbsp;[选项] &nbsp; 路径/文件</p>
 </blockquote>
 <p><strong>选项</strong>：</p>
 <ul>
@@ -595,7 +598,7 @@
 <h2 id="14）more命令"><a href="#14）more命令" class="headerlink" title="14）more命令"></a>14）more命令</h2><p><strong>作用</strong>：实现分屏查看大文件</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>more  路径&#x2F;文件名</p>
+<p>more &nbsp;路径/文件名</p>
 </blockquote>
 <p><strong>操作</strong>：</p>
 <ul>
@@ -605,7 +608,7 @@
 </li>
 <li><p>b：显示上一屏</p>
 </li>
-<li><p>&#x2F;目标字符：在文件中搜索内容</p>
+<li><p>/目标字符：在文件中搜索内容</p>
 </li>
 <li><p>n：继续向后进行搜索</p>
 </li>
@@ -615,7 +618,7 @@
 <h2 id="15）less命令"><a href="#15）less命令" class="headerlink" title="15）less命令"></a>15）less命令</h2><p><strong>作用</strong>：实现分屏查看大文件</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>less  路径&#x2F;文件名</p>
+<p>less &nbsp;路径/文件名</p>
 </blockquote>
 <p><strong>操作</strong>：</p>
 <ul>
@@ -625,7 +628,7 @@
 </li>
 <li><p>b：显示上一屏</p>
 </li>
-<li><p>&#x2F;目标字符：在文件中搜索内容</p>
+<li><p>/目标字符：在文件中搜索内容</p>
 </li>
 <li><p>n：继续向后进行搜索</p>
 </li>
@@ -635,7 +638,7 @@
 <h2 id="16）wc命令"><a href="#16）wc命令" class="headerlink" title="16）wc命令"></a><strong>16）wc命令</strong></h2><p><strong>作用</strong>：用于统计文件中有多少行、多少个单词、多少个字符</p>
 <p><strong>格式</strong>：</p>
 <blockquote>
-<p>wc  [选项]  路径&#x2F;文件名</p>
+<p>wc &nbsp;[选项] &nbsp;路径/文件名</p>
 </blockquote>
 <p><strong>选项</strong>：</p>
 <ul>
@@ -673,7 +676,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">http://example.com/2022/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</a>
+                    <a href="http://example.com/2022/09/25/xu-ni-ji-chang-jian-ming-ling/">http://example.com/2022/09/25/xu-ni-ji-chang-jian-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
