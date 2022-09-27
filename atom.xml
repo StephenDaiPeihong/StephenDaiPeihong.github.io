@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-25T04:33:42.795Z</updated>
+  <updated>2022-09-27T03:18:35.201Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Obsidian中的双链</title>
+    <link href="http://example.com/2022/09/26/obsidian-zhong-de-shuang-lian/"/>
+    <id>http://example.com/2022/09/26/obsidian-zhong-de-shuang-lian/</id>
+    <published>2022-09-26T11:58:09.000Z</published>
+    <updated>2022-09-27T03:18:35.201Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="双链"><a href="#双链" class="headerlink" title="双链"></a>双链</h1><ul><li><strong>入链</strong>：从哪个链接跳转过来的 (<strong>反向链接</strong>)</li><li><strong>出链</strong>：即将跳转的链接</li></ul><hr><h1 id="创建链接步骤"><a href="#创建链接步骤" class="headerlink" title="创建链接步骤"></a>创建链接步骤</h1><ol><li>创建一个标准链接来指向其他笔记 </li><li>指向另一篇笔记中的某个分级标题、具体段落、具体某一块</li><li>链接创建别名<br>![[Pasted image 20220907162921.png]]<br> 示例：[[01 markdown语法#^abe080|《markdown语法中的标题语法》]]</li></ol><hr><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol><li>自定义块编号并引用：<br> 示例：[[01 markdown语法#^lianjie|自定义链接]]</li><li>显示链接内容: 链接前面添加英文感叹号!<br> 示例：![[01 markdown语法#^lianjie|自定义链接]]</li></ol><h1 id="双链的意义"><a href="#双链的意义" class="headerlink" title="双链的意义"></a>双链的意义</h1><p>Obsidan以内容为基础，链接为核心。建立不同知识之间的连接，将不同知识相关性程度可视化，形成知识网络。<br>![[Pasted image 20220908161959.png]]</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;双链&quot;&gt;&lt;a href=&quot;#双链&quot; class=&quot;headerlink&quot; title=&quot;双链&quot;&gt;&lt;/a&gt;双链&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;入链&lt;/strong&gt;：从哪个链接跳转过来的 (&lt;strong&gt;反向链接&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;</summary>
+      
+    
+    
+    
+    <category term="软件学习" scheme="http://example.com/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Obsidian" scheme="http://example.com/tags/Obsidian/"/>
+    
+    <category term="知识管理" scheme="http://example.com/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
