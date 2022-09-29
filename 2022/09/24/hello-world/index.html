@@ -670,19 +670,20 @@
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '6abab7658c545589e246',
-        clientSecret: 'cbe1d093682e98db7250980eb76b4589be37991f',
-        repo: 'StephenDaiPeihong.github.io',
-        owner: 'StephenDaiPeihong',
-        admin: "StephenDaiPeihong",
-        id: '2022-09-24T23-08-16',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'e46f6dec7c07145c652c',
+    clientSecret: 'd1a0b627f9b76d21bd3080d1777d0aa0ad55dd83',
+    accessToken: '6a2f4d91a1f188a2089e70c2a7b63628f3e9e664',
+    repo: 'gitalk',
+    owner: 'gitalk',
+    admin: ['booxood', 'mamboer'],
+    id: 'Demo',
+    distractionFreeMode: true
+  });
+  gitalk.render('gitalk-container');
 
-    gitalk.render('gitalk-container');
 </script>
 
     
