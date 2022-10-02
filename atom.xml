@@ -89,9 +89,9 @@
     
     <category term="图像处理" scheme="http://example.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="DCT变换" scheme="http://example.com/tags/DCT%E5%8F%98%E6%8D%A2/"/>
-    
     <category term="verilog" scheme="http://example.com/tags/verilog/"/>
+    
+    <category term="DCT变换" scheme="http://example.com/tags/DCT%E5%8F%98%E6%8D%A2/"/>
     
   </entry>
   

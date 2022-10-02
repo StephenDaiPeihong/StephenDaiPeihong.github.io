@@ -352,7 +352,7 @@
                 
             </div>
         </div>
-    </div>
+    </div> 
 </div>
 
 
@@ -629,7 +629,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["电力半导体","半导体工艺","数字集成电路","图像处理","DCT变换","FPGA","verilog","JPEG压缩","功能安全仿真","香水"]
+                data: ["电力半导体","半导体工艺","数字集成电路","图像处理","DCT变换","verilog","FPGA","JPEG压缩","功能安全仿真","香水"]
             }
         ],
         yAxis: [
@@ -699,7 +699,9 @@
 </div>
 
                 
-
+				
+                
+				
                 
                 
 <div class="my-skills">
@@ -770,6 +772,8 @@
             
             
             
+            
+            
             <a href="/tags/DCT%E5%8F%98%E6%8D%A2/">
                 <span class="chip center-align waves-effect waves-light chip-default">DCT变换</span>
             </a>
@@ -779,8 +783,6 @@
             <a href="/tags/FPGA/">
                 <span class="chip center-align waves-effect waves-light chip-default">FPGA</span>
             </a>
-            
-            
             
             
             
@@ -802,14 +804,14 @@
             
             
             
-            <a href="/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/">
-                <span class="chip center-align waves-effect waves-light chip-default">电力半导体</span>
+            <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
+                <span class="chip center-align waves-effect waves-light chip-default">功能安全仿真</span>
             </a>
             
             
             
-            <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
-                <span class="chip center-align waves-effect waves-light chip-default">功能安全仿真</span>
+            <a href="/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/">
+                <span class="chip center-align waves-effect waves-light chip-default">电力半导体</span>
             </a>
             
             
@@ -1175,6 +1177,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
