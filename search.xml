@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>第3周 使用module和initial实现初步激励</title>
+      <link href="/2022/10/04/di-3-zhou-shi-yong-module-he-initial-shi-xian-chu-bu-ji-li/"/>
+      <url>/2022/10/04/di-3-zhou-shi-yong-module-he-initial-shi-xian-chu-bu-ji-li/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DUT——router功能概述"><a href="#DUT——router功能概述" class="headerlink" title="DUT——router功能概述"></a>DUT——router功能概述</h1><h2 id="管脚图"><a href="#管脚图" class="headerlink" title="管脚图"></a>管脚图</h2><p>以router（路由器）为例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041439616.png"></p><h2 id="输入输出信号"><a href="#输入输出信号" class="headerlink" title="输入输出信号"></a>输入输出信号</h2><p><strong>左边</strong>是输入：16位的din（数据输入）、16位的frame_n（数据帧有效，低电平有效）、16位的valid_n（有效信号，低电平有效）、reset_n（低电平复位）和clock（时钟）<br><strong>右边</strong>是输出：16位的dout（数据输出）、16位的dout（数据输出）、16位的frameo_n（数据帧输出有效）、16位的valido_n（输出有效信号，低电平有效）</p><h2 id="模块功能"><a href="#模块功能" class="headerlink" title="模块功能"></a>模块功能</h2><p>16个输入的通道，选一个通道作为输入通道，同样的，16个输出的通道，也是选一个通道作为输出通道，数据是一bit一bit地传输。<br>例如，选择din[7]为数据的输入通道，所以frame_n[7]和valid_n[7]就是控制信号；选择dout[3]为数据的输出通道，所以frameo_n[3]和valido_n[3]就是控制信号。因此数据会从7号输入通道输入，然后从3号通道输出，路由器的功能就是这么简单。</p><h2 id="输入信号协议"><a href="#输入信号协议" class="headerlink" title="输入信号协议"></a>输入信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041525871.png"><br> <strong>din信号</strong><br>1.din[i]中的i表示从哪路输入，din中的第一段4bit的数据表示输出地址（低位开始），从哪路输出<br>2.地址传输完毕后拉高进入隔离段<br>3.隔离段结束后开始传输数据（低位开始）<br><strong>frame_n信号</strong><br>1.下降沿指示packet的第一位数据<br>2.上升沿指示packet的最后一位数据<br><strong>valid_n信号</strong><br>1.其在din的地址输入时间段可为任意值x<br>2.在隔离段pad拉高<br>3.其拉低时表示数据有效，因此在payload段若其拉高，则din数据无效<br>4.数据输入完毕后拉高</p><h2 id="输出信号协议"><a href="#输出信号协议" class="headerlink" title="输出信号协议"></a>输出信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041531905.png"><br>输出信号时序图如上，比较简单，当valido_n和frameo_n均为低时数据有效，除了packet最后一位输出数据时frameo_n为高&nbsp;。</p><h2 id="复位信号协议"><a href="#复位信号协议" class="headerlink" title="复位信号协议"></a>复位信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041534779.png"><br>以上为其复位协议时序图，有以下几点需要注意：<br>1.复位时，reset_n为低电平,frame_n和valid_n为高电平<br>2.有效复位<strong>至少保持1个clk</strong><br>3.复位后<strong>至少等待15个时钟</strong>周期后才可以发送数据</p><h1 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h1><pre class=" language-systemverilog"><code class="language-systemverilog">//***********************module tb*******************////***********************module tb*******************//module tb;bit clk,rstn;logic [15:0] din, frame_n, valid_n;logic [15:0] dout, valido_n, busy_n, frameo_n;// generate clockinitial     forever #5ns clk <= !clk;// genarate reset  initial begin    #2ns rstn <= 1;    #10ns rstn <= 0;    #10ns rstn <= 1;  end// exemplification//Dutrouter dut(             .reset_n(rstn),  .clock(clk),  .*  //The port name is the same as the variable name);//Stimulatorrt_stimulator stim(  .reset_n(rstn),  .clock(clk),  .*);endmodule//***********************module rt_stimulator*******************////数据从0传到3端口module rt_stimulator(  input clock  ,input reset_n  ,output logic [15:0] din  ,output logic [15:0] frame_n  ,output logic [15:0] valid_n  ,input [15:0] dout  ,input [15:0] valido_n  ,input [15:0] busy_n  ,input [15:0] frameo_n);//for debug purpose from waveform  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;  drv_state_t dbg_state;  //定义检测状态的变量  byte unsigned dbg_din_chnl0_data;  //reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平initial begin : drive_reset_proc  @(negedge reset_n);  din <= 0;  frame_n <= 1;  valid_n <= 1;end// drive chaannel 0 - chanel 15 (din[15:0])//定义数据输出地址及数据bit [3:0] addr;byte unsigned data[];initial begin : drive_chnl0_proc  @(negedge reset_n);  repeat(10) @(posedge clock);  addr = 3;//从第3位输出  data = '{8'h33,8'h77};//数据，8'h33,8'h77// drive address phase 输入地址位阶段for(int i=0;i<4;i++)begin  //4 clock  @(posedge clock);  dbg_state <=DRV_ADDR;  din[0] <= addr[i];  valid_n[0] <= 1'b0;  //valid_n[0] <= $urandom_range(0,1);//valid_n在din的地址输入时间段可为任意值x  frame_n[0] <= 1'b0;//frame_n需要为低end// drive pad phase //隔离阶段  for (int i=0;i<5;i++)begin  //5 clock    @(posedge clock);    dbg_state <=DRV_PAD;    din[0] <= 1'b1;    valid_n[0] <= 1'b1;//valid_n需为高电平    frame_n[0] <= 1'b0; //frame_n需为低电平  end// drive data phase 传输数据阶段  foreach(data[id])begin    for(int i=0;i<8;i++)begin     @(posedge clock);      dbg_state <=DRV_DATA;      dbg_din_chnl0_data <= data[id];      din[0] <= data[id][i];      valid_n[0] <=1'b0;      frame_n <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高    end  end// drive idle phase 闲置（没有数据传输）阶段  @(posedge clock);  dbg_state <=DRV_IDLE;  dbg_din_chnl0_data <= 0;  din[0] <= 1'b0;  valid_n[0] <= 1'b1;  frame_n <= 1'b1;endendmodule</code></pre><h1 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042153244.png"></p><p>另，关于vim编辑器<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042205029.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> systemverilog </tag>
+            
+            <tag> 数字IC </tag>
+            
+            <tag> 芯片验证 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>色彩美学(一)_色彩理论基础</title>
       <link href="/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/"/>
       <url>/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/</url>
@@ -103,9 +132,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> DCT变换 </tag>
-            
             <tag> verilog </tag>
+            
+            <tag> DCT变换 </tag>
             
         </tags>
       
@@ -416,11 +445,11 @@
     
     
     <entry>
-      <title>数字集成电路第九章笔记</title>
-      <link href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/"/>
-      <url>/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/</url>
+      <title>数字集成电路第八章笔记</title>
+      <link href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/"/>
+      <url>/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328203.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328233.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328274.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328312.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328367.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328403.jpg"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326990.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326013.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326054.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326089.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326146.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326180.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326219.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326278.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326315.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326364.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326397.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326437.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326468.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326510.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326545.jpg"></p>]]></content>
       
       
       <categories>
@@ -441,11 +470,11 @@
     
     
     <entry>
-      <title>数字集成电路第八章笔记</title>
-      <link href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/"/>
-      <url>/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/</url>
+      <title>数字集成电路第九章笔记</title>
+      <link href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/"/>
+      <url>/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326990.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326013.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326054.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326089.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326146.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326180.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326219.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326278.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326315.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326364.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326397.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326437.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326468.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326510.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012326545.jpg"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328203.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328233.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328274.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328312.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328367.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012328403.jpg"></p>]]></content>
       
       
       <categories>

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 数字IC, Stephen&#39;s Blog">
-    <meta name="description" content="Stephen&#39;s Blog">
+    <meta name="keywords" content="第3周 使用module和initial实现初步激励, Stephen&#39;s Blog">
+    <meta name="description" content="以路由器为例，搭建测试平台，使用module和initial实现初步激励。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类: 数字IC | Stephen&#39;s Blog</title>
+    <title>第3周 使用module和initial实现初步激励 | Stephen&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -38,9 +38,7 @@
 
 
 
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
-
 
 
 
@@ -311,512 +309,561 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                welcome to Stephen&#39;s Blog
-                
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042210881.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第3周 使用module和initial实现初步激励</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/systemverilog/">
+                                <span class="chip bg-color">systemverilog</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E5%AD%97IC/">
+                                <span class="chip bg-color">数字IC</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%8A%AF%E7%89%87%E9%AA%8C%E8%AF%81/">
+                                <span class="chip bg-color">芯片验证</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/" class="post-category">
+                                数字前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
 
-            <div class="description center-align">
+            <div class="post-info">
                 
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-10-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-10-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    565
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="DUT——router功能概述"><a href="#DUT——router功能概述" class="headerlink" title="DUT——router功能概述"></a>DUT——router功能概述</h1><h2 id="管脚图"><a href="#管脚图" class="headerlink" title="管脚图"></a>管脚图</h2><p>以router（路由器）为例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041439616.png"></p>
+<h2 id="输入输出信号"><a href="#输入输出信号" class="headerlink" title="输入输出信号"></a>输入输出信号</h2><p><strong>左边</strong>是输入：16位的din（数据输入）、16位的frame_n（数据帧有效，低电平有效）、16位的valid_n（有效信号，低电平有效）、reset_n（低电平复位）和clock（时钟）<br><strong>右边</strong>是输出：16位的dout（数据输出）、16位的dout（数据输出）、16位的frameo_n（数据帧输出有效）、16位的valido_n（输出有效信号，低电平有效）</p>
+<h2 id="模块功能"><a href="#模块功能" class="headerlink" title="模块功能"></a>模块功能</h2><p>16个输入的通道，选一个通道作为输入通道，同样的，16个输出的通道，也是选一个通道作为输出通道，数据是一bit一bit地传输。<br>例如，选择din[7]为数据的输入通道，所以frame_n[7]和valid_n[7]就是控制信号；选择dout[3]为数据的输出通道，所以frameo_n[3]和valido_n[3]就是控制信号。因此数据会从7号输入通道输入，然后从3号通道输出，路由器的功能就是这么简单。</p>
+<h2 id="输入信号协议"><a href="#输入信号协议" class="headerlink" title="输入信号协议"></a>输入信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041525871.png"><br> <strong>din信号</strong><br>1.din[i]中的i表示从哪路输入，din中的第一段4bit的数据表示输出地址（低位开始），从哪路输出<br>2.地址传输完毕后拉高进入隔离段<br>3.隔离段结束后开始传输数据（低位开始）<br><strong>frame_n信号</strong><br>1.下降沿指示packet的第一位数据<br>2.上升沿指示packet的最后一位数据<br><strong>valid_n信号</strong><br>1.其在din的地址输入时间段可为任意值x<br>2.在隔离段pad拉高<br>3.其拉低时表示数据有效，因此在payload段若其拉高，则din数据无效<br>4.数据输入完毕后拉高</p>
+<h2 id="输出信号协议"><a href="#输出信号协议" class="headerlink" title="输出信号协议"></a>输出信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041531905.png"><br>输出信号时序图如上，比较简单，当valido_n和frameo_n均为低时数据有效，除了packet最后一位输出数据时frameo_n为高&nbsp;。</p>
+<h2 id="复位信号协议"><a href="#复位信号协议" class="headerlink" title="复位信号协议"></a>复位信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041534779.png"><br>以上为其复位协议时序图，有以下几点需要注意：<br>1.复位时，reset_n为低电平,frame_n和valid_n为高电平<br>2.有效复位<strong>至少保持1个clk</strong><br>3.复位后<strong>至少等待15个时钟</strong>周期后才可以发送数据</p>
+<h1 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h1><pre class=" language-systemverilog"><code class="language-systemverilog">//***********************module tb*******************//
+//***********************module tb*******************//
+module tb;
+
+bit clk,rstn;
+logic [15:0] din, frame_n, valid_n;
+logic [15:0] dout, valido_n, busy_n, frameo_n;
+
+// generate clock
+initial 
+    forever #5ns clk <= !clk;
+
+// genarate reset
+  initial begin
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
+  end
+
+// exemplification
+//Dut
+router dut(           
+  .reset_n(rstn),
+  .clock(clk),
+  .*  //The port name is the same as the variable name
+);
+//Stimulator
+rt_stimulator stim(
+  .reset_n(rstn),
+  .clock(clk),
+  .*
+);
+endmodule
+
+//***********************module rt_stimulator*******************//
+//数据从0传到3端口
+module rt_stimulator(
+  input clock
+  ,input reset_n
+  ,output logic [15:0] din
+  ,output logic [15:0] frame_n
+  ,output logic [15:0] valid_n
+  ,input [15:0] dout
+  ,input [15:0] valido_n
+  ,input [15:0] busy_n
+  ,input [15:0] frameo_n
+);
+
+//for debug purpose from waveform
+  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
+  drv_state_t dbg_state;  //定义检测状态的变量
+  byte unsigned dbg_din_chnl0_data;
+  
+//reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
+initial begin : drive_reset_proc	
+  @(negedge reset_n);
+  din <= 0;
+  frame_n <= 1;
+  valid_n <= 1;
+end
+
+// drive chaannel 0 - chanel 15 (din[15:0])
+//定义数据输出地址及数据
+bit [3:0] addr;
+byte unsigned data[];
+
+initial begin : drive_chnl0_proc
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);
+  addr = 3;		//从第3位输出
+  data = '{8'h33,8'h77};	//数据，8'h33,8'h77
+
+// drive address phase 输入地址位阶段
+for(int i=0;i<4;i++)begin  //4 clock
+  @(posedge clock);
+  dbg_state <=DRV_ADDR;	
+  din[0] <= addr[i];
+  valid_n[0] <= 1'b0;
+  //valid_n[0] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[0] <= 1'b0;	//frame_n需要为低
+end
+
+// drive pad phase //隔离阶段
+  for (int i=0;i<5;i++)begin  //5 clock
+    @(posedge clock);
+    dbg_state <=DRV_PAD;
+    din[0] <= 1'b1;
+    valid_n[0] <= 1'b1;	//valid_n需为高电平
+    frame_n[0] <= 1'b0; //frame_n需为低电平
+  end
+// drive data phase 传输数据阶段
+  foreach(data[id])begin
+    for(int i=0;i<8;i++)begin
+     @(posedge clock);
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[0] <= data[id][i];
+      valid_n[0] <=1'b0;
+      frame_n <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+    end
+  end
+// drive idle phase 闲置（没有数据传输）阶段
+  @(posedge clock);
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[0] <= 1'b0;
+  valid_n[0] <= 1'b1;
+  frame_n <= 1'b1;
+end
+endmodule
+</code></pre>
+<h1 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042153244.png"></p>
+<p>另，关于vim编辑器<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042205029.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">DPH</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/10/04/di-3-zhou-shi-yong-module-he-initial-shi-xian-chu-bu-ji-li/">http://example.com/2022/10/04/di-3-zhou-shi-yong-module-he-initial-shi-xian-chu-bu-ji-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">DPH</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
                             
-                                "既然选择了远方，便只顾风雨兼程",
+                                <a href="/tags/systemverilog/">
+                                    <span class="chip bg-color">systemverilog</span>
+                                </a>
                             
-                                "Since I chose the distance, I only care about the wind and rain",
+                                <a href="/tags/%E6%95%B0%E5%AD%97IC/">
+                                    <span class="chip bg-color">数字IC</span>
+                                </a>
                             
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
+                                <a href="/tags/%E8%8A%AF%E7%89%87%E9%AA%8C%E8%AF%81/">
+                                    <span class="chip bg-color">芯片验证</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/10/04/di-3-zhou-shi-yong-module-he-initial-shi-xian-chu-bu-ji-li/">
+                    <div class="card-image">
+                        
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042210881.png" class="responsive-img" alt="第3周 使用module和initial实现初步激励">
+                        
+                        <span class="card-title">第3周 使用module和initial实现初步激励</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            以路由器为例，搭建测试平台，使用module和initial实现初步激励。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    数字前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/systemverilog/">
+                        <span class="chip bg-color">systemverilog</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%97IC/">
+                        <span class="chip bg-color">数字IC</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%8A%AF%E7%89%87%E9%AA%8C%E8%AF%81/">
+                        <span class="chip bg-color">芯片验证</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
-    </div> 
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/">
+                    <div class="card-image">
+                        
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210031641340.png" class="responsive-img" alt="色彩美学(一)_色彩理论基础">
+                        
+                        <span class="card-title">色彩美学(一)_色彩理论基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一些色彩基础知识、色彩三要素、色彩空间、色彩象征
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%8C%8E%E5%A5%87/" class="post-category">
+                                    猎奇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%A2%9C%E8%89%B2%E7%BE%8E%E5%AD%A6/">
+                        <span class="chip bg-color">颜色美学</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%89%B2%E5%BD%A9%E7%90%86%E8%AE%BA/">
+                        <span class="chip bg-color">色彩理论</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">色彩空间</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Stephen&#39;s Blog<br />'
+            + '文章作者: DaiPeihong<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
 
 
-    </div>
-</div>
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
-<main class="content">
 
-    
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" title="图像处理: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">图像处理
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/FPGA/" title="FPGA: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">FPGA
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/" title="半导体: 17">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">半导体
-                        <span class="tag-length">17</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E5%AD%97IC/" title="数字IC: 8">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #E8F8F5;">数字IC
-                        <span class="tag-length">8</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/" title="车规芯片: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">车规芯片
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/" title="数字前端: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">数字前端
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E7%8C%8E%E5%A5%87/" title="猎奇: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #82E0AA;">猎奇
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
 
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第十一章笔记">
-                            
-                            <span class="card-title">数字集成电路第十一章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第十章笔记">
-                            
-                            <span class="card-title">数字集成电路第十章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第九章笔记">
-                            
-                            <span class="card-title">数字集成电路第九章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第八章笔记">
-                            
-                            <span class="card-title">数字集成电路第八章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-si-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第四章笔记">
-                            
-                            <span class="card-title">数字集成电路第四章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-san-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第三章笔记">
-                            
-                            <span class="card-title">数字集成电路第三章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-wu-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第五章笔记">
-                            
-                            <span class="card-title">数字集成电路第五章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-er-zhang-bi-ji/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第二章笔记">
-                            
-                            <span class="card-title">数字集成电路第二章笔记</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                            <span class="chip bg-color">数字集成电路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
 
 
