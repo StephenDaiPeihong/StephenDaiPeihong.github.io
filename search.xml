@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>车规项目(二)  ECC概述</title>
+      <title>车规芯片(二)  ECC概述</title>
       <link href="/2022/10/10/che-gui-xiang-mu-er-ecc-gai-shu/"/>
       <url>/2022/10/10/che-gui-xiang-mu-er-ecc-gai-shu/</url>
       
@@ -25,8 +25,6 @@
             <tag> 汉明码 </tag>
             
             <tag> 奇偶校验码 </tag>
-            
-            <tag> 信息论 </tag>
             
         </tags>
       

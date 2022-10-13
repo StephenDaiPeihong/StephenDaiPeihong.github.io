@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="车规项目(二)  ECC概述, Stephen&#39;s Blog">
+    <meta name="keywords" content="车规芯片(二)  ECC概述, Stephen&#39;s Blog">
     <meta name="description" content="ECC 是“Error Correcting Code”的简写，中文名称是“错误检查和纠正”，是一种能够实现“错误检查和纠正”的技术。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>车规项目(二)  ECC概述 | Stephen&#39;s Blog</title>
+    <title>车规芯片(二)  ECC概述 | Stephen&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -38,7 +38,9 @@
 
 
 
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
+
 
 
 
@@ -313,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210102131928.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210131216638.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">车规项目(二)  ECC概述</h1>
+                    <h1 class="description center-align post-title">车规芯片(二)  ECC概述</h1>
                 </div>
             </div>
         </div>
@@ -328,10 +330,12 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -350,10 +354,6 @@
                         
                             <a href="/tags/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81/">
                                 <span class="chip bg-color">奇偶校验码</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
-                                <span class="chip bg-color">信息论</span>
                             </a>
                         
                     </div>
@@ -384,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-12
+                    2022-10-13
                 </div>
                 
 
@@ -521,10 +521,6 @@
                                     <span class="chip bg-color">奇偶校验码</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
-                                    <span class="chip bg-color">信息论</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -609,9 +605,9 @@
                 <a href="/2022/10/10/che-gui-xiang-mu-er-ecc-gai-shu/">
                     <div class="card-image">
                         
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210102131928.png" class="responsive-img" alt="车规项目(二)  ECC概述">
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210131216638.webp" class="responsive-img" alt="车规芯片(二)  ECC概述">
                         
-                        <span class="card-title">车规项目(二)  ECC概述</span>
+                        <span class="card-title">车规芯片(二)  ECC概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -650,10 +646,6 @@
                     
                     <a href="/tags/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81/">
                         <span class="chip bg-color">奇偶校验码</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
-                        <span class="chip bg-color">信息论</span>
                     </a>
                     
                 </div>
@@ -782,6 +774,87 @@
 
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -851,7 +924,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
             <a href="/about" target="_blank">DaiPeihong</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -890,9 +963,9 @@
                         var days = hours * 24;
                         var years = days * 365;
                         var today = new Date();
-                        var startYear = "2019";
-                        var startMonth = "6";
-                        var startDate = "28";
+                        var startYear = "2022";
+                        var startMonth = "9";
+                        var startDate = "24";
                         var startHour = "0";
                         var startMinute = "0";
                         var startSecond = "0";
