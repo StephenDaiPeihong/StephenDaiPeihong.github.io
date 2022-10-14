@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="车规项目(二）汽车功能安全概述, Stephen&#39;s Blog">
-    <meta name="description" content="汽车安全的必要性随着汽车智能化和电气化技术的快速普及，车内控制器和各种电子部件越来越多，而各类电子部件都存在系统性失效和随机硬件失效的风险，因此相应的汽车功能安全变得越来越重要。
-汽车安全分类==汽车安全主要包括碰撞安全、高压安全、功能安全">
+    <meta name="keywords" content="标签: 车规芯片, Stephen&#39;s Blog">
+    <meta name="description" content="Stephen&#39;s Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>车规项目(二）汽车功能安全概述 | Stephen&#39;s Blog</title>
+    <title>标签: 车规芯片 | Stephen&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -39,7 +38,9 @@
 
 
 
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
+
 
 
 
@@ -310,431 +311,282 @@
 
 </header>
 
-    
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                welcome to Stephen&#39;s Blog
+                
+            </div>
 
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210021540875.png')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">车规项目(二）汽车功能安全概述</h1>
-                </div>
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "既然选择了远方，便只顾风雨兼程",
+                            
+                                "Since I chose the distance, I only care about the wind and rain",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
             </div>
         </div>
-    </div>
+    </div> 
 </div>
 
 
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    //var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+	var bannerUrl = "https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_banner_image/" + new Date().getDay() + '.jpg';
+	//var bannerUrl = "https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_banner_image/0.jpg" ;
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
 
 
-<main class="container content">
+    </div>
+</div>
+
+<main class="content">
 
     
-    <!-- 文章内容详情 -->
-<div id="artDetail">
+
+<div id="tags" class="container chip-container">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
-                                <span class="chip bg-color">功能安全仿真</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/" class="post-category">
-                                车规芯片
-                            </a>
-                        
-                    </div>
-                    
-                </div>
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
-
-            <div class="post-info">
+            <div class="tag-chips">
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-29
-                </div>
                 
-
+                <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" title="图像处理: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="图像处理" style="background-color: #F9EBEA;">图像处理
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
                 
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-12
-                </div>
                 
-
+                <a href="/tags/verilog/" title="verilog: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="verilog" style="background-color: #F5EEF8;">verilog
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
-                </div>
                 
-
+                <a href="/tags/DCT%E5%8F%98%E6%8D%A2/" title="DCT变换: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="DCT变换" style="background-color: #D5F5E3;">DCT变换
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
                 
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
-                </div>
                 
-
+                <a href="/tags/FPGA/" title="FPGA: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="FPGA" style="background-color: #E8F8F5;">FPGA
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
+                
+                <a href="/tags/JPEG%E5%8E%8B%E7%BC%A9/" title="JPEG压缩: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JPEG压缩" style="background-color: #FEF9E7;">JPEG压缩
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%B7%A5%E8%89%BA/" title="半导体工艺: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="半导体工艺" style="background-color: #F8F9F9;">半导体工艺
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/" title="数字集成电路: 8">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数字集成电路" style="background-color: #82E0AA;">数字集成电路
+                        <span class="tag-length">8</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/" title="电力半导体: 9">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="电力半导体" style="background-color: #D7BDE2;">电力半导体
+                        <span class="tag-length">9</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%A2%9C%E8%89%B2%E7%BE%8E%E5%AD%A6/" title="颜色美学: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="颜色美学" style="background-color: #A3E4D7;">颜色美学
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%89%B2%E5%BD%A9%E7%90%86%E8%AE%BA/" title="色彩理论: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="色彩理论" style="background-color: #85C1E9;">色彩理论
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/" title="色彩空间: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="色彩空间" style="background-color: #F8C471;">色彩空间
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/" title="功能安全仿真: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="功能安全仿真" style="background-color: #F9E79F;">功能安全仿真
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/" title="车规芯片: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="车规芯片" style="background-color: #D7BDE2;">车规芯片
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%B1%89%E6%98%8E%E7%A0%81/" title="汉明码: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="汉明码" style="background-color: #E8F8F5;">汉明码
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/RS%E7%A0%81/" title="RS码: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="RS码" style="background-color: #F8C471;">RS码
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BCH%E7%A0%81/" title="BCH码: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BCH码" style="background-color: #FEF9E7;">BCH码
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/ECC/" title="ECC: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="ECC" style="background-color: #A3E4D7;">ECC
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81/" title="奇偶校验码: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="奇偶校验码" style="background-color: #F9E79F;">奇偶校验码
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%A6%99%E6%B0%B4/" title="香水: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="香水" style="background-color: #E8F8F5;">香水
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
-        <hr class="clearfix">
-
-        
-
-        
-        <!-- 代码块折行 -->
-        <style type="text/css">
-            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
-        </style>
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h1 id="汽车安全的必要性"><a href="#汽车安全的必要性" class="headerlink" title="汽车安全的必要性"></a>汽车安全的必要性</h1><p>随着汽车智能化和电气化技术的快速普及，车内控制器和各种电子部件越来越多，而各类电子部件都存在系统性失效和随机硬件失效的风险，因此相应的汽车功能安全变得越来越重要。</p>
-<h1 id="汽车安全分类"><a href="#汽车安全分类" class="headerlink" title="汽车安全分类"></a>汽车安全分类</h1><p>==汽车安全主要包括碰撞安全、高压安全、功能安全、信息安全、使用安全几大分类==。<br>而车规功能安全重点关注车辆电子电气失效导致对人的伤害。<br>功能安全针对的是车辆一个或者多个电子电气相关系统的故障行为而引起的可能的危害</p>
-<h1 id="电子系统失效分类"><a href="#电子系统失效分类" class="headerlink" title="电子系统失效分类"></a>电子系统失效分类</h1><p>电子系统失效的分类分成==系统性失效==和==随机失效==两大类。</p>
-<ul>
-<li>系统性失效具体指人为的失效。它主要由严格的开发流程和独立的评估体系来管理和防止。</li>
-<li>随机失效指的是硬件中电子部件特别是芯片在生命周期中无法预测的失效。芯片的随机失效在&nbsp;ISO26262标准中主要依托&nbsp;IEC62380和西门子&nbsp;SN29500这两个参考标准用&nbsp;FIT来量化。特别是数字芯片当其使用的==逻辑门超过&nbsp;5千万级别、&nbsp;RAM超过&nbsp;2G或&nbsp;Flash超过&nbsp;1G时==，失效率将达到&nbsp;200FIT以上。因此需要通过安全机制去检测故障和满足量化安全指标的难度大大提高。</li>
-</ul>
-<p>注：1 FIT（失效率，failures in time）指的是1个（单位）的产品在1×10^9小时内出现1次失效（或故障）的情况。</p>
-<h1 id="ISO26262"><a href="#ISO26262" class="headerlink" title="ISO26262"></a>ISO26262</h1><p>在汽车电子行业，功能安全国际标准ISO 26262 是汽车行业的安全标准，涵盖了生产车辆中的电气和电子系统。功能安全国际标准ISO26262和对应国标GB/T34590将功能安全定义为：避免因电子电气系统故障而导致不合理的风险。即随机硬件失效和系统性失效不会导致安全系统的错误功能，从而导致人的伤害死亡，或环境污染，或设备财产损失等。</p>
-<ul>
-<li>ISO26262的由来<br>在1900年代后期，化工厂造成了大规模事故，例如意大利的塞维索事故和印度的博帕尔事故</li>
-<li>功能安全的目的是”将风险降低到可接受的水平”<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202209292223517.png" alt="风险分类|600"></li>
-</ul>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202209292225099.png" alt="Asil等级|600"><br>ISO26262的特殊之处在于它不仅提供标准通常规范的行为准则，而且对可接受的风险提出如何去量化的指导意见。</p>
-<h1 id="汽车安全完整性等级"><a href="#汽车安全完整性等级" class="headerlink" title="汽车安全完整性等级"></a>汽车安全完整性等级</h1><ul>
-<li>ISO 26262标准使用==汽车安全完整性等级 (ASIL A–D) ==来衡量风险。 </li>
-<li>等级划分：ASIL共分五个等级QM，ASIL-A，B，C和D。ASIL D代表最高的汽车危害等级，而ASIL A代表最低的汽车危害等级。还有一个称为QM（质量管理级别）的级别，它表示不要求任何安全要求的危害。ASIL-D代表最高的汽车功能安全要求。</li>
-</ul>
-<p>以&nbsp;ASIL-D为例，它的单点故障指标要求被安全机制覆盖超过&nbsp;99%，而多点故障指标要求被安全机制覆盖超过&nbsp;90%。标准还额外对残余故障的失效率做出规定，&nbsp;ASIL-B和&nbsp;C要求小于&nbsp;100FIT，而&nbsp;ASIL-D更严苛地要求小于&nbsp;10FIT。</p>
-<p>安全气囊，防抱死制动和动力转向等系统需要ASIL-D级（对安全性要求最高的严格性），因为与故障相关的风险最高。在安全范围的另一端，诸如尾灯之类的组件仅需要ASIL-A级。前大灯和刹车灯通常为ASIL-B，而巡航控制系统通常为ASIL-C。</p>
-<p>ASIL根据伤害的严重性S、可能性E和可控性C来确定安全要求。它的具体定级需要通过==HARA危害分析风险评估==来确定。</p>
-<h1 id="HARA危害分析风险评估"><a href="#HARA危害分析风险评估" class="headerlink" title="HARA危害分析风险评估"></a>HARA危害分析风险评估</h1><p>==HARA==（Hazard Analysis and Risk Assessment）是指危害分析和风险评估。危害分析：危险分析是整个过程的第一步，用来评估风险的ASIL等级。危险分析的目的是确定ASIL水平和所需的安全状态。风险评估（包含两方面）：危害识别：识别可能造成危害的危害和风险因素。风险分析和评估：通过S、E和C分析和评估与该风险相关的风险。</p>
-<p>汽车功能安全HARA危害分析风险评估：<br>严重性S：S0<del>S3，表示人员可能造成伤害的级别。<br>可能性E：E0</del>E4，表示这个风险在实际应用中发生的概率。<br>可控性C：C0~C3，表示这个风险发生后人员采取措施控制后可以避免伤害的能力。<br>通过HARA分析，确定安全目标、安全状态、FTTI故障容错时间间隔和ASIL等级。</p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202209300840698.png" alt="HARA参数分析|500"></p>
-<ul>
-<li>S3，E4和C3（3个参数的极值）的组合表示高度危险的情况。因此，被评估的组件被标识为ASIL D，这意味着在发生故障的情况下容易发生严重威胁生命的事件，并要求采取最严格的安全措施。</li>
-<li>相反，S1，E1和C1的组合（就安全性至关紧要而言，这三个参数的最低水平）要求QM级别，这意味着该组件是无害的，并且不强调要在安全性要求下管理的安全要求ISO 26262。</li>
-<li>同样，中级水平（S2，E4和C3或S2，E3和C2）的组合定义了ASIL C或ASILA。</li>
-</ul>
-
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">DPH</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://example.com/2022/09/29/qi-che-gong-neng-an-quan-gai-shu/">http://example.com/2022/09/29/qi-che-gong-neng-an-quan-gai-shu/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">DPH</a>
-                    !
-                </span>
-            </div>
-        
     </div>
+</div>
 
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
+    
 
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="功能安全仿真, 车规芯片" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2022/09/29/che-gui-xin-pian-yi-qi-che-gong-neng-an-quan-gai-shu/">
+                        <div class="card-image tag-image">
                             
-                                <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
-                                    <span class="chip bg-color">功能安全仿真</span>
-                                </a>
+                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210131700150.webp" class="responsive-img" alt="车规芯片(一）汽车功能安全概述">
                             
+                            <span class="card-title">车规芯片(一）汽车功能安全概述</span>
                         </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2022/09/30/ban-dao-ti-gong-yi-di-yi-zhang-bi-ji/">
-                    <div class="card-image">
-                        
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202209302247510.png" class="responsive-img" alt="半导体工艺第一章笔记">
-                        
-                        <span class="card-title">半导体工艺第一章笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-30
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/" class="post-category">
-                                    半导体
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%B7%A5%E8%89%BA/">
-                        <span class="chip bg-color">半导体工艺</span>
                     </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/09/24/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
+                    <div class="card-content article-content">
+                        <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-29
                             </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            DaiPeihong
-                            
-                        </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/" class="post-category">
+                                车规芯片
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
                 </div>
-                
             </div>
+            
         </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: Stephen&#39;s Blog<br />'
-            + '文章作者: DaiPeihong<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-
-    
-
+    </article>
 </main>
 
 
@@ -810,7 +662,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.2k</span>
+                        class="white-color">8.9k</span>
             
             
             
