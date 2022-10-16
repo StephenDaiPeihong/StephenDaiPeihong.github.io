@@ -3,11 +3,11 @@
   <title>Stephen&#39;s Blog</title>
   
   <subtitle>welcome to Stephen&#39;s Blog</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://www.daipeihong.top/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://www.daipeihong.top/"/>
   <updated>2022-10-16T01:26:01.729Z</updated>
-  <id>http://example.com/</id>
+  <id>https://www.daipeihong.top/</id>
   
   <author>
     <name>DaiPeihong</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>车规芯片(三）常用ECC算法简述</title>
-    <link href="http://example.com/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/"/>
-    <id>http://example.com/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/</id>
+    <link href="https://www.daipeihong.top/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/"/>
+    <id>https://www.daipeihong.top/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/</id>
     <published>2022-10-13T01:23:00.000Z</published>
     <updated>2022-10-16T01:26:01.729Z</updated>
     
@@ -33,21 +33,21 @@
     
     
     
-    <category term="车规芯片" scheme="http://example.com/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/"/>
+    <category term="车规芯片" scheme="https://www.daipeihong.top/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/"/>
     
     
-    <category term="汉明码" scheme="http://example.com/tags/%E6%B1%89%E6%98%8E%E7%A0%81/"/>
+    <category term="汉明码" scheme="https://www.daipeihong.top/tags/%E6%B1%89%E6%98%8E%E7%A0%81/"/>
     
-    <category term="RS码" scheme="http://example.com/tags/RS%E7%A0%81/"/>
+    <category term="RS码" scheme="https://www.daipeihong.top/tags/RS%E7%A0%81/"/>
     
-    <category term="BCH码" scheme="http://example.com/tags/BCH%E7%A0%81/"/>
+    <category term="BCH码" scheme="https://www.daipeihong.top/tags/BCH%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>车规芯片(二)  ECC概述</title>
-    <link href="http://example.com/2022/10/10/che-gui-xin-pian-er-ecc-gai-shu/"/>
-    <id>http://example.com/2022/10/10/che-gui-xin-pian-er-ecc-gai-shu/</id>
+    <link href="https://www.daipeihong.top/2022/10/10/che-gui-xin-pian-er-ecc-gai-shu/"/>
+    <id>https://www.daipeihong.top/2022/10/10/che-gui-xin-pian-er-ecc-gai-shu/</id>
     <published>2022-10-10T07:51:00.000Z</published>
     <updated>2022-10-13T09:07:37.760Z</updated>
     
@@ -61,21 +61,21 @@
     
     
     
-    <category term="车规芯片" scheme="http://example.com/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/"/>
+    <category term="车规芯片" scheme="https://www.daipeihong.top/categories/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/"/>
     
     
-    <category term="汉明码" scheme="http://example.com/tags/%E6%B1%89%E6%98%8E%E7%A0%81/"/>
+    <category term="汉明码" scheme="https://www.daipeihong.top/tags/%E6%B1%89%E6%98%8E%E7%A0%81/"/>
     
-    <category term="ECC" scheme="http://example.com/tags/ECC/"/>
+    <category term="ECC" scheme="https://www.daipeihong.top/tags/ECC/"/>
     
-    <category term="奇偶校验码" scheme="http://example.com/tags/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81/"/>
+    <category term="奇偶校验码" scheme="https://www.daipeihong.top/tags/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>色彩美学(一)_色彩理论基础</title>
-    <link href="http://example.com/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/"/>
-    <id>http://example.com/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/</id>
+    <link href="https://www.daipeihong.top/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/"/>
+    <id>https://www.daipeihong.top/2022/10/03/se-cai-mei-xue-yi-se-cai-li-lun-ji-chu/</id>
     <published>2022-10-03T08:39:00.000Z</published>
     <updated>2022-10-03T08:42:57.559Z</updated>
     
@@ -89,21 +89,21 @@
     
     
     
-    <category term="猎奇" scheme="http://example.com/categories/%E7%8C%8E%E5%A5%87/"/>
+    <category term="猎奇" scheme="https://www.daipeihong.top/categories/%E7%8C%8E%E5%A5%87/"/>
     
     
-    <category term="颜色美学" scheme="http://example.com/tags/%E9%A2%9C%E8%89%B2%E7%BE%8E%E5%AD%A6/"/>
+    <category term="颜色美学" scheme="https://www.daipeihong.top/tags/%E9%A2%9C%E8%89%B2%E7%BE%8E%E5%AD%A6/"/>
     
-    <category term="色彩理论" scheme="http://example.com/tags/%E8%89%B2%E5%BD%A9%E7%90%86%E8%AE%BA/"/>
+    <category term="色彩理论" scheme="https://www.daipeihong.top/tags/%E8%89%B2%E5%BD%A9%E7%90%86%E8%AE%BA/"/>
     
-    <category term="色彩空间" scheme="http://example.com/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/"/>
+    <category term="色彩空间" scheme="https://www.daipeihong.top/tags/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4/"/>
     
   </entry>
   
   <entry>
     <title>香水入门</title>
-    <link href="http://example.com/2022/10/02/xiang-shui-ru-men/"/>
-    <id>http://example.com/2022/10/02/xiang-shui-ru-men/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/xiang-shui-ru-men/"/>
+    <id>https://www.daipeihong.top/2022/10/02/xiang-shui-ru-men/</id>
     <published>2022-10-02T11:52:00.000Z</published>
     <updated>2022-10-02T13:03:44.777Z</updated>
     
@@ -118,17 +118,17 @@
     
     
     
-    <category term="猎奇" scheme="http://example.com/categories/%E7%8C%8E%E5%A5%87/"/>
+    <category term="猎奇" scheme="https://www.daipeihong.top/categories/%E7%8C%8E%E5%A5%87/"/>
     
     
-    <category term="香水" scheme="http://example.com/tags/%E9%A6%99%E6%B0%B4/"/>
+    <category term="香水" scheme="https://www.daipeihong.top/tags/%E9%A6%99%E6%B0%B4/"/>
     
   </entry>
   
   <entry>
     <title>JPEG压缩原理</title>
-    <link href="http://example.com/2022/10/02/jpeg-ya-suo-yuan-li/"/>
-    <id>http://example.com/2022/10/02/jpeg-ya-suo-yuan-li/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/jpeg-ya-suo-yuan-li/"/>
+    <id>https://www.daipeihong.top/2022/10/02/jpeg-ya-suo-yuan-li/</id>
     <published>2022-10-02T07:28:00.000Z</published>
     <updated>2022-10-02T07:44:43.775Z</updated>
     
@@ -142,19 +142,19 @@
     
     
     
-    <category term="图像处理" scheme="http://example.com/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-    <category term="JPEG压缩" scheme="http://example.com/tags/JPEG%E5%8E%8B%E7%BC%A9/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="图像处理" scheme="http://example.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="JPEG压缩" scheme="https://www.daipeihong.top/tags/JPEG%E5%8E%8B%E7%BC%A9/"/>
     
   </entry>
   
   <entry>
     <title>2D-DCT变换（二）硬件实现</title>
-    <link href="http://example.com/2022/10/02/2d-dct-bian-huan-er-ying-jian-shi-xian/"/>
-    <id>http://example.com/2022/10/02/2d-dct-bian-huan-er-ying-jian-shi-xian/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/2d-dct-bian-huan-er-ying-jian-shi-xian/"/>
+    <id>https://www.daipeihong.top/2022/10/02/2d-dct-bian-huan-er-ying-jian-shi-xian/</id>
     <published>2022-10-02T07:22:00.000Z</published>
     <updated>2022-10-02T07:27:01.676Z</updated>
     
@@ -168,21 +168,21 @@
     
     
     
-    <category term="图像处理" scheme="http://example.com/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-    <category term="图像处理" scheme="http://example.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="DCT变换" scheme="http://example.com/tags/DCT%E5%8F%98%E6%8D%A2/"/>
+    <category term="DCT变换" scheme="https://www.daipeihong.top/tags/DCT%E5%8F%98%E6%8D%A2/"/>
     
-    <category term="verilog" scheme="http://example.com/tags/verilog/"/>
+    <category term="verilog" scheme="https://www.daipeihong.top/tags/verilog/"/>
     
   </entry>
   
   <entry>
     <title>2D-DCT变换（一）公式推导</title>
-    <link href="http://example.com/2022/10/02/2d-dct-bian-huan-yi-gong-shi-tui-dao/"/>
-    <id>http://example.com/2022/10/02/2d-dct-bian-huan-yi-gong-shi-tui-dao/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/2d-dct-bian-huan-yi-gong-shi-tui-dao/"/>
+    <id>https://www.daipeihong.top/2022/10/02/2d-dct-bian-huan-yi-gong-shi-tui-dao/</id>
     <published>2022-10-02T07:21:00.000Z</published>
     <updated>2022-10-02T07:28:44.138Z</updated>
     
@@ -196,19 +196,19 @@
     
     
     
-    <category term="图像处理" scheme="http://example.com/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-    <category term="图像处理" scheme="http://example.com/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://www.daipeihong.top/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="DCT变换" scheme="http://example.com/tags/DCT%E5%8F%98%E6%8D%A2/"/>
+    <category term="DCT变换" scheme="https://www.daipeihong.top/tags/DCT%E5%8F%98%E6%8D%A2/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第九章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-jiu-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-jiu-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-jiu-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-jiu-zhang-bi-ji/</id>
     <published>2022-10-02T03:05:00.000Z</published>
     <updated>2022-10-02T03:06:06.396Z</updated>
     
@@ -222,17 +222,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第八章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-ba-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-ba-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-ba-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-ba-zhang-bi-ji/</id>
     <published>2022-10-02T03:04:00.000Z</published>
     <updated>2022-10-02T03:05:06.171Z</updated>
     
@@ -246,17 +246,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第七章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-qi-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-qi-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-qi-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-qi-zhang-bi-ji/</id>
     <published>2022-10-02T03:03:00.000Z</published>
     <updated>2022-10-02T03:04:37.295Z</updated>
     
@@ -270,17 +270,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第六章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-liu-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-liu-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-liu-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-liu-zhang-bi-ji/</id>
     <published>2022-10-02T03:01:00.000Z</published>
     <updated>2022-10-02T03:02:39.956Z</updated>
     
@@ -294,17 +294,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第五章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-wu-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-wu-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-wu-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-wu-zhang-bi-ji/</id>
     <published>2022-10-02T02:59:00.000Z</published>
     <updated>2022-10-02T03:01:35.291Z</updated>
     
@@ -318,17 +318,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第四章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-si-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-si-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-si-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-si-zhang-bi-ji/</id>
     <published>2022-10-02T02:56:00.000Z</published>
     <updated>2022-10-02T02:59:17.748Z</updated>
     
@@ -342,17 +342,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第三章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-san-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-san-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-san-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-san-zhang-bi-ji/</id>
     <published>2022-10-02T02:53:00.000Z</published>
     <updated>2022-10-02T02:55:42.954Z</updated>
     
@@ -366,17 +366,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第二章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-er-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-er-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-er-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-er-zhang-bi-ji/</id>
     <published>2022-10-02T02:39:00.000Z</published>
     <updated>2022-10-02T02:46:54.671Z</updated>
     
@@ -390,17 +390,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>电力半导体第一章笔记</title>
-    <link href="http://example.com/2022/10/02/dian-li-ban-dao-ti-di-yi-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/02/dian-li-ban-dao-ti-di-yi-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-yi-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/02/dian-li-ban-dao-ti-di-yi-zhang-bi-ji/</id>
     <published>2022-10-02T02:32:00.000Z</published>
     <updated>2022-10-02T02:35:20.958Z</updated>
     
@@ -414,17 +414,17 @@
     
     
     
-    <category term="半导体" scheme="http://example.com/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="半导体" scheme="https://www.daipeihong.top/categories/%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
     
-    <category term="电力半导体" scheme="http://example.com/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
+    <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>数字集成电路第十一章笔记</title>
-    <link href="http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/</id>
     <published>2022-10-01T15:32:00.000Z</published>
     <updated>2022-10-02T07:39:20.850Z</updated>
     
@@ -438,17 +438,17 @@
     
     
     
-    <category term="数字IC" scheme="http://example.com/categories/%E6%95%B0%E5%AD%97IC/"/>
+    <category term="数字IC" scheme="https://www.daipeihong.top/categories/%E6%95%B0%E5%AD%97IC/"/>
     
     
-    <category term="数字集成电路" scheme="http://example.com/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
+    <category term="数字集成电路" scheme="https://www.daipeihong.top/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title>数字集成电路第十章笔记</title>
-    <link href="http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-zhang-bi-ji/</id>
     <published>2022-10-01T15:30:00.000Z</published>
     <updated>2022-10-02T07:39:23.256Z</updated>
     
@@ -462,17 +462,17 @@
     
     
     
-    <category term="数字IC" scheme="http://example.com/categories/%E6%95%B0%E5%AD%97IC/"/>
+    <category term="数字IC" scheme="https://www.daipeihong.top/categories/%E6%95%B0%E5%AD%97IC/"/>
     
     
-    <category term="数字集成电路" scheme="http://example.com/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
+    <category term="数字集成电路" scheme="https://www.daipeihong.top/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title>数字集成电路第九章笔记</title>
-    <link href="http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-jiu-zhang-bi-ji/</id>
     <published>2022-10-01T15:28:00.000Z</published>
     <updated>2022-10-02T07:39:15.495Z</updated>
     
@@ -486,17 +486,17 @@
     
     
     
-    <category term="数字IC" scheme="http://example.com/categories/%E6%95%B0%E5%AD%97IC/"/>
+    <category term="数字IC" scheme="https://www.daipeihong.top/categories/%E6%95%B0%E5%AD%97IC/"/>
     
     
-    <category term="数字集成电路" scheme="http://example.com/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
+    <category term="数字集成电路" scheme="https://www.daipeihong.top/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title>数字集成电路第八章笔记</title>
-    <link href="http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/"/>
-    <id>http://example.com/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/</id>
+    <link href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/"/>
+    <id>https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-ba-zhang-bi-ji/</id>
     <published>2022-10-01T15:28:00.000Z</published>
     <updated>2022-10-02T07:39:08.285Z</updated>
     
@@ -510,10 +510,10 @@
     
     
     
-    <category term="数字IC" scheme="http://example.com/categories/%E6%95%B0%E5%AD%97IC/"/>
+    <category term="数字IC" scheme="https://www.daipeihong.top/categories/%E6%95%B0%E5%AD%97IC/"/>
     
     
-    <category term="数字集成电路" scheme="http://example.com/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
+    <category term="数字集成电路" scheme="https://www.daipeihong.top/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
