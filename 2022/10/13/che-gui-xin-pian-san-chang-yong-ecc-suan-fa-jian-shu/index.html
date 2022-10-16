@@ -384,21 +384,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-14
+                    2022-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    770
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -423,8 +423,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>ECC有三种常用的算法，包括汉明码(hamming code)、RS码(Reed Solomon code)和BCH码。其中汉明码是FSMC模块的硬件ECC所采用的校验方式。</p>
-<h1 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h1><h2 id="以1-Byte的数据包为例"><a href="#以1-Byte的数据包为例" class="headerlink" title="以1 Byte的数据包为例"></a>以1 Byte的数据包为例</h2><p>为计算ECC值，数据包中的比特数据要先进行分割，如1/2组(Halfs)、1/4组(Fourths)、1/8(Bits)组等，直到其精度达到单个比特为止，以8 bit即1 Byte的数据包为例进行说明，</p>
+                <h1 id="ECC工作原理"><a href="#ECC工作原理" class="headerlink" title="ECC工作原理"></a>ECC工作原理</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39560607/article/details/81714141?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166571376316782425174007%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=166571376316782425174007&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-81714141-null-null.142%5Ev56%5Econtrol,201%5Ev3%5Econtrol_2&amp;utm_term=ecc%E7%BA%A0%E9%94%99&amp;spm=1018.2226.3001.4187">ECC检验与纠错_Christal_RJ的博客-CSDN博客</a><br>ECC有三种常用的算法，包括汉明码(hamming code)、RS码(Reed Solomon code)和BCH码。其中汉明码是FSMC模块的硬件ECC所采用的校验方式。</p>
+<h1 id="ECC常见算法"><a href="#ECC常见算法" class="headerlink" title="ECC常见算法"></a>ECC常见算法</h1><h2 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h2><h3 id="以1-Byte的数据包为例"><a href="#以1-Byte的数据包为例" class="headerlink" title="以1 Byte的数据包为例"></a>以1 Byte的数据包为例</h3><p>为计算ECC值，数据包中的比特数据要先进行分割，如1/2组(Halfs)、1/4组(Fourths)、1/8(Bits)组等，直到其精度达到单个比特为止，以8 bit即1 Byte的数据包为例进行说明，</p>
 
     
         <meta charset="utf-8">
@@ -474,7 +474,7 @@ type=例：原始数据为01010101，计算并存入的ECC值是ECCe=000、ECCo=
 
 
 <p>8比特Data汉明校验元生成电路由14个异或门组成</p>
-<h2 id="以4-Byte的数据包为例"><a href="#以4-Byte的数据包为例" class="headerlink" title="以4 Byte的数据包为例"></a>以4 Byte的数据包为例</h2><p>将汉明校验的计算推广到4个字节作为一个分组块，现在字节和比特排列如下图所示：</p>
+<h3 id="以4-Byte的数据包为例"><a href="#以4-Byte的数据包为例" class="headerlink" title="以4 Byte的数据包为例"></a>以4 Byte的数据包为例</h3><p>将汉明校验的计算推广到4个字节作为一个分组块，现在字节和比特排列如下图所示：</p>
 
     
         <meta charset="utf-8">
@@ -497,14 +497,17 @@ type=例：原始数据为01010101，计算并存入的ECC值是ECCe=000、ECCo=
 
 
 <p><strong>行校验码</strong>：<br>    行偶校验码：<br>        Byte-Even half = B1<strong>⊕</strong>B0<br>        Byte-Even bits  = B2<strong>⊕</strong>B0<br>    行奇校验码：<br>        Byte-Odd half = B3<strong>⊕</strong>B2<br>        Byte-Odd bits  = B3<strong>⊕</strong>B1<br>    其中，Bi = Di[7]<strong>⊕</strong>Di[6]<strong>⊕</strong>Di[5]<strong>⊕</strong>Di[4]<strong>⊕</strong>Di[3]<strong>⊕</strong>Di[2]<strong>⊕</strong>Di[1]<strong>⊕</strong>Di[0]</p>
-<p><strong>列校验码</strong>：<br>    列偶校验码：<br>        Bit-Even half      = D[3]<strong>⊕</strong>D[2]<strong>⊕</strong>D[1]<strong>⊕</strong>D[0]<br>        Bit-Even fourth = D[5]<strong>⊕</strong>D[4]<strong>⊕</strong>D[1]<strong>⊕</strong>D[0]<br>        Bit-Even bits       = D[6]<strong>⊕</strong>D[4]<strong>⊕</strong>D[2]<strong>⊕</strong>D[0]<br>    列奇校验码：<br>        Bit-Odd half      = D[7]<strong>⊕</strong>D[6]<strong>⊕</strong>D[5]<strong>⊕</strong>D[4]<br>        Bit-Odd fourth = D[7]<strong>⊕</strong>D[6]<strong>⊕</strong>D[3]<strong>⊕</strong>D[2]<br>        Bit-Odd bits       = D[7]<strong>⊕</strong>D[5]<strong>⊕</strong>D[3]<strong>⊕</strong>D[1]<br>    其中，D[i]=D3[i]<strong>⊕</strong>D2[i]<strong>⊕</strong>D1[i]<strong>⊕</strong>DO[i]（每个字节对应位置都加入计算）<br>    <br>    <br>        <meta charset="utf-8"><br>        <title>HTML</title><br>    <br>        <br>            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210140916084.png" width="700" height="900"><br>        </p>
+<p><strong>列校验码</strong>：<br>    列偶校验码：<br>        Bit-Even half      = D[3]<strong>⊕</strong>D[2]<strong>⊕</strong>D[1]<strong>⊕</strong>D[0]<br>        Bit-Even fourth = D[5]<strong>⊕</strong>D[4]<strong>⊕</strong>D[1]<strong>⊕</strong>D[0]<br>        Bit-Even bits       = D[6]<strong>⊕</strong>D[4]<strong>⊕</strong>D[2]<strong>⊕</strong>D[0]<br>    列奇校验码：<br>        Bit-Odd half      = D[7]<strong>⊕</strong>D[6]<strong>⊕</strong>D[5]<strong>⊕</strong>D[4]<br>        Bit-Odd fourth = D[7]<strong>⊕</strong>D[6]<strong>⊕</strong>D[3]<strong>⊕</strong>D[2]<br>        Bit-Odd bits       = D[7]<strong>⊕</strong>D[5]<strong>⊕</strong>D[3]<strong>⊕</strong>D[1]<br>    其中，D[i]=D3[i]<strong>⊕</strong>D2[i]<strong>⊕</strong>D1[i]<strong>⊕</strong>DO[i]（每个字节对应位置都加入计算）<br>    <br>    <br>        <meta charset="utf-8"><br>        <title>HTML</title><br>    <br>        <br>            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210140916084.png" width="750" height="900"><br>        </p>
 
 ![]()
 例：
 假设4个字节数据Byte3~Byte1分别是01010101,11001100,10001000,00100010，计算得到的ECCe=00000, ECCo=00000，若此时 Byte1发生错误变成10000000(第3位从1翻转成0)，计算得到新的ECCe=10100，ECCo'=01011，因此通过计算Error=11111，表示发生一位错误，计算Error_Loc=01011,表示该位错误发生在01字节即 Byte1的第011位即第3位
 
-<h1 id="RS码"><a href="#RS码" class="headerlink" title="RS码"></a>RS码</h1><p>sdjfi </p>
-<h1 id="BCH码"><a href="#BCH码" class="headerlink" title="BCH码"></a>BCH码</h1><p>adfjasdf</p>
+<h2 id="BCH码"><a href="#BCH码" class="headerlink" title="BCH码"></a>BCH码</h2><p>BCH码是循环码中的一个重要子类，它具有纠正多个错误的能力,广泛应用于移动通信和卫星通信中。BCH码有着严密的代数结构，是目前研究得比较透彻的一种码。关于BCH码编码的原理详解可参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95909150">【举例子详细分析】BCH码(BCH code)</a></p>
+<h2 id="RS码"><a href="#RS码" class="headerlink" title="RS码"></a>RS码</h2><p>里德-所罗门(Reed-Solomon，RS）码是BCH码的一个重要分类，RS码是一种非二进制的BCH码，具有较强的纠错能力。</p>
+<h2 id="LDPC码"><a href="#LDPC码" class="headerlink" title="LDPC码"></a>LDPC码</h2><p>LDPC码即低密度奇偶校验码（Low Density Parity Check Code，LDPC），它由Robert G.Gallager博士于1963年提出的一类具有稀疏校验矩阵的线性分组码，不仅有逼近Shannon限的良好性能，而且译码复杂度较低，结构灵活，是近年信道编码领域的研究热点。<br>&nbsp;&nbsp;LDPC码是一种分组码，其校验矩阵只含有很少量非零元素（稀疏矩阵）。
+&nbsp;&nbsp;</p>
+<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p>[1]陈武. Nand Flash纠错码的设计研究[D].浙江大学,2011.</p>
 
                 
             </div>
@@ -992,7 +995,7 @@ type=例：原始数据为01010101，计算并存入的ECC值是ECCe=000、ECCo=
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.9k</span>
+                        class="white-color">9.2k</span>
             
             
             
