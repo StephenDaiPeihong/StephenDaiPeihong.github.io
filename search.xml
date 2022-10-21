@@ -4,6 +4,77 @@
   
     
     <entry>
+      <title>后期思路（一）图片管理方法</title>
+      <link href="/2022/10/21/hou-qi-si-lu-yi-tu-pian-guan-li-fang-fa/"/>
+      <url>/2022/10/21/hou-qi-si-lu-yi-tu-pian-guan-li-fang-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-文件管理体系"><a href="#一-文件管理体系" class="headerlink" title="(一)文件管理体系"></a>(一)文件管理体系</h2><ol><li>使用<font color="#7030a0">摄影日期</font>(或加上<font color="rgb(227, 108, 9)">地名</font>)命名文件夹</li><li>按照文件格式分类分别保存JEPG、RAW、视频文件</li><li>新建加水印图片的文件夹，保存缩小尺寸、添加水印的照片，用于网络分享</li></ol><h2 id="二-lightroom导入照片的方式"><a href="#二-lightroom导入照片的方式" class="headerlink" title="(二)lightroom导入照片的方式"></a>(二)lightroom导入照片的方式</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211231869.png"><br><font color="#fac08f">复制</font>：将照片复制到新位置并添加到目录<br><font color="#00b0f0">移动</font>：将照片移到新位置并添加到目录<br><font color="#b2a2c7">添加</font>：将照片添加到目录而不移动</p><h2 id="三-筛选和照片分类"><a href="#三-筛选和照片分类" class="headerlink" title="(三)筛选和照片分类"></a>(三)筛选和照片分类</h2><p><strong>可以对照片进行旗标、评定星级和添加颜色标签，以及添加人脸标签来进行标记和分类</strong></p><h3 id="1-添加旗帜"><a href="#1-添加旗帜" class="headerlink" title="1. 添加旗帜"></a>1. 添加旗帜</h3><p>可以把想要保留的照片添加旗标<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211245144.png"><br>在过滤器中选择留用即可在当前窗口只保留被标记旗子的照片<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211246948.png"></p><h3 id="2-设置星级"><a href="#2-设置星级" class="headerlink" title="2. 设置星级"></a>2. 设置星级</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211248403.png"></p><h3 id="3-颜色标签"><a href="#3-颜色标签" class="headerlink" title="3. 颜色标签"></a>3. 颜色标签</h3><p>可以对照片的类型做一个区分，区分日落、夜景等等<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211250975.png"></p><h3 id="4-人脸标签"><a href="#4-人脸标签" class="headerlink" title="4. 人脸标签"></a>4. 人脸标签</h3><p>通过一张照片上的人脸识别，可以让Lightroom自动搜索所有的照片，并且添加人物标签。</p><h2 id="四-添加导出预设"><a href="#四-添加导出预设" class="headerlink" title="(四)添加导出预设"></a>(四)添加导出预设</h2><p>建议建一个原尺寸JPEG导出预设，其他根据需要添加自定义导出预设<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211300675.png"></p><p>如果照片导出后预览颜色奇怪，或者在其他设备上看到的颜色和原片不—样，多半是这个色彩空间没有选择sRGB的原因</p><h2 id="五-添加水印"><a href="#五-添加水印" class="headerlink" title="(五)添加水印"></a>(五)添加水印</h2><p>可添加<font color="#ffc000">文字</font>/<font color="#00b0f0">图片</font>水印，导出时勾选即可<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211303104.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摄影后期 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lightroom </tag>
+            
+            <tag> 后期思路 </tag>
+            
+            <tag> 图片管理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(七)</title>
+      <link href="/2022/10/20/systemverilog-xue-xi-bi-ji-qi/"/>
+      <url>/2022/10/20/systemverilog-xue-xi-bi-ji-qi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="子类集成父类的所有变量"><a href="#子类集成父类的所有变量" class="headerlink" title="子类集成父类的所有变量"></a>子类集成父类的所有变量</h1><blockquote><p>[!example]- 实例1<br><strong>子类没有定义new函数，会调用父类new函数</strong></p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202009690.png"><br>仿真结果：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><blockquote><p>[!example]- 实例2</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202022227.png"><br>仿真结果：</p><blockquote><p>lp.i = 3;<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202023256.png"></p></blockquote><blockquote><p>[!example]- 实例3<br><strong>如果子类定义function new，仍会默认调用父类的new函数</strong></p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202056452.png"><br>仿真结果：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><blockquote><p>[!example]- 实例4</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202121976.png"></p><p>子类和父类出现同名函数function，如果子类没有使用supper.(functionname)，不会调用父类的此函数。如果子类里使用supper.(functionname)，即调用父类的此函数。</p><blockquote><p>[!example]- 实例5</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221020213918.png"></p><p>**子类带参数，父类不带参数，仍会调用父类new函数。<br>只要父类new没有参数，就可以默认调用<br>子类必须调动父类的new函数，否则编译无法通过。<br>如果父类new函数没有参数，直接调用；如果父类new函数有参数，子类里面需要严格用supper.new</p><blockquote><p>[!example]- 实例6</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202329703.png"></p><p>仿真结果</p><blockquote><p>p.i = 2;<br>lp.i = 2;<br>after shift p.i = 8;<br>after shift lp.i = 12;</p></blockquote><p>设置断点分析：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202349849.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> IC验证 </tag>
+            
+            <tag> SystemVerilog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sv第六周思维导图</title>
+      <link href="/2022/10/19/sv-di-liu-zhou-si-wei-dao-tu/"/>
+      <url>/2022/10/19/sv-di-liu-zhou-si-wei-dao-tu/</url>
+      
+        <content type="html"><![CDATA[<p><strong>类</strong>是一种可以包含数据和方法(function,task)的类型。<br>例如一个数据包，可能被定义为一个类，类中可以包含指令、地址、队列ID、时间戳和数据等成员。</p><p>类的三要素：<strong>封装、继承、多态</strong></p><p><strong>OOP（面向对象编程）术语</strong><br><strong>类(class) :  包含成员变量和成员方法。<br>对象(object)</strong>:类在例化后的实例。<br><strong>句柄(handle)</strong> :指向对象的指针。<br><strong>原型(prototype)</strong> :程序的声明部分，包含程序名、返回类型和参数列表。</p><h1 id="（一）类、模块、结构体比较"><a href="#（一）类、模块、结构体比较" class="headerlink" title="（一）类、模块、结构体比较"></a>（一）类、模块、结构体比较</h1>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190953671.png" width="450" height="550">        <p>c1、c2称为句柄（类似于c中的指针），句柄是否例化通过是否有new的动作判断。new是在仿真时让仿真器创建一个相应实例（如果没有定义new函数，系统也会自动添加一个function new）。调用new函数后，开辟空间存放存放变量。new函数没有返回值，无需表明返回值类型，甚至无需声明void。当创建了一个实际对象时，new函数的返回值为对象的头部句柄（指针）</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190954540.png" width="350" height="500">        <p>仿真目的是仿真真实的硬件，没有run任何时间单位前，整个硬件的结构就确定下来了。在仿真前，模块是有值的，而对象的创建是在仿真以后才会执行：<img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955582.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955905.png"></p><p>仿真run 0(很小的时间单位)后：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190956769.png"><br>同样地在进行仿真前，结构体也会有值（initial中的结构体静态变量同样如此），可进行如下验证：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190957043.png"><br>在仿真开始前：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190958060.png"></p><p>对new函数函数赋初值(new函数可以传参数)<br>对packet_c创建100个实例如下：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191046905.png"><br><strong>c1最终指向最后一个实例，前面99个实例无法找回。</strong></p><p><strong>总结：</strong></p><ol><li>SV并不像C++语言一样要求复杂的存储空间开辟和销毁的手段，而是采用了像Java—样空间自动开辟和回收的手段。</li><li>因此SV的类在定义时，只需要定义构建函数(constructor)而不需要定义析构函数(destructor) 。</li><li>类在定义时，需要定义构建函数，如果未定义，则系统会自动帮助定义一个空的构建函数（没有形式参数，函数体亦为空)。</li></ol><h1 id="（二）句柄的拷贝"><a href="#（二）句柄的拷贝" class="headerlink" title="（二）句柄的拷贝"></a>（二）句柄的拷贝</h1>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191328440.jpg" width="550" height="850">        <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335916.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335243.png"></p><p>两个句柄一个对象，几个new几个对象。（赋值的是句柄，不是对象!）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191336888.png"></p><h1 id="（三）静态变量-amp-动态变量"><a href="#（三）静态变量-amp-动态变量" class="headerlink" title="（三）静态变量&amp;动态变量"></a>（三）静态变量&amp;动态变量</h1><p><strong>静态变量</strong>：仿真开始前已经分配空间<br><strong>动态变量</strong>：仿真开始时才分配空间<br>默认类里面所有成员(成员变量、成员方法或者其他)均是动态的，如果想要使用静态的，可用static<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191341299.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191343949.png"></p><p>此时句柄悬空，能否找到data？</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424199.png" width="550" height="850">        <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424614.png"><br>编译器在编译时分析，句柄指向data是一个静态变量，仿真时data不会存放到任何实例化对象里面（c1.data、c2.data，任何一个data变量的存放空间不会在任何一个实例化的对象里面，如果存放在实例化对象里面，则空间各自独立。真正的空间在编译过程中开辟，可以姑且理解为放在类的下面）因此，编译器在编译时告诉我们说c1句柄指向的是packet这个类，data是一个静态变量。接下来仿真过程中找data时，不管c1有无指向对象，真正要找的变量放在类的域里面。</p><p><strong>总结：</strong></p><ol><li>类的成员(变量/方法)默认都是动态(automatic)生命周期，即每一个对象的变量和方法都会为其开辟新的空间。</li><li>如果多个对象为了共享一个成员(变量/方法)，那么可以为其添加关键字static。</li><li>多个对象因此可以共享同一个成员变量或者方法。</li><li>访问该成员时，无需进行对象的例化。</li><li>成员方法也可以声明为静态。</li><li>静态方法无法访问非静态成员(变量/方法)，否则会发生编译错误。</li></ol><h1 id="（四）this"><a href="#（四）this" class="headerlink" title="（四）this"></a>（四）this</h1><ol><li>this是用来明确索引当前所在对象的成员(变量/参数/方法。</li><li>this只可以用来在类的非静态成员、约束和覆盖组中使用。</li><li>this的使用可以明确所指向变量的作用域。</li></ol><pre class=" language-systemverilog"><code class="language-systemverilog">class Demo ;    integer x;    function new (integer x) ;        this.x =x;    endfunction    endclass</code></pre><p>this<br>赋值拷贝<br>链表</p><h1 id="（五）浅拷贝与深拷贝"><a href="#（五）浅拷贝与深拷贝" class="headerlink" title="（五）浅拷贝与深拷贝"></a>（五）浅拷贝与深拷贝</h1><p><strong>浅拷贝</strong>：只能拷贝成员里面的变量<br><strong>深拷贝</strong>：递进式拷贝，拷贝句柄及其指定对象。深拷贝与浅拷贝空间独立。</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191548706.png" width="500" height="260">        <h1 id="（六）数据的隐藏和封装"><a href="#（六）数据的隐藏和封装" class="headerlink" title="（六）数据的隐藏和封装"></a>（六）数据的隐藏和封装</h1><ol><li>类的成员(变量/方法)默认情况下，即是公共属性的。这表示对于类自身和外部均可以访问该成员。</li><li>对于成员的限定，如果使用local，则只有该类可以访问此成员，而子类或者外部均无法访问。</li><li>对于成员的限定，如果使用protected，则表示该类和其子类均可以访问此成员，而外部无法访问。</li></ol><pre class=" language-systemverilog"><code class="language-systemverilog">class Packet;    local integer i ;    function integer compare (Packet other) ;        compare = (this.i =other.i) ;    endfunctionendclass</code></pre><ol start="4"><li>对于商业开发，类的提供方会限制一些类成员的外部访问权限，继而隐藏类成员的更多细节。这种方式也使得类的外部访问接口更为精简，减轻了类的维护工作量，也使得类在修改时便于与旧版本保持兼容。数据隐藏的方式使得类的测试和维护都变得更为简单。</li></ol><p><strong>问答题</strong><br><strong>1.类和结构体的联系和差别有哪些?类和模块(module)的联系和差别有哪些?</strong><br>    <strong>类与结构体:</strong><br>    同：都可以包含指令、地址、队列ID、时间戳和数据等成员。<br>    异：(1)类需要调用new函数进行例化，才会开辟空间存放存放变量。而结构体在仿真前就开辟空间存放变量；(2)类可以包含数据和方法(function,task)的类型。<br>    <strong>类与模块：</strong><br>    同：都可以包含数据和方法(function,task)的类型。<br>    异：(1)类中的成员变量和方法默认是动态的，而模块默认是静态的；(2)在仿真前，模块是有值的，而类中对象的创建是在仿真以后才会执行</p><p><strong>3.如果有同名的模块，那么在编译过程中应该怎么解决“同名”问题?</strong><br>    可以用 this来明确索引当前所在对象的成员(变量/参数)方法。this只可以用来在类的非静态成员、约束和覆盖组中使用。</p><pre class=" language-systemverilog"><code class="language-systemverilog">class Demo ;    integer x;    function new (integer x) ;        this.x =x;    endfunction    endclass</code></pre><p>可参考：<a href="https://zhuanlan.zhihu.com/p/480524030">结构体、模块和类的联系和区别？ 类的学习小结 - 知乎 (zhihu.com)</a></p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191616982.png" width="550" height="1000">        ]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>车规芯片(三）常用ECC算法简述</title>
       <link href="/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/"/>
       <url>/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/</url>
@@ -49,9 +120,9 @@
       
         <tags>
             
-            <tag> 汉明码 </tag>
-            
             <tag> ECC </tag>
+            
+            <tag> 汉明码 </tag>
             
             <tag> 奇偶校验码 </tag>
             
@@ -161,9 +232,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> DCT变换 </tag>
-            
             <tag> verilog </tag>
+            
+            <tag> DCT变换 </tag>
             
         </tags>
       
