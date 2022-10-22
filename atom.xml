@@ -6,7 +6,7 @@
   <link href="https://www.daipeihong.top/atom.xml" rel="self"/>
   
   <link href="https://www.daipeihong.top/"/>
-  <updated>2022-10-21T05:54:55.062Z</updated>
+  <updated>2022-10-22T14:09:09.460Z</updated>
   <id>https://www.daipeihong.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WordPress安装教程</title>
+    <link href="https://www.daipeihong.top/2022/10/22/wordpress-an-zhuang-jiao-cheng/"/>
+    <id>https://www.daipeihong.top/2022/10/22/wordpress-an-zhuang-jiao-cheng/</id>
+    <published>2022-10-22T14:06:00.000Z</published>
+    <updated>2022-10-22T14:09:09.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，需要购买一台云服务器/轻量云服务器，步骤如下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222121301.png"><br>选择云服务器配置<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222126775.png"><br>购买完成后即可在如下位置看见已购买的云服务器（此处我购买的为轻量云服务器）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222130358.png"><br>点击进入<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222131547.png"><br>接下来进入管理面板<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222133025.png"></p><p>要访问宝塔面板，防火墙/安全组需要放行面板[8888]端口，操作如下：<br>点进如下界面<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222134745.png"></p><p>点击添加规则<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222135726.png"></p><p>在端口一栏输入<strong>8888</strong>以开放端口<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222135122.png"></p><p>之后在“应用管理”界面复制命令，点击登录<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222135918.png"></p><p>此处需要登录一下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222136412.png"></p><p>粘贴刚才复制的命令，回车<br>得到宝塔面板的登录信息，可以保存下来方便后面使用<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222136778.png"></p><p>浏览器中输入刚保存的外网面板地址，输入刚保存的账户密码登录<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222136087.png"></p><p>绑定宝塔账号(没有就去<a href="https://www.bt.cn/new/index.html">宝塔面板官网</a>)注册一个再来绑定）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222136339.png"></p><p>点击查看，新建API密钥<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222137388.png"></p><p>点击新建密钥，密钥就会出现在下方<br>复制APPID、Secretid、SecretKey输入到刚才关联API密钥界面即可<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222138035.png"></p><p>此处选择急速安装与编译安装都可以，之后点击一键安装<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222138624.png"></p><p>接下来等待安装完成就行<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222138905.png"></p><p>安装完成后，在软件商店搜索wordpress，如下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222120098.png"><br>这里需要填写自己购买的域名，域名的购买可参考我的另一篇博客==（链接）==<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222141667.png"></p><hr><p>——————————————分割线——————————————————<br>==注意：以下属于购买域名部分的不同处：==<br>在对域名进行解析时，需要将记录值添加为云服务器的公网IP<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222146786.png"><br>云服务器的公网IP在这里获取：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222146682.png"><br>——————————————分割线——————————————————–<br>填好域名后，<img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222148697.png"><br>进入wordpress安装界面（建议在这一步安装之前，先部署ssl证书，否则可能访问不了安装页面，如何获取ssl证书见下一步）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222148503.png"><br>进入此页面，搜索ssl证书，点击进入<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222149111.png"><br>在“我的证书”里面进行购买（免费）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222150531.png"><br>选择如下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222150546.png"><br>填写信息<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222152165.png"><br>根据给出得主机记录、记录类型、记录值添加域名解析记录==（见我的另一篇关于域名购买的博客）==<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222152866.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222152753.png"><br>之后验证域名<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222154908.png"><br>验证通过之后在“我的证书”里面下载<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222155303.png"><br>请根据服务器类型选择证书下载:<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222155468.png"><br>下载解压打开，有如下文件<br><img src="/!%5B%5D(https:/cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221022215719.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221022215719.png"><br>进入宝塔面板如下页面：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222156120.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222157240.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222158087.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222158808.png"></p><p>完成之后在此进入Wordpress安装界面，点击安装<img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222159505.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222159244.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222159535.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222159668.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222200184.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222200978.png"><br>WordPress安装完成，接下来更改相关设置<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222200401.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/PRWK3%7BWQOU40_0%5B21ZF0%5DOQ.png"><br>进入如下页面<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222201542.png"></p><p>选择好之后回到宝塔页面<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222202188.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222202515.png"><br>再回到wordpress<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222202459.png"><br>设置更新完成<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/~2$6O0@%7DQLSFCET5H3L3Z5M.png"></p><p>至此，WordPress安装全部完成，可以通过自己购买的域名访问WordPress<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222203746.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先，需要购买一台云服务器/轻量云服务器，步骤如下&lt;br&gt;&lt;img src=&quot;https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210222121301.png&quot;&gt;&lt;b</summary>
+      
+    
+    
+    
+    <category term="猎奇" scheme="https://www.daipeihong.top/categories/%E7%8C%8E%E5%A5%87/"/>
+    
+    
+    <category term="WordPress" scheme="https://www.daipeihong.top/tags/WordPress/"/>
+    
+    <category term="安装教程" scheme="https://www.daipeihong.top/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>后期思路（一）图片管理方法</title>
@@ -224,9 +250,9 @@
     <category term="图像处理" scheme="https://www.daipeihong.top/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-    <category term="图像处理" scheme="https://www.daipeihong.top/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
     <category term="JPEG压缩" scheme="https://www.daipeihong.top/tags/JPEG%E5%8E%8B%E7%BC%A9/"/>
+    
+    <category term="图像处理" scheme="https://www.daipeihong.top/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -497,30 +523,6 @@
     
     
     <category term="电力半导体" scheme="https://www.daipeihong.top/tags/%E7%94%B5%E5%8A%9B%E5%8D%8A%E5%AF%BC%E4%BD%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字集成电路第十一章笔记</title>
-    <link href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/"/>
-    <id>https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-shi-yi-zhang-bi-ji/</id>
-    <published>2022-10-01T15:32:00.000Z</published>
-    <updated>2022-10-02T07:39:20.850Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332635.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332662.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332699.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332761.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332790.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332827.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332862.jpg"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012332635.jpg&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://cloudpict</summary>
-      
-    
-    
-    
-    <category term="数字IC" scheme="https://www.daipeihong.top/categories/%E6%95%B0%E5%AD%97IC/"/>
-    
-    
-    <category term="数字集成电路" scheme="https://www.daipeihong.top/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   
