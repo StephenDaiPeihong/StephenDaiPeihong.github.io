@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Markdown语法笔记</title>
+      <link href="/2022/10/23/markdown-yu-fa-bi-ji/"/>
+      <url>/2022/10/23/markdown-yu-fa-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="1-代码块"><a href="#1-代码块" class="headerlink" title="1.代码块"></a>1.代码块</h1><pre class=" language-markdown"><code class="language-markdown"></code></pre><h1 id="2-标题"><a href="#2-标题" class="headerlink" title="2.标题"></a>2.标题</h1><h1 id="3-字体"><a href="#3-字体" class="headerlink" title="3.字体"></a>3.字体</h1><h2 id="3-1样式"><a href="#3-1样式" class="headerlink" title="3.1样式"></a>3.1样式</h2><p>在 Markdown 语法中，使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签的&nbsp;<code>face</code>&nbsp;属性修改文字字体。字体在不同环境中支持程度不同，表现结果可能也不同。</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>HEI<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是黑体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>KAI<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是楷体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GB18030 Bitmap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是扩展字体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font face="HEI">这里是黑体</font><br><font face="KAI">这里是楷体</font><br><font face="GB18030 Bitmap">这里是扩展字体</font></p><h2 id="3-2字号"><a href="#3-2字号" class="headerlink" title="3.2字号"></a>3.2字号</h2><p>Markdown 有三种主要方式：</p><h3 id="3-2-1使用-lt-font-gt-标签；"><a href="#3-2-1使用-lt-font-gt-标签；" class="headerlink" title="3.2.1使用&nbsp;<font>&nbsp;标签；"></a>3.2.1使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签；</h3><p>使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签&nbsp;<code>size</code>&nbsp;属性修改局部字号</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1号字 最小<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>3号字 默认<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>4号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>5号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>6号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>7号字 最大<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font size="1">1号字 最小</font><br><font size="2">2号字</font><br><font size="3">3号字 默认</font><br><font size="4">4号字</font><br><font size="5">5号字</font><br><font size="6">6号字</font><br><font size="7">7号字 最大</font></p><h3 id="3-2-2通过-lt-big-gt-或者-lt-small-gt-标签"><a href="#3-2-2通过-lt-big-gt-或者-lt-small-gt-标签" class="headerlink" title="3.2.2通过&nbsp;<big>&nbsp;或者&nbsp;<small>&nbsp;标签"></a>3.2.2通过&nbsp;<code>&lt;big&gt;</code>&nbsp;或者&nbsp;<code>&lt;small&gt;</code>&nbsp;标签</h3><h3 id="3-2-3通过修改-style-样式实现。"><a href="#3-2-3通过修改-style-样式实现。" class="headerlink" title="3.2.3通过修改&nbsp;style&nbsp;样式实现。"></a>3.2.3通过修改&nbsp;<code>style</code>&nbsp;样式实现。</h3><h2 id="3-3字体颜色"><a href="#3-3字体颜色" class="headerlink" title="3.3字体颜色"></a>3.3字体颜色</h2><p>在 Markdown 语法中，使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签的&nbsp;<code>color</code>&nbsp;属性修改文字颜色。</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>红色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>green<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>绿色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>蓝色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rgb(200, 100, 100)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>使用 rgb 颜色值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#FF00BB<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>使用十六进制颜色值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font color="red">红色</font><br><font color="green">绿色</font><br><font color="blue">蓝色</font><br><font color="rgb(200, 100, 100)">使用 rgb 颜色值</font><br><font color="#FF00BB">使用十六进制颜色值</font></p><pre class=" language-markdown"><code class="language-markdown"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span> to right, <span class="token hexcode">#ff1616</span>, <span class="token hexcode">#ff7716</span>, <span class="token hexcode">#ffdc16</span>, <span class="token hexcode">#36c945</span>, <span class="token hexcode">#10a5ce</span>, <span class="token hexcode">#0f0096</span>, <span class="token hexcode">#a51eff</span>, <span class="token hexcode">#ff1616</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这是七色光彩背景颜色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font style="background: linear-gradient( to right, #ff1616, #ff7716, #ffdc16, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);">这是七色光彩背景颜色</font></p><h2 id="3-4粗体斜体"><a href="#3-4粗体斜体" class="headerlink" title="3.4粗体斜体"></a>3.4粗体斜体</h2><p>使用 <code>*</code> 和 <code>**</code> 分别表示斜体和粗体，例如<br><em>斜体</em><br><strong>粗体</strong><br><em><strong>又斜又粗</strong></em></p><h2 id="3-5-高亮"><a href="#3-5-高亮" class="headerlink" title="3.5 高亮"></a>3.5 高亮</h2><p>==高亮==</p><h2 id="3-6跨行注释"><a href="#3-6跨行注释" class="headerlink" title="3.6跨行注释"></a>3.6跨行注释</h2><p>这里是行内注释：<br>%%预览模式下你将看不到这句话%%<br>这里是跨行注释：<br>%% 所谓跨行<br>就是可以有很多行 %%</p><h1 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h1><pre class=" language-markdown"><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token punctuation">*</span><span class="token punctuation">*</span></span> 或者 ---</code></pre><hr><hr><h1 id="5-删除线"><a href="#5-删除线" class="headerlink" title="5.删除线"></a>5.删除线</h1><p>使用<code>~~双波浪线~~</code>表示删除线<br><del>删除线</del></p><h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6.列表"></a>6.列表</h1><h2 id="6-1有序列表"><a href="#6-1有序列表" class="headerlink" title="6.1有序列表"></a>6.1有序列表</h2><p>语法：<code>数字</code>＋<code>.</code>＋<code>空格</code></p><pre class=" language-markdown"><code class="language-markdown">1. 2. 3. </code></pre><ol><li>第一</li><li>第二</li><li>第三</li></ol><h2 id="6-2无序列表"><a href="#6-2无序列表" class="headerlink" title="6.2无序列表"></a>6.2无序列表</h2><p>语法： <code>-</code> 或者<code>+</code> 或者<code>*</code> ＋<code>space</code></p><pre class=" language-markdown"><code class="language-markdown">* - + </code></pre><ul><li>第一</li></ul><ul><li>第二</li></ul><ul><li>第三</li></ul><h2 id="6-3列表嵌套"><a href="#6-3列表嵌套" class="headerlink" title="6.3列表嵌套"></a>6.3列表嵌套</h2><p>table键控制缩进，shift＋table取消缩进</p><ul><li>第一层 1<ul><li>第二层 1<ul><li>第三层 1<ul><li>第四层 1<ul><li>第五层 1</li></ul></li></ul></li><li>第三层 2</li></ul></li><li>第二层 2</li></ul></li></ul><h1 id="7-引用"><a href="#7-引用" class="headerlink" title="7.引用"></a>7.引用</h1><p>使用 <code>&gt;</code> 表示，可以有多个 <code>&gt;</code>，表示层级更深，例如</p><blockquote><p>第一层</p><blockquote><p>第二层</p><blockquote><p>第三层</p><blockquote><p>第四层</p></blockquote></blockquote></blockquote></blockquote><h1 id="8-代码样式"><a href="#8-代码样式" class="headerlink" title="8.代码样式"></a>8.代码样式</h1><h2 id="8-1行内代码"><a href="#8-1行内代码" class="headerlink" title="8.1行内代码"></a>8.1行内代码</h2><p>使用 「反引号&nbsp;<code>`</code>」符号定义行内代码。<br><code>行内代码</code></p><h2 id="8-2代码块"><a href="#8-2代码块" class="headerlink" title="8.2代码块"></a>8.2代码块</h2><p>使用四个空格缩进表示代码块，例如<br>    print(‘hello,world’)<br>    print(‘hello,world’)<br>        print(‘hello,world’)<br>        print(‘hello,world’)<br>        print(‘hello,world’)</p><h1 id="8-超链接"><a href="#8-超链接" class="headerlink" title="8.超链接"></a>8.超链接</h1><p>语法：<code>中括号[链接名称](目标链接)</code></p><pre class=" language-markdown"><code class="language-markdown">[Stephen<span class="token italic"><span class="token punctuation">_</span>Dai的个人空间<span class="token punctuation">_</span></span>哔哩哔哩](https://space.bilibili.com/444343706?spm<span class="token italic"><span class="token punctuation">_</span>id<span class="token punctuation">_</span></span>from=333.1007.0.0)</code></pre><p><a href="https://space.bilibili.com/444343706?spm_id_from=333.1007.0.0">Stephen_Dai的个人空间_哔哩哔哩</a></p><p>==TIPS: 若超链接为视频，可在<strong>阅读模式</strong>下Ctrl+单击链接，在软件内打开==</p><h1 id="9-表格"><a href="#9-表格" class="headerlink" title="9.表格"></a>9.表格</h1><p><strong>Markdown 表格包含三个部分：表头、分割线、数据。</strong></p><ul><li><strong>表头</strong>&nbsp;用来对列名对象进行描述，也就是通常所说的列名；</li><li><strong>数据</strong>&nbsp;用来展示每行的具体内容，数据是表格的核心；</li><li><strong>分割线</strong>&nbsp;用来区分表头和数据，也是 Markdown 中表格定义的最基本语法要求。</li></ul><p><strong>Markdown 表格由 「竖线&nbsp;<code>|</code>」、「减号&nbsp;<code>-</code>」、「冒号&nbsp;<code>:</code>」三种符号组成。</strong></p><ul><li><strong>竖线</strong>&nbsp;用来定义列，每两个竖线之间为一个单元格元素；</li><li><strong>减号</strong>&nbsp;用来定义分割线，也就是分割表头和数据体；</li><li><strong>冒号</strong>&nbsp;配合减号使用，用于定义列数据的对齐属性。</li></ul><pre class=" language-markdown"><code class="language-markdown">|商品|数量|单价||---|---:|:---:||苹果|10|\$1||电脑|1|\$1999|</code></pre><table><thead><tr><th>商品</th><th>数量</th><th>单价</th></tr></thead><tbody><tr><td>苹果</td><td>10</td><td>$1</td></tr><tr><td>电脑</td><td>1</td><td>$1999</td></tr></tbody></table><h1 id="10-数学公式"><a href="#10-数学公式" class="headerlink" title="10.数学公式"></a>10.数学公式</h1><p>Markdown 中的数学公式支持支持 <strong>LaTeX</strong>，分为「行中公式」和「独立公式」两种。</p><p>行中公式用两个单独的「美元符&nbsp;<code>$</code>」表示。</p><p>世界上最难的问题$1+1=2$，如何证明？</p><p>独立公式用两个连续的「美元符&nbsp;<code>$$</code>」表示，换行通过&nbsp;<code>\</code>&nbsp;实现。</p><p>平均数符号：$overline{xyz}$<br>开二次方符号：$sqrt x$<br>开方符号：$sqrt[3]{x+y}$<br>对数符号：$log(x)$<br>极限符号：$lim^{x to infty}<em>{y to 0}{frac{x}{y}}$<br>极限符号：$displaystyle lim^{x to infty}</em>{y to 0}{frac{x}{y}}$<br>求和符号：$sum^{x to infty}<em>{y to 0}{frac{x}{y}}$<br>求和符号：$displaystyle sum^{x to infty}</em>{y to 0}{frac{x}{y}}$<br>积分符号：$int^{infty}<em>{0}{xdx}$<br>积分符号：$displaystyle int^{infty}</em>{0}{xdx}$ </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 猎奇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WordPress安装教程</title>
       <link href="/2022/10/22/wordpress-an-zhuang-jiao-cheng/"/>
       <url>/2022/10/22/wordpress-an-zhuang-jiao-cheng/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> 猎奇 </category>
+          <category> Web前端 </category>
           
       </categories>
       
@@ -64,7 +89,36 @@
       <link href="/2022/10/20/systemverilog-xue-xi-bi-ji-qi/"/>
       <url>/2022/10/20/systemverilog-xue-xi-bi-ji-qi/</url>
       
-        <content type="html"><![CDATA[<h1 id="子类集成父类的所有变量"><a href="#子类集成父类的所有变量" class="headerlink" title="子类集成父类的所有变量"></a>子类集成父类的所有变量</h1><blockquote><p>[!example]- 实例1<br><strong>子类没有定义new函数，会调用父类new函数</strong></p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202009690.png"><br>仿真结果：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><blockquote><p>[!example]- 实例2</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202022227.png"><br>仿真结果：</p><blockquote><p>lp.i = 3;<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202023256.png"></p></blockquote><blockquote><p>[!example]- 实例3<br><strong>如果子类定义function new，仍会默认调用父类的new函数</strong></p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202056452.png"><br>仿真结果：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><blockquote><p>[!example]- 实例4</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202121976.png"></p><p>子类和父类出现同名函数function，如果子类没有使用supper.(functionname)，不会调用父类的此函数。如果子类里使用supper.(functionname)，即调用父类的此函数。</p><blockquote><p>[!example]- 实例5</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221020213918.png"></p><p>**子类带参数，父类不带参数，仍会调用父类new函数。<br>只要父类new没有参数，就可以默认调用<br>子类必须调动父类的new函数，否则编译无法通过。<br>如果父类new函数没有参数，直接调用；如果父类new函数有参数，子类里面需要严格用supper.new</p><blockquote><p>[!example]- 实例6</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202329703.png"></p><p>仿真结果</p><blockquote><p>p.i = 2;<br>lp.i = 2;<br>after shift p.i = 8;<br>after shift lp.i = 12;</p></blockquote><p>设置断点分析：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202349849.png"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h1><h2 id="实例1-子类没有定义new函数，会调用父类new函数"><a href="#实例1-子类没有定义new函数，会调用父类new函数" class="headerlink" title="实例1 子类没有定义new函数，会调用父类new函数"></a>实例1 子类没有定义new函数，会调用父类new函数</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202009690.png"><br><strong>仿真结果</strong>：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><h2 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202022227.png"><br><strong>仿真结果</strong>：</p><blockquote><p>lp.i = 3;</p></blockquote><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202023256.png"></p><h2 id="实例3-如果子类定义function-new，仍会默认调用父类的new函数"><a href="#实例3-如果子类定义function-new，仍会默认调用父类的new函数" class="headerlink" title="实例3 如果子类定义function new，仍会默认调用父类的new函数"></a>实例3 如果子类定义function new，仍会默认调用父类的new函数</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202056452.png"><br><strong>仿真结果</strong>：</p><blockquote><p>p.i = 2;<br>lp.i = 2;</p></blockquote><h2 id="实例4"><a href="#实例4" class="headerlink" title="实例4"></a>实例4</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202121976.png"><br>子类和父类出现同名函数function，如果子类没有使用supper.(functionname)，不会调用父类的此函数。如果子类里使用supper.(functionname)，即调用父类的此函数。</p><h2 id="实例5"><a href="#实例5" class="headerlink" title="实例5"></a>实例5</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221020213918.png"></p><ol><li>子类带参数，父类不带参数，仍会调用父类new函数。</li><li>只要父类new没有参数，就可以默认调用</li><li>子类必须调动父类的new函数，否则编译无法通过。</li><li>如果父类new函数没有参数，直接调用；如果父类new函数有参数，子类里面需要严格用supper.new</li></ol><h2 id="实例6"><a href="#实例6" class="headerlink" title="实例6"></a>实例6</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202329703.png"></p><p><strong>仿真结果</strong></p><blockquote><p>p.i = 2;<br>lp.i = 2;<br>after shift p.i = 8;<br>after shift lp.i = 12;</p></blockquote><p><strong>设置断点分析</strong>：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202349849.png"></p><p><strong>注意</strong>：</p><ol><li>子类和父类出现同名的函数或者同名的函数或者任务（同名方法），子类想要继承，需要方法名一致参数一致，调用一定写supper</li><li>子类的方法名称可以与父类同名，但子类的变量最好不要跟父类的变量同名</li></ol><h2 id="实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"><a href="#实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄" class="headerlink" title="实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"></a>实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄</h2>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108619.png" width="500" height="530">                    <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108436.png" width="500" height="300">        <ol><li>子类的句柄能够赋值给父类的句柄（ ==能够访问区域缩小==），父类的句柄不能赋值给子类的句柄</li><li>lp.i只能指向子类中的i，无法指向父类的i（子类的变量跟父类的变量同名，i被覆盖）；tmp.i可以指向父类的i</li><li>lp能访问子类的i、k、m，无法访问父类的i；tmp能访问父类的i、m，但找不到子类的i、k</li></ol><h1 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h1><h2 id="包的概念"><a href="#包的概念" class="headerlink" title="包的概念"></a>包的概念</h2><p>为了使得可以在多个模块（硬件）或者奕（默件)间共子用厂化乂大型,SV添加了包(package) 。包的概念参考于VHDL，用户自定义的类型譬如==类、方法、变量、结构体、枚举类==（==偏软件类，Module、inteface偏硬件就不能定义在包里面==）等都可以在package…endpackage中定义。</p><h2 id="包的使用方法"><a href="#包的使用方法" class="headerlink" title="包的使用方法"></a>包的使用方法</h2><ol><li><p>module、interface、class等可以使用包中定义或者声明的内容。</p></li><li><p>导出：可以通过域的==索引符::号==直接引用。</p>      <meta charset="utf-8">     <title>HTML</title>               <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212212179.png" width="500" height="300">     </li><li><p>可以==指定索引==一些需要的包中定义的类型到指定的容器中(module/class/…) 。</p>      <meta charset="utf-8">     <title>HTML</title>               <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212213098.png" width="500" height="300">     </li><li><p>通过通配符$*$来将包中==所有类别导入==到指定容器中。</p></li></ol><h2 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h2>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212210008.png" width="500" height="1200">        <h1 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h1><p><strong>1.在packet和linkedpacket有关类的继承的例子中(如图)，tb中的句柄p是否可以访问父类的成员i?lp是否可以访问父类的成员i?句柄tmp是否可以访问子类的成员i?</strong></p><p><strong>代码：</strong></p><pre class=" language-systemverilog"><code class="language-systemverilog">/*Problem1在packet和linkedpacket有关类的继承的例子中(如图)，tb中的句柄p是否可以访问父类的成员i?lp是否可以访问父类的成员i?句柄tmp是否可以访问子类的成员i?*/class packet;    integer i = 1;    integer m = 2;    function new(int val);        i = val + 1;    endfunction    function shift();        i = i << 1;    endfunction    endclass    class linkedpacket extends packet;    integer i = 3;    integer k = 5;    function new (val);        super.new(val);        if (val >= 2)            i = val;    endfunction    function shift();        super.shift();        i = i << 2;    endfunctionendclassmodule tb;    initial begin        packet p = new(3);        linkedpacket lp = new(1);        packet tmp;        tmp = lp;        //tb中的句柄p是否可以访问父类的成员i?    $display("p.i = %0d",p.i);    //lp是否可以访问父类的成员i?     $display("lp.i = %0d",lp.i);//lp.i只能指向子类中的i，无法指向父类的i（子类的变量跟父类的变量同名，i被覆盖）    $display("lp.m = %0d",lp.m);//但lp可以访问父类的其他成员    //句柄tmp是否可以访问子类的成员i?    $display("tmp.i = %0d",tmp.i);    //$display("tmp.k = %0d",tmp.k); //ERROR：Could not find member 'k' in class 'packet', at "class_test.sv", 7.        endendmodule</code></pre><p><strong>仿真结果：</strong></p><blockquote><p>p.i = 4      tb中的句柄p是否可以访问父类的成员i<br>lp.i = 3     lp.i只能指向子类中的i，无法指向父类的i（子类的变量跟父类的变量同名，i被覆盖）<br>lp.m = 2  但lp可以访问父类的其他成员<br>tmp.i = 2  tmp能访问父类的i、m，但找不到子类的i、k</p></blockquote>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210221243924.png" width="500" height="300">        <p><strong>2.试着在对应的位置填入代码，即如何导入pkg_a中的类型packet_a，从pkg_b中导入packet_b，以及从pkg_b中导入静态变量shared?</strong></p><p><strong>代码：</strong></p><pre class=" language-systemverilog"><code class="language-systemverilog">package pkt_a;    class packet_a;        int pkg_a;    endclass    typedef struct{        int data;        int command;        }struct_a;        int va = 1;        int shared = 10;endpackagepackage pkt_b;    class packet_b;        int pkg_b;    endclass    typedef struct{        int data;        int command;        }struct_b;        int vb = 2;        int shared = 20;endpackage                module tb;    class packet_tb;    endclass    typedef struct{        int data;        int command;    }struct_tb;        class packet_a;        int tb_a;    endclass    class packet_b;        int tb_b;    endclass    //how to import type from packages can be seen as follows    //精确导出    import pkt_a::va;    import pkt_b::vb;    //import pkt_a::shared;//从pkt_a取出shared    import pkg_b::shared;//从pkt_b取出shared        ////全部导出    //import pkt_a::*;    //import pkt_b::*;        initial begin         packet_a pa = new();        packet_b pb = new();        packet_tb ptb = new();        $display("pkg_a::va = %0d,pkg_b:: = %0d",va ,vb);        $display("shared = %0d", shared);        //$display("shared = %0d", pkt_b::shared);    end    endmodule</code></pre><p><strong>仿真结果：</strong></p><blockquote><p>pkg_a::va = 1,pkg_b:: = 2<br>shared = 20</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 类(class) </tag>
+            
+            <tag> 包(package) </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(六)</title>
+      <link href="/2022/10/19/systemverilog-xue-xi-bi-ji-liu/"/>
+      <url>/2022/10/19/systemverilog-xue-xi-bi-ji-liu/</url>
+      
+        <content type="html"><![CDATA[<p><strong>类</strong>是一种可以包含数据和方法(function,task)的类型。<br>例如一个数据包，可能被定义为一个类，类中可以包含指令、地址、队列ID、时间戳和数据等成员。</p><p>类的三要素：<strong>封装、继承、多态</strong></p><p><strong>OOP（面向对象编程）术语</strong><br><strong>类(class) :  包含成员变量和成员方法。<br>对象(object)</strong>:类在例化后的实例。<br><strong>句柄(handle)</strong> :指向对象的指针。<br><strong>原型(prototype)</strong> :程序的声明部分，包含程序名、返回类型和参数列表。</p><h1 id="（一）类、模块、结构体比较"><a href="#（一）类、模块、结构体比较" class="headerlink" title="（一）类、模块、结构体比较"></a>（一）类、模块、结构体比较</h1>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190953671.png" width="450" height="550">        <p>c1、c2称为句柄（类似于c中的指针），句柄是否例化通过是否有new的动作判断。new是在仿真时让仿真器创建一个相应实例（如果没有定义new函数，系统也会自动添加一个function new）。调用new函数后，开辟空间存放存放变量。new函数没有返回值，无需表明返回值类型，甚至无需声明void。当创建了一个实际对象时，new函数的返回值为对象的头部句柄（指针）</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190954540.png" width="350" height="500">        <p>仿真目的是仿真真实的硬件，没有run任何时间单位前，整个硬件的结构就确定下来了。在仿真前，模块是有值的，而对象的创建是在仿真以后才会执行：<img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955582.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955905.png"></p><p>仿真run 0(很小的时间单位)后：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190956769.png"><br>同样地在进行仿真前，结构体也会有值（initial中的结构体静态变量同样如此），可进行如下验证：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190957043.png"><br>在仿真开始前：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190958060.png"></p><p>对new函数函数赋初值(new函数可以传参数)<br>对packet_c创建100个实例如下：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191046905.png"><br><strong>c1最终指向最后一个实例，前面99个实例无法找回。</strong></p><p><strong>总结：</strong></p><ol><li>SV并不像C++语言一样要求复杂的存储空间开辟和销毁的手段，而是采用了像Java—样空间自动开辟和回收的手段。</li><li>因此SV的类在定义时，只需要定义构建函数(constructor)而不需要定义析构函数(destructor) 。</li><li>类在定义时，需要定义构建函数，如果未定义，则系统会自动帮助定义一个空的构建函数（没有形式参数，函数体亦为空)。</li></ol><h1 id="（二）句柄的拷贝"><a href="#（二）句柄的拷贝" class="headerlink" title="（二）句柄的拷贝"></a>（二）句柄的拷贝</h1>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191328440.jpg" width="550" height="850">        <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335916.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335243.png"></p><p>两个句柄一个对象，几个new几个对象。（赋值的是句柄，不是对象!）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191336888.png"></p><h1 id="（三）静态变量-amp-动态变量"><a href="#（三）静态变量-amp-动态变量" class="headerlink" title="（三）静态变量&amp;动态变量"></a>（三）静态变量&amp;动态变量</h1><p><strong>静态变量</strong>：仿真开始前已经分配空间<br><strong>动态变量</strong>：仿真开始时才分配空间<br>默认类里面所有成员(成员变量、成员方法或者其他)均是动态的，如果想要使用静态的，可用static<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191341299.png"></p><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191343949.png"></p><p>此时句柄悬空，能否找到data？</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424199.png" width="550" height="850">        <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424614.png"><br>编译器在编译时分析，句柄指向data是一个静态变量，仿真时data不会存放到任何实例化对象里面（c1.data、c2.data，任何一个data变量的存放空间不会在任何一个实例化的对象里面，如果存放在实例化对象里面，则空间各自独立。真正的空间在编译过程中开辟，可以姑且理解为放在类的下面）因此，编译器在编译时告诉我们说c1句柄指向的是packet这个类，data是一个静态变量。接下来仿真过程中找data时，不管c1有无指向对象，真正要找的变量放在类的域里面。</p><p><strong>总结：</strong></p><ol><li>类的成员(变量/方法)默认都是动态(automatic)生命周期，即每一个对象的变量和方法都会为其开辟新的空间。</li><li>如果多个对象为了共享一个成员(变量/方法)，那么可以为其添加关键字static。</li><li>多个对象因此可以共享同一个成员变量或者方法。</li><li>访问该成员时，无需进行对象的例化。</li><li>成员方法也可以声明为静态。</li><li>静态方法无法访问非静态成员(变量/方法)，否则会发生编译错误。</li></ol><h1 id="（四）this"><a href="#（四）this" class="headerlink" title="（四）this"></a>（四）this</h1><ol><li>this是用来明确索引当前所在对象的成员(变量/参数/方法。</li><li>this只可以用来在类的非静态成员、约束和覆盖组中使用。</li><li>this的使用可以明确所指向变量的作用域。</li></ol><pre class=" language-systemverilog"><code class="language-systemverilog">class Demo ;    integer x;    function new (integer x) ;        this.x =x;    endfunction    endclass</code></pre><p>this<br>赋值拷贝<br>链表</p><h1 id="（五）浅拷贝与深拷贝"><a href="#（五）浅拷贝与深拷贝" class="headerlink" title="（五）浅拷贝与深拷贝"></a>（五）浅拷贝与深拷贝</h1><p><strong>浅拷贝</strong>：只能拷贝成员里面的变量<br><strong>深拷贝</strong>：递进式拷贝，拷贝句柄及其指定对象。深拷贝与浅拷贝空间独立。</p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191548706.png" width="500" height="260">        <h1 id="（六）数据的隐藏和封装"><a href="#（六）数据的隐藏和封装" class="headerlink" title="（六）数据的隐藏和封装"></a>（六）数据的隐藏和封装</h1><ol><li>类的成员(变量/方法)默认情况下，即是公共属性的。这表示对于类自身和外部均可以访问该成员。</li><li>对于成员的限定，如果使用local，则只有该类可以访问此成员，而子类或者外部均无法访问。</li><li>对于成员的限定，如果使用protected，则表示该类和其子类均可以访问此成员，而外部无法访问。</li></ol><pre class=" language-systemverilog"><code class="language-systemverilog">class Packet;    local integer i ;    function integer compare (Packet other) ;        compare = (this.i =other.i) ;    endfunctionendclass</code></pre><ol start="4"><li>对于商业开发，类的提供方会限制一些类成员的外部访问权限，继而隐藏类成员的更多细节。这种方式也使得类的外部访问接口更为精简，减轻了类的维护工作量，也使得类在修改时便于与旧版本保持兼容。数据隐藏的方式使得类的测试和维护都变得更为简单。</li></ol><p><strong>问答题</strong><br><strong>1.类和结构体的联系和差别有哪些?类和模块(module)的联系和差别有哪些?</strong><br>    <strong>类与结构体:</strong><br>    同：都可以包含指令、地址、队列ID、时间戳和数据等成员。<br>    异：(1)类需要调用new函数进行例化，才会开辟空间存放存放变量。而结构体在仿真前就开辟空间存放变量；(2)类可以包含数据和方法(function,task)的类型。<br>    <strong>类与模块：</strong><br>    同：都可以包含数据和方法(function,task)的类型。<br>    异：(1)类中的成员变量和方法默认是动态的，而模块默认是静态的；(2)在仿真前，模块是有值的，而类中对象的创建是在仿真以后才会执行</p><p><strong>3.如果有同名的模块，那么在编译过程中应该怎么解决“同名”问题?</strong><br>    可以用 this来明确索引当前所在对象的成员(变量/参数)方法。this只可以用来在类的非静态成员、约束和覆盖组中使用。</p><pre class=" language-systemverilog"><code class="language-systemverilog">class Demo ;    integer x;    function new (integer x) ;        this.x =x;    endfunction    endclass</code></pre><p>可参考：<a href="https://zhuanlan.zhihu.com/p/480524030">结构体、模块和类的联系和区别？ 类的学习小结 - 知乎 (zhihu.com)</a></p>            <meta charset="utf-8">        <title>HTML</title>                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191616982.png" width="550" height="1000">        ]]></content>
       
       
       <categories>
@@ -78,9 +132,9 @@
             
             <tag> 数字前端 </tag>
             
-            <tag> IC验证 </tag>
+            <tag> SystemVerilog验证 </tag>
             
-            <tag> SystemVerilog </tag>
+            <tag> 类 </tag>
             
         </tags>
       
@@ -102,6 +156,33 @@
     
     
     <entry>
+      <title>SystemVerilog课程笔记(五)</title>
+      <link href="/2022/10/17/systemverilog-ke-cheng-bi-ji-wu/"/>
+      <url>/2022/10/17/systemverilog-ke-cheng-bi-ji-wu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="stimulator只发送数据，构建generator产生数据"><a href="#stimulator只发送数据，构建generator产生数据" class="headerlink" title="stimulator只发送数据，构建generator产生数据"></a>stimulator只发送数据，构建generator产生数据</h1><h1 id="一个process接收数据发送到不同的端口"><a href="#一个process接收数据发送到不同的端口" class="headerlink" title="一个process接收数据发送到不同的端口"></a>一个process接收数据发送到不同的端口</h1><p><strong>增加要求</strong>：如果两个chnl没有冲突，可以同时发送<br><strong>具体为：</strong><br>来自于不同的source chnl就可以并行发送<br>source chnl、destination chnl不一样可以并行发送<br><strong>代码：</strong></p><pre class=" language-systemverilog"><code class="language-systemverilog">typedef struct{  bit [3:0] src;  bit [3:0] dst;  bit [7:0] data [];}rt_packet_t;//**********************************  rt_stimulator  ***********************************//interface rt_interface;    logic clock;    logic reset_n;    logic [15:0] din;    logic [15:0] frame_n;    logic [15:0] valid_n;    logic [15:0] dout;    logic [15:0] valido_n;    logic [15:0] busy_n;    logic [15:0] frameo_n;endinterface    module rt_stimulator(  rt_interface intf);//for debug purpose from waveform    typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;    drv_state_t dbg_state;//定义状态检测变量dbg_state    byte unsigned dbg_din_chnl0_data;    rt_packet_t pkts[$];    int src_chnl_status[int];  //关联数组，后面int：src_chnl的number；前面int：dest_chnl的Number ？？    function void put_pkt(input rt_packet_t p);        pkts.push_back(p);    endfunction    initial begin : drive_reset_proc        drive_reset();    end    task drive_reset();        @(negedge intf.reset_n);        dbg_state <= DRV_RESET;        intf.din <= 0;        intf.frame_n <= '1;        intf.valid_n <= '1;    endtask    initial begin : drive_chnl_proc        @(negedge intf.reset_n);        repeat(10) @(posedge intf.clock);        forever begin             automatic rt_packet_t p;//声明一个动态的            wait(pkts.size() > 0);            p = pkts.pop_front();            fork//后台触发线程，触发线程在后台运行，继续执行剩下内容                begin                wait_src_chnl_avail(p);                drive_chnl(p.src, p.dst, p.data);                set_src_chnl_avail(p);                end            join_none        end    end        task automatic wait_src_chnl_avail(rt_packet_t p);//判断src chnl是否被占用，是否需要等待    if(!src_chnl_status.exists(p.src))//动态数组为空        src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest就是p.dst    else if(src_chnl_status[p.src] >= 0)//如果给dest的0,1,2这样的chnl在发送数据，需要等待        wait(src_chnl_status[p.src] == -1);//直到    endtask        function automatic set_src_chnl_avail(rt_packet_t p);        src_chnl_status[p.src] = -1;//如果chnl发送完后，把src_chnl置回来    endfunction    task automatic drive_chnl(bit [3:0] saddr, bit[3:0] daddr, byte unsigned data[]);        $display("@%0t:[DRV] src_chnl[%0d] & dest_chnl[%0d] data trans started",$time,saddr,daddr);// drive address phase         for(int i=0; i<4; i++)begin        @(posedge intf.clock);        dbg_state <=DRV_ADDR;        intf.din[saddr] <= daddr[i];        intf.valid_n[saddr] <= $urandom_range(0,1);        intf.frame_n[saddr] <= 1'b0;    end// drive pad phase   for (int i=0; i<5; i++)begin    @(posedge intf.clock);    dbg_state <= DRV_PAD;    intf.din[saddr] <= 1'b1;    intf.valid_n[saddr] <= 1'b1;    intf.frame_n[saddr] <= 1'b0;  end// drive data phase  foreach(data[id])begin    for(int i=0;i<8; i++)begin    @(posedge intf.clock);    dbg_state <= DRV_DATA;    dbg_din_chnl0_data <= data[id];    intf.din[saddr] <= data[id][i];    intf.valid_n[saddr] <=1'b0;    intf.frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;    end  end// drive idle phase  @(posedge intf.clock);  dbg_state <= DRV_IDLE;  dbg_din_chnl0_data <= 0;  intf.din[saddr] <= 1'b0;  intf.valid_n[saddr] <= 1'b1;  intf.frame_n[saddr] <= 1'b1;  $display("@%0t:[DRV] src_chnl[%0d] &dest_chnl[%0d ]data trans finished",$time,saddr,daddr);endtaskendmodule//**********************************  rt_generator  ************************************//module rt_generator;  rt_packet_t pkts[$];//定义队列pkts  function void put_pkt(input rt_packet_t p);    pkts.push_back(p);//在pkts队列尾插入p  endfunction  task get_pkt(output rt_packet_t p);    wait(pkts.size() >0 )      p = pkts.pop_front();//pkts.size()>0时执行，提取队列首元素，输出队列首元素  endtask  //generate a random packet  function void gen_pkt(int src = -1, int dst = -1);  endfunctionendmodulemodule rt_test_top;endmodule//********************************** tb  ************************************//module tb;    bit clk,rstn;    logic [15:0] din, frame_n, valid_n;    logic [15:0] dout, valido_n, busy_n, frameo_n;    // generate clock    initial         forever #5ns clk <= !clk;    // genarate reset    initial begin        #2ns  rstn <= 1;        #10ns rstn <= 0;        #10ns rstn <= 1;    end    router dut(//例化router为dut        .reset_n(rstn)        ,.clock(clk)        ,.frame_n(intf.frame_n)        ,.valid_n(intf.valid_n)        ,.din(intf.din)        ,.dout(intf.dout)        ,.busy_n(intf.busy_n)        ,.valido_n(intf.valido_n)        ,.frameo_n(intf.frameo_n));    rt_interface intf(); //例化rt_interface为intf    assign intf.reset_n = rstn;    assign intf.clock = clk;        rt_stimulator stim(intf);//例化rt_stimulator为stim    rt_generator gen(); //例化rt_generator为gen //generate and transmit packet 产生数据    initial begin : generate_proc        rt_packet_t p;        gen.put_pkt('{0,3,'{8'h33,8'h77}});        gen.put_pkt('{0,5,'{8'h55,8'h66}});        gen.put_pkt('{3,6,'{8'h77,8'h88,8'h22}});        gen.put_pkt('{4,7,'{8'haa,8'hcc,8'h33}});    end        initial begin : transmit_proc        rt_packet_t p;    forever  begin       gen.get_pkt(p);//generator输出p，p为generator里pkts的首元素      stim.put_pkt(p);//把数据p输入stim里的pkts队列尾   end  end  endmodule</code></pre><p><strong>代码结果</strong><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210201409514.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210201543806.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>车规芯片(三）常用ECC算法简述</title>
       <link href="/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/"/>
       <url>/2022/10/13/che-gui-xin-pian-san-chang-yong-ecc-suan-fa-jian-shu/</url>
@@ -111,12 +192,14 @@
       
       <categories>
           
-          <category> 车规芯片 </category>
+          <category> 数字IC </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 车规芯片 </tag>
             
             <tag> 汉明码 </tag>
             
@@ -140,18 +223,101 @@
       
       <categories>
           
-          <category> 车规芯片 </category>
+          <category> 数字IC </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> ECC </tag>
+            <tag> 车规芯片 </tag>
+            
+            <tag> ECC算法 </tag>
             
             <tag> 汉明码 </tag>
             
-            <tag> 奇偶校验码 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(五)</title>
+      <link href="/2022/10/07/systemverilog-xue-xi-bi-ji-wu/"/>
+      <url>/2022/10/07/systemverilog-xue-xi-bi-ji-wu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="组合-x2F-非组合型"><a href="#组合-x2F-非组合型" class="headerlink" title="组合/非组合型"></a>组合/非组合型</h1><h2 id="非组合型-unpacked"><a href="#非组合型-unpacked" class="headerlink" title="非组合型(unpacked)"></a>非组合型(unpacked)</h2><p>数组中的成员之间存储数据都是互相独立的。如<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081324489.png"><br>SV保留了非组合型的数组声明方式，并且扩展了允许的类型，包括event,logic,bit,byte, int, longint, shortreal和real类型。<br>数组的索引</p><pre class=" language-systemverilog"><code class="language-systemverilog">int a1 [7:0][1023:0];//unpacked arrayint a2 [1:8][1:1024]; //unpacked arraya2 = a1; //copy an entire arraya2[3] = a1[0] ; // copy a slice of an array , a2[3]=a2[3] [1024] </code></pre><p>数组的声明的两种方式</p><pre class=" language-systemverilog"><code class="language-systemverilog">logic [31:0] data [1024];logic [31:0]data [0: 1023];//可看做一维数组，数组每个单元为32位logic类型。同样也可看作一个二维数组，每个元素是一位</code></pre><h2 id="组合型-packed"><a href="#组合型-packed" class="headerlink" title="组合型(packed)"></a>组合型(packed)</h2><p>组合型(packed)除了可以运用的数组声明，也可以用来定义结构体的存储方式:</p><pre class=" language-systemverilog"><code class="language-systemverilog">typedef struct packed {logic [ 7:0]crc;1ogic [63:0]data ;//此处两个数字为连续存放}data _word;data word [7:0]darray; // 1-D packed array of//packed structures</code></pre><p>组合型数组和其数组片段也可以灵活选择，用来拷贝和赋值等组</p><pre class=" language-systemverilog"><code class="language-systemverilog">logic [3:0][7:0]data; //2-D packed arraywire [31:0] out = data;//whole arraywire sign = data[3][7]; //bit-selectwire [3:0] nib = data [01][3:0]; //part-selectbyte high byte;assign high byte = data[31] ; //8-bit slicelogic [15:0] word;assign word = data[1:0]; // 2slices</code></pre><p>四值逻辑数组存放空间较二值逻辑数组所需空间翻倍</p><h2 id="差别"><a href="#差别" class="headerlink" title="差别"></a>差别</h2><p>组合型数组的维度声明在数组名左边，高位同样在左，低维在右</p><h2 id="数组初始化"><a href="#数组初始化" class="headerlink" title="数组初始化"></a>数组初始化</h2><p>组合型(packed)数组初始化时，同向量初始化一致:<br>非组合型(unpacked)数组初始化时，则需要通过’{来对数组的每一个维度进行赋值。</p><pre class=" language-systemverilog"><code class="language-systemverilog">int d [0:1][0:3] = '{ ' { 7,3,0,5}, '{2,0,1,6} };//d[0][01 = 7//d[0][1] = 3//d[0][2] = 0//d[0][3] = 5//d[1][0] = 2 //d[1][1] = 0//d[1][2] = 1//d[1][3] = 6</code></pre><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>非组合型数组在初始化时，也可以类似结构体初始化，通过′{}和default关键词即可以完成<br>非组合型数组的数据成员或者数组本身均可以为其赋值<br>赋值方法</p><h2 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h2><h3 id="组合型与组合型"><a href="#组合型与组合型" class="headerlink" title="组合型与组合型"></a>组合型与组合型</h3><p>对于组合型数组，由于数组会被视为向量，因此当赋值左右两侧操作数的大小和维度不相同时，也可以做赋值。<br>如果当尺寸不相同时，则会通过截取或者扩展右侧操作数的方式来对左侧操作数赋值。</p><pre class=" language-systemverilog"><code class="language-systemverilog">bit [1:0][15:0]a; //32 bit 2-state vectorlogic [3:0][7:0] b; //32 bit 4-state vector    logic [15:0] c; //16 bit 4-state vectorlogic [39:0] d; //40 bit 4-state vectorb = a; //assign 32-bit array to 32-bit arrayc = a; //upper 16 bits will be truncated，高16位将被舍去d = a; //upper 8 bits wil1 be zero filled，高八位将被赋0</code></pre><h3 id="非组合型与非组合型"><a href="#非组合型与非组合型" class="headerlink" title="非组合型与非组合型"></a>非组合型与非组合型</h3><p>对于非组合型数组，在发生数组间拷贝时，则要求做左右两侧操作数的维度和大小必须严格一致。</p><pre class=" language-systemverilog"><code class="language-systemverilog">logic [31:0] a [2:0][9:0];logic [O: 31] b [1:3][1:10];a = b; //assign unpacked array to unpacked array</code></pre><h3 id="组合型与非组合型"><a href="#组合型与非组合型" class="headerlink" title="组合型与非组合型"></a>组合型与非组合型</h3><p>非组合型数组无法直接赋值给组合型数组，同样地，组合型数组也无法直接赋值给非组合型数组。</p><h2 id="数组的索引——foreach循环结构"><a href="#数组的索引——foreach循环结构" class="headerlink" title="数组的索引——foreach循环结构"></a>数组的索引——foreach循环结构</h2><p>SV添加foreach循环来对一维或者多维数组进行循环索引，<br>而不<br>需要指定该数组的维度大小。</p><pre class=" language-systemverilog"><code class="language-systemverilog">int sum [1:8][1:3];foreach ( sum[i,j])sum[i][j] = i +j; //initialize array</code></pre><p>foreach循环结构中的变量<strong>无需声明</strong>。<br>foreach循环结构中的变量是只读的，其<strong>作用域只在此循环结构中</strong>。</p><h1 id="动态数组"><a href="#动态数组" class="headerlink" title="动态数组"></a>动态数组</h1><h2 id="声明方式"><a href="#声明方式" class="headerlink" title="声明方式"></a>声明方式</h2><p>动态数组在声明时需要使用[]，这表示不会在编译时为其制定尺寸，而是在仿真运行时来确定。<br>动态数组一开始为空，而需要使用new[]来为其分配空间</p><h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081344286.png"></p><h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><h2 id="声明方式-1"><a href="#声明方式-1" class="headerlink" title="声明方式"></a>声明方式</h2><p>通过[$]来声明队列，队列的索引值从0到$。</p><h2 id="使用实例-1"><a href="#使用实例-1" class="headerlink" title="使用实例"></a>使用实例</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081344016.png"></p><hr><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081349124.png"></p><h1 id="关联数组"><a href="#关联数组" class="headerlink" title="关联数组"></a>关联数组</h1><p>SV引入了关联数组，可以用来存放散列的数据成员。散列的索引类型除了为整形以外还可以为字符串或者其它类型，而散列存储的数据成员也可以为任意类型。</p><h2 id="使用实例-2"><a href="#使用实例-2" class="headerlink" title="使用实例"></a>使用实例</h2><pre class=" language-systemverilog"><code class="language-systemverilog">module&nbsp;tb;  &nbsp;&nbsp;initial&nbsp;begin  &nbsp;&nbsp;bit&nbsp;[31:0]&nbsp;mem&nbsp;[int&nbsp;unsigned];  &nbsp;&nbsp;int&nbsp;unsigned&nbsp;data,&nbsp;addr;  &nbsp;&nbsp;repeat(5)begin  &nbsp;&nbsp;&nbsp;&nbsp;std::randomize(addr,data)&nbsp;with&nbsp;{addr[31:8]&nbsp;==&nbsp;0;&nbsp;addr[1:0]&nbsp;==&nbsp;0;&nbsp;data&nbsp;inside&nbsp;{[1:10]};&nbsp;};  &nbsp;&nbsp;&nbsp;&nbsp;$display("address&nbsp;:&nbsp;'h%0x,&nbsp;data&nbsp;:&nbsp;'h%0x",&nbsp;addr,&nbsp;data);  &nbsp;&nbsp;&nbsp;&nbsp;mem[addr]&nbsp;=&nbsp;data;  &nbsp;&nbsp;&nbsp;&nbsp;foreach(mem[idx])  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$display("mem&nbsp;adress&nbsp;:&nbsp;'h'%0x,&nbsp;data&nbsp;:&nbsp;'h%0x",&nbsp;idx,&nbsp;mem[idx]);  &nbsp;&nbsp;end  end  endmodule</code></pre><p>仿真结果：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081533507.png"><br>从结果可看出，index并不连续<br>对于结果的打印，同样可采用如下方法：</p><pre class=" language-systemverilog"><code class="language-systemverilog">&nbsp;&nbsp;&nbsp;&nbsp;if(mem.first(addr))begin  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$display("foreach_loop&nbsp;mem&nbsp;address&nbsp;:&nbsp;'h%0x&nbsp;data&nbsp;:&nbsp;'h%0x",addr,mem[addr]);  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(mem.next(addr)); //如果还能继续索引到地址值，继续循环 &nbsp;&nbsp;&nbsp;&nbsp;end</code></pre><p>仿真结果<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081536016.png"><br>此外，在索引时，索引地址不连续，可增加判断索引地址是否存在</p><pre class=" language-systemverilog"><code class="language-systemverilog">&nbsp;&nbsp;if&nbsp;(mem.exists('h10))  &nbsp;&nbsp;&nbsp;&nbsp;$display("ACCESS&nbsp;mem&nbsp;address&nbsp;:&nbsp;'h%0x,&nbsp;data&nbsp;:&nbsp;'h%0x",&nbsp;'h10,&nbsp;mem['h10]);  &nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$display("ACCESS&nbsp;mem&nbsp;address&nbsp;:&nbsp;'h%0x&nbsp;is&nbsp;illegal&nbsp;adress",&nbsp;'h10);</code></pre><p>仿真结果：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081539044.png"></p><h1 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h1><h2 id="数组缩减"><a href="#数组缩减" class="headerlink" title="数组缩减"></a>数组缩减</h2><p>基本的数组缩减方法是把一个数组缩减成一个值。<br>最常用的缩减方法是sum，它对数组中的所有元素求和。</p><pre class=" language-systemverilog"><code class="language-systemverilog">byte b[$] = {2，3，4，5};int W;w = b.sum();  // 14=2+3+4+5w = b.product(); // 120 = 2 *3*4*5W = b.and();  // 0000 0000 = 2&3&4& 5</code></pre><p>其它的数组缩减方法还有product(积), and(与), or(或)和xor(异或)。</p><h2 id="数组定位"><a href="#数组定位" class="headerlink" title="数组定位"></a>数组定位</h2><p>对于非合并数组，可以使用数组定位方法，其返回值将是一个队<br>列而非一个数据成员。</p><pre class=" language-systemverilog"><code class="language-systemverilog">int f[6] = '{1,6,2,6,8,6};  // Fixed-size arrayint d[] = '{2,4,6,8,10};  // Dynamic arrayint q[$] = {1,3,5,7}，  // Queue ;tq[$] ;  // Temporary queue for resulttq = q.min();  // {1}tq = d.max();  // {10}tq = f.unique(); // {1,6,2,8} </code></pre><p>使用foreach也可以实现数组的搜索,不过使用find…with则在查找满足条件的数据成员时，更为方便。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210081547317.png"></p><h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><p>可以通过排序方法改变数组中元素的顺序，可以对它们进行正向、逆向或者乱序的排列。</p><pre class=" language-systemverilog"><code class="language-systemverilog">int a [] =       {9,1,8,3,4,4};d. reverse();  //{4,4,3,8,1,9}d.sort();      //{1,3,4,4,8,9}d.rsort();     //{9,8,4,4,3,1}d.shuffle();   //{9,4,3,8,1,4}</code></pre><p><strong>问答题</strong></p><ul><li><strong>链表和SV中的哪些数组类型(定长数组、动态数组、队列、关联数组)相似，相似的特性有哪些?</strong><br>链表数据在实际存储时，所在的内存地址并不连续，数据随机分布在内存中的各个位置，这种存储结构成为练市存储。链式存储生成的表成为链表。但为了能够保持数据元素之间的顺序关系，每个数据元素在存储的同时，都要配备一个指针，指向它的直接后继元素，每一个数据元素都指向下一个数据元素，这些由指针相互连接的数据，就具有了线性的关联。</li></ul><p>删除链表的元素只需要把前节点的指针域，越过要删除的节点直接指向下一个节点，然后释放被删除节点的空间。若不释放，被删节点成为野指针，造成内存泄露。<br>添加链表的元素时需要先确定要添加的位置，然后把前节点的指针域指向自身，再将自身的指针域指向下一个节点即可。</p><p>链表与数组的区别(C语言)：<br> <strong>应用场景方面</strong>：数组必须事先定义长度(元素个数)，并分配固定大小的空间，不能适应数据动态增减的情况，不能适应数据动态增减的情况。相反，链表可以动态地进行内存分配，可以适应数据动态增减的情况，且可以方便地插入、删除数据项。<br><strong>内存方面</strong>：数组从栈中分配空间，所有关于内存的申请开辟或者析构释放都由系统完成，方便快速，但是自由度小。链表从堆中分配空间，用多少，就开辟多少内存，自由度大，内存的申请管理较麻烦。<br><strong>操作效率方面</strong>：在插入或者删除数组中的元素时，其后的所有元素都要被移动。而在链表中插入或者删除某节点时，只需修改指针即可，不需要移动节点。 因此插入删除元素，链表的效率由于数组。但在访问效率方面，由于数组的内存是连续的，则可以直接使用下标访问数组电的某个元素。链表的内存是不连续的，要访问链表中的某个节点，必须从头节点开始查找。因此，链表的访问效率不如数组。</p><p>回到SystemVerilog，<strong>链表在增删元素操作上与队列相似</strong>，可以在数据中任何地方添加或者删除元素。(但值得注意的是，队列同时又具有数组的优点，可以通过索引实现对任一元素的访问，这一点优于链表。) <strong>链表在动态分配内存上同动态数组类似</strong>链表能够动态地进行内存分配，这一点同动态数组类似。使用动态数组可以在仿真时分配空间或调整宽度。动态数组在声明时使用空的下标[]，数组的宽度不在编译时给出，而在程序运行时再指定，调用new[]操作符来分配空间，同时在方括号中传递数组宽度。<br><strong>SystemVerilog虽然提供了链表数据结构，但是应该避免使用它，因为SystemVerilog提供的队列更加高效易用。</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 数组队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog课程笔记(四)</title>
+      <link href="/2022/10/04/systemverilog-ke-cheng-bi-ji-si/"/>
+      <url>/2022/10/04/systemverilog-ke-cheng-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h1 id="将initial过程快改造为task"><a href="#将initial过程快改造为task" class="headerlink" title="将initial过程快改造为task"></a>将initial过程快改造为task</h1><h1 id="向chnl5发送数据"><a href="#向chnl5发送数据" class="headerlink" title="向chnl5发送数据"></a>向chnl5发送数据</h1><h1 id="自定义输出数据端口"><a href="#自定义输出数据端口" class="headerlink" title="自定义输出数据端口"></a>自定义输出数据端口</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog课程笔记(三)</title>
+      <link href="/2022/10/04/systemverilog-ke-cheng-bi-ji-san/"/>
+      <url>/2022/10/04/systemverilog-ke-cheng-bi-ji-san/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DUT——router功能概述"><a href="#DUT——router功能概述" class="headerlink" title="DUT——router功能概述"></a>DUT——router功能概述</h1><h2 id="管脚图"><a href="#管脚图" class="headerlink" title="管脚图"></a>管脚图</h2><p>以router（路由器）为例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041439616.png"></p><h2 id="输入输出信号"><a href="#输入输出信号" class="headerlink" title="输入输出信号"></a>输入输出信号</h2><p><strong>左边</strong>是输入：16位的din（数据输入）、16位的frame_n（数据帧有效，低电平有效）、16位的valid_n（有效信号，低电平有效）、reset_n（低电平复位）和clock（时钟）<br><strong>右边</strong>是输出：16位的dout（数据输出）、16位的dout（数据输出）、16位的frameo_n（数据帧输出有效）、16位的valido_n（输出有效信号，低电平有效）</p><h2 id="模块功能"><a href="#模块功能" class="headerlink" title="模块功能"></a>模块功能</h2><p>16个输入的通道，选一个通道作为输入通道，同样的，16个输出的通道，也是选一个通道作为输出通道，数据是一bit一bit地传输。<br>例如，选择din[7]为数据的输入通道，所以frame_n[7]和valid_n[7]就是控制信号；选择dout[3]为数据的输出通道，所以frameo_n[3]和valido_n[3]就是控制信号。因此数据会从7号输入通道输入，然后从3号通道输出，路由器的功能就是这么简单。</p><h2 id="输入信号协议"><a href="#输入信号协议" class="headerlink" title="输入信号协议"></a>输入信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041525871.png"><br> <strong>din信号</strong><br>1.din[i]中的i表示从哪路输入，<strong>din中的第一段4bit的数据表示输出地址（低位开始）</strong>，从哪路输出<br>2.地址传输完毕后拉高进入隔离段<br>3.隔离段结束后开始传输数据（低位开始）<br><strong>frame_n信号</strong><br>1.下降沿指示packet的第一位数据<br>2.上升沿指示packet的最后一位数据<br><strong>valid_n信号</strong><br>1.其在din的地址输入时间段可为任意值x<br>2.在隔离段pad拉高<br>3.其拉低时表示数据有效，因此在payload段若其拉高，则din数据无效<br>4.数据输入完毕后拉高</p><h2 id="输出信号协议"><a href="#输出信号协议" class="headerlink" title="输出信号协议"></a>输出信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041531905.png"><br>输出信号时序图如上，比较简单，当valido_n和frameo_n均为低时数据有效，除了packet最后一位输出数据时frameo_n为高&nbsp;。</p><h2 id="复位信号协议"><a href="#复位信号协议" class="headerlink" title="复位信号协议"></a>复位信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041534779.png"><br>以上为其复位协议时序图，有以下几点需要注意：<br>1.复位时，reset_n为低电平,frame_n和valid_n为高电平<br>2.有效复位<strong>至少保持1个clk</strong><br>3.复位后<strong>至少等待15个时钟</strong>周期后才可以发送数据</p><h1 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h1><pre class=" language-systemverilog"><code class="language-systemverilog">//***********************module tb*******************////***********************module tb*******************//module tb;bit clk,rstn;logic [15:0] din, frame_n, valid_n;logic [15:0] dout, valido_n, busy_n, frameo_n;// generate clockinitial     forever #5ns clk <= !clk;// genarate reset  initial begin    #2ns rstn <= 1;    #10ns rstn <= 0;    #10ns rstn <= 1;  end// exemplification//Dutrouter dut(             .reset_n(rstn),  .clock(clk),  .*  //The port name is the same as the variable name);//Stimulatorrt_stimulator stim(  .reset_n(rstn),  .clock(clk),  .*);endmodule//***********************module rt_stimulator*******************////数据从0传到3端口module rt_stimulator(  input clock  ,input reset_n  ,output logic [15:0] din  ,output logic [15:0] frame_n  ,output logic [15:0] valid_n  ,input [15:0] dout  ,input [15:0] valido_n  ,input [15:0] busy_n  ,input [15:0] frameo_n);//for debug purpose from waveform  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;  drv_state_t dbg_state;  //定义检测状态的变量  byte unsigned dbg_din_chnl0_data;  //reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平initial begin : drive_reset_proc  @(negedge reset_n);  din <= 0;  frame_n <= 1;  valid_n <= 1;end// drive chaannel 0 - chanel 15 (din[15:0])//定义数据输出地址及数据bit [3:0] addr;byte unsigned data[];initial begin : drive_chnl0_proc  @(negedge reset_n);  repeat(10) @(posedge clock);  addr = 3;//从第3位输出  data = '{8'h33,8'h77};//数据，8'h33,8'h77// drive address phase 输入地址位阶段for(int i=0;i<4;i++)begin  //4 clock  @(posedge clock);  dbg_state <=DRV_ADDR;  din[0] <= addr[i];  valid_n[0] <= 1'b0;  //valid_n[0] <= $urandom_range(0,1);//valid_n在din的地址输入时间段可为任意值x  frame_n[0] <= 1'b0;//frame_n需要为低end// drive pad phase //隔离阶段  for (int i=0;i<5;i++)begin  //5 clock    @(posedge clock);    dbg_state <=DRV_PAD;    din[0] <= 1'b1;    valid_n[0] <= 1'b1;//valid_n需为高电平    frame_n[0] <= 1'b0; //frame_n需为低电平  end// drive data phase 传输数据阶段  foreach(data[id])begin    for(int i=0;i<8;i++)begin     @(posedge clock);      dbg_state <=DRV_DATA;      dbg_din_chnl0_data <= data[id];      din[0] <= data[id][i];      valid_n[0] <=1'b0;      frame_n <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高    end  end// drive idle phase 闲置（没有数据传输）阶段  @(posedge clock);  dbg_state <=DRV_IDLE;  dbg_din_chnl0_data <= 0;  din[0] <= 1'b0;  valid_n[0] <= 1'b1;  frame_n <= 1'b1;endendmodule</code></pre><h1 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042153244.png"></p><p>另，关于vim编辑器<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042205029.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
             
         </tags>
       
@@ -223,16 +389,16 @@
       
       <categories>
           
-          <category> 图像处理 </category>
+          <category> 猎奇 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> JPEG压缩 </tag>
-            
             <tag> 图像处理 </tag>
+            
+            <tag> JPEG压缩 </tag>
             
         </tags>
       
@@ -250,7 +416,7 @@
       
       <categories>
           
-          <category> 图像处理 </category>
+          <category> 数字IC </category>
           
       </categories>
       
@@ -259,9 +425,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> verilog </tag>
-            
             <tag> DCT变换 </tag>
+            
+            <tag> verilog </tag>
             
         </tags>
       
@@ -279,7 +445,7 @@
       
       <categories>
           
-          <category> 图像处理 </category>
+          <category> 数字IC </category>
           
       </categories>
       
@@ -306,7 +472,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -331,7 +497,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -356,7 +522,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -381,7 +547,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -406,7 +572,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -431,7 +597,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -456,7 +622,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -481,7 +647,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -506,7 +672,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -731,7 +897,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -756,7 +922,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -781,7 +947,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -806,7 +972,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -831,7 +997,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -856,7 +1022,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -881,7 +1047,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -906,7 +1072,7 @@
       
       <categories>
           
-          <category> 半导体 </category>
+          <category> 半导体器件工艺 </category>
           
       </categories>
       
@@ -931,7 +1097,7 @@
       
       <categories>
           
-          <category> 车规芯片 </category>
+          <category> 数字IC </category>
           
       </categories>
       
@@ -941,6 +1107,35 @@
             <tag> 功能安全仿真 </tag>
             
             <tag> 车规芯片 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(四)</title>
+      <link href="/2022/09/25/systemverilog-xue-xi-bi-ji-si/"/>
+      <url>/2022/09/25/systemverilog-xue-xi-bi-ji-si/</url>
+      
+        <content type="html"><![CDATA[<h1 id="验证环境结构"><a href="#验证环境结构" class="headerlink" title="验证环境结构"></a>验证环境结构</h1><h2 id="测试平台"><a href="#测试平台" class="headerlink" title="测试平台"></a>测试平台</h2><p>测试平台(testbench)是整个验证系统的总称。</p><ul><li>包括验证结构中的各个组件、组件之间的连接关系、测试平台的配置和控制。<ul><li>从更系统的意义来讲，它还包括编译仿真的流程、结果分析报告和覆盖率检查等。</li><li>从狭义上讲，我们主要关注验证平台的结构和组件部分，他们可以产生设计所需要的各种输入，也会在此基础上进行设计功能的检查。</li></ul></li><li>测试平台结构图<br>![[Pasted image 20220928085025.png|500]]<ul><li>各个组件之间是相互独立的</li><li>验证组件与设计之间需要连接</li><li>验证组件之间也需要进行通信</li><li>验证环境也需要时钟和复位信号的驱动</li></ul></li><li>验证语言<ul><li>SystemVerilog的使用比例明显占据主导地位。</li><li>SystemC和C/C++在验证部分也有其应用空间。</li><li>方法学(UVM)的统一已经完成。</li></ul></li></ul><h1 id="验证环境组件"><a href="#验证环境组件" class="headerlink" title="验证环境组件"></a>验证环境组件</h1><h2 id="激励发生器"><a href="#激励发生器" class="headerlink" title="激励发生器"></a>激励发生器</h2><ul><li>概念<br>Stimulator(激励发生器）是验证环境的重要部件，在一些场合中，它也被称为driver (驱动器)、BFM(bus functionmodel，总线功能模型), behavioral(行为模型)或者generator(发生器)。</li><li>主要职责<br>Stimulator的主要职责是<strong>模拟与DUT相邻设计的接口协议</strong>。Stimulator不应该违反协议，但不拘束于真实的硬件行为，还可以给出更多丰富的只要协议允许的激励场景。</li><li>接口<br>Stimulator的接口主要是同DUT之间连接<br>较精细的stimulator还可以有其它的配置接口用来控制接口的数据生成。<br>Stimulatort也可以有存储接口数据生成历史的功能。</li><li>分类<ul><li>initiator (发起器)</li><li>responder(响应器)</li></ul></li></ul><h2 id="检测器"><a href="#检测器" class="headerlink" title="检测器"></a>检测器</h2><ul><li>主要功能<br>Monitor(监测器)的主要功能是用来观察DUT的边界或者内部信号<ul><li>观察DUT边界信号。<br>  对于系统信号如时钟，可以监测其频率变化;对于总线信号，可以监测总线的传输类型和数据内容，以及检查总线时序是否符合协议。</li><li>观察DUT内部信号。<br>  从灰盒验证的手段来看，往往需要探视DUT内部信号，用来指导stimulator的激励发送，或者完成覆盖率收集，又或者完成内部功能的检查。</li></ul></li></ul><h2 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h2><ul><li>主要功能<br>模拟设计行为和功能检查</li><li>比较方式<ul><li>线上比较(online check)<br>  在仿真时收集数据和在线比较，并且实时报告。</li><li>线下比较(offline check)<br>  将仿真时收集到的数据记录在文件中，在仿真结束后，通过脚本或者其它手段，进行数据比较。</li></ul></li></ul><h2 id="任务和函数"><a href="#任务和函数" class="headerlink" title="任务和函数"></a>任务和函数</h2><h3 id="任务Task"><a href="#任务Task" class="headerlink" title="任务Task"></a>任务Task</h3><ul><li>任务的定义可以指定参数，input、output、inout及ref皆可。</li><li>任务可以消耗仿真时间。</li><li>任务可以调用其它任务或者函数。</li><li>虽然task不会返回值，但是我们依然可以利用return来使task结束。<br><strong>不使用return</strong>：</li></ul><pre class=" language-systemverilog"><code class="language-systemverilog">`timescale 1ns/1psmodule test;  task mytask(input [7:0] x                  ,input [7:0] y                  ,output [15:0] z);  #5ns;  z = x*y - 1;  #5ns;  endtask    byte unsigned a = 3 ;    byte unsigned b = 4 ;    byte unsigned c;  initial begin    mytask(a,b,c);    repeat(5)begin      #1ns;      $display("@time %t c = %0d", $time, c);  end  endendmodule返回结果time  11000 c=11time  12000 c=11time  13000 c=11time  14000 c=11time  15000 c=11</code></pre><p><strong>使用return</strong>:</p><pre class=" language-systemverilog"><code class="language-systemverilog">`timescale 1ns/1psmodule test;  task mytask(input [7:0] x                  ,input [7:0] y                  ,output [15:0] z);  #5ns;  z = x*y - 1;  return;  #5ns;  endtask    byte unsigned a = 3 ;    byte unsigned b = 4 ;    byte unsigned c;  initial begin    mytask(a,b,c);    repeat(5)begin      #1ns;      $display("@time %t c = %0d", $time, c);  end  endendmodule返回结果time  6000 c=11time  7000 c=11time  8000 c=11time  9000 c=11time  10000 c=11</code></pre><h3 id="函数Funnction"><a href="#函数Funnction" class="headerlink" title="函数Funnction"></a>函数Funnction</h3><ul><li>参数方向声明<br>参数方向可声明为input、output、inout、ref，默认input类型。</li><li>函数返回方式<ul><li>可以使用return直接返回值<br>  return会立即返回</li><li>可以将值赋给与函数同名的变量<br>  赋值给函数同名变量后将继续执行后续代码。</li></ul></li><li>代码示例*</li></ul><pre class=" language-systemverilog"><code class="language-systemverilog">module test;  function automatic void myfunc1 (input [7:0] x                                  ,input [7:0] y                                  ,output [15:0] z);  z = x*y - 1;  endfunction  function [15:0] myfunc2 (input [7:0] x                          ,input [7:0] y);  myfunc2 = x*y - 1;  endfunction  initial begin    byte unsigned a = 3 ;    byte unsigned b = 4 ;    byte unsigned c1 , c2;    myfunc1(a,b,c1);    $display("c = %0d" , c1);    c2 = myfunc2(a , b);    $display("c = %0d" , c2);  endendmodule返回结果：c = 11c = 11</code></pre><h3 id="任务和函数的区别"><a href="#任务和函数的区别" class="headerlink" title="任务和函数的区别"></a>任务和函数的区别</h3><p><strong>仿真时间</strong>：function不会消耗仿真时间，而task则可能会消耗仿真时间。<br><strong>调用</strong>：function无法调用task，而task可以调用function。<br><strong>数据返回</strong>：一个可以返回数据的function只能返回一个单─数值，而任务或者void function不会返回数值。一个可以返回数据的function可以作为一个表达式中的操作数，而该操作数的值即function的返回值。</p><h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><ul><li>参数默认方向<br>参数方向可声明为input、output、inout、ref，<strong>默认input类型</strong>。</li><li>默认数据类型<br>若没有声明数据类型，<strong>默认为1位宽的logic</strong>。</li><li>参数默认值*<br>带有参数默认值的方法被调用时，如果这些参数没有被传递值，那么编译器将会为这些参数传入对应的默认值。</li></ul><p>![[Pasted image 20220928132645.png|500]]</p><ul><li>参数与传递方式<ul><li>位置调用<br>  ![[Pasted image 20220928132645.png|500]]</li><li>名字调用<br>  ![[Pasted image 20220928133227.png|500]]</li></ul></li></ul><p><strong>问答题</strong>：</p><ul><li>激励器(stimulator)对于它所生成的激励，有什么办法将其所有激励数据保存下来?<br>  Stimulatort也可以有存储接口数据生成历史的功能。</li><li>function和task的比较?<br>  <strong>仿真时间</strong>：function不会消耗仿真时间，而task则可能会消耗仿真时间。<br>  <strong>调用</strong>：function无法调用task，而task可以调用function。<br>  <strong>数据返回</strong>：一个可以返回数据的function只能返回一个单─数值，而任务或者void function不会返回数值。一个可以返回数据的function可以作为一个表达式中的操作数，而该操作数的值即function的返回值。</li><li>参数方向有哪些?差别在哪里?<br>  参数方向可声明为input、output、inout、ref，<strong>默认input类型</strong><ul><li><strong>input</strong>：输入端口</li><li><strong>output</strong>：输出端口</li><li><strong>inout</strong>：双向连接端口</li><li><strong>ref</strong>：input，output，inout作为参数传递的过程中是作为参数值传递的，数据在调用过程中均需要被复制。而ref参数传递的则为传递参数的引用地址，参数的传递方式指定为引用而不是复制，比input，output和inout更好用。可以把数组传递给子程序，在任务里可以修改变量而且修改结果对调用他的函数是可见的。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 任务函数 </tag>
             
         </tags>
       
@@ -962,6 +1157,93 @@
     
     
     <entry>
+      <title>SV课程中使用的虚拟机命令</title>
+      <link href="/2022/09/21/sv-ke-cheng-zhong-shi-yong-de-xu-ni-ji-ming-ling/"/>
+      <url>/2022/09/21/sv-ke-cheng-zhong-shi-yong-de-xu-ni-ji-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<ul><li>pwd</li><li>mkdir project</li><li>cd project</li><li>cp -rf /mnt/hgfs/ShareFolder/v0.labs(文件名) .</li><li>ll</li><li>gvim &amp; 保持不在后台运行<br>  vim编辑器中敲入VT</li><li>cp V0_lab/rtl/router.v w2lab/</li><li>cp V0_lab/rtl/router.v w3lab/</li><li>vcs -full64 router.v -top router<br>  编译设计文件<br>  -full64：vcs版本为64位<br>  -top router：顶层文件为router</li><li>history</li><li>vcs -full64 -debug_access+all router.v -top router<br>  -debug_access+all：添加相关调试选项</li><li>./simv -gui &amp;<br>  ./：表示在当前目录下有simv文件<br>  -gui:表示以图形界面方式展示</li><li>touch tb.sv</li><li>vcs -full64 -debug_access+all -sverilog -timescale=1ns/1ps router.v tb.sv -top tb<br>  -sverilog：为识别sv文件<br>  -timescale=1ns/1ps 所有design、tb文件统一timescale</li><li>vsim -gui &amp; 打开queata工具<ul><li>vlog -sv xxx.sv在questa中编译xxx.sv</li><li>vsim -voptargs=+acc -classdebug work.tb 仿真work中的tb文件</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 虚拟机命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(三)</title>
+      <link href="/2022/09/19/systemverilog-xue-xi-bi-ji-san/"/>
+      <url>/2022/09/19/systemverilog-xue-xi-bi-ji-san/</url>
+      
+        <content type="html"><![CDATA[<h1 id="设计特性"><a href="#设计特性" class="headerlink" title="设计特性"></a>设计特性</h1><h2 id="面向可综合设计的主要优化"><a href="#面向可综合设计的主要优化" class="headerlink" title="面向可综合设计的主要优化"></a>面向可综合设计的主要优化</h2><h3 id="过程语句块新特性"><a href="#过程语句块新特性" class="headerlink" title="过程语句块新特性"></a>过程语句块新特性</h3><p>always语句块被细分为了:</p><ul><li><strong>组合逻辑语句块always_comb</strong><ul><li>always_comb可以自动嵌入敏感列表。</li><li>always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个过程块所赋值。</li><li>软件工具会检查该过程块，如果其所表示的不是组合逻辑，那么会发出警告。</li><li>always_comb在仿真0时刻会自动触发一次，无论在0时刻是否有敏感信号列表中的信号发生变化。</li><li>与Verilog @* 的敏感列表声明方式不同处<ul><li>@* 不要求可综合的建模要求，但always_comb则会限制其他过程块对同一变量进行赋值。</li><li>@* 的敏感列表可能不完全，@* 只会将该函数的形式参数自动声明到敏感列表，而不会将该函数展开。</li><li>always_comb则将被调用函数中可能参与运算的其它信号也声明到敏感列表中。<br>  ![[Pasted image 20220919154948.png|400]]</li></ul></li></ul></li><li><strong>锁存逻辑语句块always_latch</strong><ul><li>always latch表示锁存逻辑，且自动插入敏感列表。</li><li>EDA工具会检查always_latch过程块是否真正实现了锁存逻辑。<br>  ![[Pasted image 20220919155220.png|500]]</li></ul></li><li><strong>时序逻辑语句块always_ff</strong><ul><li>always_ff用来表示时序逻辑。</li><li>敏感列表必须指明posedge或者negedge(综合要求)，从而使得EDA工具实现同步或者异步的复位逻辑。</li><li>EDA工具也会验明always_ff过程块语句是否实现了时序逻辑。</li></ul></li></ul><h3 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h3><ul><li>SV可以通过’0，’1，’z和′x来分别填充0，1，z和x。</li><li>SV在比较数据时，可以通过== ?来进行通配比较。在比较操作符的右侧操作数，如果在某些位置有X或者Z，那么它表示的是在该位置上会与左侧操作数的相同位置的任何值相匹配。<br>![[Pasted image 20220919174508.png|700]]</li><li>SV添加了inside操作符，用来检查数值是否在一系列值的集合当中。<br>![[Pasted image 20220919174910.png|600]]</li></ul><h3 id="增强的case与语句"><a href="#增强的case与语句" class="headerlink" title="增强的case与语句"></a>增强的case与语句</h3><p>仿真和综合可以会将case语句做不同的翻译。Verilog定义case语句在执行时按照优先级，而综合编译器则会优化case语句中多余的逻辑。为了保持仿真与综合的一致性，SV提供了<strong>unique</strong>和<strong>priority</strong>的声明，结合case,casex和casez来进一步实现case对应的硬件电路。</p><ul><li><strong>unique case</strong><ul><li>unique case要求每次case选择必须只能满足一条case选项</li><li>unique case不能有重叠的选项，即多个满足条件的选项<br>  ![[Pasted image 20220919175838.png|600]]</li><li>unique case可以并行执行，并且case选项必须完备<br>  ![[Pasted image 20220919175748.png|600]]</li></ul></li><li><strong>priority case</strong><ul><li>priority case则表示必须至少有一个case选项满足要求。如果有多个case选项满足时，第一个满足的分支将会被执行</li><li>priority case的逻辑同if..else的逻辑一致。</li></ul></li></ul><h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>SV添加了新的抽象端口类型interface。interface允许多个信号被整合到一起用来表示一个单一的抽象端口。多个模块因此可以使用同一个interface，继而避免分散的多个端口信号连接。</p><h2 id="接口的内容"><a href="#接口的内容" class="headerlink" title="接口的内容"></a>接口的内容</h2><ul><li>接口不单单可以包含变量或者线网，它还可以封装模块之间通信的协议。</li><li>接口中可以嵌入与协议有关的断言检查、功能覆盖率收集等模块。</li><li>接口不同于模块(module)的地方在于，接口不允许包含设计层次，即接口无法例化module，但是接口可以例化接口。</li><li>接口中可以进一步声明modport来约束不同模块连接时的信号方向。</li></ul><h2 id="接口的声明"><a href="#接口的声明" class="headerlink" title="接口的声明"></a>接口的声明</h2><ul><li>接口的定义同模块定义类似。</li><li>接口也可以有端口，例如外部接入的时钟或者复位信号。</li><li>接口内部可以声明所有的变量或者线网类型。</li></ul><h2 id="接口的例化"><a href="#接口的例化" class="headerlink" title="接口的例化"></a>接口的例化</h2><ul><li>接口的例化方式同模块例化一致。</li><li>模块的端口如果声明为input、output或者inout，那么在例化时可以不连接。</li><li>模块的端口如果声明为interface，那么在例化时则必须连接到一个接口实例，或者另外一个接口端口。</li><li>如果一个模块拥有一个接口类型端口，那么要索引该接口中的信号，需要通过以下方式进行:<br>![[Pasted image 20220922082928.png|500]]</li></ul><h2 id="modport"><a href="#modport" class="headerlink" title="modport"></a>modport</h2><ul><li>接口中的变量或者线网信号，对于连接到该接口的不同模块则可能具备这不同的连接方向。接口引入了modport来作为module port的缩写，表示不同的模块看到同一组信号时的视角(连接方向)。</li><li>在接口中声明modport，需要指明modport中各个信号的方向。</li><li>当一个模块在例化时，可以选择连接到interface端口中具体的某一个modport。这种方式可以降低方向连接错误的可能，进而避免信号多驱动的情况。</li></ul><h2 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h2><p><strong>1.结构体和接口之间的联系和差别有哪些地方?</strong><br><strong>答</strong>：<br><strong>同</strong>：①均可以声明变量或线网类型；②结构体同样可以集合一些变量<br><strong>异</strong>：结构体中不能指定信号方向，接口中用modport来约束不同模块连接时的信号方向。</p><hr><p><strong>2.模块和接口之间的相近的地方有哪些?又有哪些差别?</strong><br><strong>答</strong>：<br><strong>同</strong>：①接口的定义同模块定义类似；②接口的例化方式同模块例化一致；③均可以声明变量或线网类型。<br><strong>异</strong>：①接口不同于模块(module)的地方在于，接口不允许包含设计层次，即接口无法例化module，但是接口可以例化接口。②接口中可以进一步声明modport来约束不同模块连接时的信号方向。③接口不单单可以包含变量或者线网，它还可以封装模块之间通信的协议。④接口中还可以嵌入与协议有关的断言检查、功能覆盖率收集等模块。</p><hr><p><strong>3.将DUT, Interface,TB在顶层连接起来时，要完成哪些步骤?</strong><br><strong>答</strong>：①声明变量；②例化Interface，TB，DUT；③将TB，DUT与Interface连接；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 接口 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>虚拟机常见命令</title>
+      <link href="/2022/09/13/xu-ni-ji-chang-jian-ming-ling/"/>
+      <url>/2022/09/13/xu-ni-ji-chang-jian-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1）pwd命令"><a href="#1）pwd命令" class="headerlink" title="1）pwd命令"></a>1）pwd命令</h2><ul><li><strong>作用</strong>：显示当前所在的工作目录【显示所在的位置】</li><li><strong>格式</strong>：直接执行pwd即可</li></ul><hr><h2 id="2）cd命令"><a href="#2）cd命令" class="headerlink" title="2）cd命令"></a>2）cd命令</h2><ul><li><strong>作用</strong>：切换目录</li><li><strong>格式</strong>：cd &nbsp;目标</li></ul><blockquote><p>举例</p><p>#1 切换到根目录<br>cd /</p><p>#2 切换到home目录<br>cd /home</p><p>#3 切换到tmp目录<br>cd /tmp</p><p>#4 切换到/etc/sysconfig<br>cd /etc/sysconfig</p><p>#5 切换到上一级目录<br>cd ..</p><p>#6 切换上次所在的目录<br>cd -</p></blockquote><hr><h2 id="3）ls命令"><a href="#3）ls命令" class="headerlink" title="3）ls命令"></a>3）ls命令</h2><ol><li><strong>作用</strong>：查看目录下有哪些文件</li><li><strong>格式</strong>：ls &nbsp;[选项] &nbsp;[路径]<br><strong>3.路径</strong>：</li></ol><ul><li>在执行命令的时候，如果不指定路径，则查看的是当前目录下的文件；如果指定路径，则查看指定路径下的文件<br><strong>4.选项：</strong></li><li>-l：显示文件的属性</li><li>-a：显示所有的文件，包括隐藏文件【linux默认是不会显示隐藏文件的】</li></ul><blockquote><p>举例</p><p>#1 查看当前位置下有哪些文件<br>ls</p><p>#2 查看etc下有哪些文件<br>方法1：先切换到etc下，然后执行ls<br>[root@localhost home]# cd /etc<br>[root@localhost etc]# ls</p><p>方法2：在执行ls的时候，指定路径<br>[root@localhost home]# ls /etc</p><p>#3 查看根下有哪些文件<br>方法1：<br>[root@localhost home]# cd /<br>[root@localhost /]# ls</p><p>方法2：<br>[root@localhost home]# ls /</p><p>#4 查看home目录下的所有的文件的文件名<br>[root@localhost /]# ls /home</p><p>#5 查了根目录下所有文件的属性，包括隐藏文件<br>[root@localhost /]# ls -al /  &nbsp;</p></blockquote><p><strong>补充知识1：</strong>linux中，文件的类型主要有两种</p><ul><li>一般文件：通常是可以进行内容写入和编辑的文件，例如windows中的doc、txt</li><li>目录文件：其实就是文件夹</li></ul><p><strong>补充知识2：</strong>Linux中，文件的后缀对与文件的属性没有任何影响</p><ul><li>文件的属性仅仅和创建这个文件的命令相关<hr><h2 id="4）touch命令"><a href="#4）touch命令" class="headerlink" title="4）touch命令"></a>4）touch命令</h2><strong>作用</strong>：创建空白一般文件</li></ul><p>&nbsp; &nbsp; &nbsp; &nbsp;<strong>格式</strong>：</p><blockquote><p>格式1：touch &nbsp;文件名 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # 在当前位置下创建文件<br>格式2：touch &nbsp;/路径/文件名 &nbsp; &nbsp; &nbsp;# 在指定的位置下创建文件</p></blockquote><blockquote><p><strong>例子</strong>：</p><p>#1 创建文件qq.txt<br>[root@localhost home]# touch qq.txt</p><p>#2 在tmp下创建qq.txt<br>方法1：先切换到tmp下，然后创建<br>[root@localhost home]# cd /tmp<br>[root@localhost tmp]# touch qq.txt</p><p>方法2：[root@localhost home]# touch /tmp/qq.txt</p><p>#3 解释下面的命令<br>touch &nbsp;baidu.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 在当前位置下创建baidu.txt<br>touch &nbsp;/baidu.txt &nbsp; &nbsp; &nbsp; &nbsp; # 在根下创建baidu.txt<br>touch &nbsp;/home/baidu.txt &nbsp; &nbsp;# 在home下创建baidu.txt</p></blockquote><hr><h2 id="5）mkdir命令"><a href="#5）mkdir命令" class="headerlink" title="5）mkdir命令"></a>5）mkdir命令</h2><p><strong>作用</strong>：创建目录【创建文件夹】</p><p><strong>格式</strong>：</p><blockquote><p>格式1：mkdir&nbsp; [选项]   目录名<br>格式2：mkdir &nbsp;[选项] &nbsp; /路径/目录名</p></blockquote><p><strong>选项：</strong></p><ul><li>-p：在父目录不存在的情况下，先创建父目录，然后依次创建子目录</li></ul><blockquote><p>举例：</p><p>#1 创建目录book1<br>mkdir &nbsp;book1</p><p>#2 在home下创建目录book2<br>方法1：先切换，在创建<br>cd /home<br>mkdir book2</p><p>方法2：<br>mkdir /home/book2</p><p>#3 在根下创建目录book3<br>mkdir /book3</p><p>#4 创建一组文件夹d1/d2/d3/d4<br>方法1：逐个创建<br>mkdir d1<br>mkdir d1/d2<br>mkdir d1/d2/d3<br>mkdir d1/d2/d3/d4</p><p>方法2：逐个创建<br>mkdir -p d1/d2/d3/d4</p></blockquote><hr><p><strong>6）clear命令</strong></p><p><strong>作用</strong>：清屏</p><p><strong>快捷键</strong>：ctrl+l</p><hr><h2 id="7）cp命令"><a href="#7）cp命令" class="headerlink" title="7）cp命令"></a>7）cp命令</h2><p><strong>作用</strong>：复制文件和目录<br><strong>格式</strong>：</p><blockquote><p>格式1：cp &nbsp;[选项] &nbsp;源文件 &nbsp;目标位置 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 复制过去后，名字不变<br>格式2：cp &nbsp;[选项] &nbsp;源文件 &nbsp;目标位置/新名字 &nbsp; &nbsp; 复制过去后，名字改为新的</p></blockquote><p><strong>选项</strong>：</p><ul><li>-r：用于复制目录【必须用-r，才能复制目录】</li><li>-a：在复制过程中，保持文件的属性不变</li></ul><blockquote><p>举例：</p><p>#1 将/etc/passwd 复制到home下<br>[root@localhost tmp]# cp /etc/passwd /home/</p><p>#2 将/etc/passwd 复制到根下<br>[root@localhost tmp]# cp /etc/passwd &nbsp;/</p><p>#3 将/etc/passwd 复制到home下，复制后的名字变成qq<br>[root@localhost tmp]# cp /etc/passwd /home/qq</p><p>#4 将tmp下的目录d1复制到home下【d1是前面的例子中创建的】<br>[root@localhost tmp]# cp &nbsp;-a &nbsp;/tmp/d1 &nbsp;/home/</p></blockquote><h2 id="8）mv命令"><a href="#8）mv命令" class="headerlink" title="8）mv命令"></a>8）mv命令</h2><p><strong>作用</strong>：移动文件和目录<br><strong>格式：</strong></p><blockquote><p><strong>mv &nbsp;源文件 &nbsp;目标位置<br>mv &nbsp;原文件 &nbsp;目标位置/新名字</strong></p></blockquote><blockquote><p>举例</p><p>#1 在home下新建一个测试文件，t.txt<br>[root@localhost tmp]# touch /home/t.txt</p><p>#2 将上例中的t.txt移动到根下<br>[root@localhost tmp]# mv /home/t.txt /</p><p>#3 将上例中的t.txt移动到根下，并改名为tt.txt<br>[root@localhost tmp]# mv /home/t.txt /tt.txt</p><p>#4 将根下的tt.txt 改名为ttt.txt【原地改名】<br>[root@localhost tmp]# mv &nbsp;/tt.txt &nbsp;/ttt.txt</p></blockquote><hr><h2 id="9）rm命令"><a href="#9）rm命令" class="headerlink" title="9）rm命令"></a>9）rm命令</h2><p><strong>作用</strong>：删除文件</p><p><strong>格式</strong>：</p><blockquote><p>格式1：rm &nbsp;[选项] &nbsp;文件<br>格式2：rm &nbsp;[选项] &nbsp;路径/文件</p></blockquote><p><strong>选项</strong>：</p><ul><li><p>-r：用于删除目录</p></li><li><p>-f：强制执行删除操作【不需要再输入y进行确实删除了】</p></li></ul><blockquote><p>举例</p><p>#1 删除当前目录下的a.txt<br>rm &nbsp;-rf &nbsp;a.txt</p><p>#2 删除根目录下的a.txt<br>rm &nbsp;-fr /a.txt</p><p>#3 删除home下的a.txt<br>rm &nbsp;-r -f /home/a.txt</p></blockquote><p><strong>注意</strong>：</p><ul><li><p>如果不指定路径，则默认路径是当前位置</p></li><li><p>如果指定了路径，就去指定的路径下找文件</p></li></ul><blockquote><p>touch &nbsp;a &nbsp; &nbsp; &nbsp; &nbsp; 在当前位置下，创建文件a<br>touch &nbsp;/home/a &nbsp; 在home目录下，创建文件a</p><p>mkdir b<br>mkdir /home/b</p><p>cp c &nbsp; &nbsp; &nbsp; /home/ &nbsp; 将当前目录下的c复制到home目录下<br>cp /tmp/c &nbsp;/home &nbsp; &nbsp;将tmp目录下的c复制到home下</p><p>mv d &nbsp; &nbsp; &nbsp; /home &nbsp; &nbsp;将当前目录下的d移动home目录下<br>md /tmp/d &nbsp;/home &nbsp; &nbsp;将tmp目录下的d移动到home目录下</p></blockquote><h2 id="10）通配符"><a href="#10）通配符" class="headerlink" title="10）通配符"></a>10）通配符</h2><ul><li><p>通配符：就是具有特殊含义的符号</p></li><li><p>主要有两个</p></li></ul><blockquote><p>* &nbsp;代表的是任意多个任意的字符【0个、1个、多个】<br>? &nbsp;代表的是任意一个字符【1个】</p></blockquote><h2 id="11）cat命令"><a href="#11）cat命令" class="headerlink" title="11）cat命令"></a>11）cat命令</h2><p><strong>作用</strong>：读取文件的内容【比较合适读取行数较少的文件】</p><p><strong>格式</strong>：</p><blockquote><p>cat &nbsp;路径/文件名</p></blockquote><blockquote><p>案例</p><p># 准备测试文件<br>[root@localhost ~]# cp /etc/passwd /home/</p><p># 查看home下的passwd文件中的内容<br>[root@localhost ~]# cat /home/passwd&nbsp;</p></blockquote><h2 id="12）head命令"><a href="#12）head命令" class="headerlink" title="12）head命令"></a>12）head命令</h2><p><strong>作用</strong>：查看文件的前若干行，默认是看前10行</p><p><strong>格式</strong>：</p><blockquote><p>head &nbsp;[选项] &nbsp; 路径/文件</p></blockquote><p><strong>选项</strong>：</p><ul><li>-n #：指定看前几行</li></ul><blockquote><p># 准备测试文件<br>[root@localhost home]# for i in {1..500}; do echo $i &gt;&gt; /home/qq.txt ;done</p><p># 操作示例<br>[root@localhost home]# head qq.txt &nbsp; &nbsp; &nbsp; &nbsp;# 看前10行<br>[root@localhost home]# head -n20 qq.txt &nbsp; # 看前20行<br>[root@localhost home]# head -n3 qq.txt &nbsp; &nbsp;# 看前3行</p></blockquote><h2 id="13）tail命令"><a href="#13）tail命令" class="headerlink" title="13）tail命令"></a>13）tail命令</h2><p><strong>作用</strong>：查看文件的最后若干行，默认是看最后10行</p><p><strong>格式</strong>：</p><blockquote><p>tail &nbsp;[选项] &nbsp; 路径/文件</p></blockquote><p><strong>选项</strong>：</p><ul><li>-n #：指定看后几行</li></ul><h2 id="14）more命令"><a href="#14）more命令" class="headerlink" title="14）more命令"></a>14）more命令</h2><p><strong>作用</strong>：实现分屏查看大文件</p><p><strong>格式</strong>：</p><blockquote><p>more &nbsp;路径/文件名</p></blockquote><p><strong>操作</strong>：</p><ul><li><p>回车：显示下一行</p></li><li><p>空格：显示下一屏</p></li><li><p>b：显示上一屏</p></li><li><p>/目标字符：在文件中搜索内容</p></li><li><p>n：继续向后进行搜索</p></li><li><p>q：退出</p></li></ul><h2 id="15）less命令"><a href="#15）less命令" class="headerlink" title="15）less命令"></a>15）less命令</h2><p><strong>作用</strong>：实现分屏查看大文件</p><p><strong>格式</strong>：</p><blockquote><p>less &nbsp;路径/文件名</p></blockquote><p><strong>操作</strong>：</p><ul><li><p>回车：显示下一行</p></li><li><p>空格：显示下一屏</p></li><li><p>b：显示上一屏</p></li><li><p>/目标字符：在文件中搜索内容</p></li><li><p>n：继续向后进行搜索</p></li><li><p>q：退出</p></li></ul><h2 id="16）wc命令"><a href="#16）wc命令" class="headerlink" title="16）wc命令"></a>16）wc命令</h2><p><strong>作用</strong>：用于统计文件中有多少行、多少个单词、多少个字符</p><p><strong>格式</strong>：</p><blockquote><p>wc &nbsp;[选项] &nbsp;路径/文件名</p></blockquote><p><strong>选项</strong>：</p><ul><li><p>-l：统计行数 【line】</p></li><li><p>-w：统计单词数【word】</p></li><li><p>-c：统计字符数【character】</p></li></ul><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 虚拟机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FPGA学习方法</title>
       <link href="/2022/09/12/fpga-xue-xi-fang-fa/"/>
       <url>/2022/09/12/fpga-xue-xi-fang-fa/</url>
@@ -971,7 +1253,7 @@
       
       <categories>
           
-          <category> FPGA </category>
+          <category> 数字IC </category>
           
       </categories>
       
@@ -979,6 +1261,151 @@
         <tags>
             
             <tag> FPGA </tag>
+            
+            <tag> 学习路线 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(二)</title>
+      <link href="/2022/09/11/systemverilog-xue-xi-bi-ji-er/"/>
+      <url>/2022/09/11/systemverilog-xue-xi-bi-ji-er/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SestemVerilog概述"><a href="#SestemVerilog概述" class="headerlink" title="SestemVerilog概述"></a>SestemVerilog概述</h1><h2 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h2><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h3 id="Verilog的数据类型"><a href="#Verilog的数据类型" class="headerlink" title="Verilog的数据类型"></a>Verilog的数据类型</h3><p>Verilog语言提供两种基本的数据类型，即<strong>变量类型(variables</strong>)和**线网类型(nets)**，==这两种类型都是四值逻辑==，即可表示0、1、X和Z值。</p><ul><li><strong>变量类型(variables)</strong><ul><li>变量类型保存在initial、always、task 和function内赋的值。变量只能用过程赋值来赋值。</li><li>类型是integer 或time的变量一般像有相同数量位数的reg—样运转。</li><li>在表达式中integer的值作为有符号数处理，而reg或time的值作为无符号数处理。</li><li>用reg描述逻辑，integer 描述循环变量和计算，real在系统模型中使用，time和realtime保存测试装置的仿真时间。</li></ul></li><li><strong>线网类型(nets)</strong><ul><li>线网用于建模结构化描述中的连接线路和总线线网的值由线网的驱动器决定。</li><li>驱动器可以是门或模块的实例或者连续赋值的输出。</li><li></li></ul></li></ul><h2 id="SystemVerilog新添加的数据类型"><a href="#SystemVerilog新添加的数据类型" class="headerlink" title="SystemVerilog新添加的数据类型"></a>SystemVerilog新添加的数据类型</h2><ul><li>Verilog并没有严格区分信号的类型，变量和线网类型均是四值逻辑。SV添加了许多新的数据类型来帮助设计和验证工程师。</li><li>SV将硬件信号区分为 <code>类型</code>和<code>数据类型</code><ul><li><code>类型</code>即表示该信号为<strong>变量(variables</strong>)或者**线网类型(nets)**。<ul><li>对于<strong>变量类型</strong>赋值可以使用连续赋值、或者过程赋值。</li><li>对于<strong>线网类型</strong>赋值只能使用连续赋值语句(assign) 。</li></ul></li><li><code>数据类型</code>则表示该数据是<strong>四值逻辑(logic</strong>)还是<strong>二值逻辑(bit)</strong> 。</li></ul></li><li>TIPS<br>  避坑指南:简而言之，你可以在testbench (module)中大量使用logic类型变量，而很少使用wire。什么时候需要wire呢?多于一个驱动源的时候，或者设计模块端口是双向( inout)的时候。</li></ul><h2 id="四值逻辑数据类型"><a href="#四值逻辑数据类型" class="headerlink" title="四值逻辑数据类型"></a>四值逻辑数据类型</h2><ul><li>在Verilog中,reg经常用来表示存储组合逻辑或者时序逻辑的变量，不过初学者容易混淆其综合后的硬件单元。实际上,reg并不一定会被综合为register，而它只是用原来与线网类型相对，表示存储数据的变量。</li><li>在SV中，我们可以直接使用logic(数据类型)来达到==通用的存储硬件数据==的目的</li></ul><pre class=" language-systemverilog"><code class="language-systemverilog">logic resetN; //l a 1-bit wide 4-state variablelogic [63:0] data; //a 64-bit wide variablelogic [0:7] array [0:255]; // an array of 8-bit variables</code></pre><ul><li>logic虽然只是表示数据类型，而在声明时，它==默认会表示变量类型(variable)==，用户也可以显示声明其类型</li></ul><pre class=" language-systemverilog"><code class="language-systemverilog">var logic [63:0] addr; //a 64-bit wide variablewire wire logic [63:0]data; //a 64-bit wide net</code></pre><h2 id="二值逻辑数据类型"><a href="#二值逻辑数据类型" class="headerlink" title="二值逻辑数据类型"></a>二值逻辑数据类型</h2><p>SV添加了二值逻辑数据类型，用来对在RTL更高抽象级的模型建模，例如系统级或者事务级模型</p><ul><li>二值逻辑数据类型<ul><li><strong>bit</strong><br>  a 1-bit 2-state integer    //==双状态，单比特==</li><li><strong>byte</strong><br>  an 8-bit 2-state integer,similar to a c char    //==双状态，8比特有符号整数==</li><li><strong>shortint</strong><br>  a 16-bit 2-state integer,similar to a c shortint : a 32-bit 2-state integer, similar to a c int    //==双状态，16比特有符号整数==</li><li><strong>longint</strong><br>  a 64-bit 2-state integer,similar to a c longlong    //==双状态，64比特有符号整数==</li></ul></li><li>在RTL级别，X值用来捕捉设计错误，例如寄存器未初始化，Z值用来表示未连接或者三态的设计逻辑,但是在系统级或者事务级，Z和X很少被使用。</li><li>类似于logic类型默认为变量类型，bit类型默认也为变量类型。</li></ul><h2 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h2><ul><li>logic或者bit构成的向量(vector)是无符号类型。</li><li>integer、byte、shortint、int、longint为有符号类型。可以在有符号类型后添加unsigned来表示无符号类型</li></ul><pre class=" language-ad-example"><code class="language-ad-example">title: 示例byte有符号类型，表示的数值范围是[-128,127]。byte unsigned表示无符号类型，等同于bit[7:0]，表示的数值范围是[0，255]。</code></pre><ul><li>在构建验证环境总线功能模型(BFM,Bus-Functional Model)时，无需关注硬件底层逻辑(X或者Z值)，所以可使用二值逻辑实现。</li><li>同样，SV在与C发生语言交互时，也可以使用二值逻辑来使得两种语言的边界数据传输更为简单。</li></ul><h2 id="内建数据类型"><a href="#内建数据类型" class="headerlink" title="内建数据类型"></a>内建数据类型</h2><ul><li>按照四值逻辑的类型和二值逻辑的类型划分<ul><li>四值逻辑类型: integer、logic、reg、net-type(例如wire、tri)</li><li>二值逻辑类型: byte、shortint、int、longint、bit</li></ul></li><li>按照有符号和无符号的类型进行划分<ul><li>有符号类型: byte、shortint、int、longint、integer</li><li>无符号类型: bit、logic、reg、net-type(例如wire、tri)</li></ul></li></ul><h2 id="仿真行为"><a href="#仿真行为" class="headerlink" title="仿真行为"></a>仿真行为</h2><ul><li>四值逻辑变量例如reg、logic或者integer等，在仿真开始时的初值为X。</li><li>二值逻辑变量例如bit等，在仿真开始时的初值为0。</li><li>如果四值逻辑与二值逻辑的数据类型之间发生的默认转换，那么Z和X值将转换为0。</li><li>二值逻辑也可以用来实现可综合电路，只是二值逻辑由于没有X和Z值，因此可能会出现仿真行为同综合电路结果不一致的情况。</li></ul><h2 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h2><ul><li>SV添加void类型来表示空类型，经常用在函数定义时表示不会返回数值，同C语言的void使用方法。</li><li>SV添加shortreal表示32位单精度浮点类型，同C语言的float;而Verilog的real类型表示双精度浮点类型，同C语言的double.</li></ul><h1 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a>自定义类型</h1><p>通过用户自定义类型，以往Verilog的代码将可以通过更少的代码来表示更多的功能。用户自定义类型使得代码自身的可读性更好。</p><h2 id="通过typedef来创建用户自定义类型。"><a href="#通过typedef来创建用户自定义类型。" class="headerlink" title="通过typedef来创建用户自定义类型。"></a>通过<code>typedef</code>来创建用户自定义类型。</h2><p>Verilog不允许用户定义新的数据类型。SystemVerilog通过使用typedef提供了一种方法来定义新的数据类型。</p><pre class=" language-systemverilog"><code class="language-systemverilog">typedef int unsigned uint;//uint为int undesign的指代uint a, b;</code></pre><h2 id="通过enum来创建枚举类型。"><a href="#通过enum来创建枚举类型。" class="headerlink" title="通过enum来创建枚举类型。"></a>通过<code>enum</code>来创建枚举类型。</h2><p>枚举类型(enum)提供方法来描述抽象变量的合法值范围，其每一个值都需要提供一个用户自定义的名字。</p><ul><li>默认的枚举类型是int，即32位的二值逻辑数据类型</li><li>为了能够更准确地描述硬件，SV允许指明枚举类型的数据类型，例如:<br>![[Pasted image 20220920173106.png|500]]</li><li>如果一个枚举类型数值被赋值，那么所赋的值必须符合其数据类型。<br>![[Pasted image 20220920173149.png|400]]<br>如果枚举类型是四值逻辑数据类型，那么对枚举值赋为X或者Z也是合法的。<br>![[Pasted image 20220920173240.png|400]]</li><li>自定义枚举类型<ul><li>枚举类型也可以声明为自定义类型，这就使得可以用同一个枚举类型来声明多个变量或者线网.<br>![[Pasted image 20220920173452.png|500]]</li><li>如果枚举类型并没有伴随着typedef，那么该枚举类型指的则是一个匿名枚举类型(anonymous enumerated type)。</li><li>枚举类型赋值时则相对严格，例如下面的例子中，赋值操作符”=“的左右两侧应该尽量为相同的枚举类型。<br>  ![[Pasted image 20220920173624.png|500]]</li></ul></li></ul><h2 id="通过struct来创建结构体类型。"><a href="#通过struct来创建结构体类型。" class="headerlink" title="通过struct来创建结构体类型。"></a>通过<code>struct</code>来创建结构体类型。</h2><p>Verilog语言没有方便的特性可以将相关的信号收集整理到一个信号组中。SV添加了同C一样的结构体struct，而结构体的成员可以是任何变量类型，包括自定义类型或者其它常量类型。<br>![[Pasted image 20220920173802.png|500]]</p><ul><li>结构体类型的变量可以用来索引到其内部的变量，索引方式同C语言一致<br>![[Pasted image 20220920173912.png|500]]</li><li>结构体类型默认也是变量类型，用户也可以显示声明其为var或者wire类型。</li><li>自定义结构体类型<br>![[Pasted image 20220920174028.png|500]]</li><li>赋值<br>结构体变量可以通过索引其各个成员做依次的成员赋值，也可以通过分号′和花括号{}来实现整体赋初值:<br>![[Pasted image 20220920174212.png|500]]</li></ul><h1 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul><li>默认的枚举类型是int，即32位的二值逻辑数据类型。为了能够更准确地描述硬件，SV允许指明枚举类型的数据类型</li><li>字符串类型变量的存储单元为byte类型。</li><li>字符串类型变量长度为N时，其字符成员索引值为从O到N-1.</li><li>不同于C函数，字符串结尾没有”空字符”即null字符”\O”。</li><li>字符串的内存是动态分配的，用户无需担心内存空间管理。</li></ul><h2 id="字符串内建方法"><a href="#字符串内建方法" class="headerlink" title="字符串内建方法"></a>字符串内建方法</h2><ul><li>str.len():返回字符串的长度。</li><li>str.putc(i, c):将第i个字符替换为字符c，等同于str[i]=c。</li><li>str.getc(i):返回第i个字符。</li><li>str.substr(i, j):将从第i个字符到第j个字符的字符串返回。</li><li>str.{atoi(), atohex(), atooct, atobin}:将字符串转变为十进制、十六进制、八进制或者二进制数据。</li></ul><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul><li>在状态机或者组着电路中的case语句中的default分支或者if-else if-else中的else分支语句，有时会把变量赋值为’×’，这实际上只会影响仿真，但对综合电路不会产生影响，试问这么做是为什么?不影响电路综合可能是由于什么原因?</li><li>四值逻辑的数据类型应该在哪些地方声明，例如硬件部分，还是软件部分，或者是其它结构中?为什么需要这么做?<br>  四值逻辑的数据类型用于表征硬件电路，信号共有4种状态”0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。采用四值逻辑可以表征电路中不稳定的状态或者无驱动状态。如果用二值逻辑表示硬件电路，尽管能综合但综合电路与实际电路有出入，建模过程中存在失真问题。通常二值逻辑用于较高抽象级的模型建模，四值逻辑用于较低抽象级。</li><li>在处理枚举类型变量和整形变量的相互赋值情况中，应该注意哪些容易出错的地方?在从整形到枚举类型转换的过程中,有哪些方法?</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 数据类型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SystemVerilog学习笔记(一)</title>
+      <link href="/2022/09/10/systemverilog-xue-xi-bi-ji-yi/"/>
+      <url>/2022/09/10/systemverilog-xue-xi-bi-ji-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SV系统验证第1周"><a href="#SV系统验证第1周" class="headerlink" title="SV系统验证第1周"></a>SV系统验证第1周</h1><h2 id="相关名词"><a href="#相关名词" class="headerlink" title="相关名词"></a>相关名词</h2><ul><li>验证： verify/verification (国外也称为validation)<ul><li>pre-silicon validation: 流片之前做的验证</li><li>post-silicon validation: 流片之后做的测试</li><li>国内公司区分验证与测试较明确，或将流片后的测试工作外包；国外通常将验证与测试归为同一岗位。</li></ul></li><li>TestBench：测试平台，为了检验待测设计（design under test，DUT）而搭建的验证环境。</li><li>DUT(Design under Test)/DUV(design under Verification)：待测设计</li><li>&nbsp;Stimulator：激励发生器</li><li>monitor：监测DUT的输入</li><li>test case：测试用例</li><li>Emulator :硬件加速器</li></ul><h2 id="芯片开发概述"><a href="#芯片开发概述" class="headerlink" title="芯片开发概述"></a>芯片开发概述</h2><h3 id="验证的概念"><a href="#验证的概念" class="headerlink" title="验证的概念"></a>验证的概念</h3><ul><li>用来证明设计功能正确，符合设计功能描述的流程</li></ul><h3 id="测试平台"><a href="#测试平台" class="headerlink" title="测试平台"></a>测试平台</h3><p>![[Pasted image 20220910102700.png|400]]</p><ul><li>对DUT创建测试序列 ，Stimulator利用Clock发送激励(Stimulus)。</li><li>monitor观察DUT的输入</li><li>Checker对DUT的输出数据与预期数据进行比对</li><li>报告检查结果</li></ul><p>硬件验证区别于软件软件在于时序</p><h3 id="设计与验证"><a href="#设计与验证" class="headerlink" title="设计与验证"></a>设计与验证</h3><p>![[Pasted image 20220910105836.png|500]]<br>设计和验证要独立工作</p><h3 id="芯片体积有多大"><a href="#芯片体积有多大" class="headerlink" title="芯片体积有多大"></a>芯片体积有多大</h3><p>职业规划：事业第一个五年把IP的项目整<br>个流程与SoC项目的整个流程都过一遍</p><h3 id="芯片开发流程"><a href="#芯片开发流程" class="headerlink" title="芯片开发流程"></a>芯片开发流程</h3><ul><li>市场人员与客户沟通，了解用户需求</li><li>系统设计人员按照功能划分为各个子系统</li><li>子系统进一步被划分为功能模块，由设计团队人员实现</li><li>验证人员对设计功能展开验证，发现设计缺陷，交由设计人员修正。验证人员需要写两部分代码<ul><li><strong>验证环境文件</strong>：写验证组件</li><li><strong>测试代码</strong>：产生数据、配置等</li></ul></li><li>验证没有出现漏洞后，交由后端人员进行综合、布局、布线。</li><li>后端人员将核心数据交由FAB进行流片。</li></ul><p>![[Pasted image 20220910111408.png|550]]</p><h3 id="验证和设计的紧密关系"><a href="#验证和设计的紧密关系" class="headerlink" title="验证和设计的紧密关系"></a>验证和设计的紧密关系</h3><ul><li>验证最好能够懂设计</li><li>验证相比设计入门更加容易，但验证与设计同样重要，验证的行业天花板持平设计甚至更高。</li><li>设计和验证都需要围绕功能文档。</li><li>尽量在流水线中做并行的工作（设计初步实现之后需要验证入场），尽量提前芯片开发的周期。</li><li>验证发现结果不符合预期时，如果漏洞明显可交由设计修正，待返回再测试；如果功能实现与设计存在分歧，则需共同回顾功能描述，统一对功能的理解。</li></ul><h3 id="验证人员的工作"><a href="#验证人员的工作" class="headerlink" title="验证人员的工作"></a>验证人员的工作</h3><p>在设计人员根据设计功能描述，实现各个模式RTL代码之后，开始构建验证环境，做几项工作来检查设计:</p><ul><li>设计文件是否正确地按照功能描述文挡去实施了?</li><li>硬件设计人员是否有遗漏掉的边界情况(corner case) ?</li><li>硬件设计是否足够稳定来处理一些错误情况(errorresponse) ?</li></ul><h3 id="验证与设计的协作"><a href="#验证与设计的协作" class="headerlink" title="验证与设计的协作"></a>验证与设计的协作</h3><ul><li>验证和设计都需要认真阅读功能描述文档</li><li>设计会将功能描述文档翻译为RTL模型</li><li>验证会按照其功能发送激励和比较结果</li></ul><p>![[Pasted image 20220910180320.png|400]]</p><h2 id="芯片验证概述"><a href="#芯片验证概述" class="headerlink" title="芯片验证概述"></a>芯片验证概述</h2><h3 id="验证的目标"><a href="#验证的目标" class="headerlink" title="验证的目标"></a>验证的目标</h3><ul><li>“<strong>按时保质低耗</strong>“完成目标硬件设计的验证工作<ul><li><strong>按时</strong><ul><li>按照项目预先的进度来考虑验证的节点(milestone)，即系统、子系统、模块等的deadline</li><li>模块之间相互关联，个人的延时会影响团队的延时</li></ul></li><li><strong>保质</strong><ul><li>尽可能少将缺陷暴露在流片之后，缺陷暴露在不同阶段造成的损呈指数增长</li><li>被市场发现缺陷会对芯片设计公司和客户双方造成消极影响</li></ul></li><li><strong>低耗</strong><ul><li>更短的时间、更少的人力来完成芯片设计任务</li><li>控制缺陷暴露的阶段</li></ul></li></ul></li></ul><h3 id="验证的重要性"><a href="#验证的重要性" class="headerlink" title="验证的重要性"></a>验证的重要性</h3><ul><li>缺陷率增长曲线<ul><li>重大缺陷造成额外的成本损失是越靠后越巨大</li><li>缺陷率增长曲线的曲率又是逐渐减小的</li><li>快而全地提供缺陷率增长是理想目标</li></ul></li><li>二次流片<br>一旦芯片在出片以后被检测出的严重缺陷会直接导致芯片的二次流片，这对于成本控制是—种额外的损失，消耗时间和人力资源。一方面，重新流片带来的成本巨大；另一方面，涉及到Fab厂产能、排期等复杂因素，重新流片的时间窗口至少为3个月。</li></ul><p>![[Pasted image 20220910180629.png|400]]<br>![[Pasted image 20220910180648.png|400]]</p><h3 id="验证的环节"><a href="#验证的环节" class="headerlink" title="验证的环节"></a>验证的环节</h3><p>![[Pasted image 20220910185152.png|300]]</p><ol><li>拿功能详述文档创建验证计划</li><li>开发验证环境(实验1-2)</li><li>调试环境和HDL文件</li><li>递归测试：避免“拆东墙补西墙”</li><li>硅后测试</li><li>展开逃逸分析</li></ol><p>具体为：<br>1）了解spec，即代码的规格说明书，有结构模型、功能描述、信号端口、寄存器定义等，它是设计和验证对接工作的桥梁。<br>2）制定testplan，一个完整的验证计划需要考虑的东西有很多，它为后续工作的进行提供了方向。<br>3）构建testbench，根据具体验证需求选择相应的组件，搭建出尽量可重用的验证环境。<br>4）编写testcase，根据之前定制的验证计划，coding相应的测试用例，debug fail case，把全部case调试至pass。<br>5）收集coverage，跑regression回归，根据覆盖率来决定是否加case，直到满足RTL freeze要求。</p><h1 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h1><ol><li><strong>设计人员和验证人员他们的协作关系体现在哪些地方?</strong></li></ol><p>答:主要体现在功能模块的共同实现上：设计人员根据功能描述文档将模块功能以RTL代码实现，给出HDL文件；验证人员同样需要阅读功能描述文档，根据模块的功能发送激励展开验证，判断设计是否满足要求等。<br>若满足要求即可交予后端人员进行下一步操作，结果不符合预期时，如果漏洞明显可交由设计修正，待返回再测试；如果功能实现与设计存在分歧，则需共同回顾功能描述，统一对功能的理解。因此，验证人员与设计人员共同完成功能模块的实现。</p><ol start="2"><li><strong>为什么芯片验证的重要性目前越来越高?</strong></li></ol><p>答：芯片验证的目的是”按时保质低耗”完成目标硬件设计的验证工作。其中，最重要的一点是通过芯片验证能够将尽可能少将缺陷暴露在流片之后。根据额外成本与缺陷发现时间关系曲线分析可知， 重大缺陷造成额外的成本损失靠后呈指数递增。若在RTL级发现缺陷交予设计人员修正即可；若在流片之后发现严重缺陷，可能导致芯片的二次流片。一方面，重新流片带来的成本巨大；另一方面，涉及到Fab厂产能、排期等复杂因素，重新流片的时间窗口至少为3个月。若在投入市场后发现重大缺陷，或给芯片设计厂与客户都带来巨大损失。因此，通过芯片验证尽可能早发现缺陷对于成本的控制具有重要意义。</p><ol start="3"><li><strong>在一个完成的验证周期中，有哪些工作需要完成呢?</strong></li></ol><p>答：验证人员首先根据功能描述文档制订验证计划，接着开发验证环境，编写并调试验证环境文件与测试代码，写测试用例。接着进行递归测试，完成后进行流片前完备性检查。流片以后进行硅后系统测试，最后进行展开逃逸分析，吸取教训。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+            <tag> 概述 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Obsidan(三) 插件用法</title>
+      <link href="/2022/09/09/obsidan-san-cha-jian-yong-fa/"/>
+      <url>/2022/09/09/obsidan-san-cha-jian-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、dataview使用方法"><a href="#一、dataview使用方法" class="headerlink" title="一、dataview使用方法"></a>一、dataview使用方法</h1><h2 id="搜索用法"><a href="#搜索用法" class="headerlink" title="搜索用法"></a>搜索用法</h2><pre><code>* 直接搜索关键字* 搜索包含多个关键字的文档（空格间隔）* 搜索包含某一个关键字的文档（OR）* 指定搜索范围    * 搜索文件名 file:word    * 搜索文本内容 contant:word    * 搜索标签 tag:word     * 搜索同一行中的关键词 line:word1 word2    * 搜索同一章节中的多个关键字 section:word1 word2    * 搜索同一段落（块）中的多个关键词 block:word1 word2 </code></pre><h2 id="数据库用法"><a href="#数据库用法" class="headerlink" title="数据库用法"></a>数据库用法</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul><li>Obsidian资料库中的查询工具/插件<ul><li>查询对象：Obsidian数据库</li><li>查询依据: <ul><li><a href="%E5%8F%AF%E8%87%AA%E5%AE%9A%E4%B9%89">[01 Obsidan学习笔记/04 YAML|YAML]</a></li><li>[[03 meatainfo|meatainfo}]](文件属性，不可自定义）</li></ul></li></ul></li></ul><h3 id="完整语法"><a href="#完整语法" class="headerlink" title="完整语法"></a>完整语法</h3><p>![[Pasted image 20220909154144.png]]</p><h3 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a>用法示例</h3><p><strong>示例1:</strong> 检索文件夹中内容：</p><blockquote><pre class=" language-dataview"><code class="language-dataview">list from "00 Obsidan学习笔记"</code></pre></blockquote><hr><p><strong>示例2:</strong> 增加条件检索文件夹中内容</p><blockquote><pre class=" language-dataview"><code class="language-dataview">list from # dataview查询依据where rating > 5</code></pre></blockquote><hr><p><strong>示例3：</strong> 检索文件夹中内容，升/降序排列（按文件名称）：</p><blockquote><pre class=" language-dataview"><code class="language-dataview">list from # dataview查询依据where rating > 5sort file.name asc</code></pre></blockquote><hr><p><strong>示例4：</strong> 检索文件夹中内容，升/降序排列，以表格形式展现：</p><blockquote><pre class=" language-dataview"><code class="language-dataview">table file.size as 文件大小 , rating as 评分from #dataview查询依据where rating > 5sort file.name asc</code></pre></blockquote><hr><h1 id="二、Admination插件用法"><a href="#二、Admination插件用法" class="headerlink" title="二、Admination插件用法"></a>二、Admination插件用法</h1><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>放置折叠框</p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class=" language-markdown"><code class="language-markdown">```ad-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span> # Admonition type. See below for a list of available types.title:                  # Admonition title.collapse:               # Create a collapsible admonition.icon:                   # Override the icon.color:                  # Override the color.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.</code></pre><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><ul><li><strong>Admonition类型</strong><br>![[Pasted image 20220909184056.png]]</li></ul><pre class=" language-ad-example"><code class="language-ad-example">title: 示例type=example</code></pre><pre class=" language-ad-quote"><code class="language-ad-quote">title: 语录type=quote</code></pre><pre class=" language-ad-abstract"><code class="language-ad-abstract">title: 摘要type=abstract</code></pre><pre class=" language-ad-bug"><code class="language-ad-bug">title: BUGtype=bug</code></pre><pre class=" language-ad-info"><code class="language-ad-info">title: 信息type=info</code></pre><pre class=" language-ad-warning"><code class="language-ad-warning">title: 警告type=warning</code></pre><pre class=" language-ad-failure"><code class="language-ad-failure">title: 失败type=failure</code></pre><pre class=" language-ad-important"><code class="language-ad-important">title: 重要type=important</code></pre><pre class=" language-ad-question"><code class="language-ad-question">title: 问题type=question</code></pre><pre class=" language-ad-danger"><code class="language-ad-danger">title: 危险type=danger</code></pre><ul><li><strong>title</strong>:       # Admonition title. 键入标题</li></ul><pre class=" language-ad-note"><code class="language-ad-note">title: 输入标题(若标题字段留空仅显示文本内容)[输入文本内容]</code></pre><ul><li><strong>collapse</strong>:    # Create a collapsible admonition. 使用 collapse参数创建可折叠的admonition。<ul><li><code>collapse: open</code>  默认打开，可折叠</li><li><code>collapse: on</code>  默认折叠，可打开</li><li>如果参数为空白，则 collapse 参数将不执行任何操作。</li><li>默认情况下，在设置中，admonition可以设置为可折叠。</li></ul></li></ul><pre class=" language-ad-note"><code class="language-ad-note">title: 示例：默认打开，可折叠collapse: open[输入文本内容]</code></pre><pre class=" language-ad-note"><code class="language-ad-note">title: 示例：默认折叠，可打开collapse: on[输入文本内容]</code></pre><ul><li><strong>icon</strong>:        # Override the icon. 改变图标</li></ul><pre class=" language-ad-note"><code class="language-ad-note">icon: triforce[输入文本内容]</code></pre><ul><li><strong>color</strong>:       # Override the color. 改变颜色<br>可以使用该参数设置Admonition颜色。<strong>输入的颜色必须是 RGB 三元组。</strong></li></ul><pre class=" language-ad-note"><code class="language-ad-note">color: 1000, 100, 100[输入文本内容]</code></pre><ul><li><strong>嵌套使用</strong></li></ul><pre class=" language-ad-note"><code class="language-ad-note">title: Nested Admonitionscollapse: openHello!````ad-notetitle: This admonition is nested.This is a nested admonition!```ad-warningtitle: This admonition is closed.collapse: close```````This is in the original admonition.</code></pre><ul><li><strong>在Admonitions中显示代码块</strong></li></ul><p>对于单个层，可以使用标记代码块语法：<code>~~~</code></p><pre class=" language-ad-info"><code class="language-ad-info">```ad-bugtitle: I'm Nested!~~~javascriptthrow new Error("Oops, I'm a bug.");~~~``````javascriptconsole.log("Hello!");```</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 猎奇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Obsidian </tag>
+            
+            <tag> dataview </tag>
+            
+            <tag> Admination </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Obsidan(二) Markdown语法笔记</title>
+      <link href="/2022/09/09/obsidan-er-markdown-yu-fa-bi-ji/"/>
+      <url>/2022/09/09/obsidan-er-markdown-yu-fa-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="1-代码块"><a href="#1-代码块" class="headerlink" title="1.代码块"></a>1.代码块</h1><pre class=" language-markdown"><code class="language-markdown"></code></pre><h1 id="2-标题"><a href="#2-标题" class="headerlink" title="2.标题"></a>2.标题</h1><h1 id="3-字体"><a href="#3-字体" class="headerlink" title="3.字体"></a>3.字体</h1><h2 id="3-1样式"><a href="#3-1样式" class="headerlink" title="3.1样式"></a>3.1样式</h2><p>在 Markdown 语法中，使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签的&nbsp;<code>face</code>&nbsp;属性修改文字字体。字体在不同环境中支持程度不同，表现结果可能也不同。</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>HEI<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是黑体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>KAI<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是楷体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">face</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>GB18030 Bitmap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这里是扩展字体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font face="HEI">这里是黑体</font><br><font face="KAI">这里是楷体</font><br><font face="GB18030 Bitmap">这里是扩展字体</font></p><h2 id="3-2字号"><a href="#3-2字号" class="headerlink" title="3.2字号"></a>3.2字号</h2><p>Markdown 有三种主要方式：</p><h3 id="3-2-1使用-lt-font-gt-标签；"><a href="#3-2-1使用-lt-font-gt-标签；" class="headerlink" title="3.2.1使用&nbsp;<font>&nbsp;标签；"></a>3.2.1使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签；</h3><p>使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签&nbsp;<code>size</code>&nbsp;属性修改局部字号</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1号字 最小<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>3号字 默认<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>4号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>5号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>6号字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">size</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>7号字 最大<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font size="1">1号字 最小</font><br><font size="2">2号字</font><br><font size="3">3号字 默认</font><br><font size="4">4号字</font><br><font size="5">5号字</font><br><font size="6">6号字</font><br><font size="7">7号字 最大</font></p><h3 id="3-2-2通过-lt-big-gt-或者-lt-small-gt-标签"><a href="#3-2-2通过-lt-big-gt-或者-lt-small-gt-标签" class="headerlink" title="3.2.2通过&nbsp;<big>&nbsp;或者&nbsp;<small>&nbsp;标签"></a>3.2.2通过&nbsp;<code>&lt;big&gt;</code>&nbsp;或者&nbsp;<code>&lt;small&gt;</code>&nbsp;标签</h3><h3 id="3-2-3通过修改-style-样式实现。"><a href="#3-2-3通过修改-style-样式实现。" class="headerlink" title="3.2.3通过修改&nbsp;style&nbsp;样式实现。"></a>3.2.3通过修改&nbsp;<code>style</code>&nbsp;样式实现。</h3><h2 id="3-3字体颜色"><a href="#3-3字体颜色" class="headerlink" title="3.3字体颜色"></a>3.3字体颜色</h2><p>在 Markdown 语法中，使用&nbsp;<code>&lt;font&gt;</code>&nbsp;标签的&nbsp;<code>color</code>&nbsp;属性修改文字颜色。</p><pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>红色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>green<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>绿色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>蓝色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rgb(200, 100, 100)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>使用 rgb 颜色值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#FF00BB<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>使用十六进制颜色值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font color="red">红色</font><br><font color="green">绿色</font><br><font color="blue">蓝色</font><br><font color="rgb(200, 100, 100)">使用 rgb 颜色值</font><br><font color="#FF00BB">使用十六进制颜色值</font></p><pre class=" language-markdown"><code class="language-markdown"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span> to right, <span class="token hexcode">#ff1616</span>, <span class="token hexcode">#ff7716</span>, <span class="token hexcode">#ffdc16</span>, <span class="token hexcode">#36c945</span>, <span class="token hexcode">#10a5ce</span>, <span class="token hexcode">#0f0096</span>, <span class="token hexcode">#a51eff</span>, <span class="token hexcode">#ff1616</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>这是七色光彩背景颜色<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span></code></pre><p><font style="background: linear-gradient( to right, #ff1616, #ff7716, #ffdc16, #36c945, #10a5ce, #0f0096, #a51eff, #ff1616);">这是七色光彩背景颜色</font></p><h2 id="3-4粗体斜体"><a href="#3-4粗体斜体" class="headerlink" title="3.4粗体斜体"></a>3.4粗体斜体</h2><p>使用 <code>*</code> 和 <code>**</code> 分别表示斜体和粗体，例如<br><em>斜体</em><br><strong>粗体</strong><br><em><strong>又斜又粗</strong></em></p><h2 id="3-5-高亮"><a href="#3-5-高亮" class="headerlink" title="3.5 高亮"></a>3.5 高亮</h2><p>==高亮==</p><h2 id="3-6跨行注释"><a href="#3-6跨行注释" class="headerlink" title="3.6跨行注释"></a>3.6跨行注释</h2><p>这里是行内注释：<br>%%预览模式下你将看不到这句话%%<br>这里是跨行注释：<br>%% 所谓跨行<br>就是可以有很多行 %%</p><h1 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h1><pre class=" language-markdown"><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token punctuation">*</span><span class="token punctuation">*</span></span> 或者 ---</code></pre><hr><hr><h1 id="5-删除线"><a href="#5-删除线" class="headerlink" title="5.删除线"></a>5.删除线</h1><p>使用<code>~~双波浪线~~</code>表示删除线<br><del>删除线</del></p><h1 id="6-列表"><a href="#6-列表" class="headerlink" title="6.列表"></a>6.列表</h1><h2 id="6-1有序列表"><a href="#6-1有序列表" class="headerlink" title="6.1有序列表"></a>6.1有序列表</h2><p>语法：<code>数字</code>＋<code>.</code>＋<code>空格</code></p><pre class=" language-markdown"><code class="language-markdown">1. 2. 3. </code></pre><ol><li>第一</li><li>第二</li><li>第三</li></ol><h2 id="6-2无序列表"><a href="#6-2无序列表" class="headerlink" title="6.2无序列表"></a>6.2无序列表</h2><p>语法： <code>-</code> 或者<code>+</code> 或者<code>*</code> ＋<code>space</code></p><pre class=" language-markdown"><code class="language-markdown">* - + </code></pre><ul><li>第一</li></ul><ul><li>第二</li></ul><ul><li>第三</li></ul><h2 id="6-3列表嵌套"><a href="#6-3列表嵌套" class="headerlink" title="6.3列表嵌套"></a>6.3列表嵌套</h2><p>table键控制缩进，shift＋table取消缩进</p><ul><li>第一层 1<ul><li>第二层 1<ul><li>第三层 1<ul><li>第四层 1<ul><li>第五层 1</li></ul></li></ul></li><li>第三层 2</li></ul></li><li>第二层 2</li></ul></li></ul><h1 id="7-引用"><a href="#7-引用" class="headerlink" title="7.引用"></a>7.引用</h1><p>使用 <code>&gt;</code> 表示，可以有多个 <code>&gt;</code>，表示层级更深，例如</p><blockquote><p>第一层</p><blockquote><p>第二层</p><blockquote><p>第三层</p><blockquote><p>第四层</p></blockquote></blockquote></blockquote></blockquote><h1 id="8-代码样式"><a href="#8-代码样式" class="headerlink" title="8.代码样式"></a>8.代码样式</h1><h2 id="8-1行内代码"><a href="#8-1行内代码" class="headerlink" title="8.1行内代码"></a>8.1行内代码</h2><p>使用 「反引号&nbsp;<code>`</code>」符号定义行内代码。<br><code>行内代码</code></p><h2 id="8-2代码块"><a href="#8-2代码块" class="headerlink" title="8.2代码块"></a>8.2代码块</h2><p>使用四个空格缩进表示代码块，例如<br>    print(‘hello,world’)<br>    print(‘hello,world’)<br>        print(‘hello,world’)<br>        print(‘hello,world’)<br>        print(‘hello,world’)</p><h1 id="8-超链接"><a href="#8-超链接" class="headerlink" title="8.超链接"></a>8.超链接</h1><p>语法：<code>中括号[链接名称](目标链接)</code></p><pre class=" language-markdown"><code class="language-markdown">[Stephen<span class="token italic"><span class="token punctuation">_</span>Dai的个人空间<span class="token punctuation">_</span></span>哔哩哔哩](https://space.bilibili.com/444343706?spm<span class="token italic"><span class="token punctuation">_</span>id<span class="token punctuation">_</span></span>from=333.1007.0.0)</code></pre><p><a href="https://space.bilibili.com/444343706?spm_id_from=333.1007.0.0">Stephen_Dai的个人空间_哔哩哔哩</a></p><p>==TIPS: 若超链接为视频，可在<strong>阅读模式</strong>下Ctrl+单击链接，在软件内打开==</p><h1 id="9-表格"><a href="#9-表格" class="headerlink" title="9.表格"></a>9.表格</h1><p><strong>Markdown 表格包含三个部分：表头、分割线、数据。</strong></p><ul><li><strong>表头</strong>&nbsp;用来对列名对象进行描述，也就是通常所说的列名；</li><li><strong>数据</strong>&nbsp;用来展示每行的具体内容，数据是表格的核心；</li><li><strong>分割线</strong>&nbsp;用来区分表头和数据，也是 Markdown 中表格定义的最基本语法要求。</li></ul><p><strong>Markdown 表格由 「竖线&nbsp;<code>|</code>」、「减号&nbsp;<code>-</code>」、「冒号&nbsp;<code>:</code>」三种符号组成。</strong></p><ul><li><strong>竖线</strong>&nbsp;用来定义列，每两个竖线之间为一个单元格元素；</li><li><strong>减号</strong>&nbsp;用来定义分割线，也就是分割表头和数据体；</li><li><strong>冒号</strong>&nbsp;配合减号使用，用于定义列数据的对齐属性。</li></ul><pre class=" language-markdown"><code class="language-markdown">|商品|数量|单价||---|---:|:---:||苹果|10|\$1||电脑|1|\$1999|</code></pre><table><thead><tr><th>商品</th><th>数量</th><th>单价</th></tr></thead><tbody><tr><td>苹果</td><td>10</td><td>$1</td></tr><tr><td>电脑</td><td>1</td><td>$1999</td></tr></tbody></table><h1 id="10-数学公式"><a href="#10-数学公式" class="headerlink" title="10.数学公式"></a>10.数学公式</h1><p>Markdown 中的数学公式支持支持 <strong>LaTeX</strong>，分为「行中公式」和「独立公式」两种。</p><p>行中公式用两个单独的「美元符&nbsp;<code>$</code>」表示。</p><p>世界上最难的问题$1+1=2$，如何证明？</p><p>独立公式用两个连续的「美元符&nbsp;<code>$$</code>」表示，换行通过&nbsp;<code>\</code>&nbsp;实现。</p><p>平均数符号：$overline{xyz}$<br>开二次方符号：$sqrt x$<br>开方符号：$sqrt[3]{x+y}$<br>对数符号：$log(x)$<br>极限符号：$lim^{x to infty}<em>{y to 0}{frac{x}{y}}$<br>极限符号：$displaystyle lim^{x to infty}</em>{y to 0}{frac{x}{y}}$<br>求和符号：$sum^{x to infty}<em>{y to 0}{frac{x}{y}}$<br>求和符号：$displaystyle sum^{x to infty}</em>{y to 0}{frac{x}{y}}$<br>积分符号：$int^{infty}<em>{0}{xdx}$<br>积分符号：$displaystyle int^{infty}</em>{0}{xdx}$ </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 猎奇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Obsidan </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Obsidan(一) 双向链接</title>
+      <link href="/2022/09/08/obsidan-yi-shuang-xiang-lian-jie/"/>
+      <url>/2022/09/08/obsidan-yi-shuang-xiang-lian-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="双链"><a href="#双链" class="headerlink" title="双链"></a>双链</h1><ul><li><strong>入链</strong>：从哪个链接跳转过来的 (<strong>反向链接</strong>)</li><li><strong>出链</strong>：即将跳转的链接</li></ul><hr><h1 id="创建链接步骤"><a href="#创建链接步骤" class="headerlink" title="创建链接步骤"></a>创建链接步骤</h1><ol><li>创建一个标准链接来指向其他笔记 </li><li>指向另一篇笔记中的某个分级标题、具体段落、具体某一块</li><li>链接创建别名<br>![[Pasted image 20220907162921.png]]<br> 示例：[[01 markdown语法#^abe080|《markdown语法中的标题语法》]]</li></ol><hr><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol><li>自定义块编号并引用：<br> 示例：[[01 markdown语法#^lianjie|自定义链接]]</li><li>显示链接内容: 链接前面添加英文感叹号!<br> 示例：![[01 markdown语法#^lianjie|自定义链接]]</li></ol><h1 id="双链的意义"><a href="#双链的意义" class="headerlink" title="双链的意义"></a>双链的意义</h1><p>Obsidan以内容为基础，链接为核心。建立不同知识之间的连接，将不同知识相关性程度可视化，形成知识网络。<br>![[Pasted image 20220908161959.png]]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 猎奇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Obsidan </tag>
+            
+            <tag> 笔记管理 </tag>
+            
+            <tag> 双向链接 </tag>
             
         </tags>
       
