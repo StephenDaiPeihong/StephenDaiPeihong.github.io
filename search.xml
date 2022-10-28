@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>lightroom后期（五）局部曝光的调整</title>
+      <link href="/2022/10/28/lightroom-hou-qi-si-ju-bu-pu-guang-de-diao-zheng/"/>
+      <url>/2022/10/28/lightroom-hou-qi-si-ju-bu-pu-guang-de-diao-zheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、渐变滤镜"><a href="#一、渐变滤镜" class="headerlink" title="一、渐变滤镜"></a>一、渐变滤镜</h1><p>渐变滤镜的作用呢，是创造有过度的曝光调整，可以是生硬的过度，也可以是柔和的过度。软过度的调整呢，让照片中的光线看起来要更自然。<br>拍日落的时候，当太阳逐渐降低到地平线后，天空的曝光很亮，但是地面的建筑阴影这些背光的位置很暗。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210281956398.png"><br>这个时候就可以使用渐变滤镜来调整。在照片中曝光有差别的位置，拉一个渐变滤镜，通常是在地平线的位置。过度要稍微的软一些，也就是这三条线的距离要大一点。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282000844.png"><br>在参数的设置里，可以按照上一节([[lightroom后期（三）提升照片质感]])对比度和立体感的调整方法来设置参数<br>可以添加一个明亮度范围蒙板<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282002665.png"><br>在范围这里边，左侧是暗部，右侧是亮部，点击显示明亮度蒙板就可以看到调整的过程当中蒙板的变化。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282005945.png"><br>同样也可以增加阴影来调高所有的阴影位置，在这个案例当中，可以搭配阴影和明亮度蒙板来调整建筑与天空之间的过渡。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282008223.png"><br>对比一下原片，可以看到高光的位置，也就是天空被压暗，而建筑呢被提亮。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282009769.png"><br>无论是1/2还是1/3的构图方法，甚至是左右分割以及对角线曝光不平衡的画面，只要是大面积的需要调整曝光的时候呢，都可以使用渐变滤镜来解决。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282011038.png"></p><h1 id="二、径向滤镜"><a href="#二、径向滤镜" class="headerlink" title="二、径向滤镜"></a>二、径向滤镜</h1><p>由于径向滤镜的覆盖面积，是圆形或者是椭圆形的，在调整高光的时候要更方便，在城市建筑以及街景的案例当中更为常用。例如这张照片左侧的树和右侧的建筑，刚好形成了一个框架，照片中间的建筑和天空被阳光直射，使用径向滤镜刚好达到完美的覆盖这个区域。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282013415.png"><br>在径向滤镜当中，比渐变滤镜啊要多一个选项，叫做羽化，指的是滤镜周围的过渡，大多数的情况下呢，都需要使用比较大的羽化，让光线过度更自然，勾选左下角的显示选定的蒙板叠加，就可以看到现在径向滤镜所影响的范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282015936.png"><br>降低羽化会让滤镜的边缘过渡非常的生硬，所以经常我们要加大羽化的数值，营造比较自然柔和的光线。</p><h1 id="三、调整画笔"><a href="#三、调整画笔" class="headerlink" title="三、调整画笔"></a>三、调整画笔</h1><p>调整画笔是非常重要的细节修补工具，特别是城市照片这种细节特别多的题材，例如这张照片当中，酒店建筑外观的立体感稍微有点差，渐变滤镜和径向滤镜的覆盖范围又没有办法在这个位置发挥很好的作用，那就刚好用到了调整画笔。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282018972.png"></p><p>后期思路：降低屋顶曝光，提高建筑白色部分曝光度，增大与屋顶对比。添加白色色阶，降低黑色色阶，让窗户的这个窗户框能够变得更明显，增加一点点的纹理。通过这样的分区调整屋顶以及楼体的曝光，就可以实现将建筑细节重塑曝光的效果。<br>对比原片，就可以看到现在建筑拥有更立体的效果。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282022793.png"></p><p>以上这三个工具的区别，可以理解为覆盖面积的不一样。<br>渐变滤镜的面积最大，径向滤镜适合圆形的范围调整；画笔适应能力最强，它的覆盖面积最小，可以自由的选择想要调整的位置以及形状，是精修细节的最好选择。组合搭配这三个工具，就可以实现特别的光影效果，特别是在调整黑白照片当中，利用局部曝光的明暗对比来提亮主体，压暗阴影，获得更具有戏剧性的视觉效果。</p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV15b4y1Q7xH/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83d80c57e4377b69f911cc68016fb835">【Edi x TourBox后期训练营】光影的后期再造秘籍 - 局部曝光的调整对照片的微妙作用_哔哩哔哩_bilibili</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摄影后期 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lightroom </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>lightroom后期(三) 提升照片质感</title>
+      <link href="/2022/10/27/lightroom-hou-qi-san-ti-sheng-zhao-pian-zhi-gan/"/>
+      <url>/2022/10/27/lightroom-hou-qi-san-ti-sheng-zhao-pian-zhi-gan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、对比度"><a href="#一、对比度" class="headerlink" title="一、对比度"></a>一、对比度</h1><h2 id="亮度对比"><a href="#亮度对比" class="headerlink" title="亮度对比"></a>亮度对比</h2><p>改变光线的明暗差别，可以提高物体的立体感。当有光照到的亮部和阴影位置的暗部差别很大的时候，物体看起来更加立体。所以天气不好或者阴天的时候建筑立体感看起来要差一些。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210271427490.png"><br>大范围设置：<font color="#0070c0">对比度</font><br>更精细设置：<font color="#0070c0">高光</font>和<font color="#0070c0">阴影</font>以及<font color="#0070c0">黑白色阶</font>设置，它基本上只影响了直方图左右两端的曲线，也就是非常亮和非常暗的区域（直方图从左到右分别是黑色色阶、阴影、曝光度、高光和白色色阶）。 </p><h2 id="颜色的明亮度对比"><a href="#颜色的明亮度对比" class="headerlink" title="颜色的明亮度对比"></a>颜色的明亮度对比</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210271428890.png"><br>在<font color="#0070c0">HSL颜色工具中的</font><font color="#0070c0">明亮度</font>设置，可以将主体和背景的颜色拉开对比， 同样可以获得很好的立体感提升。</p><h1 id="二、清晰度"><a href="#二、清晰度" class="headerlink" title="二、清晰度"></a>二、清晰度</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210271429623.png"><br><font color="#0070c0">纹理</font>是用来增加细节的很好方法，特别是建筑纹理或者不同材质材料的纹路。<br><font color="#0070c0">清晰度</font>的调整范围要比纹理更大，不仅影响纹理，还影响整张照片所有物体边缘的明暗对比。增加清晰度可以看到阴影部分变得更暗，<u>它和对比度参数最大的不同是：对比度设置会降低暗部提高亮度，提高亮部的亮度。而清晰度设置对物体边缘暗部的影响要更大，而高光只有一点点变化。</u></p><h1 id="三、锐化"><a href="#三、锐化" class="headerlink" title="三、锐化"></a>三、锐化</h1><p>在Lightroom的细节工具当中，<font color="#0070c0">锐化</font>是后期时常用的细节增强工具。锐化会给照片中所有的物体边缘带来非常强烈的对比。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210271424301.png"><br><font color="#00b050">数量参数</font>通常控制在50以下，避免过度锐化带来更多噪点。<br><font color="#00b050">半径参数</font>指锐化边缘的范围，半径数值从0到3.0像素，避免过度使用的话控制在1-1.5之间。<br><font color="#00b050">蒙版设置</font>是用来去掉一些不该被锐化的区域，例如只想要锐化建筑，但是并不想影响云和天空，添加蒙版就可以去掉这些区域的锐化效果</p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV1nz4y117Ub/">【Edi x TourBox后期训练营】提高照片质感的方法 - 对比度/清晰度/锐化可以为照片带来什么样改变_哔哩哔哩_bilibili</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 摄影后期 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lightroom </tag>
+            
+            <tag> 提升质感 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Obsidan(四)  自带callout用法</title>
       <link href="/2022/10/24/obsidan-si-zi-dai-callout-yong-fa/"/>
       <url>/2022/10/24/obsidan-si-zi-dai-callout-yong-fa/</url>
@@ -62,7 +114,7 @@
       <link href="/2022/10/23/lightroom-hou-qi-er-hou-qi-kuai-su-xiu-pian-liu-cheng/"/>
       <url>/2022/10/23/lightroom-hou-qi-er-hou-qi-kuai-su-xiu-pian-liu-cheng/</url>
       
-        <content type="html"><![CDATA[<h1 id="第一步：改变照片的尺寸和比例"><a href="#第一步：改变照片的尺寸和比例" class="headerlink" title="第一步：改变照片的尺寸和比例"></a>第一步：改变照片的尺寸和比例</h1><h2 id="变换工具"><a href="#变换工具" class="headerlink" title="变换工具"></a>变换工具</h2><p>在变换工具中，可以进行手动或者自动校正垂直线<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232202333.png"></p><h2 id="裁剪工具"><a href="#裁剪工具" class="headerlink" title="裁剪工具"></a>裁剪工具</h2><p>在裁剪叠加里有一个非常好用的小工具，当地平线在照片里比较明显可以看出来的时候，点击“自动”按钮就可以自动修正。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232205428.png"><br>有很多时候照片里看不出水平线，需要手动调整，可以点击下面这个小尺子的图标。拉一条水平线，来告诉Lightroom这里本该是地平线，全都设置好了之后就可以锁定图像了。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221023_221022.gif"></p><h2 id="镜头矫正"><a href="#镜头矫正" class="headerlink" title="镜头矫正"></a>镜头矫正</h2><p>勾选移除色差和启用配置文件校正这两个选项可以进行视角矫正。<br>同样地，也可尽手动操作来校正广角镜头的畸变、以及消除紫边和暗角。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232241294.png"></p><h1 id="第二步：修整曝光还原色彩"><a href="#第二步：修整曝光还原色彩" class="headerlink" title="第二步：修整曝光还原色彩"></a>第二步：修整曝光还原色彩</h1><h2 id="白平衡校正"><a href="#白平衡校正" class="headerlink" title="白平衡校正"></a>白平衡校正</h2><p>这一步的目的主要是让照片中的颜色还原成拍摄时的样子，为之后的调色打基础。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232246573.png"></p><h2 id="色调修正"><a href="#色调修正" class="headerlink" title="色调修正"></a>色调修正</h2><p>对照片的全局曝光进行修正<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232246382.png"><br>调整局部曝光可以使用径向滤镜、渐变滤镜和调整画笔。<br>可以使用渐变滤镜调整比较规律的大面积；径向滤镜用来调整圆形或椭圆形范围；画笔可以更加精细调整局部范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232249320.png"></p><h1 id="第三步：增加立体感和细节"><a href="#第三步：增加立体感和细节" class="headerlink" title="第三步：增加立体感和细节"></a>第三步：增加立体感和细节</h1><h2 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232252200.png"><br>其中，纹理和清晰度可以有效的增加细节和质感。</p><h2 id="色调曲线工具"><a href="#色调曲线工具" class="headerlink" title="色调曲线工具"></a>色调曲线工具</h2><p>色调曲线工具可以同时改变照片的曝光和对比度，色调的改变可以导致照片的立体感产生变化。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232254636.png"></p><h2 id="细节工具"><a href="#细节工具" class="headerlink" title="细节工具"></a>细节工具</h2><p>对照片进行锐化和细节增强<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232256377.png"></p><h1 id="第四步：调色和添加效果"><a href="#第四步：调色和添加效果" class="headerlink" title="第四步：调色和添加效果"></a>第四步：调色和添加效果</h1><p>接下来对照片进行微调或者加强渲染，形成自己的独特调色风格<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232301802.png"></p><h1 id="第五步：去除污点和杂物"><a href="#第五步：去除污点和杂物" class="headerlink" title="第五步：去除污点和杂物"></a>第五步：去除污点和杂物</h1><p>去除如传感器污点，影响照片效果的内容等等。可以使用Lightroom中的污点去除工具，不仅可以去除点状的内容，还可以去除复杂外形的杂物。只需要拖动鼠标，完整的覆盖想要去除的区域，lightroom就会寻找一个类似的内容进行覆盖<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232305738.png"></p><p>。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="第一步：改变照片的尺寸和比例"><a href="#第一步：改变照片的尺寸和比例" class="headerlink" title="第一步：改变照片的尺寸和比例"></a>第一步：改变照片的尺寸和比例</h1><h2 id="变换工具"><a href="#变换工具" class="headerlink" title="变换工具"></a>变换工具</h2><p>在变换工具中，可以进行手动或者自动校正垂直线<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232202333.png"></p><h2 id="裁剪工具"><a href="#裁剪工具" class="headerlink" title="裁剪工具"></a>裁剪工具</h2><p>在裁剪叠加里有一个非常好用的小工具，当地平线在照片里比较明显可以看出来的时候，点击“自动”按钮就可以自动修正。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232205428.png"><br>有很多时候照片里看不出水平线，需要手动调整，可以点击下面这个小尺子的图标。拉一条水平线，来告诉Lightroom这里本该是地平线，全都设置好了之后就可以锁定图像了。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221023_221022.gif"></p><h2 id="镜头矫正"><a href="#镜头矫正" class="headerlink" title="镜头矫正"></a>镜头矫正</h2><p>勾选移除色差和启用配置文件校正这两个选项可以进行视角矫正。<br>同样地，也可尽手动操作来校正广角镜头的畸变、以及消除紫边和暗角。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232241294.png"></p><h1 id="第二步：修整曝光还原色彩"><a href="#第二步：修整曝光还原色彩" class="headerlink" title="第二步：修整曝光还原色彩"></a>第二步：修整曝光还原色彩</h1><h2 id="白平衡校正"><a href="#白平衡校正" class="headerlink" title="白平衡校正"></a>白平衡校正</h2><p>这一步的目的主要是让照片中的颜色还原成拍摄时的样子，为之后的调色打基础。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232246573.png"></p><h2 id="色调修正"><a href="#色调修正" class="headerlink" title="色调修正"></a>色调修正</h2><p>对照片的全局曝光进行修正<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232246382.png"><br>调整局部曝光可以使用径向滤镜、渐变滤镜和调整画笔。<br>可以使用渐变滤镜调整比较规律的大面积；径向滤镜用来调整圆形或椭圆形范围；画笔可以更加精细调整局部范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232249320.png"></p><h1 id="第三步：增加立体感和细节"><a href="#第三步：增加立体感和细节" class="headerlink" title="第三步：增加立体感和细节"></a>第三步：增加立体感和细节</h1><h2 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232252200.png"><br>其中，纹理和清晰度可以有效的增加细节和质感。</p><h2 id="色调曲线工具"><a href="#色调曲线工具" class="headerlink" title="色调曲线工具"></a>色调曲线工具</h2><p>色调曲线工具可以同时改变照片的曝光和对比度，色调的改变可以导致照片的立体感产生变化。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232254636.png"></p><h2 id="细节工具"><a href="#细节工具" class="headerlink" title="细节工具"></a>细节工具</h2><p>对照片进行锐化和细节增强<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232256377.png"></p><h1 id="第四步：调色和添加效果"><a href="#第四步：调色和添加效果" class="headerlink" title="第四步：调色和添加效果"></a>第四步：调色和添加效果</h1><p>接下来对照片进行微调或者加强渲染，形成自己的独特调色风格<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232301802.png"></p><h1 id="第五步：去除污点和杂物"><a href="#第五步：去除污点和杂物" class="headerlink" title="第五步：去除污点和杂物"></a>第五步：去除污点和杂物</h1><p>去除如传感器污点，影响照片效果的内容等等。可以使用Lightroom中的污点去除工具，不仅可以去除点状的内容，还可以去除复杂外形的杂物。只需要拖动鼠标，完整的覆盖想要去除的区域，lightroom就会寻找一个类似的内容进行覆盖。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210232305738.png"></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV1mK4y1Q7uy/?vd_source=83d80c57e4377b69f911cc68016fb835">【Edi x TourBox后期训练营】后期修片的流程顺序 - 新手快速入门摄影后期的实用方法_哔哩哔哩_bilibili</a></p>]]></content>
       
       
       <categories>
@@ -116,7 +168,7 @@
       <link href="/2022/10/21/lightroom-hou-qi-yi-tu-pian-guan-li-fang-fa/"/>
       <url>/2022/10/21/lightroom-hou-qi-yi-tu-pian-guan-li-fang-fa/</url>
       
-        <content type="html"><![CDATA[<h2 id="一-文件管理体系"><a href="#一-文件管理体系" class="headerlink" title="(一)文件管理体系"></a>(一)文件管理体系</h2><ol><li>使用<font color="#7030a0">摄影日期</font>(或加上<font color="rgb(227, 108, 9)">地名</font>)命名文件夹</li><li>按照文件格式分类分别保存JEPG、RAW、视频文件</li><li>新建加水印图片的文件夹，保存缩小尺寸、添加水印的照片，用于网络分享</li></ol><h2 id="二-lightroom导入照片的方式"><a href="#二-lightroom导入照片的方式" class="headerlink" title="(二)lightroom导入照片的方式"></a>(二)lightroom导入照片的方式</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211231869.png"><br><font color="#fac08f">复制</font>：将照片复制到新位置并添加到目录<br><font color="#00b0f0">移动</font>：将照片移到新位置并添加到目录<br><font color="#b2a2c7">添加</font>：将照片添加到目录而不移动</p><h2 id="三-筛选和照片分类"><a href="#三-筛选和照片分类" class="headerlink" title="(三)筛选和照片分类"></a>(三)筛选和照片分类</h2><p><strong>可以对照片进行旗标、评定星级和添加颜色标签，以及添加人脸标签来进行标记和分类</strong></p><h3 id="1-添加旗帜"><a href="#1-添加旗帜" class="headerlink" title="1. 添加旗帜"></a>1. 添加旗帜</h3><p>可以把想要保留的照片添加旗标<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211245144.png"><br>在过滤器中选择留用即可在当前窗口只保留被标记旗子的照片<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211246948.png"></p><h3 id="2-设置星级"><a href="#2-设置星级" class="headerlink" title="2. 设置星级"></a>2. 设置星级</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211248403.png"></p><h3 id="3-颜色标签"><a href="#3-颜色标签" class="headerlink" title="3. 颜色标签"></a>3. 颜色标签</h3><p>可以对照片的类型做一个区分，区分日落、夜景等等<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211250975.png"></p><h3 id="4-人脸标签"><a href="#4-人脸标签" class="headerlink" title="4. 人脸标签"></a>4. 人脸标签</h3><p>通过一张照片上的人脸识别，可以让Lightroom自动搜索所有的照片，并且添加人物标签。</p><h2 id="四-添加导出预设"><a href="#四-添加导出预设" class="headerlink" title="(四)添加导出预设"></a>(四)添加导出预设</h2><p>建议建一个原尺寸JPEG导出预设，其他根据需要添加自定义导出预设<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211300675.png"></p><p>如果照片导出后预览颜色奇怪，或者在其他设备上看到的颜色和原片不—样，多半是这个色彩空间没有选择sRGB的原因</p><h2 id="五-添加水印"><a href="#五-添加水印" class="headerlink" title="(五)添加水印"></a>(五)添加水印</h2><p>可添加<font color="#ffc000">文字</font>/<font color="#00b0f0">图片</font>水印，导出时勾选即可<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211303104.png"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一-文件管理体系"><a href="#一-文件管理体系" class="headerlink" title="(一)文件管理体系"></a>(一)文件管理体系</h2><ol><li>使用<font color="#7030a0">摄影日期</font>(或加上<font color="rgb(227, 108, 9)">地名</font>)命名文件夹</li><li>按照文件格式分类分别保存JEPG、RAW、视频文件</li><li>新建加水印图片的文件夹，保存缩小尺寸、添加水印的照片，用于网络分享</li></ol><h2 id="二-lightroom导入照片的方式"><a href="#二-lightroom导入照片的方式" class="headerlink" title="(二)lightroom导入照片的方式"></a>(二)lightroom导入照片的方式</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211231869.png"><br><font color="#fac08f">复制</font>：将照片复制到新位置并添加到目录<br><font color="#00b0f0">移动</font>：将照片移到新位置并添加到目录<br><font color="#b2a2c7">添加</font>：将照片添加到目录而不移动</p><h2 id="三-筛选和照片分类"><a href="#三-筛选和照片分类" class="headerlink" title="(三)筛选和照片分类"></a>(三)筛选和照片分类</h2><p><strong>可以对照片进行旗标、评定星级和添加颜色标签，以及添加人脸标签来进行标记和分类</strong></p><h3 id="1-添加旗帜"><a href="#1-添加旗帜" class="headerlink" title="1. 添加旗帜"></a>1. 添加旗帜</h3><p>可以把想要保留的照片添加旗标<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211245144.png"><br>在过滤器中选择留用即可在当前窗口只保留被标记旗子的照片<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211246948.png"></p><h3 id="2-设置星级"><a href="#2-设置星级" class="headerlink" title="2. 设置星级"></a>2. 设置星级</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211248403.png"></p><h3 id="3-颜色标签"><a href="#3-颜色标签" class="headerlink" title="3. 颜色标签"></a>3. 颜色标签</h3><p>可以对照片的类型做一个区分，区分日落、夜景等等<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211250975.png"></p><h3 id="4-人脸标签"><a href="#4-人脸标签" class="headerlink" title="4. 人脸标签"></a>4. 人脸标签</h3><p>通过一张照片上的人脸识别，可以让Lightroom自动搜索所有的照片，并且添加人物标签。</p><h2 id="四-添加导出预设"><a href="#四-添加导出预设" class="headerlink" title="(四)添加导出预设"></a>(四)添加导出预设</h2><p>建议建一个原尺寸JPEG导出预设，其他根据需要添加自定义导出预设<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211300675.png"></p><p>如果照片导出后预览颜色奇怪，或者在其他设备上看到的颜色和原片不—样，多半是这个色彩空间没有选择sRGB的原因</p><h2 id="五-添加水印"><a href="#五-添加水印" class="headerlink" title="(五)添加水印"></a>(五)添加水印</h2><p>可添加<font color="#ffc000">文字</font>/<font color="#00b0f0">图片</font>水印，导出时勾选即可<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211303104.png"></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV1uv411v7Qe/">【Edi x TourBox后期训练营】如何管理和批量处理旅行照片 - 完整的图片数据整理方案_哔哩哔哩_bilibili</a></p>]]></content>
       
       
       <categories>
@@ -497,9 +549,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> DCT变换 </tag>
-            
             <tag> verilog </tag>
+            
+            <tag> DCT变换 </tag>
             
         </tags>
       
@@ -1176,9 +1228,9 @@
       
         <tags>
             
-            <tag> 功能安全仿真 </tag>
-            
             <tag> 车规芯片 </tag>
+            
+            <tag> 功能安全仿真 </tag>
             
         </tags>
       
