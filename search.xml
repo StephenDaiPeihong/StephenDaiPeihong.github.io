@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>lightroom后期（五）局部曝光的调整</title>
+      <title>lightroom后期（四）局部曝光的调整</title>
       <link href="/2022/10/28/lightroom-hou-qi-si-ju-bu-pu-guang-de-diao-zheng/"/>
       <url>/2022/10/28/lightroom-hou-qi-si-ju-bu-pu-guang-de-diao-zheng/</url>
       
-        <content type="html"><![CDATA[<h1 id="一、渐变滤镜"><a href="#一、渐变滤镜" class="headerlink" title="一、渐变滤镜"></a>一、渐变滤镜</h1><p>渐变滤镜的作用呢，是创造有过度的曝光调整，可以是生硬的过度，也可以是柔和的过度。软过度的调整呢，让照片中的光线看起来要更自然。<br>拍日落的时候，当太阳逐渐降低到地平线后，天空的曝光很亮，但是地面的建筑阴影这些背光的位置很暗。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210281956398.png"><br>这个时候就可以使用渐变滤镜来调整。在照片中曝光有差别的位置，拉一个渐变滤镜，通常是在地平线的位置。过度要稍微的软一些，也就是这三条线的距离要大一点。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282000844.png"><br>在参数的设置里，可以按照上一节([[lightroom后期（三）提升照片质感]])对比度和立体感的调整方法来设置参数<br>可以添加一个明亮度范围蒙板<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282002665.png"><br>在范围这里边，左侧是暗部，右侧是亮部，点击显示明亮度蒙板就可以看到调整的过程当中蒙板的变化。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282005945.png"><br>同样也可以增加阴影来调高所有的阴影位置，在这个案例当中，可以搭配阴影和明亮度蒙板来调整建筑与天空之间的过渡。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282008223.png"><br>对比一下原片，可以看到高光的位置，也就是天空被压暗，而建筑呢被提亮。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282009769.png"><br>无论是1/2还是1/3的构图方法，甚至是左右分割以及对角线曝光不平衡的画面，只要是大面积的需要调整曝光的时候呢，都可以使用渐变滤镜来解决。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282011038.png"></p><h1 id="二、径向滤镜"><a href="#二、径向滤镜" class="headerlink" title="二、径向滤镜"></a>二、径向滤镜</h1><p>由于径向滤镜的覆盖面积，是圆形或者是椭圆形的，在调整高光的时候要更方便，在城市建筑以及街景的案例当中更为常用。例如这张照片左侧的树和右侧的建筑，刚好形成了一个框架，照片中间的建筑和天空被阳光直射，使用径向滤镜刚好达到完美的覆盖这个区域。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282013415.png"><br>在径向滤镜当中，比渐变滤镜啊要多一个选项，叫做羽化，指的是滤镜周围的过渡，大多数的情况下呢，都需要使用比较大的羽化，让光线过度更自然，勾选左下角的显示选定的蒙板叠加，就可以看到现在径向滤镜所影响的范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282015936.png"><br>降低羽化会让滤镜的边缘过渡非常的生硬，所以经常我们要加大羽化的数值，营造比较自然柔和的光线。</p><h1 id="三、调整画笔"><a href="#三、调整画笔" class="headerlink" title="三、调整画笔"></a>三、调整画笔</h1><p>调整画笔是非常重要的细节修补工具，特别是城市照片这种细节特别多的题材，例如这张照片当中，酒店建筑外观的立体感稍微有点差，渐变滤镜和径向滤镜的覆盖范围又没有办法在这个位置发挥很好的作用，那就刚好用到了调整画笔。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282018972.png"></p><p>后期思路：降低屋顶曝光，提高建筑白色部分曝光度，增大与屋顶对比。添加白色色阶，降低黑色色阶，让窗户的这个窗户框能够变得更明显，增加一点点的纹理。通过这样的分区调整屋顶以及楼体的曝光，就可以实现将建筑细节重塑曝光的效果。<br>对比原片，就可以看到现在建筑拥有更立体的效果。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282022793.png"></p><p>以上这三个工具的区别，可以理解为覆盖面积的不一样。<br>渐变滤镜的面积最大，径向滤镜适合圆形的范围调整；画笔适应能力最强，它的覆盖面积最小，可以自由的选择想要调整的位置以及形状，是精修细节的最好选择。组合搭配这三个工具，就可以实现特别的光影效果，特别是在调整黑白照片当中，利用局部曝光的明暗对比来提亮主体，压暗阴影，获得更具有戏剧性的视觉效果。</p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV15b4y1Q7xH/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83d80c57e4377b69f911cc68016fb835">【Edi x TourBox后期训练营】光影的后期再造秘籍 - 局部曝光的调整对照片的微妙作用_哔哩哔哩_bilibili</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="一、渐变滤镜"><a href="#一、渐变滤镜" class="headerlink" title="一、渐变滤镜"></a>一、渐变滤镜</h1><p>渐变滤镜的作用呢，是创造有过度的曝光调整，可以是生硬的过度，也可以是柔和的过度。软过度的调整呢，让照片中的光线看起来要更自然。<br>拍日落的时候，当太阳逐渐降低到地平线后，天空的曝光很亮，但是地面的建筑阴影这些背光的位置很暗。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210281956398.png"><br>这个时候就可以使用渐变滤镜来调整。在照片中曝光有差别的位置，拉一个渐变滤镜，通常是在地平线的位置。过度要稍微的软一些，也就是这三条线的距离要大一点。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282000844.png"><br>在参数的设置里，可以按照<a href="http://daipeihong.top/2022/10/27/lightroom-hou-qi-san-ti-sheng-zhao-pian-zhi-gan/">上一节</a>对比度和立体感的调整方法来设置参数<br>可以添加一个明亮度范围蒙板<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282002665.png"><br>在范围这里边，左侧是暗部，右侧是亮部，点击显示明亮度蒙板就可以看到调整的过程当中蒙板的变化。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282005945.png"><br>同样也可以增加阴影来调高所有的阴影位置，在这个案例当中，可以搭配阴影和明亮度蒙板来调整建筑与天空之间的过渡。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282008223.png"><br>对比一下原片，可以看到高光的位置，也就是天空被压暗，而建筑呢被提亮。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282009769.png"><br>无论是1/2还是1/3的构图方法，甚至是左右分割以及对角线曝光不平衡的画面，只要是大面积的需要调整曝光的时候呢，都可以使用渐变滤镜来解决。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282011038.png"></p><h1 id="二、径向滤镜"><a href="#二、径向滤镜" class="headerlink" title="二、径向滤镜"></a>二、径向滤镜</h1><p>由于径向滤镜的覆盖面积，是圆形或者是椭圆形的，在调整高光的时候要更方便，在城市建筑以及街景的案例当中更为常用。例如这张照片左侧的树和右侧的建筑，刚好形成了一个框架，照片中间的建筑和天空被阳光直射，使用径向滤镜刚好达到完美的覆盖这个区域。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282013415.png"><br>在径向滤镜当中，比渐变滤镜啊要多一个选项，叫做羽化，指的是滤镜周围的过渡，大多数的情况下呢，都需要使用比较大的羽化，让光线过度更自然，勾选左下角的显示选定的蒙板叠加，就可以看到现在径向滤镜所影响的范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282015936.png"><br>降低羽化会让滤镜的边缘过渡非常的生硬，所以经常我们要加大羽化的数值，营造比较自然柔和的光线。</p><h1 id="三、调整画笔"><a href="#三、调整画笔" class="headerlink" title="三、调整画笔"></a>三、调整画笔</h1><p>调整画笔是非常重要的细节修补工具，特别是城市照片这种细节特别多的题材，例如这张照片当中，酒店建筑外观的立体感稍微有点差，渐变滤镜和径向滤镜的覆盖范围又没有办法在这个位置发挥很好的作用，那就刚好用到了调整画笔。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282018972.png"></p><p>后期思路：降低屋顶曝光，提高建筑白色部分曝光度，增大与屋顶对比。添加白色色阶，降低黑色色阶，让窗户的这个窗户框能够变得更明显，增加一点点的纹理。通过这样的分区调整屋顶以及楼体的曝光，就可以实现将建筑细节重塑曝光的效果。<br>对比原片，就可以看到现在建筑拥有更立体的效果。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282022793.png"></p><p>以上这三个工具的区别，可以理解为覆盖面积的不一样。<br>渐变滤镜的面积最大，径向滤镜适合圆形的范围调整；画笔适应能力最强，它的覆盖面积最小，可以自由的选择想要调整的位置以及形状，是精修细节的最好选择。组合搭配这三个工具，就可以实现特别的光影效果，特别是在调整黑白照片当中，利用局部曝光的明暗对比来提亮主体，压暗阴影，获得更具有戏剧性的视觉效果。</p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://www.bilibili.com/video/BV15b4y1Q7xH/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83d80c57e4377b69f911cc68016fb835">【Edi x TourBox后期训练营】光影的后期再造秘籍 - 局部曝光的调整对照片的微妙作用_哔哩哔哩_bilibili</a></p>]]></content>
       
       
       <categories>
@@ -549,9 +549,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> verilog </tag>
-            
             <tag> DCT变换 </tag>
+            
+            <tag> verilog </tag>
             
         </tags>
       
@@ -1228,9 +1228,9 @@
       
         <tags>
             
-            <tag> 车规芯片 </tag>
-            
             <tag> 功能安全仿真 </tag>
+            
+            <tag> 车规芯片 </tag>
             
         </tags>
       
