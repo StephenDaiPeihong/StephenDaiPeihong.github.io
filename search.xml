@@ -661,9 +661,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> DCT变换 </tag>
-            
             <tag> verilog </tag>
+            
+            <tag> DCT变换 </tag>
             
         </tags>
       
@@ -1340,9 +1340,9 @@
       
         <tags>
             
-            <tag> 功能安全仿真 </tag>
-            
             <tag> 车规芯片 </tag>
+            
+            <tag> 功能安全仿真 </tag>
             
         </tags>
       

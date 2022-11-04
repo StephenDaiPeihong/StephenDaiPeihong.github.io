@@ -243,7 +243,10 @@ mark {
 /*修改导航栏颜色*/
 .bg-color {
     /*background-image: linear-gradient(to right, #79F14A 0%, #0E5CAD 100%);*/
-	background-image: linear-gradient(to right, #1DE5E2 0%, #B588F7 100%);
+	/*background-image: linear-gradient(to right, #1DE5E2 0%, #B588F7 100%);*/
+	/*background-image: linear-gradient(to right, #9C6DB0 0%, #233A4E 100%);*/
+	background-image: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+
 }
 
 .text-color {
