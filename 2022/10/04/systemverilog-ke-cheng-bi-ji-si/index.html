@@ -380,14 +380,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22
+                    181
                 </div>
                 
 
@@ -419,7 +419,377 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="将initial过程快改造为task"><a href="#将initial过程快改造为task" class="headerlink" title="将initial过程快改造为task"></a>将initial过程快改造为task</h1><h1 id="向chnl5发送数据"><a href="#向chnl5发送数据" class="headerlink" title="向chnl5发送数据"></a>向chnl5发送数据</h1><h1 id="自定义输出数据端口"><a href="#自定义输出数据端口" class="headerlink" title="自定义输出数据端口"></a>自定义输出数据端口</h1>
+                <h1 id="1-将initial过程块改造为task"><a href="#1-将initial过程块改造为task" class="headerlink" title="1. 将initial过程块改造为task"></a>1. 将initial过程块改造为task</h1><p>task和function用法见[[SystemVerilog学习笔记(四)]]</p>
+<h2 id="1-1改造"><a href="#1-1改造" class="headerlink" title="1.1改造"></a>1.1改造</h2><p>将前一次的两个initial begin end 语句封装进task任务中</p>
+<blockquote>
+<p>initial begin : drive_reset_proc<br>drive_reset();//调用task<br>end<br>task drive_reset();<br>……//将复位信号的产生语句封装进task<br>endtask</p>
+</blockquote>
+<blockquote>
+<p>initial begin : drive_chnl0_proc<br>        drive_chnl0();//调用task<br>end<br>task drive_chnl0();<br>……//将drive_chnl0语句封装进task<br>endtask</p>
+</blockquote>
+<h2 id="1-2改造后的tb-sv"><a href="#1-2改造后的tb-sv" class="headerlink" title="1.2改造后的tb.sv"></a>1.2改造后的tb.sv</h2><p><span style="background:rgba(240, 200, 0, 0.2)">tb.sv代码如下</span></p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** stimulator **********************************//
+module rt_stimulator(
+  input clock
+  ,input reset_n
+  ,output logic [15:0] din
+  ,output logic [15:0] frame_n
+  ,output logic [15:0] valid_n
+  ,input [15:0] dout
+  ,input [15:0] valido_n
+  ,input [15:0] busy_n
+  ,input [15:0] frameo_n
+);
+//for debug purpose from waveform	//定义检测状态的变量
+  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
+  drv_state_t dbg_state;  
+  byte unsigned dbg_din_chnl0_data; 
+
+initial begin : drive_reset_proc //reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
+    drive_reset();
+end
+
+task drive_reset();
+  @(negedge reset_n);
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= 1;
+  valid_n <= 1;
+endtask
+
+// drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
+bit [3:0] addr;
+byte unsigned data[];
+
+initial begin : drive_chnl0_proc
+    drive_chnl0();
+end
+
+task drive_chnl0();
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);//延迟10个时钟周期
+  addr = 3;		//从第3位输出
+  data = '{8'h33,8'h77};	
+    // drive address phase 输入地址位阶段
+for(int i=0;i<4;i++)begin  //4 clock
+  @(posedge clock);
+  dbg_state <=DRV_ADDR;	
+  din[0] <= addr[i];
+  valid_n[0] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[0] <= 1'b0;	//frame_n需要为低
+end
+    // drive pad phase //隔离阶段
+  for (int i=0;i<5;i++)begin  //5 clock
+    @(posedge clock);
+    dbg_state <=DRV_PAD;
+    din[0] <= 1'b1;
+    valid_n[0] <= 1'b1;	//valid_n需为高电平
+    frame_n[0] <= 1'b0; //frame_n需为低电平
+  end
+    // drive data phase 传输数据阶段
+  foreach(data[id])begin
+    for(int i=0;i<8;i++)begin
+     @(posedge clock);
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[0] <= data[id][i];
+      valid_n[0] <=1'b0;
+      frame_n <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+    end
+  end
+// drive idle phase 闲置（没有数据传输）阶段
+  @(posedge clock);
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[0] <= 1'b0;
+  valid_n[0] <= 1'b1;
+  frame_n <= 1'b1;
+endtask
+endmodule
+
+//********************************** tb **********************************//
+module tb;
+
+bit clk,rstn;
+logic [15:0] din, frame_n, valid_n;
+logic [15:0] dout, valido_n, busy_n, frameo_n;
+
+// 产生时钟，周期为10ns
+initial 
+    forever #5ns clk <= !clk;
+
+// 产生复位信号
+  initial begin
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
+  end
+
+//例化router为DUT
+router dut(           
+  .reset_n(rstn),
+  .clock(clk),
+  .*  //其余端口名称均相同
+);
+
+//例化stimulator
+rt_stimulator stim(
+  .reset_n(rstn),
+  .clock(clk),
+  .*
+);
+endmodule 
+</code></pre>
+<h2 id="1-3仿真结果"><a href="#1-3仿真结果" class="headerlink" title="1.3仿真结果"></a>1.3仿真结果</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211050927657.png"></p>
+<h1 id="2-任意source-channl向任意destination-channl发送数据"><a href="#2-任意source-channl向任意destination-channl发送数据" class="headerlink" title="2. 任意source_channl向任意destination_channl发送数据"></a>2. 任意source_channl向任意destination_channl发送数据</h1><h2 id="2-1改造"><a href="#2-1改造" class="headerlink" title="2.1改造"></a>2.1改造</h2><blockquote>
+<p>task drive_chnl0(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);<br>……<br>endtask</p>
+</blockquote>
+<h2 id="2-2改造后的tb-sv"><a href="#2-2改造后的tb-sv" class="headerlink" title="2.2改造后的tb.sv"></a>2.2改造后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** stimulator **********************************//
+module rt_stimulator(
+  input clock
+  ,input reset_n
+  ,output logic [15:0] din
+  ,output logic [15:0] frame_n
+  ,output logic [15:0] valid_n
+  ,input [15:0] dout
+  ,input [15:0] valido_n
+  ,input [15:0] busy_n
+  ,input [15:0] frameo_n
+);
+//for debug purpose from waveform	//定义检测状态的变量
+  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
+  drv_state_t dbg_state;  
+  byte unsigned dbg_din_chnl0_data; 
+
+//reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
+initial begin : drive_reset_proc 
+  drive_reset();
+end
+
+task drive_reset();
+  @(negedge reset_n);
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= '1;//等效16'hFFFF
+  valid_n <= '1;
+endtask
+
+// drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
+bit [3:0] daddr;
+byte unsigned data[];
+
+initial begin : drive_chnl0_proc
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);//延迟10个时钟周期
+    drive_chnl(0,3,'{8'h33,8'h77});//name mapping
+    drive_chnl(0,5,'{8'h55,8'h66});//name mapping
+end
+initial begin : drive_chnl3_proc
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);//延迟10个时钟周期
+    drive_chnl(3,6,'{8'h77,8'h88,8'h22});//name mapping
+end
+
+task drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
+  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",saddr,daddr);
+    // drive address phase 输入地址位阶段
+for(int i=0;i<4;i++)begin  //4 clock
+  @(posedge clock);
+  dbg_state <=DRV_ADDR;	
+  din[saddr] <= daddr[i];
+  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[saddr] <= 1'b0;	//frame_n需要为低
+end
+    // drive pad phase //隔离阶段
+  for (int i=0;i<5;i++)begin  //5 clock
+    @(posedge clock);
+    dbg_state <=DRV_PAD;
+    din[saddr] <= 1'b1;
+    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    frame_n[saddr] <= 1'b0; //frame_n需为低电平
+  end
+    // drive data phase 传输数据阶段
+  foreach(data[id])begin
+    for(int i=0;i<8;i++)begin
+     @(posedge clock);
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[saddr] <= data[id][i];
+      valid_n[saddr] <=1'b0;
+      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+    end
+  end
+// drive idle phase 闲置（没有数据传输）阶段
+  @(posedge clock);
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[saddr] <= 1'b0;
+  valid_n[saddr] <= 1'b1;
+  frame_n[saddr] <= 1'b1;
+  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",saddr,daddr);
+endtask
+endmodule
+
+//********************************** tb **********************************//
+module tb;
+
+bit clk,rstn;
+logic [15:0] din, frame_n, valid_n;
+logic [15:0] dout, valido_n, busy_n, frameo_n;
+
+// 产生时钟，周期为10ns
+initial 
+    forever #5ns clk <= !clk;
+
+// 产生复位信号
+  initial begin
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
+  end
+
+//例化router为DUT
+router dut(           
+  .reset_n(rstn),
+  .clock(clk),
+  .*  //其余端口名称均相同
+);
+
+//例化stimulator
+rt_stimulator stim(
+  .reset_n(rstn),
+  .clock(clk),
+  .*
+);
+endmodule 
+</code></pre>
+<h2 id="2-3仿真结果"><a href="#2-3仿真结果" class="headerlink" title="2.3仿真结果"></a>2.3仿真结果</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051047693.png"></p>
+<h1 id="3-关于automatic的问题"><a href="#3-关于automatic的问题" class="headerlink" title="3. 关于automatic的问题"></a>3. 关于automatic的问题</h1><h2 id="3-1给任务添加automatic"><a href="#3-1给任务添加automatic" class="headerlink" title="3.1给任务添加automatic"></a>3.1给任务添加automatic</h2><p>Module里面所有变量默认是静态变量，都是被共用的。<br>task不加automatic，任务task及其内部参数daddr，saddr等都是静态的，这个任务会被多个并行的线程所共享。当两个initial 同时调用drive_chnl这个task时，它们是共用这个task。<br>task添加automatic后，每次调用这个task时，都会单独开辟空间（包括内存及其内部参数都会有独立空间）。当两个initial 同时调用drive_chnl这个task时，它们独立调用task。</p>
+<blockquote>
+<p>task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);</p>
+</blockquote>
+<h2 id="3-2添加automatic后的tb-sv"><a href="#3-2添加automatic后的tb-sv" class="headerlink" title="3.2添加automatic后的tb.sv"></a>3.2添加automatic后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** stimulator **********************************//
+module rt_stimulator(
+  input clock
+  ,input reset_n
+  ,output logic [15:0] din
+  ,output logic [15:0] frame_n
+  ,output logic [15:0] valid_n
+  ,input [15:0] dout
+  ,input [15:0] valido_n
+  ,input [15:0] busy_n
+  ,input [15:0] frameo_n
+);
+//for debug purpose from waveform	//定义检测状态的变量
+  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
+  drv_state_t dbg_state;  
+  byte unsigned dbg_din_chnl0_data; 
+
+//reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
+initial begin : drive_reset_proc 
+  drive_reset();
+end
+
+task drive_reset();
+  @(negedge reset_n);
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= '1;//等效16'hFFFF
+  valid_n <= '1;
+endtask
+
+// drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
+bit [3:0] daddr;
+byte unsigned data[];
+
+initial begin : drive_chnl0_proc
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);//延迟10个时钟周期
+    drive_chnl(0,3,'{8'h33,8'h77});//name mapping
+    drive_chnl(0,5,'{8'h55,8'h66});//name mapping
+end
+initial begin : drive_chnl3_proc
+  @(negedge reset_n);
+  repeat(10) @(posedge clock);//延迟10个时钟周期
+    drive_chnl(3,6,'{8'h77,8'h88,8'h22});//name mapping
+end
+
+task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
+  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",saddr,daddr);
+    // drive address phase 输入地址位阶段
+for(int i=0;i<4;i++)begin  //4 clock
+  @(posedge clock);
+  dbg_state <=DRV_ADDR;	
+  din[saddr] <= daddr[i];
+  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[saddr] <= 1'b0;	//frame_n需要为低
+end
+    // drive pad phase //隔离阶段
+  for (int i=0;i<5;i++)begin  //5 clock
+    @(posedge clock);
+    dbg_state <=DRV_PAD;
+    din[saddr] <= 1'b1;
+    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    frame_n[saddr] <= 1'b0; //frame_n需为低电平
+  end
+    // drive data phase 传输数据阶段
+  foreach(data[id])begin
+    for(int i=0;i<8;i++)begin
+     @(posedge clock);
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[saddr] <= data[id][i];
+      valid_n[saddr] <=1'b0;
+      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+    end
+  end
+// drive idle phase 闲置（没有数据传输）阶段
+  @(posedge clock);
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[saddr] <= 1'b0;
+  valid_n[saddr] <= 1'b1;
+  frame_n[saddr] <= 1'b1;
+  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",saddr,daddr);
+endtask
+endmodule
+
+//********************************** tb **********************************//
+module tb;
+
+bit clk,rstn;
+logic [15:0] din, frame_n, valid_n;
+logic [15:0] dout, valido_n, busy_n, frameo_n;
+
+// 产生时钟，周期为10ns
+initial 
+    forever #5ns clk <= !clk;
+
+// 产生复位信号
+  initial begin
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
+  end
+
+//例化router为DUT
+router dut(           
+  .reset_n(rstn),
+  .clock(clk),
+  .*  //其余端口名称均相同
+);
+
+//例化stimulator
+rt_stimulator stim(
+  .reset_n(rstn),
+  .clock(clk),
+  .*
+);
+endmodule 
+</code></pre>
+<h2 id="3-3仿真结果"><a href="#3-3仿真结果" class="headerlink" title="3.3仿真结果"></a>3.3仿真结果</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051044480.png"></p>
+<h1 id="4-初步TestBench平台概览"><a href="#4-初步TestBench平台概览" class="headerlink" title="4. 初步TestBench平台概览"></a>4. 初步TestBench平台概览</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211032052337.png"></p>
+
                 
             </div>
             <hr/>
@@ -638,7 +1008,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            以路由器为例，搭建测试平台，使用module和initial实现初步激励。
+                            为router逐步搭建tb（一），使用module和initial实现初步激励。
                         
                     </div>
                     <div class="publish-info">
@@ -896,7 +1266,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">41.3k</span>
+                        class="white-color">41.8k</span>
             
             
             
