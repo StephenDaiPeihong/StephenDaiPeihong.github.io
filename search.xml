@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>SystemVerilog实验(一)</title>
+      <link href="/2022/11/05/systemverilog-shi-yan-yi/"/>
+      <url>/2022/11/05/systemverilog-shi-yan-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、实验要求"><a href="#一、实验要求" class="headerlink" title="一、实验要求"></a>一、实验要求</h1><p><a href="https://shimo.im/docs/axk6MwD8D8IpFeqr/read">路科验证V0课程实验指导 (shimo.im)</a></p><h1 id="二、实验代码"><a href="#二、实验代码" class="headerlink" title="二、实验代码"></a>二、实验代码</h1><h2 id="router-io-sv"><a href="#router-io-sv" class="headerlink" title="router_io.sv"></a>router_io.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">//定义接口，将复位信号(test.sv产生)送入DUT(router.v)interface router_io(input bit clock);    logic reset_n;    logic [15:0] din;    logic [15:0] frame_n;    logic [15:0] valid_n;    logic [15:0] dout;    logic [15:0] valido_n;    logic [15:0] busy_n;    logic [15:0] frameo_n;endinterface</code></pre><h2 id="test-sv"><a href="#test-sv" class="headerlink" title="test.sv"></a>test.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">//产生复位信号,复位时，reset_n为低电平,frame_n和valid_n为高电平module test(router_io intf);    initial begin     #2 intf.reset_n = 1'b1;    #2 intf.reset_n = 1'b0;    #2 intf.reset_n <= 1'b1;//复位信号持续2  end  initial begin        reset();//调用reset产生复位信号    end        task reset();    //@(posedge intf.clk or negedge intf.reset_n);    @(negedge intf.reset_n);      intf.din <= 0;          intf.frame_n <= '1;          intf.valid_n <= '1;           repeat(15) @(intf.clock);//复位后至少等待15个时钟周期后发送数据    endtaskendmodule</code></pre><h2 id="router-test-top-sv"><a href="#router-test-top-sv" class="headerlink" title="router_test_top.sv"></a>router_test_top.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">//产生时钟//例化另外三个文件`timescale 1ns/1psmodule router_test_top;        bit clk;  parameter cicle = 10;    initial begin        forever #(cicle/2) clk = !clk;//产生周期为10的时钟    end        router_io intf(                    .clock(clk)                    );//例化接口                        test tb(intf);//例化test，产生复位信号        router dut(                .clock   (intf.clock   ),                .reset_n (intf.reset_n ),                .din     (intf.din     ),                .frame_n (intf.frame_n ),                .valid_n (intf.valid_n ),                .dout    (intf.dout    ),                .valido_n(intf.valido_n),                .busy_n  (intf.busy_n  ),                .frameo_n(intf.frameo_n)                );//例化router为DUTendmodule</code></pre><h1 id="三、硬件层次"><a href="#三、硬件层次" class="headerlink" title="三、硬件层次"></a>三、硬件层次</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061008531.png"></p><h1 id="四、仿真结果"><a href="#四、仿真结果" class="headerlink" title="四、仿真结果"></a>四、仿真结果</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061003883.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字IC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数字前端 </tag>
+            
+            <tag> SystemVerilog验证 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SystemVerilog课程进度总览（持续更新）</title>
       <link href="/2022/11/05/systemverilog-ke-cheng-jin-du-zong-lan-chi-xu-geng-xin/"/>
       <url>/2022/11/05/systemverilog-ke-cheng-jin-du-zong-lan-chi-xu-geng-xin/</url>
       
-        <content type="html"><![CDATA[<p><a href="http://daipeihong.top/2022/10/04/systemverilog-ke-cheng-bi-ji-san/">一、初步初步使用module和initial实现初步激励</a><br>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png"><br><a href="http://daipeihong.top/2022/10/04/systemverilog-ke-cheng-bi-ji-si/">二、继续改进</a><br><span style="background:rgba(5, 117, 197, 0.2)">改进1</span>：将initial过程块改造为task、将前一次的两个initial begin end 语句封装进task任务中<br><span style="background:rgba(5, 117, 197, 0.2)">改进2</span>：任意source_channl向任意destination_channl发送数据</p><p>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png"><br><a href="http://daipeihong.top/2022/10/17/systemverilog-ke-cheng-bi-ji-wu/">三、构建generator</a><br><span style="background:rgba(5, 117, 197, 0.2)">改进1</span>：stimulator只发送数据，构建generator产生数据发送给stimulator<br><span style="background:rgba(5, 117, 197, 0.2)">改进2</span>：来自于不同的source chnl可以并行发送<br><span style="background:rgba(5, 117, 197, 0.2)">改进3</span>：增加接口(interface)</p><p>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png"></p><p>[[SystemVerilog课程笔记(六)]]</p><p>[[SystemVerilog课程笔记(七)]]</p><p>[[SystemVerilog课程笔记(八)]]</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="http://daipeihong.top/2022/10/04/systemverilog-ke-cheng-bi-ji-san/">一、初步初步使用module和initial实现初步激励</a><br>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052041415.png"><br><a href="http://daipeihong.top/2022/10/04/systemverilog-ke-cheng-bi-ji-si/">二、继续改进</a><br><span style="background:rgba(5, 117, 197, 0.2)">改进1</span>：将initial过程块改造为task、将前一次的两个initial begin end 语句封装进task任务中<br><span style="background:rgba(5, 117, 197, 0.2)">改进2</span>：任意source_channl向任意destination_channl发送数据</p><p>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052041415.png"><br><a href="http://daipeihong.top/2022/10/17/systemverilog-ke-cheng-bi-ji-wu/">三、构建generator</a><br><span style="background:rgba(5, 117, 197, 0.2)">改进1</span>：stimulator只发送数据，构建generator产生数据发送给stimulator<br><span style="background:rgba(5, 117, 197, 0.2)">改进2</span>：来自于不同的source chnl可以并行发送<br><span style="background:rgba(5, 117, 197, 0.2)">改进3</span>：增加接口(interface)</p><p>初步TestBench平台概览<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png"></p><p>[[SystemVerilog课程笔记(六)]]</p><p>[[SystemVerilog课程笔记(七)]]</p><p>[[SystemVerilog课程笔记(八)]]</p>]]></content>
       
       
       <categories>
@@ -690,9 +717,9 @@
             
             <tag> 图像处理 </tag>
             
-            <tag> DCT变换 </tag>
-            
             <tag> verilog </tag>
+            
+            <tag> DCT变换 </tag>
             
         </tags>
       
@@ -1369,9 +1396,9 @@
       
         <tags>
             
-            <tag> 功能安全仿真 </tag>
-            
             <tag> 车规芯片 </tag>
+            
+            <tag> 功能安全仿真 </tag>
             
         </tags>
       
