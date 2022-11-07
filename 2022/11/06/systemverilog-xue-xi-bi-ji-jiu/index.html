@@ -427,16 +427,72 @@
 <ul>
 <li><span style="background:rgba(136, 49, 204, 0.2)">fork…join</span><br>fork…join需要所有并行的线程都结束以后才会继续执行。</li>
 <li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_any</span><br>fork…join_any则会等到任何一个线程结束以后就继续执行。</li>
-<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_none</span><br>fork…join_none则不会等待其子线程而继续执行。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061457338.png"><br>实例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537443.png" alt="|500"></li>
+<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_none</span><br>fork…join_none则不会等待其子线程而继续执行。
+  
+      <meta charset="utf-8">
+      <title>HTML</title>
+  
+      
+          <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061457338.png" width="500" height="200" title=" ">
+      
+
+实例
+
+  
+      <meta charset="utf-8">
+      <title>HTML</title>
+  
+      
+          <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537443.png" width="500" height="500" title=" ">
+      
+</li>
 </ul>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537770.png" alt="|500"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061539318.png" alt="|500"></p>
-<h3 id="1-1-2子程序等待-x2F-停止"><a href="#1-1-2子程序等待-x2F-停止" class="headerlink" title="1.1.2子程序等待/停止"></a>1.1.2子程序等待/停止</h3><p>需要注意的是，fork…join_any和fork. . .join_none继续执行后，其一些未完成的子程序仍将在后台运行。如果要等待这些子程序全部完成，或者停止这些子程序，可以使用<span style="background:rgba(3, 135, 102, 0.2)">wait fork</span>或者<span style="background:rgba(3, 135, 102, 0.2)">disable fork</span>。<br><strong>(1)wait fork</strong><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061547271.png" alt="|500"><br><strong>(2)disable fork</strong><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061549290.png" alt="|500"></p>
-<h2 id="1-2-时序控制"><a href="#1-2-时序控制" class="headerlink" title="1.2 时序控制"></a>1.2 时序控制</h2><p>SV可以通过延迟控制或者事件等待来对过程块完成时序控制。</p>
-<h3 id="1-2-1-延迟控制"><a href="#1-2-1-延迟控制" class="headerlink" title="1.2.1 延迟控制"></a>1.2.1 延迟控制</h3><p>延迟控制即通过#来完成。</p>
-<blockquote>
-<p>#10 rega = regb;</p>
-</blockquote>
+
+    
+        <meta charset="utf-8">
+        <title>HTML</title>
+    
+        
+            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537770.png" width="500" height="480" title=" ">
+        
+
+
+
+    
+        <meta charset="utf-8">
+        <title>HTML</title>
+    
+        
+            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061539318.png" width="500" height="650" title=" ">
+        
+
+
+<h3 id="1-1-2子程序等待-x2F-停止"><a href="#1-1-2子程序等待-x2F-停止" class="headerlink" title="1.1.2子程序等待/停止"></a>1.1.2子程序等待/停止</h3><p>需要注意的是，fork…join_any和fork. . .join_none继续执行后，其一些未完成的子程序仍将在后台运行。如果要等待这些子程序全部完成，或者停止这些子程序，可以使用<span style="background:rgba(3, 135, 102, 0.2)">wait fork</span>或者<span style="background:rgba(3, 135, 102, 0.2)">disable fork</span>。<br><strong>(1)wait fork</strong></p>
+
+    
+        <meta charset="utf-8">
+        <title>HTML</title>
+    
+        
+            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061547271.png" width="500" height="720" title=" ">
+        
+
+**(2)disable fork**
+
+    
+        <meta charset="utf-8">
+        <title>HTML</title>
+    
+        
+            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061549290.png" width="500" height="720" title=" ">
+        
+
+## 1.2 时序控制
+SV可以通过延迟控制或者事件等待来对过程块完成时序控制。
+### 1.2.1 延迟控制
+延迟控制即通过#来完成。
+&gt;#10 rega = regb;
+
 <h3 id="1-2-2-事件控制"><a href="#1-2-2-事件控制" class="headerlink" title="1.2.2 事件控制"></a>1.2.2 事件控制</h3><p>事件(event）控制即通过@来完成。</p>
 <blockquote>
 <p>@r rega = regb ;<br>@(posedge clock) rega = regb;</p>
@@ -452,10 +508,20 @@
 <li>等待<br>wait__order可以使得进程保持等待，直到在参数列表中的事件event按照顺序从左到右依次完成。如果参数列表中的事件被触发但是没有按照要求的顺序，那么会使得等待操作失败。<blockquote>
 <p>wait_order ( a, b, c);</p>
 <p>wait order( a, b, c ) else $display ( “Error: eventsout of order” );</p>
-<p>bit success ;<br>wait order( a, b, c ) success = 1; else success = 0 ;<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061714487.png"></p>
+<p>bit success ;<br>wait order( a, b, c ) success = 1; else success = 0 ;</p>
 </blockquote>
 </li>
 </ul>
+
+    
+        <meta charset="utf-8">
+        <title>HTML</title>
+    
+        
+            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061714487.png" width="500" height="700" title=" ">
+        
+
+
 <h2 id="2-2-旗语"><a href="#2-2-旗语" class="headerlink" title="2.2 旗语"></a>2.2 旗语</h2><p>旗语从概念上讲，是一个容器。在创建旗语的时候，会为其分配固定的钥匙数量。使用旗语的进程必须先获得其钥匙，才可以继续执行。旗语的钥匙数量可以有多个，等待旗语钥匙的进程也可同时有多个。旗语通常用于互斥，对共享资源的访问控制，以及基本的同步<br><img src="https://img-blog.csdnimg.cn/8bbdaa8efccc4e36b6ece797b80c605a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
 <h3 id="2-2-1用法"><a href="#2-2-1用法" class="headerlink" title="2.2.1用法"></a>2.2.1用法</h3><ul>
 <li><p>创建旗语，并为其分配钥匙的方式如下:</p>
@@ -574,17 +640,17 @@ initial begin
     fork 
         begin 
             skey.get(1,string1);
-      skey.print_key_holders();
+            skey.print_key_holders();
             skey.put(1,string1);
         end
         begin 
             skey.get(1,string2);
             skey.print_key_holders();
-      skey.put(1,string2);
+            skey.put(1,string2);
         end
         begin 
             skey.get(1,string3);
-      skey.print_key_holders();
+            skey.print_key_holders();
             skey.put(1,string3);
         end
     join
