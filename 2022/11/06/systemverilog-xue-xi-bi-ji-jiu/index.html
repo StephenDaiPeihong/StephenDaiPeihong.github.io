@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数字集成电路第五章笔记, Stephen&#39;s Blog">
-    <meta name="description" content="
-">
+    <meta name="keywords" content="SystemVerilog学习笔记(九), Stephen&#39;s Blog">
+    <meta name="description" content="本文思维导图如下：
+1. 线程控制1.1 并行线程Verilog中与顺序线程begin…end相对的是并行线程fork…join。
+1.1.1创建线程SV引入了两种新新的创建线程的方法，fork…join_none和fork…join_an">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数字集成电路第五章笔记 | Stephen&#39;s Blog</title>
+    <title>SystemVerilog学习笔记(九) | Stephen&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -39,7 +40,9 @@
 
 
 
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
+
 
 
 
@@ -314,12 +317,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211943371.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数字集成电路第五章笔记</h1>
+                    <h1 class="description center-align post-title">SystemVerilog学习笔记(九)</h1>
                 </div>
             </div>
         </div>
@@ -329,10 +332,12 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -341,8 +346,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                                <span class="chip bg-color">数字集成电路</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">数字前端</span>
+                            </a>
+                        
+                            <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                                <span class="chip bg-color">SystemVerilog验证</span>
                             </a>
                         
                     </div>
@@ -366,28 +375,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-01
+                    2022-11-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-02
+                    2022-11-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    10 分
                 </div>
                 
 
@@ -412,7 +421,187 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325778.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325799.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325829.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325867.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325907.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325953.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325988.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325028.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325072.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325111.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325152.jpg"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012325242.jpg"></p>
+                <p>本文思维导图如下：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071641178.png"></p>
+<h1 id="1-线程控制"><a href="#1-线程控制" class="headerlink" title="1. 线程控制"></a>1. 线程控制</h1><h2 id="1-1-并行线程"><a href="#1-1-并行线程" class="headerlink" title="1.1 并行线程"></a>1.1 并行线程</h2><p>Verilog中与顺序线程begin…end相对的是并行线程fork…join。</p>
+<h3 id="1-1-1创建线程"><a href="#1-1-1创建线程" class="headerlink" title="1.1.1创建线程"></a>1.1.1创建线程</h3><p>SV引入了两种新新的创建线程的方法，<u>fork…join_none</u>和<u>fork…join_any</u>。</p>
+<ul>
+<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join</span><br>fork…join需要所有并行的线程都结束以后才会继续执行。</li>
+<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_any</span><br>fork…join_any则会等到任何一个线程结束以后就继续执行。</li>
+<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_none</span><br>fork…join_none则不会等待其子线程而继续执行。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061457338.png"><br>实例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537443.png" alt="|500"></li>
+</ul>
+<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537770.png" alt="|500"></p>
+<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061539318.png" alt="|500"></p>
+<h3 id="1-1-2子程序等待-x2F-停止"><a href="#1-1-2子程序等待-x2F-停止" class="headerlink" title="1.1.2子程序等待/停止"></a>1.1.2子程序等待/停止</h3><p>需要注意的是，fork…join_any和fork. . .join_none继续执行后，其一些未完成的子程序仍将在后台运行。如果要等待这些子程序全部完成，或者停止这些子程序，可以使用<span style="background:rgba(3, 135, 102, 0.2)">wait fork</span>或者<span style="background:rgba(3, 135, 102, 0.2)">disable fork</span>。<br><strong>(1)wait fork</strong><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061547271.png" alt="|500"><br><strong>(2)disable fork</strong><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061549290.png" alt="|500"></p>
+<h2 id="1-2-时序控制"><a href="#1-2-时序控制" class="headerlink" title="1.2 时序控制"></a>1.2 时序控制</h2><p>SV可以通过延迟控制或者事件等待来对过程块完成时序控制。</p>
+<h3 id="1-2-1-延迟控制"><a href="#1-2-1-延迟控制" class="headerlink" title="1.2.1 延迟控制"></a>1.2.1 延迟控制</h3><p>延迟控制即通过#来完成。</p>
+<blockquote>
+<p>#10 rega = regb;</p>
+</blockquote>
+<h3 id="1-2-2-事件控制"><a href="#1-2-2-事件控制" class="headerlink" title="1.2.2 事件控制"></a>1.2.2 事件控制</h3><p>事件(event）控制即通过@来完成。</p>
+<blockquote>
+<p>@r rega = regb ;<br>@(posedge clock) rega = regb;</p>
+</blockquote>
+<h3 id="1-2-3-事件等待"><a href="#1-2-3-事件等待" class="headerlink" title="1.2.3 事件等待"></a>1.2.3 事件等待</h3><p>wait语句也可以与事件或者表达式结合来完成。</p>
+<blockquote>
+<p>real AOR[] ;<br>initial wait(AOR.size() &gt; 0) …. ;</p>
+</blockquote>
+<h1 id="2-进程间同步和通信"><a href="#2-进程间同步和通信" class="headerlink" title="2. 进程间同步和通信"></a>2. 进程间同步和通信</h1><p>测试平台中的所有线程都需要同步并交换数据。<br>一个线程等待另外一个，例如验证环境需要等待所有激励结束、比较结束才可以结束仿真。比如监测器需要将监测到的数据发送至比较器，比较器又需要从不同的缓存获取数据进行比较。</p>
+<h2 id="2-1-事件"><a href="#2-1-事件" class="headerlink" title="2.1 事件"></a>2.1 事件</h2><ul>
+<li>声明<br>可以通过event来声明一个命名event变量，并且去触发它。这个命名event可以用来控制进程的执行。</li>
+<li>触发<br>可以通过-&gt;来触发事件。<br>其它等待该事件的进程可以通过@操作符或者wait()来检查event触发状态来完成。</li>
+<li>等待<br>wait__order可以使得进程保持等待，直到在参数列表中的事件event按照顺序从左到右依次完成。如果参数列表中的事件被触发但是没有按照要求的顺序，那么会使得等待操作失败。<blockquote>
+<p>wait_order ( a, b, c);</p>
+<p>wait order( a, b, c ) else $display ( “Error: eventsout of order” );</p>
+<p>bit success ;<br>wait order( a, b, c ) success = 1; else success = 0 ;<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061714487.png"></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-2-旗语"><a href="#2-2-旗语" class="headerlink" title="2.2 旗语"></a>2.2 旗语</h2><p>旗语从概念上讲，是一个容器。在创建旗语的时候，会为其分配固定的钥匙数量。使用旗语的进程必须先获得其钥匙，才可以继续执行。旗语的钥匙数量可以有多个，等待旗语钥匙的进程也可同时有多个。旗语通常用于互斥，对共享资源的访问控制，以及基本的同步<br><img src="https://img-blog.csdnimg.cn/8bbdaa8efccc4e36b6ece797b80c605a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<h3 id="2-2-1用法"><a href="#2-2-1用法" class="headerlink" title="2.2.1用法"></a>2.2.1用法</h3><ul>
+<li><p>创建旗语，并为其分配钥匙的方式如下:</p>
+<blockquote>
+<p>semaphore sm;<br>sm = new ();</p>
+</blockquote>
+</li>
+<li><p>创建一个具有固定钥匙数量的旗语:</p>
+<blockquote>
+<p>new (N = 0)</p>
+</blockquote>
+</li>
+<li><p>从旗语那里获取一个或多个钥匙(阻塞型) : </p>
+<blockquote>
+<p>get (N = 1)</p>
+</blockquote>
+</li>
+<li><p>将一个或多个钥匙返回到旗语中:</p>
+<blockquote>
+<p>put (N = 1)</p>
+</blockquote>
+</li>
+<li><p>尝试获取一个或多个钥匙而不会阻塞(非阻塞型) : </p>
+<blockquote>
+<p>try_get (N = 1)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-2-2基本操作"><a href="#2-2-2基本操作" class="headerlink" title="2.2.2基本操作"></a>2.2.2基本操作</h3><h4 id="senmaphore-new"><a href="#senmaphore-new" class="headerlink" title="senmaphore: :new()"></a>senmaphore: :new()</h4><p>new ())的原型如下:</p>
+<blockquote>
+<p>function new (int keyCount = 0) ;</p>
+</blockquote>
+<p>keyCount指定最初分配给旗语的钥匙数目。keyCount的默认值为0。当更多钥匙放入旗语时，钥匙数目可以超出初始时的keyCount数量，而不是删除。</p>
+<h4 id="semaphore-put"><a href="#semaphore-put" class="headerlink" title="semaphore: :put()"></a>semaphore: :put()</h4><p>put ()方法用于将钥匙数量返回给旗语。<br>put ()的原型如下:</p>
+<blockquote>
+<p>function void put (int keyCount = 1) ;</p>
+</blockquote>
+<p>keycount指定返回到旗语的钥匙数量。默认值为1。调用semaphore.put ()函数时，指定数量的钥匙将返回到旗语。如果其它进程已经在等待旗语，则该进程应在有足够数量钥匙的情况下返回。</p>
+<h4 id="semaphore-get"><a href="#semaphore-get" class="headerlink" title="semaphore: :get()"></a>semaphore: :get()</h4><p>get ()方法用于从旗语中获取指定数量的钥匙。get ()的原型如下:</p>
+<blockquote>
+<p>task get (int keycount = 1) ;</p>
+</blockquote>
+<p>keyCount指定从旗语获取所需的钥匙数，默认值为1。<u>如果指定数量的钥匙可用，则该方法返回并继续执行。如果指定数量的钥匙不足，进程将阻塞，直到钥匙数目充足。</u>旗语的等待队列是<span style="background:rgba(240, 200, 0, 0.2)">先进先出(FIFO)</span>，即先排队等待旗语的将优先得到钥匙。</p>
+<h4 id="semaphore-try-get"><a href="#semaphore-try-get" class="headerlink" title="semaphore : :try_get()"></a>semaphore : :try_get()</h4><p>try get ()方法用于从信号量中获取指定数量的钥匙，但不会被阻塞。try_get ()的原型如下:</p>
+<blockquote>
+<p>function int try_get (int keyCount = 1) ;</p>
+</blockquote>
+<p>keyCount指定从旗语处获取所需的钥匙数目，默认值为1。<u>如果指定数量的钥匙可用，则该方法返回正数并继续执行。如果指定数量的钥匙不足，则该方法返回0。</u></p>
+<h3 id="2-2-3实例"><a href="#2-2-3实例" class="headerlink" title="2.2.3实例"></a>2.2.3实例</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715075.png"></p>
+<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715493.png"></p>
+<h2 id="2-3-信箱"><a href="#2-3-信箱" class="headerlink" title="2.3 信箱"></a>2.3 信箱</h2><p>信箱mailbox可以使得进程之间的信息得以交换，数据可以由一个进程写入信箱，再由另外一个进程获得。<br><img src="https://img-blog.csdnimg.cn/c6469e7241f04c10affb418009c08e36.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16"><br>信箱在创建时可以限制其容量，或者不限制。<u>当信箱容量写满时，后续再写入的动作会被挂起，直到信箱的数据从中读取，使得信箱有空间以后才可以继续写入。</u><br>不限制容量的信箱则不会挂起写入信箱的动作。</p>
+<h3 id="2-3-1-内建方法"><a href="#2-3-1-内建方法" class="headerlink" title="2.3.1 内建方法"></a>2.3.1 内建方法</h3><h4 id="new"><a href="#new" class="headerlink" title="new()"></a>new()</h4><p>new()用于创建信箱。<u>可以在创建信箱的时候限定或者不限定其大小</u>。<u>默认情况下，如果不传入参数，bound默认值为0，表示不限定信箱大小，如果传入的数值大于0，那么表示信箱的最大容量</u>。bound应为正数，如果未负数的话，系统会提示警告和出现无法预期的行为。</p>
+<blockquote>
+<p>function new (int bound = 0) ;</p>
+</blockquote>
+<h4 id="put"><a href="#put" class="headerlink" title="put()"></a>put()</h4><p>put()会将信息按照FIFO的顺序写入到信箱中，如果信箱此时已满，则put()任务会挂起，直到信箱有新的空间可以容纳消息。</p>
+<h4 id="try-put"><a href="#try-put" class="headerlink" title="try_put()"></a>try_put()</h4><p>try put()试着写入信箱但不会阻塞。try put()也会按照FIFO顺序写入信箱，不会发生阻塞。如果信箱已满，则写入失败，返回0;如果信箱未满，则写入成功，返回1。</p>
+<h4 id="get-x2F-peek"><a href="#get-x2F-peek" class="headerlink" title="get()/peek()"></a>get()/peek()</h4><p>获取信息: get()同时会取出数据，peek()不会取出数据。get()会将信息从信箱中取出，如果信箱此时为空，则get()任务会挂起，直到信箱中有消息可以读取，任务才会返回。该方法会将读取到的消息从信箱中移除。</p>
+<h4 id="try-get-x2F-try-peek"><a href="#try-get-x2F-try-peek" class="headerlink" title="try_get()/try_peek()"></a>try_get()/try_peek()</h4><p>试着从信箱取出数据但不会阻塞。try get()也会将信息从信箱中取出，只是该函数不会发生阻塞。如果信箱为空，则读取失败，返回0;如果信箱不为空，则读取成功，返回1。该方法也会将读取到的消息从信箱中移除。</p>
+<h4 id="num"><a href="#num" class="headerlink" title="num()"></a>num()</h4><p>num()会返回信箱目前的消息数目。可以结合num()与get()或者put()，防止get()/put()方法在信箱为空或者为满的时候被阻塞。</p>
+<h3 id="2-3-2-实例"><a href="#2-3-2-实例" class="headerlink" title="2.3.2 实例"></a>2.3.2 实例</h3><p>mailbox <span style="background:rgba(240, 200, 0, 0.2)">#(int)</span> mb;//声明mailbox句柄，并且指明该mailbox中<span style="background:rgba(240, 200, 0, 0.2)">只能存放int类型</span>的数据<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070937007.png" alt="|800"></p>
+<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070938538.png" alt="|800"></p>
+<h2 id="2-4虚方法"><a href="#2-4虚方法" class="headerlink" title="2.4虚方法"></a>2.4虚方法</h2><p>给pringtB添加关键词virtual，P1扩大查找范围，扩大到子类对象里面。如果子类里面有同名的方法，若有，调用子类里面同名的方法（以子类的实现优先）。<br>子类不添加virtual无影响，父类添加即可。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071005100.png" alt="|500"></p>
+<h1 id="3-类型转换"><a href="#3-类型转换" class="headerlink" title="3. 类型转换"></a>3. 类型转换</h1><h2 id="3-1-静态转换"><a href="#3-1-静态转换" class="headerlink" title="3.1 静态转换"></a>3.1 静态转换</h2><p>静态转换操作符不对转换值进行检查。<br>转换时指定目标类型，并在要转换的表达式前加上单引号即可。Verilog对整数和实数类型，或者不同位宽的向量之间进行隐式转换。</p>
+<blockquote>
+<p>int i;<br>real r;<br>i = int ‘ (10.0 - 0.1); //cast is optional<br>r= real’(42);// cast is optional</p>
+</blockquote>
+<h2 id="3-2-动态转换"><a href="#3-2-动态转换" class="headerlink" title="3.2 动态转换"></a>3.2 动态转换</h2><p>我们总是可以将子类的句柄赋值给父类的句柄。但是在我们将父类的句柄赋值给子类的句柄时，编译将会报错。<br>$cast()系统函数<u>可以将父类句柄转换为子类句柄</u>，只要该父类句柄指向的是一个子类的对象。</p>
+<blockquote>
+<p>function int $cast( singular dest_var, singularsource_exp ) ;</p>
+</blockquote>
+<p>或者</p>
+<blockquote>
+<p>task $cast( singular dest_var, singular source_exp );</p>
+</blockquote>
+<h1 id="4-问答题"><a href="#4-问答题" class="headerlink" title="4. 问答题"></a>4. 问答题</h1><p><strong>1. 用bit key =0来实现的类似旗语(semaphore)的功能，来保护对共享资源的访问，是否有不安全的地方?示例代码如下(包含自然语言表征)。如果有不安全的地方，请用文字表述，并且对以下代码进行修改，并且进行测试、编译和仿真打印消息。</strong></p>
+<blockquote>
+<p>bit key = 1;//创建钥匙<br>task get_key();<br>wait(key &gt; 0);<br>key = 0;//获得钥匙<br>…//省略对于共享资源的处理<br>key = 1; /还回钥匙<br>endtask</p>
+</blockquote>
+<p><span style="background:rgba(240, 200, 0, 0.2)">答</span>：当多个task并行执行时，只要key=1，满足wait(key&gt;0)即可执行，无法实现资源同时只能被指定个数的进程访问的目的。</p>
+<p><strong>2. SV的原生旗语semaphore在例化以后，并不能从其获取哪一个对象（字符串stringID)获取了钥匙，那么请你将semaphore封装到一个类中，重新定义get()/put(方法，并且通过最后的一个打印函数来得知当前获取钥匙的string ID是谁?示例代码大致如下，请完成提示需要完成的地方，对你的代码进行编译和仿真，展示你的代码和仿真的打印消息。</strong><br><span style="background:rgba(240, 200, 0, 0.2)">答</span>：sv代码如下</p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">module tb;
+
+class smart_key;
+    semaphore s;//创建旗语
+    string holder;
+
+    function new(N= 1);
+        s = new(N);//分配1把钥匙
+    endfunction
+    
+    task get(int N= 1,string str);//请添加需要的参数，并且实现该方法
+        s.get();//拿到钥匙
+        holder = str;
+        #1ns;
+        //$display("%0t: %s get the key",$time,str);
+    endtask
+    task put(int N= 1,string str);//请添加需要的参数，并且实现该方法
+        s.put();//放回钥匙
+        #1ns;
+        //$display("%0t: %s put the key",$time,str);
+    endtask
+    function void print_key_holders();//请事先该方法，使其能够打印出当前获得钥匙的ID
+        $display("%0t: now %s hold the key",$time,holder);
+    endfunction
+        
+endclass: smart_key
+    
+initial begin
+    smart_key skey = new();
+    
+    string string1 = "A";
+    string string2 = "B";
+    string string3 = "C";
+    
+    fork 
+        begin 
+            skey.get(1,string1);
+      skey.print_key_holders();
+            skey.put(1,string1);
+        end
+        begin 
+            skey.get(1,string2);
+            skey.print_key_holders();
+      skey.put(1,string2);
+        end
+        begin 
+            skey.get(1,string3);
+      skey.print_key_holders();
+            skey.put(1,string3);
+        end
+    join
+end
+    
+endmodule: tb
+</code></pre>
+<p><strong>仿真结果：</strong></p>
+<blockquote>
+<p>1000: now A hold the key<br>2000: now B hold the key<br>3000: now C hold the key</p>
+</blockquote>
+<p><strong>3. 我们在使用信箱mailbox时，如何可以限定其容量为8，并且只能存放string类型呢?那么，是否类似的方法也可以限定一个存放字符串的队列其最大容量为8呢?</strong><br><span style="background:rgba(240, 200, 0, 0.2)">答</span>：声明方法如下</p>
+<blockquote>
+<p>mailbox #(int) mb;<br>mb = new(8);</p>
+</blockquote>
+<p>队列空间是动态的，不能限定其最大容量。</p>
+<p><strong>写的不错，可以参考</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41337361/article/details/122723681?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-122723681-blog-78677789.pc_relevant_aa2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-122723681-blog-78677789.pc_relevant_aa2&amp;utm_relevant_index=2">SV学习笔记—线程之间的通信（事件event、信箱mailbox、旗语semaphore）_Verification_White的博客-CSDN博客_sv event</a></p>
 
                 
             </div>
@@ -439,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-wu-zhang-bi-ji/">https://www.daipeihong.top/2022/10/01/shu-zi-ji-cheng-dian-lu-di-wu-zhang-bi-ji/</a>
+                    <a href="https://www.daipeihong.top/2022/11/06/systemverilog-xue-xi-bi-ji-jiu/">https://www.daipeihong.top/2022/11/06/systemverilog-xue-xi-bi-ji-jiu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -477,8 +666,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                                    <span class="chip bg-color">数字集成电路</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">数字前端</span>
+                                </a>
+                            
+                                <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                                    <span class="chip bg-color">SystemVerilog验证</span>
                                 </a>
                             
                         </div>
@@ -557,16 +750,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-san-zhang-bi-ji/">
+                <a href="/2022/11/06/systemverilog-xue-xi-bi-ji-jiu/">
                     <div class="card-image">
                         
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第三章笔记">
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211943371.jpeg" class="responsive-img" alt="SystemVerilog学习笔记(九)">
                         
-                        <span class="card-title">数字集成电路第三章笔记</span>
+                        <span class="card-title">SystemVerilog学习笔记(九)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -576,9 +770,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -591,11 +785,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                        <span class="chip bg-color">数字集成电路</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">数字前端</span>
+                    </a>
+                    
+                    <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                        <span class="chip bg-color">SystemVerilog验证</span>
                     </a>
                     
                 </div>
@@ -609,12 +808,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/01/shu-zi-ji-cheng-dian-lu-di-er-zhang-bi-ji/">
+                <a href="/2022/11/05/systemverilog-shi-yan-yi/">
                     <div class="card-image">
                         
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210012316355.png" class="responsive-img" alt="数字集成电路第二章笔记">
+                        <img src="https://img0.baidu.com/it/u=2032420269,2020286089&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" class="responsive-img" alt="SystemVerilog实验(一)">
                         
-                        <span class="card-title">数字集成电路第二章笔记</span>
+                        <span class="card-title">SystemVerilog实验(一)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -625,7 +824,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-05
                             </span>
                         <span class="publish-author">
                             
@@ -642,8 +841,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF/">
-                        <span class="chip bg-color">数字集成电路</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">数字前端</span>
+                    </a>
+                    
+                    <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                        <span class="chip bg-color">SystemVerilog验证</span>
                     </a>
                     
                 </div>
@@ -715,6 +918,87 @@
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
