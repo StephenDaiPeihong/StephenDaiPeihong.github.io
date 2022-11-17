@@ -52,10 +52,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -387,14 +387,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    637
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -444,10 +444,10 @@ module rt_stimulator(
 
 initial begin : drive_reset_proc //reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
   @(negedge reset_n);
-  dbg_state &lt;= DRV_RESET;
-  din &lt;= 0;
-  frame_n &lt;= 1;
-  valid_n &lt;= 1;
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= 1;
+  valid_n <= 1;
 end
 
 // drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
@@ -460,39 +460,39 @@ initial begin : drive_chnl0_proc
   addr = 3;		//从第3位输出
   data = '{8'h33,8'h77};	
     // drive address phase 输入地址位阶段
-for(int i=0;i&lt;4;i++)begin  //4 clock
+for(int i=0;i<4;i++)begin  //4 clock
   @(posedge clock);
-  dbg_state &lt;=DRV_ADDR;	
-  din[0] &lt;= addr[i];
-  valid_n[0] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  frame_n[0] &lt;= 1'b0;	//frame_n需要为低
+  dbg_state <=DRV_ADDR;	
+  din[0] <= addr[i];
+  valid_n[0] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[0] <= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i&lt;5;i++)begin  //5 clock
+  for (int i=0;i<5;i++)begin  //5 clock
     @(posedge clock);
-    dbg_state &lt;=DRV_PAD;
-    din[0] &lt;= 1'b1;
-    valid_n[0] &lt;= 1'b1;	//valid_n需为高电平
-    frame_n[0] &lt;= 1'b0; //frame_n需为低电平
+    dbg_state <=DRV_PAD;
+    din[0] <= 1'b1;
+    valid_n[0] <= 1'b1;	//valid_n需为高电平
+    frame_n[0] <= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i&lt;8;i++)begin
+    for(int i=0;i<8;i++)begin
      @(posedge clock);
-      dbg_state &lt;=DRV_DATA;
-      dbg_din_chnl0_data &lt;= data[id];
-      din[0] &lt;= data[id][i];
-      valid_n[0] &lt;=1'b0;
-      frame_n &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[0] <= data[id][i];
+      valid_n[0] <=1'b0;
+      frame_n <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge clock);
-  dbg_state &lt;=DRV_IDLE;
-  dbg_din_chnl0_data &lt;= 0;
-  din[0] &lt;= 1'b0;
-  valid_n[0] &lt;= 1'b1;
-  frame_n &lt;= 1'b1;
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[0] <= 1'b0;
+  valid_n[0] <= 1'b1;
+  frame_n <= 1'b1;
 end
 endmodule
 
@@ -505,13 +505,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk &lt;= !clk;
+    forever #5ns clk <= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn &lt;= 1;
-    #10ns rstn &lt;= 0;
-    #10ns rstn &lt;= 1;
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
   end
 
 //例化router为DUT
@@ -1009,7 +1009,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">46.9k</span>
             
             
             

@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Obsidan(四)  自带callout用法, Stephen&#39;s Blog">
-    <meta name="description" content="语法&amp;gt; [!INFO]
-&amp;gt; 内容（它支持**markdown**，维基链接和嵌入内容）
+    <meta name="description" content="语法&gt; [!INFO]
+&gt; 内容（它支持**markdown**，维基链接和嵌入内容）
 
 
 [!INFO]内容（它支持markdown，维基链接和嵌入！）
@@ -16,7 +16,7 @@ note
 [!note]内容
 
 
-abstract, summa">
+abstract, summary, tl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -63,10 +63,10 @@ abstract, summa">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -398,7 +398,7 @@ abstract, summa">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    245
+                    254
                 </div>
                 
 
@@ -430,8 +430,8 @@ abstract, summa">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">&gt;</span> [!INFO]
-<span class="token blockquote punctuation">&gt;</span> 内容（它支持<span class="token bold"><span class="token punctuation">**</span>markdown<span class="token punctuation">**</span></span>，维基链接和嵌入内容）
+                <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> [!INFO]
+<span class="token blockquote punctuation">></span> 内容（它支持<span class="token bold"><span class="token punctuation">**</span>markdown<span class="token punctuation">**</span></span>，维基链接和嵌入内容）
 </code></pre>
 <blockquote>
 <p>[!INFO]<br>内容（它支持<strong>markdown</strong>，<a target="_blank" rel="noopener" href="https://help.obsidian.md/How+to/Internal+link">维基链接</a>和<a target="_blank" rel="noopener" href="https://help.obsidian.md/How+to/Embed+files">嵌入</a>！）</p>
@@ -486,21 +486,21 @@ abstract, summa">
 </blockquote>
 </li>
 </ol>
-<h1 id="自定义标题"><a href="#自定义标题" class="headerlink" title="自定义标题"></a>自定义标题</h1><pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">&gt;</span> [!TIP] Callouts can have custom titles, which also supports <span class="token bold"><span class="token punctuation">**</span>markdown<span class="token punctuation">**</span></span>!
+<h1 id="自定义标题"><a href="#自定义标题" class="headerlink" title="自定义标题"></a>自定义标题</h1><pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> [!TIP] Callouts can have custom titles, which also supports <span class="token bold"><span class="token punctuation">**</span>markdown<span class="token punctuation">**</span></span>!
 </code></pre>
 <blockquote>
 <p>[!TIP] Callouts can have custom titles, which also supports <strong>markdown</strong>!<br>内容</p>
 </blockquote>
 <h1 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h1><p><strong>使用&nbsp;<code>+</code>&nbsp;默认展开或者&nbsp;<code>-</code>&nbsp;默认折叠正文部分</strong><br><strong>默认展开</strong>：</p>
-<pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">&gt;</span> [!important]+
-<span class="token blockquote punctuation">&gt;</span> 可以使用 <span class="token code keyword">`+`</span> 默认展开或者 <span class="token code keyword">`-`</span> 默认折叠正文部分
+<pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> [!important]+
+<span class="token blockquote punctuation">></span> 可以使用<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token code keyword">`+`</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>默认展开或者<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token code keyword">`-`</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>默认折叠正文部分
 </code></pre>
 <blockquote>
 <p>[!important]+<br>可以使用&nbsp;<code>+</code>&nbsp;默认展开或者&nbsp;<code>-</code>&nbsp;默认折叠正文部分</p>
 </blockquote>
 <p><strong>默认折叠</strong>：</p>
-<pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">&gt;</span> [!important]-
-<span class="token blockquote punctuation">&gt;</span> 可以使用 <span class="token code keyword">`+`</span> 默认展开或者 <span class="token code keyword">`-`</span> 默认折叠正文部分
+<pre class=" language-markdown"><code class="language-markdown"><span class="token blockquote punctuation">></span> [!important]-
+<span class="token blockquote punctuation">></span> 可以使用<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token code keyword">`+`</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>默认展开或者<span class="token entity" title="&nbsp;">&amp;nbsp;</span><span class="token code keyword">`-`</span><span class="token entity" title="&nbsp;">&amp;nbsp;</span>默认折叠正文部分
 </code></pre>
 <blockquote>
 <p>[!important]-<br>可以使用&nbsp;<code>+</code>&nbsp;默认展开或者&nbsp;<code>-</code>&nbsp;默认折叠正文部分</p>
@@ -720,7 +720,7 @@ abstract, summa">
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            stimulator、generator、monitor改为类、增加checker组件
                         
                     </div>
                     <div class="publish-info">
@@ -978,7 +978,7 @@ abstract, summa">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">46.9k</span>
             
             
             

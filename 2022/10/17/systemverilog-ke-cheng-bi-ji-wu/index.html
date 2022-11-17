@@ -52,10 +52,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -387,14 +387,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    279
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    1 分
                 </div>
                 
 
@@ -465,10 +465,10 @@ end
 
 task drive_reset();
   @(negedge reset_n);
-  dbg_state &lt;= DRV_RESET;
-  din &lt;= 0;
-  frame_n &lt;= '1;//等效16'hFFFF
-  valid_n &lt;= '1;
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= '1;//等效16'hFFFF
+  valid_n <= '1;
 endtask
 
 // drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
@@ -480,7 +480,7 @@ initial begin : drive_chnl0_proc
   @(negedge reset_n);
   repeat(10) @(posedge clock);//延迟10个时钟周期
   forever begin	
-    wait(pkts.size()&gt;0);
+    wait(pkts.size()>0);
     p = pkts.pop_front();	//将p从队列pkts里面取出
     drive_chnl(p.src,p.dst,p.data);//从P中拿到发送端口，目标端口，发送数据
     end
@@ -496,39 +496,39 @@ end
 task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
   $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",saddr,daddr);
     // drive address phase 输入地址位阶段
-for(int i=0;i&lt;4;i++)begin  //4 clock
+for(int i=0;i<4;i++)begin  //4 clock
   @(posedge clock);
-  dbg_state &lt;=DRV_ADDR;	
-  din[saddr] &lt;= daddr[i];
-  valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  frame_n[saddr] &lt;= 1'b0;	//frame_n需要为低
+  dbg_state <=DRV_ADDR;	
+  din[saddr] <= daddr[i];
+  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[saddr] <= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i&lt;5;i++)begin  //5 clock
+  for (int i=0;i<5;i++)begin  //5 clock
     @(posedge clock);
-    dbg_state &lt;=DRV_PAD;
-    din[saddr] &lt;= 1'b1;
-    valid_n[saddr] &lt;= 1'b1;	//valid_n需为高电平
-    frame_n[saddr] &lt;= 1'b0; //frame_n需为低电平
+    dbg_state <=DRV_PAD;
+    din[saddr] <= 1'b1;
+    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    frame_n[saddr] <= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i&lt;8;i++)begin
+    for(int i=0;i<8;i++)begin
      @(posedge clock);
-      dbg_state &lt;=DRV_DATA;
-      dbg_din_chnl0_data &lt;= data[id];
-      din[saddr] &lt;= data[id][i];
-      valid_n[saddr] &lt;=1'b0;
-      frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[saddr] <= data[id][i];
+      valid_n[saddr] <=1'b0;
+      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge clock);
-  dbg_state &lt;=DRV_IDLE;
-  dbg_din_chnl0_data &lt;= 0;
-  din[saddr] &lt;= 1'b0;
-  valid_n[saddr] &lt;= 1'b1;
-  frame_n[saddr] &lt;= 1'b1;
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[saddr] <= 1'b0;
+  valid_n[saddr] <= 1'b1;
+  frame_n[saddr] <= 1'b1;
   $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",saddr,daddr);
 endtask
 endmodule
@@ -542,7 +542,7 @@ module rt_generator;	//generator产生数据交给stimulator
   endfunction
   
   task get_pkt(output rt_packet_t p);
-    wait(pkts.size() &gt;0 )	//队列不为空
+    wait(pkts.size() >0 )	//队列不为空
       p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
   endtask
 
@@ -560,13 +560,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk &lt;= !clk;
+    forever #5ns clk <= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn &lt;= 1;
-    #10ns rstn &lt;= 0;
-    #10ns rstn &lt;= 1;
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
   end
 
 //例化router为DUT
@@ -666,10 +666,10 @@ end
 
 task drive_reset();
   @(negedge reset_n);
-  dbg_state &lt;= DRV_RESET;
-  din &lt;= 0;
-  frame_n &lt;= '1;//等效16'hFFFF
-  valid_n &lt;= '1;
+  dbg_state <= DRV_RESET;
+  din <= 0;
+  frame_n <= '1;//等效16'hFFFF
+  valid_n <= '1;
 endtask
 
 // 发送数据
@@ -682,7 +682,7 @@ initial begin : drive_chnl_proc
   repeat(10) @(posedge clock);//延迟10个时钟周期
   forever begin	
     automatic rt_packet_t p;//声明一个动态的
-    wait(pkts.size()&gt;0);
+    wait(pkts.size()>0);
     p = pkts.pop_front();	//将p从队列pkts里面取出
     
     fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
@@ -701,7 +701,7 @@ end
 task automatic wait_src_chnl_avail(rt_packet_t p);//判断src chnl是否被占用，是否需要等待
     if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
         src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
-    else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+    else if(src_chnl_status[p.src] >= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
         wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
 endtask
 
@@ -712,39 +712,39 @@ endfunction
 task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",$time,saddr,daddr);
     // drive address phase 输入地址位阶段
-for(int i=0;i&lt;4;i++)begin  //4 clock
+for(int i=0;i<4;i++)begin  //4 clock
   @(posedge clock);
-  dbg_state &lt;=DRV_ADDR;	
-  din[saddr] &lt;= daddr[i];
-  valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  frame_n[saddr] &lt;= 1'b0;	//frame_n需要为低
+  dbg_state <=DRV_ADDR;	
+  din[saddr] <= daddr[i];
+  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[saddr] <= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i&lt;5;i++)begin  //5 clock
+  for (int i=0;i<5;i++)begin  //5 clock
     @(posedge clock);
-    dbg_state &lt;=DRV_PAD;
-    din[saddr] &lt;= 1'b1;
-    valid_n[saddr] &lt;= 1'b1;	//valid_n需为高电平
-    frame_n[saddr] &lt;= 1'b0; //frame_n需为低电平
+    dbg_state <=DRV_PAD;
+    din[saddr] <= 1'b1;
+    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    frame_n[saddr] <= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i&lt;8;i++)begin
+    for(int i=0;i<8;i++)begin
      @(posedge clock);
-      dbg_state &lt;=DRV_DATA;
-      dbg_din_chnl0_data &lt;= data[id];
-      din[saddr] &lt;= data[id][i];
-      valid_n[saddr] &lt;=1'b0;
-      frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      din[saddr] <= data[id][i];
+      valid_n[saddr] <=1'b0;
+      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge clock);
-  dbg_state &lt;=DRV_IDLE;
-  dbg_din_chnl0_data &lt;= 0;
-  din[saddr] &lt;= 1'b0;
-  valid_n[saddr] &lt;= 1'b1;
-  frame_n[saddr] &lt;= 1'b1;
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  din[saddr] <= 1'b0;
+  valid_n[saddr] <= 1'b1;
+  frame_n[saddr] <= 1'b1;
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",$time,saddr,daddr);
 endtask
 endmodule
@@ -758,7 +758,7 @@ module rt_generator;	//generator产生数据交给stimulator
   endfunction
   
   task get_pkt(output rt_packet_t p);
-    wait(pkts.size() &gt;0 )	//队列不为空
+    wait(pkts.size() >0 )	//队列不为空
       p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
   endtask
 
@@ -776,13 +776,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk &lt;= !clk;
+    forever #5ns clk <= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn &lt;= 1;
-    #10ns rstn &lt;= 0;
-    #10ns rstn &lt;= 1;
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
   end
 
 //例化router为DUT
@@ -865,10 +865,10 @@ end
 
 task drive_reset();
   @(negedge intf.reset_n);
-  dbg_state &lt;= DRV_RESET;
-  intf.din &lt;= 0;
-  intf.frame_n &lt;= '1;//等效16'hFFFF
-  intf.valid_n &lt;= '1;
+  dbg_state <= DRV_RESET;
+  intf.din <= 0;
+  intf.frame_n <= '1;//等效16'hFFFF
+  intf.valid_n <= '1;
 endtask
 
 // 发送数据
@@ -881,7 +881,7 @@ initial begin : drive_chnl_proc
   repeat(10) @(posedge intf.clock);//延迟10个时钟周期
   forever begin	
     automatic rt_packet_t p;//声明一个动态的
-    wait(pkts.size()&gt;0);
+    wait(pkts.size()>0);
     p = pkts.pop_front();	//将p从队列pkts里面取出
     
     fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
@@ -900,7 +900,7 @@ end
 task automatic wait_src_chnl_avail(rt_packet_t p);//判断src chnl是否被占用，是否需要等待
     if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
         src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
-    else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+    else if(src_chnl_status[p.src] >= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
         wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
 endtask
 
@@ -911,39 +911,39 @@ endfunction
 task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",$time,saddr,daddr);
     // drive address phase 输入地址位阶段
-for(int i=0;i&lt;4;i++)begin  //4 clock
+for(int i=0;i<4;i++)begin  //4 clock
   @(posedge intf.clock);
-  dbg_state &lt;=DRV_ADDR;	
-  intf.din[saddr] &lt;= daddr[i];
-  intf.valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  intf.frame_n[saddr] &lt;= 1'b0;	//frame_n需要为低
+  dbg_state <=DRV_ADDR;	
+  intf.din[saddr] <= daddr[i];
+  intf.valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  intf.frame_n[saddr] <= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i&lt;5;i++)begin  //5 clock
+  for (int i=0;i<5;i++)begin  //5 clock
     @(posedge intf.clock);
-    dbg_state &lt;=DRV_PAD;
-    intf.din[saddr] &lt;= 1'b1;
-    intf.valid_n[saddr] &lt;= 1'b1;	//valid_n需为高电平
-    intf.frame_n[saddr] &lt;= 1'b0; //frame_n需为低电平
+    dbg_state <=DRV_PAD;
+    intf.din[saddr] <= 1'b1;
+    intf.valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    intf.frame_n[saddr] <= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i&lt;8;i++)begin
+    for(int i=0;i<8;i++)begin
      @(posedge intf.clock);
-      dbg_state &lt;=DRV_DATA;
-      dbg_din_chnl0_data &lt;= data[id];
-      intf.din[saddr] &lt;= data[id][i];
-      intf.valid_n[saddr] &lt;=1'b0;
-      intf.frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      intf.din[saddr] <= data[id][i];
+      intf.valid_n[saddr] <=1'b0;
+      intf.frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge intf.clock);
-  dbg_state &lt;=DRV_IDLE;
-  dbg_din_chnl0_data &lt;= 0;
-  intf.din[saddr] &lt;= 1'b0;
-  intf.valid_n[saddr] &lt;= 1'b1;
-  intf.frame_n[saddr] &lt;= 1'b1;
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  intf.din[saddr] <= 1'b0;
+  intf.valid_n[saddr] <= 1'b1;
+  intf.frame_n[saddr] <= 1'b1;
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",$time,saddr,daddr);
 endtask
 endmodule
@@ -957,7 +957,7 @@ module rt_generator;	//generator产生数据交给stimulator
   endfunction
   
   task get_pkt(output rt_packet_t p);
-    wait(pkts.size() &gt;0 )	//队列不为空
+    wait(pkts.size() >0 )	//队列不为空
       p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
   endtask
 
@@ -975,13 +975,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk &lt;= !clk;
+    forever #5ns clk <= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn &lt;= 1;
-    #10ns rstn &lt;= 0;
-    #10ns rstn &lt;= 1;
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
   end
 
 //例化router为DUT
@@ -1044,8 +1044,8 @@ endmodule
     //monitor specific channel-in data and put it into the queue
     // monitor address phase
     @(negedge intf.frame_n[id]);//监测frame_n下降沿(frame_n由时钟驱动)
-    $display ("@%0t: [MON] src_chn1[%0d] &amp; dest_chn1[%0d] data trans started",$time,pkt.src,pkt.dst);
-    for(int i=0; i&lt;4; i++)begin
+    $display ("@%0t: [MON] src_chn1[%0d] & dest_chn1[%0d] data trans started",$time,pkt.src,pkt.dst);
+    for(int i=0; i<4; i++)begin
         @(negedge intf.clock);		//frame_n下降沿后监测4个clk negedge
         pkt.dst[i]= intf.din[id];
         end
@@ -1053,13 +1053,13 @@ endmodule
     repeat(5) @(negedge intf.clock);
     do begin
         pkt.data = new [pkt.data.size + 1](pkt.data);//创建动态数组并复制pkt.data
-        for ( int i=0; i&lt;8; i++) begin
+        for ( int i=0; i<8; i++) begin
             @(negedge intf.clock); //在8个clk negedge监测8bit数据
             pkt.data[pkt.data.size-1][i] = intf.din[id];
         end
     end while(!intf.frame_n[id]);
     in_pkts[id].push_back(pkt);	//将monitor拿到的数据放入in_pkts
-    $display("@%0t: [MON] src_chn1[%0d] &amp; dest_chn1[%0d] data trans [%0p] finished",$time,pkt.src,pkt.dst,pkt.data);
+    $display("@%0t: [MON] src_chn1[%0d] & dest_chn1[%0d] data trans [%0p] finished",$time,pkt.src,pkt.dst,pkt.data);
     end
 endtask
 </code></pre>
@@ -1075,7 +1075,7 @@ endtask
         $display( "@%0t: [MON] CH_OUT dest_chn1[%0d] data trans started",$time,pkt.dst);
         do begin
         pkt.data = new [ pkt.data.size + 1](pkt.data);
-        for(int i=0;i&lt;8; i++) begin
+        for(int i=0;i<8; i++) begin
             @(negedge intf.clock iff !intf.valido_n[id]);//clock与valido_n信号同时为低
             pkt.data[pkt.data.size-1][i]= intf.dout [id];
         end
@@ -1125,10 +1125,10 @@ initial begin : drive_reset_proc
 end
 task drive_reset();
   @(negedge intf.reset_n);
-  dbg_state &lt;= DRV_RESET;
-  intf.din &lt;= 0;
-  intf.frame_n &lt;= '1;//等效16'hFFFF
-  intf.valid_n &lt;= '1;
+  dbg_state <= DRV_RESET;
+  intf.din <= 0;
+  intf.frame_n <= '1;//等效16'hFFFF
+  intf.valid_n <= '1;
 endtask
 
 // 发送数据
@@ -1138,7 +1138,7 @@ initial begin : drive_chnl_proc
   repeat(10) @(posedge intf.clock);//延迟10个时钟周期
   forever begin	
     automatic rt_packet_t p;//声明一个动态的
-    wait(pkts.size()&gt;0);
+    wait(pkts.size()>0);
     p = pkts.pop_front();	//将p从队列pkts里面取出
     fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
         begin	
@@ -1153,7 +1153,7 @@ end
 task automatic wait_src_chnl_avail(rt_packet_t p);//判断src chnl是否被占用，是否需要等待
     if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
         src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
-    else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+    else if(src_chnl_status[p.src] >= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
         wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
 endtask
 
@@ -1164,39 +1164,39 @@ endfunction
 task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
   $display("@%0t: [DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",$time,saddr,daddr);
     // drive address phase 输入地址位阶段
-for(int i=0;i&lt;4;i++)begin  //4 clock
+for(int i=0;i<4;i++)begin  //4 clock
   @(posedge intf.clock);
-  dbg_state &lt;=DRV_ADDR;	
-  intf.din[saddr] &lt;= daddr[i];
-  intf.valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  intf.frame_n[saddr] &lt;= 1'b0;	//frame_n需要为低
+  dbg_state <=DRV_ADDR;	
+  intf.din[saddr] <= daddr[i];
+  intf.valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  intf.frame_n[saddr] <= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i&lt;5;i++)begin  //5 clock
+  for (int i=0;i<5;i++)begin  //5 clock
     @(posedge intf.clock);
-    dbg_state &lt;=DRV_PAD;
-    intf.din[saddr] &lt;= 1'b1;
-    intf.valid_n[saddr] &lt;= 1'b1;	//valid_n需为高电平
-    intf.frame_n[saddr] &lt;= 1'b0; //frame_n需为低电平
+    dbg_state <=DRV_PAD;
+    intf.din[saddr] <= 1'b1;
+    intf.valid_n[saddr] <= 1'b1;	//valid_n需为高电平
+    intf.frame_n[saddr] <= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i&lt;8;i++)begin
+    for(int i=0;i<8;i++)begin
      @(posedge intf.clock);
-      dbg_state &lt;=DRV_DATA;
-      dbg_din_chnl0_data &lt;= data[id];
-      intf.din[saddr] &lt;= data[id][i];
-      intf.valid_n[saddr] &lt;=1'b0;
-      intf.frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= data[id];
+      intf.din[saddr] <= data[id][i];
+      intf.valid_n[saddr] <=1'b0;
+      intf.frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge intf.clock);
-  dbg_state &lt;=DRV_IDLE;
-  dbg_din_chnl0_data &lt;= 0;
-  intf.din[saddr] &lt;= 1'b0;
-  intf.valid_n[saddr] &lt;= 1'b1;
-  intf.frame_n[saddr] &lt;= 1'b1;
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  intf.din[saddr] <= 1'b0;
+  intf.valid_n[saddr] <= 1'b1;
+  intf.frame_n[saddr] <= 1'b1;
   $display("@%0t: [DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",$time,saddr,daddr);
 endtask
 endmodule
@@ -1210,7 +1210,7 @@ module rt_generator;	//generator产生数据交给stimulator
   endfunction
   
   task get_pkt(output rt_packet_t p);
-    wait(pkts.size() &gt;0 )	//队列不为空
+    wait(pkts.size() >0 )	//队列不为空
       p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
   endtask
 
@@ -1241,22 +1241,22 @@ task automatic mon_chnl_in (bit[3:0]id);//监测数据输入的任务
     //monitor specific channel-in data and put it into the queue
     // monitor address phase
     @(negedge intf.frame_n[id]);//监测frame_n下降沿(frame_n由时钟驱动)
-        for(int i=0; i&lt;4; i++)begin
+        for(int i=0; i<4; i++)begin
         @(negedge intf.clock);		//frame_n下降沿后监测4个clk negedge
         pkt.dst[i]= intf.din[id];
         end
-  $display ("@%0t: [MON] src_chn1[%0d] &amp; dest_chn1[%0d] data trans started",$time,pkt.src,pkt.dst);
+  $display ("@%0t: [MON] src_chn1[%0d] & dest_chn1[%0d] data trans started",$time,pkt.src,pkt.dst);
     //pass pad phase 不考虑pad阶段是否满足协议要求
     repeat(5) @(negedge intf.clock);
     do begin
         pkt.data = new [pkt.data.size + 1](pkt.data);//创建动态数组并复制pkt.data
-        for ( int i=0; i&lt;8; i++) begin
+        for ( int i=0; i<8; i++) begin
             @(negedge intf.clock); //在8个clk negedge监测8bit数据
             pkt.data[pkt.data.size-1][i] = intf.din[id];
         end
     end while(!intf.frame_n[id]);
     in_pkts[id].push_back(pkt);	//将monitor拿到的数据放入in_pkts
-    $display("@%0t: [MON] src_chn1[%0d] &amp; dest_chn1[%0d] data trans [%0p] finished",$time,pkt.src,pkt.dst,pkt.data);
+    $display("@%0t: [MON] src_chn1[%0d] & dest_chn1[%0d] data trans [%0p] finished",$time,pkt.src,pkt.dst,pkt.data);
     end
 endtask
 
@@ -1271,7 +1271,7 @@ task automatic mon_chnl_out(bit[ 3:0]id);//监测数据输出的任务
         $display( "@%0t: [MON] CH_OUT dest_chn1[%0d] data trans started",$time,pkt.dst);
         do begin
         pkt.data = new [ pkt.data.size + 1](pkt.data);
-        for(int i=0;i&lt;8; i++) begin
+        for(int i=0;i<8; i++) begin
             @(negedge intf.clock iff !intf.valido_n[id]);//clock与valido_n信号同时为低
             pkt.data[pkt.data.size-1][i]= intf.dout [id];
         end
@@ -1293,13 +1293,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk &lt;= !clk;
+    forever #5ns clk <= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn &lt;= 1;
-    #10ns rstn &lt;= 0;
-    #10ns rstn &lt;= 1;
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
   end
 
 //例化router为DUT
@@ -1855,7 +1855,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">46.9k</span>
             
             
             

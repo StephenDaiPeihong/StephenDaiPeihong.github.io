@@ -55,10 +55,10 @@ va">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -508,9 +508,17 @@ endmodule
 initial begin
     randnum rn = new();
     int x = 5, y=7;
-    for(int loop = 0; loop &lt; 10; loop++) begin
-    rn.randomize() with {x &lt; y;};
-    $display("LOOP-%0d:: CONSTRAINT{x<y;&#125;\n rn.x="%0d," rn.y="%0d&quot;," loop,="" rn.x,="" rn.y);="" rn.randomize()="" with="" &#123;x="" <="" this.y;&#125;;="" $display("loop-%0d:="" constraint="" &#123;x<this.y;&#125;\n="" local::y;&#125;;="" $display("loop-%0d::="" constraint&#123;x<local::y;&#125;\n="" rn.x,rn.y);="" end="" endmodule="" code=""></y;&#125;\n></code></pre><code class="language-systemverilog">
+    for(int loop = 0; loop < 10; loop++) begin
+    rn.randomize() with {x < y;};
+    $display("LOOP-%0d:: CONSTRAINT{x<y;}\n rn.x = %0d, rn.y = %0d", loop, rn.x, rn.y);
+    rn.randomize() with {x < this.y;};
+    $display("LOOP-%0d: CONSTRAINT {x<this.y;}\n rn.x = %0d, rn.y = %0d", loop, rn.x, rn.y);
+    rn.randomize() with {x < local::y;};
+    $display("LOOP-%0d:: CONSTRAINT{x<local::y;}\n rn.x = %0d, rn.y = %0d", loop, rn.x,rn.y);
+    end
+end
+endmodule
+</code></pre>
 <p><strong>分析：</strong><br>y——指向rand bit[3:0] y中的y（就近原则，rn指向randnum这个类，此处y指向randnum这个要被随机化的类里面的y），所以每次随机后的x小于每次随机后的y即可。<br>this.y——同上<br>local::y——指向y=7（local::指向的变量y会在包含randomize()方法的对象rn中），所以每次随机后x小于7即可。</p>
 <blockquote>
 <p>仿真结果<br>LOOP-0:: CONSTRAINT{x&lt;y;}<br>rn.x = 4, rn.y = 6<br>LOOP-0: CONSTRAINT {x&lt;this.y;}<br>rn.x = 5, rn.y = 15<br>LOOP-0:: CONSTRAINT{x&lt;local::y;}<br>rn.x = 5, rn.y = 1</p>
@@ -524,7 +532,7 @@ initial begin
 <p>LOOP-8:: CONSTRAINT{x&lt;y;}<br>rn.x = 0, rn.y = 12<br>LOOP-8: CONSTRAINT {x&lt;this.y;}<br>rn.x = 11, rn.y = 14<br>LOOP-8:: CONSTRAINT{x&lt;local::y;}<br>rn.x = 0, rn.y = 15</p>
 <p>LOOP-9:: CONSTRAINT{x&lt;y;}<br>rn.x = 3, rn.y = 15<br>LOOP-9: CONSTRAINT {x&lt;this.y;}<br>rn.x = 1, rn.y = 14<br>LOOP-9:: CONSTRAINT{x&lt;local::y;}<br>rn.x = 0, rn.y = 8</p>
 </blockquote>
-</code>
+
                 
             </div>
             <hr/>
@@ -1009,7 +1017,7 @@ initial begin
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">46.9k</span>
             
             
             

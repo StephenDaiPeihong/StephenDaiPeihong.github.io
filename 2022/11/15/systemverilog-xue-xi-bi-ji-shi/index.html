@@ -60,10 +60,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -500,11 +500,11 @@ int va, vb;
 cg c1 = new ( va, 0，50 ) ;cg c2 = new( vb,120,600 ) ;
 </code></pre>
 <h4 id="值变化覆盖"><a href="#值变化覆盖" class="headerlink" title="值变化覆盖"></a>值变化覆盖</h4><p>除了可以覆盖数值，还可以覆盖数值的变化</p>
-<pre class=" language-systemverilog"><code class="language-systemverilog">value1 =&gt;value2
-value1 =&gt;value3 =&gt;value4 =&gt;value5
+<pre class=" language-systemverilog"><code class="language-systemverilog">value1 =>value2
+value1 =>value3 =>value4 =>value5
 
-range_list1 =&gt;range_list2
-1,5 =&gt;6,7
+range_list1 =>range_list2
+1,5 =>6,7
 
 trans__item [*repeat_range]
 </code></pre>
@@ -526,7 +526,7 @@ g12_15可以用来表示12到15之间的值，即1100,1101,1110,1111
 <pre class=" language-systemverilog"><code class="language-systemverilog">covergroup cg23;
     coverpoint a {
         ignore_bins ignore_vals = { 7,8} ;
-        ignore_bins ignore_trans = (1=&gt;3=&gt;5);
+        ignore_bins ignore_trans = (1=>3=>5);
         }
 endgroup
 </code></pre>
@@ -534,7 +534,7 @@ endgroup
 <pre class=" language-systemverilog"><code class="language-systemverilog">covergroup cg3 ;
     coverpoint b {
     i1legal_bins bad_vals = { 1，2,3};
-    illegal_bins bad_trans = (4=&gt;5=&gt;6);
+    illegal_bins bad_trans = (4=>5=>6);
     }
 endgroup
 </code></pre>
@@ -1034,7 +1034,7 @@ endgroup
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65.7k</span>
+                        class="white-color">46.9k</span>
             
             
             
