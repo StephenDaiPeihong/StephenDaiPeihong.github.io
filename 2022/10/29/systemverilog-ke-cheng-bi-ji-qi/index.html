@@ -1493,9 +1493,9 @@ endmodule
         
 
 **(2)使用makefile**
-使用脚本包含命令及其组合，makefile代码如下：
-```systemverilog
-#############################
+
+<p>使用脚本包含命令及其组合，makefile代码如下：</p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">#############################
 #User variables
 #############################
 TB        =tb
@@ -1503,17 +1503,26 @@ SEED      =1
 TESTNAME ?= rt_single_ch_test
 FILES     =router.v rt_test_pkg.sv lab7tb.sv
 
-<p>#############################<br>#Environment variables<br>#############################<br>COMP  = vcs -full64 -sverilog -debug_acc+all -timescale=1ps/1ps -l comp.log $(FILES)<br>RUN   = ./$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED)+TESTNAME=$(TESTNAME)</p>
-<p>comp:<br>    $(COMP) -top $(TB) -o $(TB).simv<br>run:<br>    $(RUN)</p>
-<p>rung:<br>    $(RUN)-gui</p>
-<pre><code>相关命令：
-&gt;make comp    //编译当前路径下的makefile文件，生成命令
-&gt;make run/make rung    //执行run或rung的内容，生成log文件，make rung会调用vcs的可视化窗口
+#############################
+#Environment variables
+#############################
+COMP  = vcs -full64 -sverilog -debug_acc+all -timescale=1ps/1ps -l comp.log $(FILES)
+RUN   = ./$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED)+TESTNAME=$(TESTNAME)
 
-**(3)对makefile增加输入参数**
-将外部输入参数添加到tb文件中：
-```systemverilog
-rt_interface intf();//例化接口
+comp:
+    $(COMP) -top $(TB) -o $(TB).simv
+run:
+    $(RUN)
+    
+rung:
+    $(RUN)-gui
+</code></pre>
+<p>相关命令：</p>
+<blockquote>
+<p>make comp    //编译当前路径下的makefile文件，生成命令<br>make run/make rung    //执行run或rung的内容，生成log文件，make rung会调用vcs的可视化窗口</p>
+</blockquote>
+<p><strong>(3)对makefile增加输入参数</strong><br>将外部输入参数添加到tb文件中：</p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">rt_interface intf();//例化接口
     assign intf.reset_n = rstn;
     assign intf.clock = clk;
 
