@@ -573,11 +573,7 @@
                 </a>
                 <p class="post-description">
                     
-                        一、初步初步使用module和initial实现初步激励初步TestBench平台概览
-
-    
-        
-        HTM
+                        以路由器(router)为DUT，逐步搭建其testbench的过程
                     
                 </p>
                 <a href="/2022/11/05/systemverilog-ke-cheng-jin-du-zong-lan-chi-xu-geng-xin/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
@@ -704,8 +700,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Verilog数字系统设计第(三)章总结
-
+                                3.1 模块的结构Verilog 的基本设计单元是“模块”( block)。一个模块是由两部分组成的：一部分描述接口，另一部分描述逻辑功能，即定义输入是如何影响输出的。Verilog 模块结构位于在 module和 endmodule声明语
                             
                         </div>
                         <div class="publish-info">
@@ -973,18 +968,7 @@ interface router_io(input bit clo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                一、初步初步使用module和initial实现初步激励初步TestBench平台概览
-
-    
-        
-        HTML
-    
-        
-            
-        
-
-
-二、继续改进改进1：
+                                以路由器(router)为DUT，逐步搭建其testbench的过程
                             
                         </div>
                         <div class="publish-info">
@@ -1156,12 +1140,7 @@ va
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1.更新test_top，类的继承2.report facetb1.sv如下
-class rt_packet;
-  bit [3:0] src;
-  bit [3:0] dst;
-  bit [7:0] data [];
-  functio
+                                利用类的继承，将多种test包含进base test中；增加数据传输完成信号、checker的判断、test；package封装与makefile的使 name；
                             
                         </div>
                         <div class="publish-info">
@@ -1452,7 +1431,7 @@ class rt_packet;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.9k</span>
+                        class="white-color">47.9k</span>
             
             
             
