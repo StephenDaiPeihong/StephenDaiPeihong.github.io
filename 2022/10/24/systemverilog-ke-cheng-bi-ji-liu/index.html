@@ -380,14 +380,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-18
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    220
+                    219
                 </div>
                 
 
@@ -419,15 +419,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-将数据传输从结构体改造为类"><a href="#1-将数据传输从结构体改造为类" class="headerlink" title="1. 将数据传输从结构体改造为类"></a>1. 将数据传输从结构体改造为类</h1><h2 id="1-1-改造"><a href="#1-1-改造" class="headerlink" title="1.1 改造"></a>1.1 改造</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161658402.png" width="700" height="150" title=" ">
-        
-
+                <h1 id="1-将数据传输从结构体改造为类"><a href="#1-将数据传输从结构体改造为类" class="headerlink" title="1. 将数据传输从结构体改造为类"></a>1. 将数据传输从结构体改造为类</h1><h2 id="1-1-改造"><a href="#1-1-改造" class="headerlink" title="1.1 改造"></a>1.1 改造</h2><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161658402.png " width="80%" height="80%"></div>
 
 <h2 id="1-2-改造后的tb-sv"><a href="#1-2-改造后的tb-sv" class="headerlink" title="1.2 改造后的tb.sv"></a>1.2 改造后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">class rt_packet;
   bit [3:0] src;
@@ -699,15 +691,7 @@ end
 
 endmodule 
 </code></pre>
-<h2 id="1-3-仿真结果"><a href="#1-3-仿真结果" class="headerlink" title="1.3 仿真结果"></a>1.3 仿真结果</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161639835.png" width="500" height="500" title=" ">
-        
-
+<h2 id="1-3-仿真结果"><a href="#1-3-仿真结果" class="headerlink" title="1.3 仿真结果"></a>1.3 仿真结果</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161639835.png" width="60%" height="60%"></div>
 
 <h1 id="2-将drive-chnl任务的输入改为类"><a href="#2-将drive-chnl任务的输入改为类" class="headerlink" title="2. 将drive_chnl任务的输入改为类"></a>2. 将drive_chnl任务的输入改为类</h1><h2 id="2-1-改造"><a href="#2-1-改造" class="headerlink" title="2.1 改造"></a>2.1 改造</h2><p><strong>(1)增加打印函数</strong></p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">  function string sprint();//打印packet信息的函数
@@ -998,15 +982,7 @@ module tb;
   
 endmodule
 </code></pre>
-<h2 id="2-3-仿真结果"><a href="#2-3-仿真结果" class="headerlink" title="2.3 仿真结果"></a>2.3 仿真结果</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171321867.png" width="400" height="1500" title=" ">
-        
-
+<h2 id="2-3-仿真结果"><a href="#2-3-仿真结果" class="headerlink" title="2.3 仿真结果"></a>2.3 仿真结果</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171321867.png" width="50%" height="50%"></div>
 
 <h1 id="3-将stimulator、generator、monitor改为类"><a href="#3-将stimulator、generator、monitor改为类" class="headerlink" title="3. 将stimulator、generator、monitor改为类"></a>3. 将stimulator、generator、monitor改为类</h1><h2 id="3-1-改造"><a href="#3-1-改造" class="headerlink" title="3.1 改造"></a>3.1 改造</h2><p><strong>(1)将stimulator、generator、monitor从module改为class：</strong></p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">class rt_stimulator;
@@ -1373,26 +1349,10 @@ end
 endmodule 
 </code></pre>
 <h2 id="3-3-仿真结果"><a href="#3-3-仿真结果" class="headerlink" title="3.3 仿真结果"></a>3.3 仿真结果</h2><p>结果同上，硬件结构层次如下：</p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171624571.png" width="400" height="900" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171624571.png" width="45%" height="45%"></div>
 
 <h1 id="4-增加checker组件"><a href="#4-增加checker组件" class="headerlink" title="4. 增加checker组件"></a>4. 增加checker组件</h1><h2 id="4-1-思路"><a href="#4-1-思路" class="headerlink" title="4.1 思路"></a>4.1 思路</h2><p>Checker从Monitor中拿到monitor采样的输入数据为期望的输出、拿到monitor采样的输出数据为实际的输出，比较二者判断输入与输出是否相等。</p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171936043.png" width="400" height="200" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171936043.png" width="60%" height="60%"></div>
 
 <h2 id="4-2-改造后的tb-sv"><a href="#4-2-改造后的tb-sv" class="headerlink" title="4.2 改造后的tb.sv"></a>4.2 改造后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">class rt_packet;
   bit [3:0] src;
@@ -1798,32 +1758,9 @@ endmodule
 <p>[CHK] data compare success with packet :<br>src = 0<br>dst = 5<br>data_length = 2<br>data[0] = ‘h55<br>data[1] = ‘h66</p>
 </blockquote>
 <p><strong>硬件结构层次如下：</strong></p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171907835.png " width="45%" height="45%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171907835.png" width="400" height="900" title=" ">
-        
-
-
-<h1 id="5-TestBench概览"><a href="#5-TestBench概览" class="headerlink" title="5. TestBench概览"></a>5. TestBench概览</h1>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171924107.png" width="600" height="360" title=" ">
-        
-
-
-
-
-
-
-
-
+<h1 id="5-TestBench概览"><a href="#5-TestBench概览" class="headerlink" title="5. TestBench概览"></a>5. TestBench概览</h1><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171924107.png" width="80%" height="80%"></div>
 
                 
             </div>
@@ -2297,7 +2234,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

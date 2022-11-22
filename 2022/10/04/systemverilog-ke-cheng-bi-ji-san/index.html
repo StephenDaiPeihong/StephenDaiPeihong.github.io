@@ -380,14 +380,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-05
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    637
+                    648
                 </div>
                 
 
@@ -419,12 +419,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-DUT——router功能概述"><a href="#1-DUT——router功能概述" class="headerlink" title="1. DUT——router功能概述"></a>1. DUT——router功能概述</h1><h2 id="1-1管脚图"><a href="#1-1管脚图" class="headerlink" title="1.1管脚图"></a>1.1管脚图</h2><p>以router（路由器）为例<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041439616.png"></p>
-<h2 id="1-2输入输出信号"><a href="#1-2输入输出信号" class="headerlink" title="1.2输入输出信号"></a>1.2输入输出信号</h2><p><strong>左边</strong>是输入：16位的din（数据输入）、16位的frame_n（数据帧有效，低电平有效）、16位的valid_n（有效信号，低电平有效）、reset_n（低电平复位）和clock（时钟）<br><strong>右边</strong>是输出：16位的dout（数据输出）、16位的dout（数据输出）、16位的frameo_n（数据帧输出有效）、16位的valido_n（输出有效信号，低电平有效）</p>
-<h2 id="1-3模块功能"><a href="#1-3模块功能" class="headerlink" title="1.3模块功能"></a>1.3模块功能</h2><p>16个输入的通道，选一个通道作为输入通道，同样的，16个输出的通道，也是选一个通道作为输出通道，数据是一bit一bit地传输。<br>例如，选择din[7]为数据的输入通道，所以frame_n[7]和valid_n[7]就是控制信号；选择dout[3]为数据的输出通道，所以frameo_n[3]和valido_n[3]就是控制信号。因此数据会从7号输入通道输入，然后从3号通道输出，路由器的功能就是这么简单。</p>
-<h2 id="1-4输入信号协议"><a href="#1-4输入信号协议" class="headerlink" title="1.4输入信号协议"></a>1.4输入信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041525871.png"><br> <strong>din信号</strong><br>1.din[i]中的i表示从哪路输入，<strong>din中的第一段4bit的数据表示输出地址（低位开始）</strong>，从哪路输出<br>2.地址传输完毕后拉高进入隔离段<br>3.隔离段结束后开始传输数据（低位开始）<br><strong>frame_n信号</strong><br>1.下降沿指示packet的第一位数据<br>2.上升沿指示packet的最后一位数据<br><strong>valid_n信号</strong><br>1.其在din的地址输入时间段可为任意值x<br>2.在隔离段pad拉高<br>3.其拉低时表示数据有效，因此在payload段若其拉高，则din数据无效<br>4.数据输入完毕后拉高</p>
-<h2 id="1-5输出信号协议"><a href="#1-5输出信号协议" class="headerlink" title="1.5输出信号协议"></a>1.5输出信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041531905.png"><br>输出信号时序图如上，比较简单，当valido_n和frameo_n均为低时数据有效，除了packet最后一位输出数据时frameo_n为高&nbsp;。</p>
-<h2 id="1-6复位信号协议"><a href="#1-6复位信号协议" class="headerlink" title="1.6复位信号协议"></a>1.6复位信号协议</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041534779.png"><br>以上为其复位协议时序图，有以下几点需要注意：<br>1.复位时，reset_n为低电平,frame_n和valid_n为高电平<br>2.有效复位<strong>至少保持1个clk</strong><br>3.复位后<strong>至少等待15个时钟</strong>周期后才可以发送数据</p>
+                <h1 id="1-DUT——router功能概述"><a href="#1-DUT——router功能概述" class="headerlink" title="1. DUT——router功能概述"></a>1. DUT——router功能概述</h1><h2 id="1-1管脚图"><a href="#1-1管脚图" class="headerlink" title="1.1管脚图"></a>1.1管脚图</h2><p>以router（路由器）为例</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041439616.png" width="60%" height="60%"></div>
+## 1.2输入输出信号
+**左边**是输入：16位的din（数据输入）、16位的frame_n（数据帧有效，低电平有效）、16位的valid_n（有效信号，低电平有效）、reset_n（低电平复位）和clock（时钟）
+**右边**是输出：16位的dout（数据输出）、16位的dout（数据输出）、16位的frameo_n（数据帧输出有效）、16位的valido_n（输出有效信号，低电平有效）
+## 1.3模块功能
+16个输入的通道，选一个通道作为输入通道，同样的，16个输出的通道，也是选一个通道作为输出通道，数据是一bit一bit地传输。
+例如，选择din[7]为数据的输入通道，所以frame_n[7]和valid_n[7]就是控制信号；选择dout[3]为数据的输出通道，所以frameo_n[3]和valido_n[3]就是控制信号。因此数据会从7号输入通道输入，然后从3号通道输出，路由器的功能就是这么简单。
+## 1.4输入信号协议
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041525871.png " width="100%" height="100%"></div>
+ **din信号**
+1.din[i]中的i表示从哪路输入，**din中的第一段4bit的数据表示输出地址（低位开始）**，从哪路输出
+2.地址传输完毕后拉高进入隔离段
+3.隔离段结束后开始传输数据（低位开始）
+**frame_n信号**
+1.下降沿指示packet的第一位数据
+2.上升沿指示packet的最后一位数据
+**valid_n信号**
+1.其在din的地址输入时间段可为任意值x
+2.在隔离段pad拉高
+3.其拉低时表示数据有效，因此在payload段若其拉高，则din数据无效
+4.数据输入完毕后拉高
+## 1.5输出信号协议
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041531905.png " width="100%" height="100%"></div>
+输出信号时序图如上，比较简单，当valido_n和frameo_n均为低时数据有效，除了packet最后一位输出数据时frameo_n为高&nbsp;。
+## 1.6复位信号协议
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210041534779.png " width="100%" height="100%"></div>
+以上为其复位协议时序图，有以下几点需要注意：
+1.复位时，reset_n为低电平,frame_n和valid_n为高电平
+2.有效复位**至少保持1个clk**
+3.复位后**至少等待15个时钟**周期后才可以发送数据
+
 <h1 id="2-实验代码"><a href="#2-实验代码" class="headerlink" title="2. 实验代码"></a>2. 实验代码</h1><pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** stimulator **********************************//
 module rt_stimulator(
   input clock
@@ -529,9 +555,14 @@ rt_stimulator stim(
 );
 endmodule 
 </code></pre>
-<h1 id="3-仿真结果"><a href="#3-仿真结果" class="headerlink" title="3. 仿真结果"></a>3. 仿真结果</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042153244.png"></p>
-<p>另，关于vim编辑器<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042205029.png"></p>
-<h1 id="4-初步TestBench平台概览"><a href="#4-初步TestBench平台概览" class="headerlink" title="4. 初步TestBench平台概览"></a>4. 初步TestBench平台概览</h1><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052041415.png"></p>
+<h1 id="3-仿真结果"><a href="#3-仿真结果" class="headerlink" title="3. 仿真结果"></a>3. 仿真结果</h1><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042153244.png" width="100%" height="100%"></div>
+
+<p>另，关于vim编辑器</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210042205029.png" width="100%" height="100%"></div>
+
+<h1 id="4-初步TestBench平台概览"><a href="#4-初步TestBench平台概览" class="headerlink" title="4. 初步TestBench平台概览"></a>4. 初步TestBench平台概览</h1><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052041415.png" width="80%" height="80%"></div>
+
+
 
                 
             </div>
@@ -1009,7 +1040,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

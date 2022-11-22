@@ -380,21 +380,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-17
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    279
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    14 分
                 </div>
                 
 
@@ -428,207 +428,85 @@
 <blockquote>
 <p>task get_pkt(output rt_packet_t p);<br>    wait(pkts.size() &gt;0 )	//队列不为空<br>      p = pkts.pop_front();	<br>  endtask</p>
 </blockquote>
-<p>数据发送过程<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051352379.png" alt="|500"></p>
-<h2 id="1-2改造后的tb-sv"><a href="#1-2改造后的tb-sv" class="headerlink" title="1.2改造后的tb.sv"></a>1.2改造后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">typedef struct{
+<p>数据发送过程</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051352379.png" width="60%" height="60%"></div>
+## 1.2改造后的tb.sv
+```systemverilog
+typedef struct{
   bit [3:0] src;
   bit [3:0] dst;
   bit [7:0] data [];
 }rt_packet_t;//定义结构体，结构体成员为发送端口，目标端口，发送数据
 
-//********************************** stimulator **********************************//
-module rt_stimulator(
-  input clock
-  ,input reset_n
-  ,output logic [15:0] din
-  ,output logic [15:0] frame_n
-  ,output logic [15:0] valid_n
-  ,input [15:0] dout
-  ,input [15:0] valido_n
-  ,input [15:0] busy_n
-  ,input [15:0] frameo_n
-);
-//for debug purpose from waveform	//定义检测状态的变量
-  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
-  drv_state_t dbg_state;  
-  byte unsigned dbg_din_chnl0_data; 
+<p>//********************************** stimulator **********************************//<br>module rt_stimulator(<br>  input clock<br>  ,input reset_n<br>  ,output logic [15:0] din<br>  ,output logic [15:0] frame_n<br>  ,output logic [15:0] valid_n<br>  ,input [15:0] dout<br>  ,input [15:0] valido_n<br>  ,input [15:0] busy_n<br>  ,input [15:0] frameo_n<br>);<br>//for debug purpose from waveform	//定义检测状态的变量<br>  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;<br>  drv_state_t dbg_state;<br>  byte unsigned dbg_din_chnl0_data; </p>
+<p>//receive p from generator<br>  rt_packet_t pkts[$];//定义stimulator中的的队列okts<br>  function void put_pkt(input rt_packet_t p);<br>    pkts.push_back(p);	//将generator中传过来的p放入stimulator的pkts中(在pkts队列尾插入p)<br>  endfunction</p>
+<p>//reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平<br>initial begin : drive_reset_proc<br>  drive_reset();<br>end</p>
+<p>task drive_reset();<br>  @(negedge reset_n);<br>  dbg_state &lt;= DRV_RESET;<br>  din &lt;= 0;<br>  frame_n &lt;= ‘1;//等效16’hFFFF<br>  valid_n &lt;= ‘1;<br>endtask</p>
+<p>// drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据<br>bit [3:0] daddr;<br>byte unsigned data[];</p>
+<p>initial begin : drive_chnl0_proc<br>    rt_packet_t p;<br>  @(negedge reset_n);<br>  repeat(10) @(posedge clock);//延迟10个时钟周期<br>  forever begin	<br>    wait(pkts.size()&gt;0);<br>    p = pkts.pop_front();	//将p从队列pkts里面取出<br>    drive_chnl(p.src,p.dst,p.data);//从P中拿到发送端口，目标端口，发送数据<br>    end<br>    //drive_chnl(0,3,’{8’h33,8’h77});//name mapping<br>    //drive_chnl(0,5,’{8’h55,8’h66});//name mapping<br>end<br>initial begin : drive_chnl3_proc<br>  @(negedge reset_n);<br>  repeat(10) @(posedge clock);//延迟10个时钟周期<br>    drive_chnl(3,6,’{8’h77,8’h88,8’h22});//name mapping<br>end</p>
+<p>task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);<br>  $display(“[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started”,saddr,daddr);<br>    // drive address phase 输入地址位阶段<br>for(int i=0;i&lt;4;i++)begin  //4 clock<br>  @(posedge clock);<br>  dbg_state &lt;=DRV_ADDR;	<br>  din[saddr] &lt;= daddr[i];<br>  valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x<br>  frame_n[saddr] &lt;= 1’b0;	//frame_n需要为低<br>end<br>    // drive pad phase //隔离阶段<br>  for (int i=0;i&lt;5;i++)begin  //5 clock<br>    @(posedge clock);<br>    dbg_state &lt;=DRV_PAD;<br>    din[saddr] &lt;= 1’b1;<br>    valid_n[saddr] &lt;= 1’b1;	//valid_n需为高电平<br>    frame_n[saddr] &lt;= 1’b0; //frame_n需为低电平<br>  end<br>    // drive data phase 传输数据阶段<br>  foreach(data[id])begin<br>    for(int i=0;i&lt;8;i++)begin<br>     @(posedge clock);<br>      dbg_state &lt;=DRV_DATA;<br>      dbg_din_chnl0_data &lt;= data[id];<br>      din[saddr] &lt;= data[id][i];<br>      valid_n[saddr] &lt;=1’b0;<br>      frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1’b1 : 1’b0;//packet最后一位输出数据时frameo_n为高<br>    end<br>  end<br>// drive idle phase 闲置（没有数据传输）阶段<br>  @(posedge clock);<br>  dbg_state &lt;=DRV_IDLE;<br>  dbg_din_chnl0_data &lt;= 0;<br>  din[saddr] &lt;= 1’b0;<br>  valid_n[saddr] &lt;= 1’b1;<br>  frame_n[saddr] &lt;= 1’b1;<br>  $display(“[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished”,saddr,daddr);<br>endtask<br>endmodule</p>
+<p>//********************************** generator **********************************//<br>module rt_generator;	//generator产生数据交给stimulator<br>  rt_packet_t pkts[$];	//定义队列</p>
+<p>  function void put_pkt(input rt_packet_t p);<br>    pkts.push_back(p);	//将p放入队列pkts里面（在pkts队列尾插入p）<br>  endfunction</p>
+<p>  task get_pkt(output rt_packet_t p);<br>    wait(pkts.size() &gt;0 )	//队列不为空<br>      p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素<br>  endtask</p>
+<p>  //generate a random packet<br>  function void gen_pkt(int src = -1, int dst = -1);<br>  endfunction<br>endmodule</p>
+<p>//********************************** tb **********************************//<br>module tb;</p>
+<p>bit clk,rstn;<br>logic [15:0] din, frame_n, valid_n;<br>logic [15:0] dout, valido_n, busy_n, frameo_n;</p>
+<p>// 产生时钟，周期为10ns<br>initial<br>    forever #5ns clk &lt;= !clk;</p>
+<p>// 产生复位信号<br>  initial begin<br>    #2ns rstn &lt;= 1;<br>    #10ns rstn &lt;= 0;<br>    #10ns rstn &lt;= 1;<br>  end</p>
+<p>//例化router为DUT<br>router dut(<br>  .reset_n(rstn),<br>  .clock(clk),<br>  .*  //其余端口名称均相同<br>);</p>
+<p>//例化stimulator<br>rt_stimulator stim(<br>  .reset_n(rstn),<br>  .clock(clk),<br>  .*<br>);</p>
+<p>//例化generator<br>rt_generator gen();</p>
+<p>initial begin:generate_data_proc//产生数据<br>    rt_packet_t p;<br>    p =  ‘{0,3,’{8’h33,8’h77}};<br>    gen.put_pkt(p);	//调用genarator里面的put_pkt函数<br>    gen.put_pkt(‘{0,5,’{8’h55,8’h66}});<br>end<br>initial begin:genarator_to_stimulator_proc//取出genarator中的数据给stimulator<br>    rt_packet_t p;<br>    forever begin<br>        gen.get_pkt(p);<br>        stim.put_pkt(p);<br>    end<br>end</p>
+<p>endmodule                      </p>
+<pre><code>## 1.3仿真结果
+同前面一样
+&lt;div align=center&gt;&lt;img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051044480.png" width="100%" height="100%"&gt;&lt;/div&gt;
+## 1.4问题
+但是如果生成数据采用如下方式，不同source_chnl不能同时发送数据（&lt;span style="background:rgba(240, 200, 0, 0.2)"&gt;上一节是因为采用了两个initial begin end语句块才能并行发送&lt;/span&gt;）
+&gt;gen.put_pkt('{0,3,'{8'h33,8'h77}});	
+&gt;gen.put_pkt('{0,5,'{8'h55,8'h66}});
+&gt;gen.put_pkt('{3,6,'{8'h77,8'h88,8'h22}});
+&gt;//source_chnl0和source_chnl3不能同时发送
 
-//receive p from generator
-  rt_packet_t pkts[$];//定义stimulator中的的队列okts
-  function void put_pkt(input rt_packet_t p);
-    pkts.push_back(p);	//将generator中传过来的p放入stimulator的pkts中(在pkts队列尾插入p)
-  endfunction
+仿真结果如下
+&lt;div align=center&gt;&lt;img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051554321.png " width="100%" height="100%"&gt;&lt;/div&gt;
 
-//reset阶段，复位时，reset_n为低电平,frame_n和valid_n为高电平
-initial begin : drive_reset_proc 
-  drive_reset();
-end
+# 2. 来自于不同的source chnl可以并行发送
+## 2.1改造
+**增加要求**：如果两个chnl没有冲突，可以同时发送
+**具体为：**
+来自于不同的source chnl就可以并行发送
+source chnl、destination chnl不一样可以并行发送
+**方法：**
+* **定义关联数组**
+int src_chnl_status[int];  //关联数组
 
-task drive_reset();
-  @(negedge reset_n);
-  dbg_state <= DRV_RESET;
-  din <= 0;
-  frame_n <= '1;//等效16'hFFFF
-  valid_n <= '1;
+* **定义判断src_chnl是否空闲的任务**
+task判断src chnl是否被占用，是否需要等待。src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）。反之，如果含有，表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）。如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待。直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
+&gt;task automatic wait_src_chnl_avail(rt_packet_t p);
+    if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
+        src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
+    else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+        wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
 endtask
 
-// drive chaannel 0 - chanel 15 (din[15:0])定义数据输出地址及数据
-bit [3:0] daddr;
-byte unsigned data[];
+* **采用fork join none后台线程，判断src chnl是否被占用，是否需要等待**
+&gt;fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
+        begin	
+            wait_src_chnl_avail(p);//判断src chnl是否被占用，是否需要等待
+            drive_chnl(p.src, p.dst, p.data);//从P中拿到发送端口，目标端口，发送数据
+            set_src_chnl_avail(p);
+        end
+    join_none
 
-initial begin : drive_chnl0_proc
-    rt_packet_t p;
-  @(negedge reset_n);
-  repeat(10) @(posedge clock);//延迟10个时钟周期
-  forever begin	
-    wait(pkts.size()>0);
-    p = pkts.pop_front();	//将p从队列pkts里面取出
-    drive_chnl(p.src,p.dst,p.data);//从P中拿到发送端口，目标端口，发送数据
-    end
-    //drive_chnl(0,3,'{8'h33,8'h77});//name mapping
-    //drive_chnl(0,5,'{8'h55,8'h66});//name mapping
-end
-initial begin : drive_chnl3_proc
-  @(negedge reset_n);
-  repeat(10) @(posedge clock);//延迟10个时钟周期
-    drive_chnl(3,6,'{8'h77,8'h88,8'h22});//name mapping
-end
+* 然后把src_chnl置位
+&gt;function automatic set_src_chnl_avail(rt_packet_t p);
+    src_chnl_status[p.src] = -1;//如果chnl发送完后，把src_chnl置回来(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
+endfunction
 
-task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
-  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",saddr,daddr);
-    // drive address phase 输入地址位阶段
-for(int i=0;i<4;i++)begin  //4 clock
-  @(posedge clock);
-  dbg_state <=DRV_ADDR;	
-  din[saddr] <= daddr[i];
-  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  frame_n[saddr] <= 1'b0;	//frame_n需要为低
-end
-    // drive pad phase //隔离阶段
-  for (int i=0;i<5;i++)begin  //5 clock
-    @(posedge clock);
-    dbg_state <=DRV_PAD;
-    din[saddr] <= 1'b1;
-    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
-    frame_n[saddr] <= 1'b0; //frame_n需为低电平
-  end
-    // drive data phase 传输数据阶段
-  foreach(data[id])begin
-    for(int i=0;i<8;i++)begin
-     @(posedge clock);
-      dbg_state <=DRV_DATA;
-      dbg_din_chnl0_data <= data[id];
-      din[saddr] <= data[id][i];
-      valid_n[saddr] <=1'b0;
-      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
-    end
-  end
-// drive idle phase 闲置（没有数据传输）阶段
-  @(posedge clock);
-  dbg_state <=DRV_IDLE;
-  dbg_din_chnl0_data <= 0;
-  din[saddr] <= 1'b0;
-  valid_n[saddr] <= 1'b1;
-  frame_n[saddr] <= 1'b1;
-  $display("[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",saddr,daddr);
-endtask
-endmodule
-
-//********************************** generator **********************************//
-module rt_generator;	//generator产生数据交给stimulator
-  rt_packet_t pkts[$];	//定义队列
-
-  function void put_pkt(input rt_packet_t p);
-    pkts.push_back(p);	//将p放入队列pkts里面（在pkts队列尾插入p）
-  endfunction
-  
-  task get_pkt(output rt_packet_t p);
-    wait(pkts.size() >0 )	//队列不为空
-      p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
-  endtask
-
-  //generate a random packet
-  function void gen_pkt(int src = -1, int dst = -1);
-  endfunction
-endmodule
-
-//********************************** tb **********************************//
-module tb;
-
-bit clk,rstn;
-logic [15:0] din, frame_n, valid_n;
-logic [15:0] dout, valido_n, busy_n, frameo_n;
-
-// 产生时钟，周期为10ns
-initial 
-    forever #5ns clk <= !clk;
-
-// 产生复位信号
-  initial begin
-    #2ns rstn <= 1;
-    #10ns rstn <= 0;
-    #10ns rstn <= 1;
-  end
-
-//例化router为DUT
-router dut(           
-  .reset_n(rstn),
-  .clock(clk),
-  .*  //其余端口名称均相同
-);
-
-//例化stimulator
-rt_stimulator stim(
-  .reset_n(rstn),
-  .clock(clk),
-  .*
-);
-
-//例化generator
-rt_generator gen();
-
-initial begin:generate_data_proc//产生数据
-    rt_packet_t p;
-    p =  '{0,3,'{8'h33,8'h77}};
-    gen.put_pkt(p);	//调用genarator里面的put_pkt函数
-    gen.put_pkt('{0,5,'{8'h55,8'h66}});
-end
-initial begin:genarator_to_stimulator_proc//取出genarator中的数据给stimulator
-    rt_packet_t p;
-    forever begin
-        gen.get_pkt(p);
-        stim.put_pkt(p);
-    end
-end
-
-endmodule                      
-</code></pre>
-<h2 id="1-3仿真结果"><a href="#1-3仿真结果" class="headerlink" title="1.3仿真结果"></a>1.3仿真结果</h2><p>同前面一样<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051044480.png"></p>
-<h2 id="1-4问题"><a href="#1-4问题" class="headerlink" title="1.4问题"></a>1.4问题</h2><p>但是如果生成数据采用如下方式，不同source_chnl不能同时发送数据（<span style="background:rgba(240, 200, 0, 0.2)">上一节是因为采用了两个initial begin end语句块才能并行发送</span>）</p>
-<blockquote>
-<p>gen.put_pkt(‘{0,3,’{8’h33,8’h77}});	<br>gen.put_pkt(‘{0,5,’{8’h55,8’h66}});<br>gen.put_pkt(‘{3,6,’{8’h77,8’h88,8’h22}});<br>//source_chnl0和source_chnl3不能同时发送</p>
-</blockquote>
-<p>仿真结果如下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211051554321.png"></p>
-<h1 id="2-来自于不同的source-chnl可以并行发送"><a href="#2-来自于不同的source-chnl可以并行发送" class="headerlink" title="2. 来自于不同的source chnl可以并行发送"></a>2. 来自于不同的source chnl可以并行发送</h1><h2 id="2-1改造"><a href="#2-1改造" class="headerlink" title="2.1改造"></a>2.1改造</h2><p><strong>增加要求</strong>：如果两个chnl没有冲突，可以同时发送<br><strong>具体为：</strong><br>来自于不同的source chnl就可以并行发送<br>source chnl、destination chnl不一样可以并行发送<br><strong>方法：</strong></p>
-<ul>
-<li><p><strong>定义关联数组</strong><br>int src_chnl_status[int];  //关联数组</p>
-</li>
-<li><p><strong>定义判断src_chnl是否空闲的任务</strong><br>task判断src chnl是否被占用，是否需要等待。src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）。反之，如果含有，表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）。如果在给0,1,2…dest_chnl发送数据（被占用），需要等待,，否则不需要等待。直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)</p>
-<blockquote>
-<p>task automatic wait_src_chnl_avail(rt_packet_t p);<br>  if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）<br>  src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）<br>  else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2…dest_chnl发送数据（被占用），需要等待,，否则不需要等待<br>  wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)<br>endtask</p>
-</blockquote>
-</li>
-<li><p><strong>采用fork join none后台线程，判断src chnl是否被占用，是否需要等待</strong></p>
-<blockquote>
-<p>fork//后台触发线程，触发线程在后台运行，继续执行剩下内容<br>  begin	<br>      wait_src_chnl_avail(p);//判断src chnl是否被占用，是否需要等待<br>      drive_chnl(p.src, p.dst, p.data);//从P中拿到发送端口，目标端口，发送数据<br>      set_src_chnl_avail(p);<br>  end<br>  join_none</p>
-</blockquote>
-</li>
-<li><p>然后把src_chnl置位</p>
-<blockquote>
-<p>function automatic set_src_chnl_avail(rt_packet_t p);<br>  src_chnl_status[p.src] = -1;//如果chnl发送完后，把src_chnl置回来(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)<br>endfunction</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="2-2改造后的tb-sv"><a href="#2-2改造后的tb-sv" class="headerlink" title="2.2改造后的tb.sv"></a>2.2改造后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">typedef struct{
+## 2.2改造后的tb.sv
+```systemverilog
+typedef struct{
   bit [3:0] src;
   bit [3:0] dst;
   bit [7:0] data [];
@@ -666,10 +544,10 @@ end
 
 task drive_reset();
   @(negedge reset_n);
-  dbg_state <= DRV_RESET;
-  din <= 0;
-  frame_n <= '1;//等效16'hFFFF
-  valid_n <= '1;
+  dbg_state &lt;= DRV_RESET;
+  din &lt;= 0;
+  frame_n &lt;= '1;//等效16'hFFFF
+  valid_n &lt;= '1;
 endtask
 
 // 发送数据
@@ -682,7 +560,7 @@ initial begin : drive_chnl_proc
   repeat(10) @(posedge clock);//延迟10个时钟周期
   forever begin	
     automatic rt_packet_t p;//声明一个动态的
-    wait(pkts.size()>0);
+    wait(pkts.size()&gt;0);
     p = pkts.pop_front();	//将p从队列pkts里面取出
     
     fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
@@ -701,7 +579,7 @@ end
 task automatic wait_src_chnl_avail(rt_packet_t p);//判断src chnl是否被占用，是否需要等待
     if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
         src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
-    else if(src_chnl_status[p.src] >= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+    else if(src_chnl_status[p.src] &gt;= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
         wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
 endtask
 
@@ -712,39 +590,39 @@ endfunction
 task automatic drive_chnl(bit[3:0] saddr, bit [3:0] daddr, byte unsigned data[]);
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans started",$time,saddr,daddr);
     // drive address phase 输入地址位阶段
-for(int i=0;i<4;i++)begin  //4 clock
+for(int i=0;i&lt;4;i++)begin  //4 clock
   @(posedge clock);
-  dbg_state <=DRV_ADDR;	
-  din[saddr] <= daddr[i];
-  valid_n[saddr] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
-  frame_n[saddr] <= 1'b0;	//frame_n需要为低
+  dbg_state &lt;=DRV_ADDR;	
+  din[saddr] &lt;= daddr[i];
+  valid_n[saddr] &lt;= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  frame_n[saddr] &lt;= 1'b0;	//frame_n需要为低
 end
     // drive pad phase //隔离阶段
-  for (int i=0;i<5;i++)begin  //5 clock
+  for (int i=0;i&lt;5;i++)begin  //5 clock
     @(posedge clock);
-    dbg_state <=DRV_PAD;
-    din[saddr] <= 1'b1;
-    valid_n[saddr] <= 1'b1;	//valid_n需为高电平
-    frame_n[saddr] <= 1'b0; //frame_n需为低电平
+    dbg_state &lt;=DRV_PAD;
+    din[saddr] &lt;= 1'b1;
+    valid_n[saddr] &lt;= 1'b1;	//valid_n需为高电平
+    frame_n[saddr] &lt;= 1'b0; //frame_n需为低电平
   end
     // drive data phase 传输数据阶段
   foreach(data[id])begin
-    for(int i=0;i<8;i++)begin
+    for(int i=0;i&lt;8;i++)begin
      @(posedge clock);
-      dbg_state <=DRV_DATA;
-      dbg_din_chnl0_data <= data[id];
-      din[saddr] <= data[id][i];
-      valid_n[saddr] <=1'b0;
-      frame_n[saddr] <= (id == data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+      dbg_state &lt;=DRV_DATA;
+      dbg_din_chnl0_data &lt;= data[id];
+      din[saddr] &lt;= data[id][i];
+      valid_n[saddr] &lt;=1'b0;
+      frame_n[saddr] &lt;= (id == data.size()-1 &amp;&amp; i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
     end
   end
 // drive idle phase 闲置（没有数据传输）阶段
   @(posedge clock);
-  dbg_state <=DRV_IDLE;
-  dbg_din_chnl0_data <= 0;
-  din[saddr] <= 1'b0;
-  valid_n[saddr] <= 1'b1;
-  frame_n[saddr] <= 1'b1;
+  dbg_state &lt;=DRV_IDLE;
+  dbg_din_chnl0_data &lt;= 0;
+  din[saddr] &lt;= 1'b0;
+  valid_n[saddr] &lt;= 1'b1;
+  frame_n[saddr] &lt;= 1'b1;
   $display("@%0t:[DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",$time,saddr,daddr);
 endtask
 endmodule
@@ -758,7 +636,7 @@ module rt_generator;	//generator产生数据交给stimulator
   endfunction
   
   task get_pkt(output rt_packet_t p);
-    wait(pkts.size() >0 )	//队列不为空
+    wait(pkts.size() &gt;0 )	//队列不为空
       p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
   endtask
 
@@ -776,13 +654,13 @@ logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
-    forever #5ns clk <= !clk;
+    forever #5ns clk &lt;= !clk;
 
 // 产生复位信号
   initial begin
-    #2ns rstn <= 1;
-    #10ns rstn <= 0;
-    #10ns rstn <= 1;
+    #2ns rstn &lt;= 1;
+    #10ns rstn &lt;= 0;
+    #10ns rstn &lt;= 1;
   end
 
 //例化router为DUT
@@ -1023,16 +901,12 @@ end
 
 endmodule 
 </code></pre>
-<h2 id="3-3仿真结果"><a href="#3-3仿真结果" class="headerlink" title="3.3仿真结果"></a>3.3仿真结果</h2><p>只增加了接口，仿真结果未变<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052013674.png"><br>硬件层次结构如下<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052014621.png"></p>
-<h1 id="4-初步TestBench概览"><a href="#4-初步TestBench概览" class="headerlink" title="4. 初步TestBench概览"></a>4. 初步TestBench概览</h1>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png" width="600" height="360" title=" ">
-        
-
+<h2 id="3-3仿真结果"><a href="#3-3仿真结果" class="headerlink" title="3.3仿真结果"></a>3.3仿真结果</h2><p>只增加了接口，仿真结果未变</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052013674.png " width="100%" height="100%"></div>
+硬件层次结构如下
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052014621.png" width="60%" height="60%"></div>
+# 4. 初步TestBench概览
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211052040259.png" width="80%" height="80%"></div>
 
 <h1 id="5-增加monitor"><a href="#5-增加monitor" class="headerlink" title="5. 增加monitor"></a>5. 增加monitor</h1><h2 id="5-1-改造"><a href="#5-1-改造" class="headerlink" title="5.1 改造"></a>5.1 改造</h2><p>增加组件monitor，监测输入数据和输出数据<br>监测数据输入的task：</p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">task automatic mon_chnl_in (bit[3:0]id);//监测数据输入的任务
@@ -1343,34 +1217,11 @@ end
 
 endmodule 
 </code></pre>
-<h2 id="5-3-仿真结果"><a href="#5-3-仿真结果" class="headerlink" title="5.3 仿真结果"></a>5.3 仿真结果</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161422827.png" width="350" height="500" title=" ">
-        
+<h2 id="5-3-仿真结果"><a href="#5-3-仿真结果" class="headerlink" title="5.3 仿真结果"></a>5.3 仿真结果</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161422827.png" width="50%" height="50%"></div>
 
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161639835.png" width="60%" height="60%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211161639835.png" width="500" height="500" title=" ">
-        
-
-
-<h1 id="6-初步TestBench概览"><a href="#6-初步TestBench概览" class="headerlink" title="6. 初步TestBench概览"></a>6. 初步TestBench概览</h1>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171916069.png" width="600" height="360" title=" ">
-        
-
+<h1 id="6-初步TestBench概览"><a href="#6-初步TestBench概览" class="headerlink" title="6. 初步TestBench概览"></a>6. 初步TestBench概览</h1><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171916069.png" width="80%" height="80%"></div>
 
 
 
@@ -1526,18 +1377,18 @@ endmodule
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/19/systemverilog-xue-xi-bi-ji-liu/">
+                <a href="/2022/10/19/pai-she-ji-qiao-yi-ri-zhuan-ye-yan-shi/">
                     <div class="card-image">
                         
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211943371.jpeg" class="responsive-img" alt="SystemVerilog学习笔记(六)">
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191308832.webp" class="responsive-img" alt="拍摄技巧(一)_日转夜延时">
                         
-                        <span class="card-title">SystemVerilog学习笔记(六)</span>
+                        <span class="card-title">拍摄技巧(一)_日转夜延时</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            与普通延时相比，日夜延时难在处理从白天转黑夜过程中不断变化的光线，需要拍出一种白天到夜晚平滑渐变的效果。
                         
                     </div>
                     <div class="publish-info">
@@ -1548,8 +1399,8 @@ endmodule
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
+                            <a href="/categories/%E6%91%84%E5%BD%B1%E5%90%8E%E6%9C%9F/" class="post-category">
+                                    摄影后期
                                 </a>
                             
                             
@@ -1559,16 +1410,12 @@ endmodule
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">数字前端</span>
+                    <a href="/tags/%E6%8B%8D%E6%91%84%E6%8A%80%E5%B7%A7/">
+                        <span class="chip bg-color">拍摄技巧</span>
                     </a>
                     
-                    <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
-                        <span class="chip bg-color">SystemVerilog验证</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%B1%BB/">
-                        <span class="chip bg-color">类</span>
+                    <a href="/tags/%E6%97%A5%E8%BD%AC%E5%A4%9C%E5%BB%B6%E6%97%B6/">
+                        <span class="chip bg-color">日转夜延时</span>
                     </a>
                     
                 </div>
@@ -1855,7 +1702,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

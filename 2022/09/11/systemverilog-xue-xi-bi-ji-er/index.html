@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(二), Stephen&#39;s Blog">
-    <meta name="description" content="SestemVerilog概述发展历史数据类型Verilog的数据类型Verilog语言提供两种基本的数据类型，即变量类型(variables)和**线网类型(nets)**，==这两种类型都是四值逻辑==，即可表示0、1、X和Z值。
-
-变">
+    <meta name="description" content="1. SestemVerilog概述1.1 发展历史2. 数据类型2.1Verilog的数据类型Verilog语言提供两种基本的数据类型，即变量类型(variables)和**线网类型(nets)**，==这两种类型都是四值逻辑==，即可表">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -386,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-21
                 </div>
                 
 
@@ -425,7 +423,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SestemVerilog概述"><a href="#SestemVerilog概述" class="headerlink" title="SestemVerilog概述"></a>SestemVerilog概述</h1><h2 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h2><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h3 id="Verilog的数据类型"><a href="#Verilog的数据类型" class="headerlink" title="Verilog的数据类型"></a>Verilog的数据类型</h3><p>Verilog语言提供两种基本的数据类型，即<strong>变量类型(variables</strong>)和**线网类型(nets)**，==这两种类型都是四值逻辑==，即可表示0、1、X和Z值。</p>
+                <h1 id="1-SestemVerilog概述"><a href="#1-SestemVerilog概述" class="headerlink" title="1. SestemVerilog概述"></a>1. SestemVerilog概述</h1><h2 id="1-1-发展历史"><a href="#1-1-发展历史" class="headerlink" title="1.1 发展历史"></a>1.1 发展历史</h2><h1 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h1><h3 id="2-1Verilog的数据类型"><a href="#2-1Verilog的数据类型" class="headerlink" title="2.1Verilog的数据类型"></a>2.1Verilog的数据类型</h3><p>Verilog语言提供两种基本的数据类型，即<strong>变量类型(variables</strong>)和**线网类型(nets)**，==这两种类型都是四值逻辑==，即可表示0、1、X和Z值。</p>
 <ul>
 <li><strong>变量类型(variables)</strong><ul>
 <li>变量类型保存在initial、always、task 和function内赋的值。变量只能用过程赋值来赋值。</li>
@@ -441,7 +439,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="SystemVerilog新添加的数据类型"><a href="#SystemVerilog新添加的数据类型" class="headerlink" title="SystemVerilog新添加的数据类型"></a>SystemVerilog新添加的数据类型</h2><ul>
+<h2 id="2-2-SystemVerilog新添加的数据类型"><a href="#2-2-SystemVerilog新添加的数据类型" class="headerlink" title="2.2 SystemVerilog新添加的数据类型"></a>2.2 SystemVerilog新添加的数据类型</h2><ul>
 <li>Verilog并没有严格区分信号的类型，变量和线网类型均是四值逻辑。SV添加了许多新的数据类型来帮助设计和验证工程师。</li>
 <li>SV将硬件信号区分为 <code>类型</code>和<code>数据类型</code><ul>
 <li><code>类型</code>即表示该信号为<strong>变量(variables</strong>)或者**线网类型(nets)**。<ul>
@@ -454,7 +452,7 @@
 </li>
 <li>TIPS<br>  避坑指南:简而言之，你可以在testbench (module)中大量使用logic类型变量，而很少使用wire。什么时候需要wire呢?多于一个驱动源的时候，或者设计模块端口是双向( inout)的时候。</li>
 </ul>
-<h2 id="四值逻辑数据类型"><a href="#四值逻辑数据类型" class="headerlink" title="四值逻辑数据类型"></a>四值逻辑数据类型</h2><ul>
+<h2 id="2-3-四值逻辑数据类型"><a href="#2-3-四值逻辑数据类型" class="headerlink" title="2.3 四值逻辑数据类型"></a>2.3 四值逻辑数据类型</h2><ul>
 <li>在Verilog中,reg经常用来表示存储组合逻辑或者时序逻辑的变量，不过初学者容易混淆其综合后的硬件单元。实际上,reg并不一定会被综合为register，而它只是用原来与线网类型相对，表示存储数据的变量。</li>
 <li>在SV中，我们可以直接使用logic(数据类型)来达到==通用的存储硬件数据==的目的</li>
 </ul>
@@ -468,7 +466,7 @@ logic [0:7] array [0:255]; // an array of 8-bit variables
 <pre class=" language-systemverilog"><code class="language-systemverilog">var logic [63:0] addr; //a 64-bit wide variablewire 
 wire logic [63:0]data; //a 64-bit wide net
 </code></pre>
-<h2 id="二值逻辑数据类型"><a href="#二值逻辑数据类型" class="headerlink" title="二值逻辑数据类型"></a>二值逻辑数据类型</h2><p>SV添加了二值逻辑数据类型，用来对在RTL更高抽象级的模型建模，例如系统级或者事务级模型</p>
+<h2 id="2-4-二值逻辑数据类型"><a href="#2-4-二值逻辑数据类型" class="headerlink" title="2.4 二值逻辑数据类型"></a>2.4 二值逻辑数据类型</h2><p>SV添加了二值逻辑数据类型，用来对在RTL更高抽象级的模型建模，例如系统级或者事务级模型</p>
 <ul>
 <li>二值逻辑数据类型<ul>
 <li><strong>bit</strong><br>  a 1-bit 2-state integer    //==双状态，单比特==</li>
@@ -480,7 +478,7 @@ wire logic [63:0]data; //a 64-bit wide net
 <li>在RTL级别，X值用来捕捉设计错误，例如寄存器未初始化，Z值用来表示未连接或者三态的设计逻辑,但是在系统级或者事务级，Z和X很少被使用。</li>
 <li>类似于logic类型默认为变量类型，bit类型默认也为变量类型。</li>
 </ul>
-<h2 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h2><ul>
+<h2 id="2-5-有符号类型和无符号类型"><a href="#2-5-有符号类型和无符号类型" class="headerlink" title="2.5 有符号类型和无符号类型"></a>2.5 有符号类型和无符号类型</h2><ul>
 <li>logic或者bit构成的向量(vector)是无符号类型。</li>
 <li>integer、byte、shortint、int、longint为有符号类型。可以在有符号类型后添加unsigned来表示无符号类型</li>
 </ul>
@@ -492,7 +490,7 @@ byte unsigned表示无符号类型，等同于bit[7:0]，表示的数值范围�
 <li>在构建验证环境总线功能模型(BFM,Bus-Functional Model)时，无需关注硬件底层逻辑(X或者Z值)，所以可使用二值逻辑实现。</li>
 <li>同样，SV在与C发生语言交互时，也可以使用二值逻辑来使得两种语言的边界数据传输更为简单。</li>
 </ul>
-<h2 id="内建数据类型"><a href="#内建数据类型" class="headerlink" title="内建数据类型"></a>内建数据类型</h2><ul>
+<h2 id="2-6-内建数据类型"><a href="#2-6-内建数据类型" class="headerlink" title="2.6 内建数据类型"></a>2.6 内建数据类型</h2><ul>
 <li>按照四值逻辑的类型和二值逻辑的类型划分<ul>
 <li>四值逻辑类型: integer、logic、reg、net-type(例如wire、tri)</li>
 <li>二值逻辑类型: byte、shortint、int、longint、bit</li>
@@ -504,22 +502,22 @@ byte unsigned表示无符号类型，等同于bit[7:0]，表示的数值范围�
 </ul>
 </li>
 </ul>
-<h2 id="仿真行为"><a href="#仿真行为" class="headerlink" title="仿真行为"></a>仿真行为</h2><ul>
+<h2 id="2-7-仿真行为"><a href="#2-7-仿真行为" class="headerlink" title="2.7 仿真行为"></a>2.7 仿真行为</h2><ul>
 <li>四值逻辑变量例如reg、logic或者integer等，在仿真开始时的初值为X。</li>
 <li>二值逻辑变量例如bit等，在仿真开始时的初值为0。</li>
 <li>如果四值逻辑与二值逻辑的数据类型之间发生的默认转换，那么Z和X值将转换为0。</li>
 <li>二值逻辑也可以用来实现可综合电路，只是二值逻辑由于没有X和Z值，因此可能会出现仿真行为同综合电路结果不一致的情况。</li>
 </ul>
-<h2 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h2><ul>
+<h2 id="2-8-其他类型"><a href="#2-8-其他类型" class="headerlink" title="2.8 其他类型"></a>2.8 其他类型</h2><ul>
 <li>SV添加void类型来表示空类型，经常用在函数定义时表示不会返回数值，同C语言的void使用方法。</li>
 <li>SV添加shortreal表示32位单精度浮点类型，同C语言的float;而Verilog的real类型表示双精度浮点类型，同C语言的double.</li>
 </ul>
-<h1 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a>自定义类型</h1><p>通过用户自定义类型，以往Verilog的代码将可以通过更少的代码来表示更多的功能。用户自定义类型使得代码自身的可读性更好。</p>
-<h2 id="通过typedef来创建用户自定义类型。"><a href="#通过typedef来创建用户自定义类型。" class="headerlink" title="通过typedef来创建用户自定义类型。"></a>通过<code>typedef</code>来创建用户自定义类型。</h2><p>Verilog不允许用户定义新的数据类型。SystemVerilog通过使用typedef提供了一种方法来定义新的数据类型。</p>
+<h1 id="3-自定义类型"><a href="#3-自定义类型" class="headerlink" title="3. 自定义类型"></a>3. 自定义类型</h1><p>通过用户自定义类型，以往Verilog的代码将可以通过更少的代码来表示更多的功能。用户自定义类型使得代码自身的可读性更好。</p>
+<h2 id="3-1-通过typedef来创建用户自定义类型。"><a href="#3-1-通过typedef来创建用户自定义类型。" class="headerlink" title="3.1 通过typedef来创建用户自定义类型。"></a>3.1 通过<code>typedef</code>来创建用户自定义类型。</h2><p>Verilog不允许用户定义新的数据类型。SystemVerilog通过使用typedef提供了一种方法来定义新的数据类型。</p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">typedef int unsigned uint;//uint为int undesign的指代
 uint a, b;
 </code></pre>
-<h2 id="通过enum来创建枚举类型。"><a href="#通过enum来创建枚举类型。" class="headerlink" title="通过enum来创建枚举类型。"></a>通过<code>enum</code>来创建枚举类型。</h2><p>枚举类型(enum)提供方法来描述抽象变量的合法值范围，其每一个值都需要提供一个用户自定义的名字。</p>
+<h2 id="3-2-通过enum来创建枚举类型。"><a href="#3-2-通过enum来创建枚举类型。" class="headerlink" title="3.2 通过enum来创建枚举类型。"></a>3.2 通过<code>enum</code>来创建枚举类型。</h2><p>枚举类型(enum)提供方法来描述抽象变量的合法值范围，其每一个值都需要提供一个用户自定义的名字。</p>
 <ul>
 <li>默认的枚举类型是int，即32位的二值逻辑数据类型</li>
 <li>为了能够更准确地描述硬件，SV允许指明枚举类型的数据类型，例如:<br>![[Pasted image 20220920173106.png|500]]</li>
@@ -531,28 +529,28 @@ uint a, b;
 </ul>
 </li>
 </ul>
-<h2 id="通过struct来创建结构体类型。"><a href="#通过struct来创建结构体类型。" class="headerlink" title="通过struct来创建结构体类型。"></a>通过<code>struct</code>来创建结构体类型。</h2><p>Verilog语言没有方便的特性可以将相关的信号收集整理到一个信号组中。SV添加了同C一样的结构体struct，而结构体的成员可以是任何变量类型，包括自定义类型或者其它常量类型。<br>![[Pasted image 20220920173802.png|500]]</p>
+<h2 id="3-3-通过struct来创建结构体类型。"><a href="#3-3-通过struct来创建结构体类型。" class="headerlink" title="3.3 通过struct来创建结构体类型。"></a>3.3 通过<code>struct</code>来创建结构体类型。</h2><p>Verilog语言没有方便的特性可以将相关的信号收集整理到一个信号组中。SV添加了同C一样的结构体struct，而结构体的成员可以是任何变量类型，包括自定义类型或者其它常量类型。<br>![[Pasted image 20220920173802.png|500]]</p>
 <ul>
 <li>结构体类型的变量可以用来索引到其内部的变量，索引方式同C语言一致<br>![[Pasted image 20220920173912.png|500]]</li>
 <li>结构体类型默认也是变量类型，用户也可以显示声明其为var或者wire类型。</li>
 <li>自定义结构体类型<br>![[Pasted image 20220920174028.png|500]]</li>
 <li>赋值<br>结构体变量可以通过索引其各个成员做依次的成员赋值，也可以通过分号′和花括号{}来实现整体赋初值:<br>![[Pasted image 20220920174212.png|500]]</li>
 </ul>
-<h1 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<h1 id="4-字符串类型"><a href="#4-字符串类型" class="headerlink" title="4. 字符串类型"></a>4. 字符串类型</h1><h2 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h2><ul>
 <li>默认的枚举类型是int，即32位的二值逻辑数据类型。为了能够更准确地描述硬件，SV允许指明枚举类型的数据类型</li>
 <li>字符串类型变量的存储单元为byte类型。</li>
 <li>字符串类型变量长度为N时，其字符成员索引值为从O到N-1.</li>
 <li>不同于C函数，字符串结尾没有”空字符”即null字符”\O”。</li>
 <li>字符串的内存是动态分配的，用户无需担心内存空间管理。</li>
 </ul>
-<h2 id="字符串内建方法"><a href="#字符串内建方法" class="headerlink" title="字符串内建方法"></a>字符串内建方法</h2><ul>
+<h2 id="4-2-字符串内建方法"><a href="#4-2-字符串内建方法" class="headerlink" title="4.2 字符串内建方法"></a>4.2 字符串内建方法</h2><ul>
 <li>str.len():返回字符串的长度。</li>
 <li>str.putc(i, c):将第i个字符替换为字符c，等同于str[i]=c。</li>
 <li>str.getc(i):返回第i个字符。</li>
 <li>str.substr(i, j):将从第i个字符到第j个字符的字符串返回。</li>
 <li>str.{atoi(), atohex(), atooct, atobin}:将字符串转变为十进制、十六进制、八进制或者二进制数据。</li>
 </ul>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
+<h1 id="5-问答题"><a href="#5-问答题" class="headerlink" title="5. 问答题"></a>5. 问答题</h1><ul>
 <li>在状态机或者组着电路中的case语句中的default分支或者if-else if-else中的else分支语句，有时会把变量赋值为’×’，这实际上只会影响仿真，但对综合电路不会产生影响，试问这么做是为什么?不影响电路综合可能是由于什么原因?</li>
 <li>四值逻辑的数据类型应该在哪些地方声明，例如硬件部分，还是软件部分，或者是其它结构中?为什么需要这么做?<br>  四值逻辑的数据类型用于表征硬件电路，信号共有4种状态”0、1、x、z”，分别表示低电平、高电平、不确定态和高阻态。采用四值逻辑可以表征电路中不稳定的状态或者无驱动状态。如果用二值逻辑表示硬件电路，尽管能综合但综合电路与实际电路有出入，建模过程中存在失真问题。通常二值逻辑用于较高抽象级的模型建模，四值逻辑用于较低抽象级。</li>
 <li>在处理枚举类型变量和整形变量的相互赋值情况中，应该注意哪些容易出错的地方?在从整形到枚举类型转换的过程中,有哪些方法?</li>
@@ -1038,7 +1036,7 @@ uint a, b;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

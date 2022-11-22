@@ -380,14 +380,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-18
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    467
+                    466
                 </div>
                 
 
@@ -452,15 +452,7 @@ class rt_full_ch_test extends rt_multi_ch_test;
 endclass
 </code></pre>
 <p>各个class层次结构如下：</p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211181107662.png" width="500" height="350" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211181107662.png" width="60%" height="60%"></div>
 
 <h2 id="1-2-改进后的tb-sv"><a href="#1-2-改进后的tb-sv" class="headerlink" title="1.2 改进后的tb.sv"></a>1.2 改进后的tb.sv</h2><pre class=" language-systemverilog"><code class="language-systemverilog">class rt_packet;
   bit [3:0] src;
@@ -924,15 +916,7 @@ single_ch_test.run();
 //multi_ch_test.run();
 </code></pre>
 <p>仿真结果：</p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211172147174.png" width="600" height="120" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211172147174.png" width="60%" height="60%"></div>
 
 <h3 id="1-3-2-多通道测试-0→3，0→5，3→6，4→7"><a href="#1-3-2-多通道测试-0→3，0→5，3→6，4→7" class="headerlink" title="1.3.2 多通道测试(0→3，0→5，3→6，4→7)"></a>1.3.2 多通道测试(0→3，0→5，3→6，4→7)</h3><p>多通道测试：</p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">//single_ch_test = new(intf);
@@ -941,16 +925,7 @@ multi_ch_test  = new(intf);
 multi_ch_test.run();
 </code></pre>
 <p>仿真结果：</p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211172152813.png" width="600" height="200" title=" ">
-        
-
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211172152813.png" width="60%" height="50%"></div>
 
 <h1 id="2-增加数据传输完成信号、checker的判断、test-name"><a href="#2-增加数据传输完成信号、checker的判断、test-name" class="headerlink" title="2. 增加数据传输完成信号、checker的判断、test name"></a>2. 增加数据传输完成信号、checker的判断、test name</h1><h2 id="2-1-改进"><a href="#2-1-改进" class="headerlink" title="2.1 改进"></a>2.1 改进</h2><p><strong>(1)增加数据传输完成信号，数据传输完成后调用checker里的report进行报告</strong></p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">task report();
@@ -1479,19 +1454,518 @@ rt_interface intf();//例化接口
 endmodule 
 </code></pre>
 <h2 id="2-3-仿真结果"><a href="#2-3-仿真结果" class="headerlink" title="2.3 仿真结果"></a>2.3 仿真结果</h2><p>同上</p>
-<h1 id="3-package封装与makefile的使用"><a href="#3-package封装与makefile的使用" class="headerlink" title="3.  package封装与makefile的使用"></a>3.  package封装与makefile的使用</h1><h2 id="3-1-改进"><a href="#3-1-改进" class="headerlink" title="3.1 改进"></a>3.1 改进</h2><p><strong>(1)利用package将文件打包，并将package里的内容放入一个单独的文件里面</strong><br>VCS命令</p>
+<h1 id="3-package封装与makefile的使用"><a href="#3-package封装与makefile的使用" class="headerlink" title="3.  package封装与makefile的使用"></a>3.  package封装与makefile的使用</h1><h2 id="3-1-改进"><a href="#3-1-改进" class="headerlink" title="3.1 改进"></a>3.1 改进</h2><p><strong>(1)利用package将文件打包，并将package里的内容放入一个单独的文件里面</strong><br><strong>rt_test_pkg.sv如下：</strong></p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">package rt_test_pkg;
+class rt_packet;
+  bit [3:0] src;
+  bit [3:0] dst;
+  bit [7:0] data [];
+  function new();
+  endfunction
+  function void set_members(bit [3:0]src, bit [3:0]dst, bit[7:0]data []);
+    this.src = src;
+    this.dst = dst;
+    this.data = data;
+  endfunction
+  function string sprint();//打印packet信息的函数
+    sprint = {sprint , $sformatf("src = %0d\n",src)};
+    sprint = {sprint , $sformatf("dst = %0d\n",dst)};
+    sprint = {sprint , $sformatf("data_length = %0d\n",data.size())};
+    foreach(data[i])
+        sprint = {sprint , $sformatf("data[%0d] = 'h%0x\n", i, data[i])};
+  endfunction
+  function bit compare(rt_packet p);//输入exp_pkt
+        if(dst == p.dst && data == p.data)
+            compare = 1;
+        else 
+            compare = 0;
+  endfunction
+endclass
+//********************************** stimulator **********************************//
+class rt_stimulator;
+    virtual rt_interface intf;//class里的接口不能用端口的方式描述，需要添加virtual关键字，在类里面用接口的指针
+//for debug purpose from waveform	//定义检测状态的变量
+  typedef enum {DRV_RESET,DRV_IDLE,DRV_ADDR,DRV_PAD,DRV_DATA} drv_state_t;
+  drv_state_t dbg_state;  
+  byte unsigned dbg_din_chnl0_data; 
+  int src_chnl_status[int];  //关联数组，后面int：src_chnl的number；前面int：dest_chnl的Number ？？
+    
+//generator传送p给stimulator
+  rt_packet pkts[$];//定义stimulator中的的队列pkts
+  function void put_pkt(input rt_packet p);
+    pkts.push_back(p);	//将generator中传过来的p放入stimulator的pkts中(在pkts队列尾插入p)
+  endfunction
+
+task run();
+    fork
+        drive_reset(); //reset动作
+        get_packet_and_drive(); //drive_chnl动作
+    join_none
+endtask
+    
+task drive_reset();//reset
+    forever begin
+        @(negedge intf.reset_n);
+        dbg_state <= DRV_RESET;
+        intf.din <= 0;
+        intf.frame_n <= '1;//等效16'hFFFF
+        intf.valid_n <= '1;
+    end
+endtask
+
+// 发送数据
+task get_packet_and_drive();//drive_chnl
+    //rt_packet_t p;
+  @(negedge intf.reset_n);
+  repeat(10) @(posedge intf.clock);//延迟10个时钟周期
+  forever begin	
+    automatic rt_packet p;//声明一个动态的
+    wait(pkts.size()>0);
+    p = pkts.pop_front();	//将p从队列pkts里面取出
+    fork//后台触发线程，触发线程在后台运行，继续执行剩下内容
+        begin	
+            wait_src_chnl_avail(p);//判断src chnl是否被占用，是否需要等待
+            drive_chnl(p);//从P中拿到发送端口，目标端口，发送数据
+            set_src_chnl_avail(p);
+        end
+    join_none
+    end
+endtask
+
+task  wait_src_chnl_avail(rt_packet p);//判断src chnl是否被占用，是否需要等待
+    if(!src_chnl_status.exists(p.src))//src_chnl_status关联数组里面不含p.src，(表示未占用任何dest_chnl,一开始不满足）
+        src_chnl_status[p.src] = p.dst;//表示当前正在使用src_chnl,对应dest_chnl就是p.dst（p.src端口在向p.dst端口发送数据）
+    else if(src_chnl_status[p.src] >= 0)//如果在给0,1,2...dest_chnl发送数据（被占用），需要等待,，否则不需要等待
+        wait(src_chnl_status[p.src] == -1);//直到src_chnl_status[p.src] == -1(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
+endtask
+
+function  set_src_chnl_avail(rt_packet p);
+    src_chnl_status[p.src] = -1;//如果chnl发送完后，把src_chnl置回来(自定义的dest_chnl端口数之外任意的数，表示未占用任何dest_chnl)
+endfunction
+
+task  drive_chnl(rt_packet p);
+  $display("@%0t:[DRV] src_chnl[%0d] & dest_chnl[%0d] data trans started with packet: \n%s",$time,p.src,p.dst,p.sprint());
+    // drive address phase 输入地址位阶段
+for(int i=0;i<4;i++)begin  //4 clock
+  @(posedge intf.clock);
+  dbg_state <=DRV_ADDR;	
+  intf.din[p.src] <= p.dst[i];
+  intf.valid_n[p.src] <= $urandom_range(0,1);	//valid_n在din的地址输入时间段可为任意值x
+  intf.frame_n[p.src] <= 1'b0;	//frame_n需要为低
+end
+    // drive pad phase //隔离阶段
+  for (int i=0;i<5;i++)begin  //5 clock
+    @(posedge intf.clock);
+    dbg_state <=DRV_PAD;
+    intf.din[p.src] <= 1'b1;
+    intf.valid_n[p.src] <= 1'b1;	//valid_n需为高电平
+    intf.frame_n[p.src] <= 1'b0; //frame_n需为低电平
+  end
+    // drive data phase 传输数据阶段
+  foreach(p.data[id])begin
+    for(int i=0;i<8;i++)begin
+     @(posedge intf.clock);
+      dbg_state <=DRV_DATA;
+      dbg_din_chnl0_data <= p.data[id];
+      intf.din[p.src] <= p.data[id][i];
+      intf.valid_n[p.src] <=1'b0;
+      intf.frame_n[p.src] <= (id == p.data.size()-1 && i == 7) ? 1'b1 : 1'b0;//packet最后一位输出数据时frameo_n为高
+    end
+  end
+// drive idle phase 闲置（没有数据传输）阶段
+  @(posedge intf.clock);
+  dbg_state <=DRV_IDLE;
+  dbg_din_chnl0_data <= 0;
+  intf.din[p.src] <= 1'b0;
+  intf.valid_n[p.src] <= 1'b1;
+  intf.frame_n[p.src] <= 1'b1;
+  $display("@%0t: [DRV]src_chnl[%0d],dest_chnl[%0d] data trans finished",$time,p.src,p.dst);
+endtask
+endclass
+
+//********************************** generator **********************************//
+class rt_generator;	//generator产生数据交给stimulator
+  rt_packet pkts[$];	//定义队列
+
+  function void put_pkt(input rt_packet p);
+    pkts.push_back(p);	//将p放入队列pkts里面（在pkts队列尾插入p）
+  endfunction
+  
+  task get_pkt(output rt_packet p);
+    wait(pkts.size() >0 )	//队列不为空
+      p = pkts.pop_front();	//将p从队列pkts里面取出，提取队列首元素
+  endtask
+
+  //generate a random packet
+  function void gen_pkt(int src = -1, int dst = -1);
+  endfunction
+  
+  task run();
+        //TODO
+  endtask
+    
+endclass
+//********************************** monitor **********************************//
+class rt_monitor;
+virtual rt_interface intf;
+    rt_packet in_pkts[16][$];
+    rt_packet out_pkts[16][$];
+    
+task run();
+    fork
+        mon_chnls();
+    join_none
+endtask
+    
+task mon_chnls;
+    foreach(in_pkts[i]) begin
+        automatic int chid = i;
+        fork
+        mon_chnl_in(chid);//每个输入端口均调用mon_chnl_in任务，监测数据输入
+        mon_chnl_out(chid);//每个输出端口均调用mon_chnl_out任务，监测数据输入
+        join_none
+    end
+endtask
+    
+task  mon_chnl_in (bit[3:0]id);//监测数据输入的任务
+    rt_packet pkt;	//定义结构体变量
+    forever begin
+    //clear content for the same struct variable。清除pkt
+    pkt = new();
+    pkt.src = id;	//第id个输入端口
+    //monitor specific channel-in data and put it into the queue
+    // monitor address phase
+    @(negedge intf.frame_n[id]);//监测frame_n下降沿(frame_n由时钟驱动)
+    for(int i=0; i<4; i++)begin
+        @(negedge intf.clock);		//frame_n下降沿后监测4个clk negedge
+        pkt.dst[i]= intf.din[id];
+        end
+        $display ("@%0t: [MON] src_chn1[%0d] & dest_chn1[%0d] data trans started",$time,pkt.src,pkt.dst);
+    //pass pad phase 不考虑pad阶段是否满足协议要求
+    repeat(5) @(negedge intf.clock);
+    do begin
+        pkt.data = new [pkt.data.size + 1](pkt.data);//创建动态数组并复制pkt.data
+        for ( int i=0; i<8; i++) begin
+            @(negedge intf.clock); //在8个clk negedge监测8bit数据
+            pkt.data[pkt.data.size-1][i] = intf.din[id];
+        end
+    end while(!intf.frame_n[id]);
+    in_pkts[id].push_back(pkt);	//将monitor拿到的数据放入in_pkts
+    $display("@%0t:[MON] CH_IN src_chnl[%0d] &dest_chnl[%0d ] finished with packet: \n%s",$time,pkt.src,pkt.dst,pkt.sprint());
+    end
+endtask
+
+task  mon_chnl_out(bit[ 3:0]id);//监测数据输出的任务
+    rt_packet pkt;
+    forever begin
+        //clear content for the same struct variable
+        pkt = new();
+        pkt.src = 0;
+        pkt.dst = id;	
+        @(negedge intf.frameo_n[id]);
+        $display( "@%0t: [MON] CH_OUT dest_chn1[%0d] data trans started",$time,pkt.dst);
+        do begin
+        pkt.data = new [ pkt.data.size + 1](pkt.data);
+        for(int i=0;i<8; i++) begin
+            @(negedge intf.clock iff !intf.valido_n[id]);//clock与valido_n信号同时为低
+            pkt.data[pkt.data.size-1][i]= intf.dout [id];
+        end
+    end while(!intf.frameo_n[id]);
+    out_pkts[id].push_back(pkt);
+    $display("@%0t: [MON] CH_OUT dest_chn1[%0d] data finished woth packet : \n %s",$time,pkt.dst,pkt.sprint());
+    //monitor specific channel-out data and put it into the queue
+    end
+endtask
+
+endclass
+//********************************** checker **********************************//
+class rt_checker;
+
+    int unsigned compare_count;
+    int unsigned error_count;
+    
+    function new();//赋初值，可有可无，整形变量默认初始值为0
+        compare_count = 0;
+        error_count = 0;
+    endfunction
+    
+    rt_packet exp_out_pkts[16][$];
+    rt_monitor mon;
+    
+    task run();
+    foreach(exp_out_pkts[i])begin
+        automatic int chid = i;
+        fork
+            do_routing(chid);
+            do_compare(chid);
+        join_none
+        end
+    endtask
+    
+    task do_routing(bit[3:0] id);//将monitor中采样到的输入数据放入期望的输出端队列中
+        rt_packet pkt;
+        forever begin
+            wait(mon.in_pkts[id].size > 0);
+            pkt = mon.in_pkts[id].pop_front();//从monitor中拿到in_pkts队列数据放入pkt
+            exp_out_pkts[pkt.dst].push_back(pkt);//将pkt数据放入对应期望的dest_chnl
+            end
+    endtask 
+    
+    task do_compare(bit[3:0] id);//比较采集的实际输出与期望输出
+        rt_packet exp_pkt, act_pkt;
+        forever begin
+            wait(mon.out_pkts[id].size > 0 && exp_out_pkts[id].size > 0);//实际采样数据与期望数据都有值
+            act_pkt = mon.out_pkts[id].pop_front();//实际数据为monitor采样的输出数据
+            exp_pkt = exp_out_pkts[id].pop_front();//期望数据为monitor采样到的输入数据
+            if(act_pkt.compare(exp_pkt))begin//如果exp_pkt与act_pkt比较成功，返回1
+                $display("[CHK] data compare success with packet : \n%s",act_pkt.sprint());
+            end
+            else begin
+                $display("[CHK] data compare failure with actual packet : \n%s \nexpected packet : \n%s", act_pkt.sprint(), exp_pkt.sprint());
+                error_count++;
+            end
+                compare_count++;
+        end
+    endtask 
+    
+    function void report(string name);
+        $display("TOTAL COMPARING %0d times",compare_count);
+        if(!error_count && check_data_buffer())//判断无误且二者有数据
+            $display("TEST [%s] PASSED!",name);
+        else begin
+            $display("TEST [%s]FAILED!",name);
+            $display("TOTAL ERROR %0d times", error_count);
+        end
+    endfunction
+    
+    function bit check_data_buffer();
+        check_data_buffer = 1;
+        foreach(exp_out_pkts[id])begin 
+            if(exp_out_pkts[id].size != 0)begin	//exp_out_pkts必须有数据
+                check_data_buffer = 0;
+                $display("exp_out_pkts[%0d] buffer size is not 0(still with %0d data)",id,exp_out_pkts[id].size);
+            end
+            if(mon.out_pkts[id].size != 0)begin	//mon.out_pkts必须有数据
+                check_data_buffer = 0;
+                $display("mon.out_pkts[%0d] buffer size is not 0(still with %0d data)",id,mon.out_pkts[id].size);
+            end
+        end
+    endfunction
+    
+endclass
+//********************************** Optional tests **********************************//
+class rt_env;	//rt_env包含各个组件
+    rt_stimulator stim;
+    rt_monitor mon;
+    rt_generator gen;
+    rt_checker chk;
+        
+    function new(virtual rt_interface intf);
+        //build stage,例化
+        stim = new();
+        gen = new();
+        mon = new();
+        chk = new();
+        //connect stage，连接
+        stim.intf = intf;
+        mon.intf = intf;
+        chk.mon = mon;//check拿monitor句柄，即拿monitor中in_pkts与out_pkts队列
+    endfunction 
+    
+    task run();
+        rt_packet p;
+        //run stage，run
+        fork
+            stim.run();//class里面的函数不会自动调用，需要手动调用
+            gen.run();	
+            mon.run();
+            chk.run();
+            begin:genarator_to_stimulator_proc//取出genarator中的数据给stimulator 
+                forever begin	//此处不需要延迟0，执行task run的时候默认function new已执行
+                    gen.get_pkt(p);	//get句柄
+                    stim.put_pkt(p);//put句柄
+                end
+            end
+        join_none	
+    endtask
+    
+    function void report(string name);
+        chk.report(name);
+    endfunction
+    
+endclass
+
+class rt_base_test;	//rt_base_test包含rt_env，rt_env包含各个组件
+    rt_env env;
+    bit gen_trans_done = 0;//表示数据传输未开始
+    int unsigned test_drain_time_us = 1;//数据传输完后等待报告的时间
+    string name;
+    
+    function new(virtual rt_interface intf,string name = "rt_base_test");
+        env = new(intf);
+        this.name = name;
+    endfunction
+    
+    task run();
+    $display("TEST %s started",name);
+        fork
+            env.run();
+            report();	//调用report
+        join_none
+    endtask
+    
+    task report();
+        wait(gen_trans_done == 1);
+        #(test_drain_time_us * 1us);
+        env.report(name);	//调用env里的chk.report()进行report
+        $finish();//terminates the current test
+    endtask
+
+  function void set_trans_done(bit done = 1);//将set_trans_done信号置为1，表示数据传输已完成
+        gen_trans_done = done;
+    endfunction
+
+endclass
+
+    class rt_single_ch_test extends rt_base_test;//单个通道测试
+        function new(virtual rt_interface intf,string name = "rt_single_ch_test");
+            super.new(intf,name);
+        endfunction
+            
+        task run();
+            rt_packet p;
+            super.run();//调用父类的run，即执行env.run()，进行组件的例化等操作
+            p = new();	//obj1(每次put_pkt都需要new一下)
+            p.set_members(0,3,'{8'h33,8'h77});//注意层次变化，在env层次下面
+            env.gen.put_pkt(p);
+            p = new();	//obj2
+            p.set_members(0,5,'{8'h55,8'h66});
+            env.gen.put_pkt(p);
+            set_trans_done();
+        endtask
+        
+    endclass
+
+    class rt_two_ch_test extends rt_base_test;
+        function new(virtual rt_interface intf,string name = "rt_two_ch_test");
+            super.new(intf,name);
+        endfunction
+    endclass
+
+        class rt_two_ch_same_chout_test extends rt_two_ch_test;
+            function new(virtual rt_interface intf,string name = "rt_two_ch_same_chout_test");
+                super.new(intf,name);
+            endfunction
+        endclass
+
+    class rt_multi_ch_test extends rt_base_test;//多通道测试
+        function new(virtual rt_interface intf,string name = "rt_multi_ch_test");
+            super.new(intf,name);
+        endfunction
+        
+        task run();
+            rt_packet p;
+            super.run();
+            p = new();
+            p.set_members(0,3,'{8'h33,8'h77});
+            env.gen.put_pkt(p);
+            p = new();//每次put_pkt都需要new一下
+            p.set_members(0,5,'{8'h55,8'h66});
+            env.gen.put_pkt(p);
+            p = new();
+            p.set_members(3,6,'{8'h77,8'h88,8'h22});
+            env.gen.put_pkt(p);
+            p = new();
+            p.set_members(4,7,'{8'haa,8'hcc,8'h33});
+            env.gen.put_pkt(p);
+            set_trans_done();
+        endtask
+    endclass
+
+        class rt_full_ch_test extends rt_multi_ch_test;
+            function new(virtual rt_interface intf,string name = "rt_full_ch_test");
+                super.new(intf,name);
+            endfunction
+        endclass
+endpackage
+//********************************** Optional tests **********************************//
+</code></pre>
+<p><strong>lab7tb.sv如下：</strong></p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** rt_interface **********************************//
+interface rt_interface();
+    logic clock;
+    logic reset_n;
+    logic [15:0] din;
+    logic [15:0] frame_n;
+    logic [15:0] valid_n;
+    logic [15:0] dout;
+    logic [15:0] valido_n;
+    logic [15:0] busy_n;
+    logic [15:0] frameo_n;
+endinterface
+
+//********************************** tb **********************************//
+module tb;
+
+  import rt_test_pkg ::*;
+    
+    bit clk,rstn;
+    logic [15:0] din, frame_n, valid_n;
+    logic [15:0] dout, valido_n, busy_n, frameo_n;
+
+// 产生时钟，周期为10ns
+initial 
+    forever #5ns clk <= !clk;
+
+// 产生复位信号
+  initial begin
+    #2ns rstn <= 1;
+    #10ns rstn <= 0;
+    #10ns rstn <= 1;
+  end
+
+//例化router为DUT
+router dut(           
+  .reset_n(rstn),
+  .clock(clk),
+  .frame_n(intf.frame_n),
+  .valid_n(intf.valid_n),
+  .din(intf.din),
+  .dout(intf.dout),
+  .busy_n(intf.busy_n),
+  .valido_n(intf.valido_n),
+  .frameo_n(intf.frameo_n)
+);
+
+rt_interface intf();//例化接口
+    assign intf.reset_n = rstn;
+    assign intf.clock = clk;
+
+    rt_single_ch_test  single_ch_test;
+    rt_multi_ch_test   multi_ch_test;
+        
+    initial begin : Select_the_test
+    string name;
+      single_ch_test = new(intf);
+      multi_ch_test  = new(intf);
+      //single_ch_test.run();
+      //multi_ch_test.run();
+      if($value$plusargs("TESTNAME=%s",name))begin//$value$plusargs作用：运行仿真时输入参数
+      	  case(name)
+            	"rt_single_ch_test" : single_ch_test.run();//输入rt_single_ch_test，调用对应run，执行输入rt_single_ch_test
+                "rt_multi_ch_test" :multi_ch_test.run();
+            	default:$fatal("[ERRTEST],test name %s is invalid,please specity a valid name!0",name);
+        	endcase
+        end
+    end
+    
+endmodule 
+</code></pre>
+<p><strong>VCS命令</strong></p>
 <blockquote>
 <p>vcs -full64 -debug_access+all -sverilog -timescale=1ns/1ps <span style="background:rgba(5, 117, 197, 0.2)">router.v</span> <span style="background:rgba(136, 49, 204, 0.2)">rt_test_pkg.sv</span> <span style="background:#affad1">lab7tb.sv</span>  -top tb<br>//注意文件顺序，lab7tb.sv中的类是在rt_test_pkg.sv中创建的，rt_test_pkg.sv应在前面</p>
 </blockquote>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211180958453.png" width="300" height="400" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211180958453.png" width="45%" height="45%"></div>
 **(2)使用makefile**
 
 <p>使用脚本包含命令及其组合，makefile代码如下：</p>
@@ -2022,7 +2496,7 @@ rung:
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

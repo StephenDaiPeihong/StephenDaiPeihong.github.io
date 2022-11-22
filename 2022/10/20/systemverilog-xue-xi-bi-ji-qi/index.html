@@ -5,16 +5,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(七), Stephen&#39;s Blog">
-    <meta name="description" content="类的继承实例1 子类没有定义new函数，会调用父类new函数仿真结果：
+    <meta name="description" content="1. 类的继承1.1 实例1 子类没有定义new函数，会调用父类new函数
+**仿真结果**：
+&amp;gt;p.i = 2;
+&amp;gt;lp.i = 2;
 
-p.i = 2;lp.i = 2;
+1.2 实例2
+**仿真结果**：
+&amp;gt;lp.i = 3;
 
-实例2仿真结果：
-
-lp.i = 3;
-
-
-实例3 如果子类定义function new，仍会默认调用父类的new函数仿真结果：">
+## 1.3 实例3 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -393,7 +393,7 @@ lp.i = 3;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-22
+                    2022-11-21
                 </div>
                 
 
@@ -407,7 +407,7 @@ lp.i = 3;
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -432,104 +432,68 @@ lp.i = 3;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h1><h2 id="实例1-子类没有定义new函数，会调用父类new函数"><a href="#实例1-子类没有定义new函数，会调用父类new函数" class="headerlink" title="实例1 子类没有定义new函数，会调用父类new函数"></a>实例1 子类没有定义new函数，会调用父类new函数</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202009690.png"><br><strong>仿真结果</strong>：</p>
-<blockquote>
-<p>p.i = 2;<br>lp.i = 2;</p>
-</blockquote>
-<h2 id="实例2"><a href="#实例2" class="headerlink" title="实例2"></a>实例2</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202022227.png"><br><strong>仿真结果</strong>：</p>
-<blockquote>
-<p>lp.i = 3;</p>
-</blockquote>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202023256.png"></p>
-<h2 id="实例3-如果子类定义function-new，仍会默认调用父类的new函数"><a href="#实例3-如果子类定义function-new，仍会默认调用父类的new函数" class="headerlink" title="实例3 如果子类定义function new，仍会默认调用父类的new函数"></a>实例3 如果子类定义function new，仍会默认调用父类的new函数</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202056452.png"><br><strong>仿真结果</strong>：</p>
-<blockquote>
-<p>p.i = 2;<br>lp.i = 2;</p>
-</blockquote>
-<h2 id="实例4"><a href="#实例4" class="headerlink" title="实例4"></a>实例4</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202121976.png"><br>子类和父类出现同名函数function，如果子类没有使用supper.(functionname)，不会调用父类的此函数。如果子类里使用supper.(functionname)，即调用父类的此函数。</p>
-<h2 id="实例5"><a href="#实例5" class="headerlink" title="实例5"></a>实例5</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221020213918.png"></p>
+                <h1 id="1-类的继承"><a href="#1-类的继承" class="headerlink" title="1. 类的继承"></a>1. 类的继承</h1><h2 id="1-1-实例1-子类没有定义new函数，会调用父类new函数"><a href="#1-1-实例1-子类没有定义new函数，会调用父类new函数" class="headerlink" title="1.1 实例1 子类没有定义new函数，会调用父类new函数"></a>1.1 实例1 子类没有定义new函数，会调用父类new函数</h2><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202009690.png " width="50%" height="60%"></div>
+**仿真结果**：
+&gt;p.i = 2;
+&gt;lp.i = 2;
+
+<h2 id="1-2-实例2"><a href="#1-2-实例2" class="headerlink" title="1.2 实例2"></a>1.2 实例2</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202022227.png" width="50%" height="60%"></div>
+**仿真结果**：
+&gt;lp.i = 3;
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202023256.png " width="50%" height="50%"></div>
+## 1.3 实例3 如果子类定义function new，仍会默认调用父类的new函数
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202056452.png" width="60%" height="60%"></div>
+**仿真结果**：
+&gt;p.i = 2;
+&gt;lp.i = 2;
+
+<h2 id="1-4-实例4"><a href="#1-4-实例4" class="headerlink" title="1.4 实例4"></a>1.4 实例4</h2><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202121976.png " width="100%" height="100%"></div>
+子类和父类出现同名函数function，如果子类没有使用supper.(functionname)，不会调用父类的此函数。如果子类里使用supper.(functionname)，即调用父类的此函数。
+## 1.5 实例5
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/20221020213918.png " width="100%" height="100%"></div>
+
 <ol>
 <li>子类带参数，父类不带参数，仍会调用父类new函数。</li>
 <li>只要父类new没有参数，就可以默认调用</li>
 <li>子类必须调动父类的new函数，否则编译无法通过。</li>
 <li>如果父类new函数没有参数，直接调用；如果父类new函数有参数，子类里面需要严格用supper.new</li>
 </ol>
-<h2 id="实例6"><a href="#实例6" class="headerlink" title="实例6"></a>实例6</h2><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202329703.png"></p>
+<h2 id="1-6-实例6"><a href="#1-6-实例6" class="headerlink" title="1.6 实例6"></a>1.6 实例6</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202329703.png" width="55%" height="60%"></div>
+
 <p><strong>仿真结果</strong></p>
 <blockquote>
 <p>p.i = 2;<br>lp.i = 2;<br>after shift p.i = 8;<br>after shift lp.i = 12;</p>
 </blockquote>
-<p><strong>设置断点分析</strong>：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202349849.png"></p>
-<p><strong>注意</strong>：</p>
-<ol>
-<li>子类和父类出现同名的函数或者同名的函数或者任务（同名方法），子类想要继承，需要方法名一致参数一致，调用一定写supper</li>
-<li>子类的方法名称可以与父类同名，但子类的变量最好不要跟父类的变量同名</li>
-</ol>
-<h2 id="实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"><a href="#实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄" class="headerlink" title="实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"></a>实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108619.png" width="500" height="530">
-        
+<p><strong>设置断点分析</strong>：</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210202349849.png" width="100%" height="100%"></div>
+**注意**：
+1. 子类和父类出现同名的函数或者同名的函数或者任务（同名方法），子类想要继承，需要方法名一致参数一致，调用一定写supper
+2. 子类的方法名称可以与父类同名，但子类的变量最好不要跟父类的变量同名
 
+<h2 id="1-7-实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"><a href="#1-7-实例7-子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄" class="headerlink" title="1.7 实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄"></a>1.7 实例7 子类的句柄能够赋值给父类的句柄，父类的句柄不能赋值给子类的句柄</h2><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108619.png " width="60%" height="60%"></div>
 
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108436.png" width="500" height="300">
-        
-
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212108436.png " width="60%" height="60%"></div>
 
 <ol>
 <li>子类的句柄能够赋值给父类的句柄（ ==能够访问区域缩小==），父类的句柄不能赋值给子类的句柄</li>
 <li>lp.i只能指向子类中的i，无法指向父类的i（子类的变量跟父类的变量同名，i被覆盖）；tmp.i可以指向父类的i</li>
 <li>lp能访问子类的i、k、m，无法访问父类的i；tmp能访问父类的i、m，但找不到子类的i、k</li>
 </ol>
-<h1 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h1><h2 id="包的概念"><a href="#包的概念" class="headerlink" title="包的概念"></a>包的概念</h2><p>为了使得可以在多个模块（硬件）或者奕（默件)间共子用厂化乂大型,SV添加了包(package) 。包的概念参考于VHDL，用户自定义的类型譬如==类、方法、变量、结构体、枚举类==（==偏软件类，Module、inteface偏硬件就不能定义在包里面==）等都可以在package…endpackage中定义。</p>
-<h2 id="包的使用方法"><a href="#包的使用方法" class="headerlink" title="包的使用方法"></a>包的使用方法</h2><ol>
+<h1 id="2-包的使用"><a href="#2-包的使用" class="headerlink" title="2. 包的使用"></a>2. 包的使用</h1><h2 id="2-1-包的概念"><a href="#2-1-包的概念" class="headerlink" title="2.1 包的概念"></a>2.1 包的概念</h2><p>为了使得可以在多个模块（硬件）或者奕（默件)间共子用厂化乂大型,SV添加了包(package) 。包的概念参考于VHDL，用户自定义的类型譬如==类、方法、变量、结构体、枚举类==（==偏软件类，Module、inteface偏硬件就不能定义在包里面==）等都可以在package…endpackage中定义。</p>
+<h2 id="2-2-包的使用方法"><a href="#2-2-包的使用方法" class="headerlink" title="2.2 包的使用方法"></a>2.2 包的使用方法</h2><ol>
 <li><p>module、interface、class等可以使用包中定义或者声明的内容。</p>
 </li>
 <li><p>导出：可以通过域的==索引符::号==直接引用。</p>
-
- 
-     <meta charset="utf-8">
-     <title>HTML</title>
- 
-     
-         <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212212179.png" width="500" height="300">
-     
-
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212212179.png " width="60%" height="60%"></div>
 </li>
 <li><p>可以==指定索引==一些需要的包中定义的类型到指定的容器中(module/class/…) 。</p>
-
- 
-     <meta charset="utf-8">
-     <title>HTML</title>
- 
-     
-         <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212213098.png" width="500" height="300">
-     
-
-
-</li>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212213098.png" width="60%" height="60%"></div></li>
 <li><p>通过通配符$*$来将包中==所有类别导入==到指定容器中。</p>
 </li>
 </ol>
-<h2 id="实例1"><a href="#实例1" class="headerlink" title="实例1"></a>实例1</h2>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212210008.png" width="500" height="1200">
-        
+<h2 id="2-3-实例1"><a href="#2-3-实例1" class="headerlink" title="2.3 实例1"></a>2.3 实例1</h2><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210212210008.png" width="50%" height="50%"></div>
 
-
-<h1 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h1><p><strong>1.在packet和linkedpacket有关类的继承的例子中(如图)，tb中的句柄p是否可以访问父类的成员i?lp是否可以访问父类的成员i?句柄tmp是否可以访问子类的成员i?</strong></p>
+<h1 id="3-问答题"><a href="#3-问答题" class="headerlink" title="3. 问答题"></a>3. 问答题</h1><p><strong>1.在packet和linkedpacket有关类的继承的例子中(如图)，tb中的句柄p是否可以访问父类的成员i?lp是否可以访问父类的成员i?句柄tmp是否可以访问子类的成员i?</strong></p>
 <p><strong>代码：</strong></p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">/*Problem1
 在packet和linkedpacket有关类的继承的例子中(如图)，
@@ -587,15 +551,7 @@ endmodule
 <blockquote>
 <p>p.i = 4      tb中的句柄p是否可以访问父类的成员i<br>lp.i = 3     lp.i只能指向子类中的i，无法指向父类的i（子类的变量跟父类的变量同名，i被覆盖）	<br>lp.m = 2  但lp可以访问父类的其他成员<br>tmp.i = 2  tmp能访问父类的i、m，但找不到子类的i、k</p>
 </blockquote>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210221243924.png" width="500" height="300">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210221243924.png" width="60%" height="60%"></div>
 
 <p><strong>2.试着在对应的位置填入代码，即如何导入pkg_a中的类型packet_a，从pkg_b中导入packet_b，以及从pkg_b中导入静态变量shared?</strong></p>
 <p><strong>代码：</strong></p>
@@ -1148,7 +1104,7 @@ module tb;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

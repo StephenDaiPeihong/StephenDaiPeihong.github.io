@@ -5,11 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(三), Stephen&#39;s Blog">
-    <meta name="description" content="设计特性面向可综合设计的主要优化过程语句块新特性always语句块被细分为了:
+    <meta name="description" content="1. 设计特性1.1 面向可综合设计的主要优化1.1.1 过程语句块新特性always语句块被细分为了:
 
 组合逻辑语句块always_comb
 always_comb可以自动嵌入敏感列表。
-always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个过程块">
+always_comb可以禁止共享变量，即赋值左">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -388,7 +388,7 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-21
                 </div>
                 
 
@@ -427,7 +427,7 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="设计特性"><a href="#设计特性" class="headerlink" title="设计特性"></a>设计特性</h1><h2 id="面向可综合设计的主要优化"><a href="#面向可综合设计的主要优化" class="headerlink" title="面向可综合设计的主要优化"></a>面向可综合设计的主要优化</h2><h3 id="过程语句块新特性"><a href="#过程语句块新特性" class="headerlink" title="过程语句块新特性"></a>过程语句块新特性</h3><p>always语句块被细分为了:</p>
+                <h1 id="1-设计特性"><a href="#1-设计特性" class="headerlink" title="1. 设计特性"></a>1. 设计特性</h1><h2 id="1-1-面向可综合设计的主要优化"><a href="#1-1-面向可综合设计的主要优化" class="headerlink" title="1.1 面向可综合设计的主要优化"></a>1.1 面向可综合设计的主要优化</h2><h3 id="1-1-1-过程语句块新特性"><a href="#1-1-1-过程语句块新特性" class="headerlink" title="1.1.1 过程语句块新特性"></a>1.1.1 过程语句块新特性</h3><p>always语句块被细分为了:</p>
 <ul>
 <li><strong>组合逻辑语句块always_comb</strong><ul>
 <li>always_comb可以自动嵌入敏感列表。</li>
@@ -437,14 +437,14 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
 <li>与Verilog @* 的敏感列表声明方式不同处<ul>
 <li>@* 不要求可综合的建模要求，但always_comb则会限制其他过程块对同一变量进行赋值。</li>
 <li>@* 的敏感列表可能不完全，@* 只会将该函数的形式参数自动声明到敏感列表，而不会将该函数展开。</li>
-<li>always_comb则将被调用函数中可能参与运算的其它信号也声明到敏感列表中。<br>  ![[Pasted image 20220919154948.png|400]]</li>
+<li>always_comb则将被调用函数中可能参与运算的其它信号也声明到敏感列表中。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211652671.png " width="50%" height="50%"></div></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><strong>锁存逻辑语句块always_latch</strong><ul>
 <li>always latch表示锁存逻辑，且自动插入敏感列表。</li>
-<li>EDA工具会检查always_latch过程块是否真正实现了锁存逻辑。<br>  ![[Pasted image 20220919155220.png|500]]</li>
+<li>EDA工具会检查always_latch过程块是否真正实现了锁存逻辑。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211652701.png " width="50%" height="50%"></div></li>
 </ul>
 </li>
 <li><strong>时序逻辑语句块always_ff</strong><ul>
@@ -454,17 +454,17 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
 </ul>
 </li>
 </ul>
-<h3 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h3><ul>
+<h3 id="1-1-2-赋值操作符"><a href="#1-1-2-赋值操作符" class="headerlink" title="1.1.2 赋值操作符"></a>1.1.2 赋值操作符</h3><ul>
 <li>SV可以通过’0，’1，’z和′x来分别填充0，1，z和x。</li>
-<li>SV在比较数据时，可以通过== ?来进行通配比较。在比较操作符的右侧操作数，如果在某些位置有X或者Z，那么它表示的是在该位置上会与左侧操作数的相同位置的任何值相匹配。<br>![[Pasted image 20220919174508.png|700]]</li>
-<li>SV添加了inside操作符，用来检查数值是否在一系列值的集合当中。<br>![[Pasted image 20220919174910.png|600]]</li>
+<li>SV在比较数据时，可以通过== ?来进行通配比较。在比较操作符的右侧操作数，如果在某些位置有X或者Z，那么它表示的是在该位置上会与左侧操作数的相同位置的任何值相匹配。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211653920.png " width="60%" height="60%"></div></li>
+<li>SV添加了inside操作符，用来检查数值是否在一系列值的集合当中。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211653179.png " width="50%" height="50%"></div></li>
 </ul>
-<h3 id="增强的case与语句"><a href="#增强的case与语句" class="headerlink" title="增强的case与语句"></a>增强的case与语句</h3><p>仿真和综合可以会将case语句做不同的翻译。Verilog定义case语句在执行时按照优先级，而综合编译器则会优化case语句中多余的逻辑。为了保持仿真与综合的一致性，SV提供了<strong>unique</strong>和<strong>priority</strong>的声明，结合case,casex和casez来进一步实现case对应的硬件电路。</p>
+<h3 id="1-1-3-增强的case与语句"><a href="#1-1-3-增强的case与语句" class="headerlink" title="1.1.3 增强的case与语句"></a>1.1.3 增强的case与语句</h3><p>仿真和综合可以会将case语句做不同的翻译。Verilog定义case语句在执行时按照优先级，而综合编译器则会优化case语句中多余的逻辑。为了保持仿真与综合的一致性，SV提供了<strong>unique</strong>和<strong>priority</strong>的声明，结合case,casex和casez来进一步实现case对应的硬件电路。</p>
 <ul>
 <li><strong>unique case</strong><ul>
 <li>unique case要求每次case选择必须只能满足一条case选项</li>
-<li>unique case不能有重叠的选项，即多个满足条件的选项<br>  ![[Pasted image 20220919175838.png|600]]</li>
-<li>unique case可以并行执行，并且case选项必须完备<br>  ![[Pasted image 20220919175748.png|600]]</li>
+<li>unique case不能有重叠的选项，即多个满足条件的选项<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211654619.png " width="60%" height="60%"></div></li>
+<li>unique case可以并行执行，并且case选项必须完备<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211655398.png " width="60%" height="60%"></div></li>
 </ul>
 </li>
 <li><strong>priority case</strong><ul>
@@ -473,30 +473,33 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
 </ul>
 </li>
 </ul>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>SV添加了新的抽象端口类型interface。interface允许多个信号被整合到一起用来表示一个单一的抽象端口。多个模块因此可以使用同一个interface，继而避免分散的多个端口信号连接。</p>
-<h2 id="接口的内容"><a href="#接口的内容" class="headerlink" title="接口的内容"></a>接口的内容</h2><ul>
+<h1 id="2-接口"><a href="#2-接口" class="headerlink" title="2. 接口"></a>2. 接口</h1><p>SV添加了新的抽象端口类型interface。interface允许多个信号被整合到一起用来表示一个单一的抽象端口。多个模块因此可以使用同一个interface，继而避免分散的多个端口信号连接。</p>
+<h2 id="2-1-接口的内容"><a href="#2-1-接口的内容" class="headerlink" title="2.1 接口的内容"></a>2.1 接口的内容</h2><ul>
 <li>接口不单单可以包含变量或者线网，它还可以封装模块之间通信的协议。</li>
 <li>接口中可以嵌入与协议有关的断言检查、功能覆盖率收集等模块。</li>
 <li>接口不同于模块(module)的地方在于，接口不允许包含设计层次，即接口无法例化module，但是接口可以例化接口。</li>
 <li>接口中可以进一步声明modport来约束不同模块连接时的信号方向。</li>
 </ul>
-<h2 id="接口的声明"><a href="#接口的声明" class="headerlink" title="接口的声明"></a>接口的声明</h2><ul>
+<h2 id="2-2-接口的声明"><a href="#2-2-接口的声明" class="headerlink" title="2.2 接口的声明"></a>2.2 接口的声明</h2><ul>
 <li>接口的定义同模块定义类似。</li>
 <li>接口也可以有端口，例如外部接入的时钟或者复位信号。</li>
 <li>接口内部可以声明所有的变量或者线网类型。</li>
 </ul>
-<h2 id="接口的例化"><a href="#接口的例化" class="headerlink" title="接口的例化"></a>接口的例化</h2><ul>
+<h2 id="2-3-接口的例化"><a href="#2-3-接口的例化" class="headerlink" title="2.3 接口的例化"></a>2.3 接口的例化</h2><ul>
 <li>接口的例化方式同模块例化一致。</li>
 <li>模块的端口如果声明为input、output或者inout，那么在例化时可以不连接。</li>
 <li>模块的端口如果声明为interface，那么在例化时则必须连接到一个接口实例，或者另外一个接口端口。</li>
-<li>如果一个模块拥有一个接口类型端口，那么要索引该接口中的信号，需要通过以下方式进行:<br>![[Pasted image 20220922082928.png|500]]</li>
+<li>如果一个模块拥有一个接口类型端口，那么要索引该接口中的信号，需要通过以下方式进行:</li>
 </ul>
-<h2 id="modport"><a href="#modport" class="headerlink" title="modport"></a>modport</h2><ul>
+<pre class=" language-systemverilog"><code class="language-systemverilog"><port_name>.<internal_interface_signal_name>
+always @(posedge bus.clock , negedge bus.resetN)
+</code></pre>
+<h2 id="2-4-modport"><a href="#2-4-modport" class="headerlink" title="2.4 modport"></a>2.4 modport</h2><ul>
 <li>接口中的变量或者线网信号，对于连接到该接口的不同模块则可能具备这不同的连接方向。接口引入了modport来作为module port的缩写，表示不同的模块看到同一组信号时的视角(连接方向)。</li>
 <li>在接口中声明modport，需要指明modport中各个信号的方向。</li>
 <li>当一个模块在例化时，可以选择连接到interface端口中具体的某一个modport。这种方式可以降低方向连接错误的可能，进而避免信号多驱动的情况。</li>
 </ul>
-<h2 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h2><p><strong>1.结构体和接口之间的联系和差别有哪些地方?</strong><br><strong>答</strong>：<br><strong>同</strong>：①均可以声明变量或线网类型；②结构体同样可以集合一些变量<br><strong>异</strong>：结构体中不能指定信号方向，接口中用modport来约束不同模块连接时的信号方向。</p>
+<h1 id="3-问答题"><a href="#3-问答题" class="headerlink" title="3. 问答题"></a>3. 问答题</h1><p><strong>1.结构体和接口之间的联系和差别有哪些地方?</strong><br><strong>答</strong>：<br><strong>同</strong>：①均可以声明变量或线网类型；②结构体同样可以集合一些变量<br><strong>异</strong>：结构体中不能指定信号方向，接口中用modport来约束不同模块连接时的信号方向。</p>
 <hr>
 <p><strong>2.模块和接口之间的相近的地方有哪些?又有哪些差别?</strong><br><strong>答</strong>：<br><strong>同</strong>：①接口的定义同模块定义类似；②接口的例化方式同模块例化一致；③均可以声明变量或线网类型。<br><strong>异</strong>：①接口不同于模块(module)的地方在于，接口不允许包含设计层次，即接口无法例化module，但是接口可以例化接口。②接口中可以进一步声明modport来约束不同模块连接时的信号方向。③接口不单单可以包含变量或者线网，它还可以封装模块之间通信的协议。④接口中还可以嵌入与协议有关的断言检查、功能覆盖率收集等模块。</p>
 <hr>
@@ -986,7 +989,7 @@ always_comb可以禁止共享变量，即赋值左侧的变量无法被另一个
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

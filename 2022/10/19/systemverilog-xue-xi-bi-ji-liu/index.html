@@ -386,7 +386,7 @@ OOP（面向对象编程）术语类(class) :  包含">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-21
                 </div>
                 
 
@@ -428,63 +428,51 @@ OOP（面向对象编程）术语类(class) :  包含">
                 <p><strong>类</strong>是一种可以包含数据和方法(function,task)的类型。<br>例如一个数据包，可能被定义为一个类，类中可以包含指令、地址、队列ID、时间戳和数据等成员。</p>
 <p>类的三要素：<strong>封装、继承、多态</strong></p>
 <p><strong>OOP（面向对象编程）术语</strong><br><strong>类(class) :  包含成员变量和成员方法。<br>对象(object)</strong>:类在例化后的实例。<br><strong>句柄(handle)</strong> :指向对象的指针。<br><strong>原型(prototype)</strong> :程序的声明部分，包含程序名、返回类型和参数列表。</p>
-<h1 id="（一）类、模块、结构体比较"><a href="#（一）类、模块、结构体比较" class="headerlink" title="（一）类、模块、结构体比较"></a>（一）类、模块、结构体比较</h1>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190953671.png" width="450" height="550">
-        
+<h1 id="1-类、模块、结构体比较"><a href="#1-类、模块、结构体比较" class="headerlink" title="1. 类、模块、结构体比较"></a>1. 类、模块、结构体比较</h1><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190953671.png " width="60%" height="60%"></div>
+c1、c2称为句柄（类似于c中的指针），句柄是否例化通过是否有new的动作判断。new是在仿真时让仿真器创建一个相应实例（如果没有定义new函数，系统也会自动添加一个function new）。调用new函数后，开辟空间存放存放变量。new函数没有返回值，无需表明返回值类型，甚至无需声明void。当创建了一个实际对象时，new函数的返回值为对象的头部句柄（指针）
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190954540.png" width="40%" height="40%"></div>
+仿真目的是仿真真实的硬件，没有run任何时间单位前，整个硬件的结构就确定下来了。在仿真前，模块是有值的，而对象的创建是在仿真以后才会执行：
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955582.png " width="90%" height="90%"></div>
 
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955905.png " width="90%" height="90%"></div>
+仿真run 0(很小的时间单位)后：
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190956769.png " width="90%" height="90%"></div>
+同样地在进行仿真前，结构体也会有值（initial中的结构体静态变量同样如此），可进行如下验证：
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190957043.png " width="60%" height="60%"></div>
+在仿真开始前：
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190958060.png" width="90%" height="90%"></div>
 
-<p>c1、c2称为句柄（类似于c中的指针），句柄是否例化通过是否有new的动作判断。new是在仿真时让仿真器创建一个相应实例（如果没有定义new函数，系统也会自动添加一个function new）。调用new函数后，开辟空间存放存放变量。new函数没有返回值，无需表明返回值类型，甚至无需声明void。当创建了一个实际对象时，new函数的返回值为对象的头部句柄（指针）</p>
+<p>对new函数函数赋初值(new函数可以传参数)<br>对packet_c创建100个实例如下：</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191046905.png " width="60%" height="60%"></div>
+**c1最终指向最后一个实例，前面99个实例无法找回。**
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190954540.png" width="350" height="500">
-        
-
-
-<p>仿真目的是仿真真实的硬件，没有run任何时间单位前，整个硬件的结构就确定下来了。在仿真前，模块是有值的，而对象的创建是在仿真以后才会执行：<img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955582.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190955905.png"></p>
-<p>仿真run 0(很小的时间单位)后：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190956769.png"><br>同样地在进行仿真前，结构体也会有值（initial中的结构体静态变量同样如此），可进行如下验证：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190957043.png"><br>在仿真开始前：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210190958060.png"></p>
-<p>对new函数函数赋初值(new函数可以传参数)<br>对packet_c创建100个实例如下：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191046905.png"><br><strong>c1最终指向最后一个实例，前面99个实例无法找回。</strong></p>
 <p><strong>总结：</strong></p>
 <ol>
 <li>SV并不像C++语言一样要求复杂的存储空间开辟和销毁的手段，而是采用了像Java—样空间自动开辟和回收的手段。</li>
 <li>因此SV的类在定义时，只需要定义构建函数(constructor)而不需要定义析构函数(destructor) 。</li>
 <li>类在定义时，需要定义构建函数，如果未定义，则系统会自动帮助定义一个空的构建函数（没有形式参数，函数体亦为空)。</li>
 </ol>
-<h1 id="（二）句柄的拷贝"><a href="#（二）句柄的拷贝" class="headerlink" title="（二）句柄的拷贝"></a>（二）句柄的拷贝</h1>
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191328440.jpg" width="550" height="850">
-        
+<h1 id="2-句柄的拷贝"><a href="#2-句柄的拷贝" class="headerlink" title="2. 句柄的拷贝"></a>2. 句柄的拷贝</h1><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191328440.jpg " width="60%" height="60%"></div>
 
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335916.png " width="100%" height="100%"></div>
 
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335243.png" width="100%" height="100%"></div>
+两个句柄一个对象，几个new几个对象。（赋值的是句柄，不是对象!）
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191336888.png " width="80%" height="80%"></div>
+# 3. 静态变量&amp;动态变量
+**静态变量**：仿真开始前已经分配空间
+**动态变量**：仿真开始时才分配空间
+默认类里面所有成员(成员变量、成员方法或者其他)均是动态的，如果想要使用静态的，可用static
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191341299.png" width="50%" height="50%"></div>
 
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335916.png"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191335243.png"></p>
-<p>两个句柄一个对象，几个new几个对象。（赋值的是句柄，不是对象!）<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191336888.png"></p>
-<h1 id="（三）静态变量-amp-动态变量"><a href="#（三）静态变量-amp-动态变量" class="headerlink" title="（三）静态变量&amp;动态变量"></a>（三）静态变量&amp;动态变量</h1><p><strong>静态变量</strong>：仿真开始前已经分配空间<br><strong>动态变量</strong>：仿真开始时才分配空间<br>默认类里面所有成员(成员变量、成员方法或者其他)均是动态的，如果想要使用静态的，可用static<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191341299.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191343949.png"></p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191343949.png " width="100%" height="100%"></div>
+
 <p>此时句柄悬空，能否找到data？</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424199.png " width="60%" height="60%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424199.png" width="550" height="850">
-        
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424614.png" width="40%" height="40%"></div>
+编译器在编译时分析，句柄指向data是一个静态变量，仿真时data不会存放到任何实例化对象里面（c1.data、c2.data，任何一个data变量的存放空间不会在任何一个实例化的对象里面，如果存放在实例化对象里面，则空间各自独立。真正的空间在编译过程中开辟，可以姑且理解为放在类的下面）因此，编译器在编译时告诉我们说c1句柄指向的是packet这个类，data是一个静态变量。接下来仿真过程中找data时，不管c1有无指向对象，真正要找的变量放在类的域里面。
 
-
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191424614.png"><br>编译器在编译时分析，句柄指向data是一个静态变量，仿真时data不会存放到任何实例化对象里面（c1.data、c2.data，任何一个data变量的存放空间不会在任何一个实例化的对象里面，如果存放在实例化对象里面，则空间各自独立。真正的空间在编译过程中开辟，可以姑且理解为放在类的下面）因此，编译器在编译时告诉我们说c1句柄指向的是packet这个类，data是一个静态变量。接下来仿真过程中找data时，不管c1有无指向对象，真正要找的变量放在类的域里面。</p>
 <p><strong>总结：</strong></p>
 <ol>
 <li>类的成员(变量/方法)默认都是动态(automatic)生命周期，即每一个对象的变量和方法都会为其开辟新的空间。</li>
@@ -494,7 +482,7 @@ OOP（面向对象编程）术语类(class) :  包含">
 <li>成员方法也可以声明为静态。</li>
 <li>静态方法无法访问非静态成员(变量/方法)，否则会发生编译错误。</li>
 </ol>
-<h1 id="（四）this"><a href="#（四）this" class="headerlink" title="（四）this"></a>（四）this</h1><ol>
+<h1 id="4-this"><a href="#4-this" class="headerlink" title="4. this"></a>4. this</h1><ol>
 <li>this是用来明确索引当前所在对象的成员(变量/参数/方法。</li>
 <li>this只可以用来在类的非静态成员、约束和覆盖组中使用。</li>
 <li>this的使用可以明确所指向变量的作用域。</li>
@@ -507,19 +495,10 @@ OOP（面向对象编程）术语类(class) :  包含">
     endclass
 </code></pre>
 <p>this<br>赋值拷贝<br>链表</p>
-<h1 id="（五）浅拷贝与深拷贝"><a href="#（五）浅拷贝与深拷贝" class="headerlink" title="（五）浅拷贝与深拷贝"></a>（五）浅拷贝与深拷贝</h1><p><strong>浅拷贝</strong>：只能拷贝成员里面的变量<br><strong>深拷贝</strong>：递进式拷贝，拷贝句柄及其指定对象。深拷贝与浅拷贝空间独立。</p>
+<h1 id="5-浅拷贝与深拷贝"><a href="#5-浅拷贝与深拷贝" class="headerlink" title="5.浅拷贝与深拷贝"></a>5.浅拷贝与深拷贝</h1><p><strong>浅拷贝</strong>：只能拷贝成员里面的变量<br><strong>深拷贝</strong>：递进式拷贝，拷贝句柄及其指定对象。深拷贝与浅拷贝空间独立。</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191548706.png " width="60%" height="60%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191548706.png" width="500" height="260">
-        
-
-
-
-<h1 id="（六）数据的隐藏和封装"><a href="#（六）数据的隐藏和封装" class="headerlink" title="（六）数据的隐藏和封装"></a>（六）数据的隐藏和封装</h1><ol>
+<h1 id="6-数据的隐藏和封装"><a href="#6-数据的隐藏和封装" class="headerlink" title="6. 数据的隐藏和封装"></a>6. 数据的隐藏和封装</h1><ol>
 <li>类的成员(变量/方法)默认情况下，即是公共属性的。这表示对于类自身和外部均可以访问该成员。</li>
 <li>对于成员的限定，如果使用local，则只有该类可以访问此成员，而子类或者外部均无法访问。</li>
 <li>对于成员的限定，如果使用protected，则表示该类和其子类均可以访问此成员，而外部无法访问。</li>
@@ -534,7 +513,7 @@ endclass
 <ol start="4">
 <li>对于商业开发，类的提供方会限制一些类成员的外部访问权限，继而隐藏类成员的更多细节。这种方式也使得类的外部访问接口更为精简，减轻了类的维护工作量，也使得类在修改时便于与旧版本保持兼容。数据隐藏的方式使得类的测试和维护都变得更为简单。</li>
 </ol>
-<p><strong>问答题</strong><br><strong>1.类和结构体的联系和差别有哪些?类和模块(module)的联系和差别有哪些?</strong><br>    <strong>类与结构体:</strong><br>    同：都可以包含指令、地址、队列ID、时间戳和数据等成员。<br>    异：(1)类需要调用new函数进行例化，才会开辟空间存放存放变量。而结构体在仿真前就开辟空间存放变量；(2)类可以包含数据和方法(function,task)的类型。<br>    <strong>类与模块：</strong><br>    同：都可以包含数据和方法(function,task)的类型。<br>    异：(1)类中的成员变量和方法默认是动态的，而模块默认是静态的；(2)在仿真前，模块是有值的，而类中对象的创建是在仿真以后才会执行</p>
+<h1 id="7-问答题"><a href="#7-问答题" class="headerlink" title="7. 问答题"></a>7. 问答题</h1><p><strong>1.类和结构体的联系和差别有哪些?类和模块(module)的联系和差别有哪些?</strong><br>    <strong>类与结构体:</strong><br>    同：都可以包含指令、地址、队列ID、时间戳和数据等成员。<br>    异：(1)类需要调用new函数进行例化，才会开辟空间存放存放变量。而结构体在仿真前就开辟空间存放变量；(2)类可以包含数据和方法(function,task)的类型。<br>    <strong>类与模块：</strong><br>    同：都可以包含数据和方法(function,task)的类型。<br>    异：(1)类中的成员变量和方法默认是动态的，而模块默认是静态的；(2)在仿真前，模块是有值的，而类中对象的创建是在仿真以后才会执行</p>
 <p><strong>3.如果有同名的模块，那么在编译过程中应该怎么解决“同名”问题?</strong><br>    可以用 this来明确索引当前所在对象的成员(变量/参数)方法。this只可以用来在类的非静态成员、约束和覆盖组中使用。</p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">class Demo ;
     integer x;
@@ -544,15 +523,7 @@ endclass
     endclass
 </code></pre>
 <p>可参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/480524030">结构体、模块和类的联系和区别？ 类的学习小结 - 知乎 (zhihu.com)</a></p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191616982.png" width="550" height="1000">
-        
-
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191616982.png " width="60%" height="60%"></div>
 
                 
             </div>
@@ -765,30 +736,30 @@ endclass
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/17/systemverilog-ke-cheng-bi-ji-wu/">
+                <a href="/2022/10/19/pai-she-ji-qiao-yi-ri-zhuan-ye-yan-shi/">
                     <div class="card-image">
                         
-                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210231601536.jpeg" class="responsive-img" alt="SystemVerilog课程笔记(五)">
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210191308832.webp" class="responsive-img" alt="拍摄技巧(一)_日转夜延时">
                         
-                        <span class="card-title">SystemVerilog课程笔记(五)</span>
+                        <span class="card-title">拍摄技巧(一)_日转夜延时</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习不同类型数组建立灵活数据生成
+                            与普通延时相比，日夜延时难在处理从白天转黑夜过程中不断变化的光线，需要拍出一种白天到夜晚平滑渐变的效果。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
+                            <a href="/categories/%E6%91%84%E5%BD%B1%E5%90%8E%E6%9C%9F/" class="post-category">
+                                    摄影后期
                                 </a>
                             
                             
@@ -798,12 +769,12 @@ endclass
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
-                        <span class="chip bg-color">数字前端</span>
+                    <a href="/tags/%E6%8B%8D%E6%91%84%E6%8A%80%E5%B7%A7/">
+                        <span class="chip bg-color">拍摄技巧</span>
                     </a>
                     
-                    <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
-                        <span class="chip bg-color">SystemVerilog验证</span>
+                    <a href="/tags/%E6%97%A5%E8%BD%AC%E5%A4%9C%E5%BB%B6%E6%97%B6/">
+                        <span class="chip bg-color">日转夜延时</span>
                     </a>
                     
                 </div>
@@ -1034,7 +1005,7 @@ endclass
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

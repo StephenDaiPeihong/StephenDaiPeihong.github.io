@@ -5,11 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(四), Stephen&#39;s Blog">
-    <meta name="description" content="验证环境结构测试平台测试平台(testbench)是整个验证系统的总称。
+    <meta name="description" content="1. 验证环境结构1.1 测试平台测试平台(testbench)是整个验证系统的总称。
 
 包括验证结构中的各个组件、组件之间的连接关系、测试平台的配置和控制。
 从更系统的意义来讲，它还包括编译仿真的流程、结果分析报告和覆盖率检查等。
-从狭义上讲，我们主要">
+从狭义">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -388,7 +388,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-21
                 </div>
                 
 
@@ -427,20 +427,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="验证环境结构"><a href="#验证环境结构" class="headerlink" title="验证环境结构"></a>验证环境结构</h1><h2 id="测试平台"><a href="#测试平台" class="headerlink" title="测试平台"></a>测试平台</h2><p>测试平台(testbench)是整个验证系统的总称。</p>
+                <h1 id="1-验证环境结构"><a href="#1-验证环境结构" class="headerlink" title="1. 验证环境结构"></a>1. 验证环境结构</h1><h2 id="1-1-测试平台"><a href="#1-1-测试平台" class="headerlink" title="1.1 测试平台"></a>1.1 测试平台</h2><p>测试平台(testbench)是整个验证系统的总称。</p>
 <ul>
 <li>包括验证结构中的各个组件、组件之间的连接关系、测试平台的配置和控制。<ul>
 <li>从更系统的意义来讲，它还包括编译仿真的流程、结果分析报告和覆盖率检查等。</li>
 <li>从狭义上讲，我们主要关注验证平台的结构和组件部分，他们可以产生设计所需要的各种输入，也会在此基础上进行设计功能的检查。</li>
 </ul>
 </li>
-<li>测试平台结构图<br>![[Pasted image 20220928085025.png|500]]<ul>
-<li>各个组件之间是相互独立的</li>
-<li>验证组件与设计之间需要连接</li>
-<li>验证组件之间也需要进行通信</li>
-<li>验证环境也需要时钟和复位信号的驱动</li>
-</ul>
-</li>
+<li>测试平台结构图<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211657013.png " width="60%" height="60%"></div>
+  * 各个组件之间是相互独立的
+  * 验证组件与设计之间需要连接
+  * 验证组件之间也需要进行通信
+  * 验证环境也需要时钟和复位信号的驱动</li>
 <li>验证语言<ul>
 <li>SystemVerilog的使用比例明显占据主导地位。</li>
 <li>SystemC和C/C++在验证部分也有其应用空间。</li>
@@ -448,7 +446,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="验证环境组件"><a href="#验证环境组件" class="headerlink" title="验证环境组件"></a>验证环境组件</h1><h2 id="激励发生器"><a href="#激励发生器" class="headerlink" title="激励发生器"></a>激励发生器</h2><ul>
+<h1 id="2-验证环境组件"><a href="#2-验证环境组件" class="headerlink" title="2. 验证环境组件"></a>2. 验证环境组件</h1><h2 id="2-1-激励发生器"><a href="#2-1-激励发生器" class="headerlink" title="2.1 激励发生器"></a>2.1 激励发生器</h2><ul>
 <li>概念<br>Stimulator(激励发生器）是验证环境的重要部件，在一些场合中，它也被称为driver (驱动器)、BFM(bus functionmodel，总线功能模型), behavioral(行为模型)或者generator(发生器)。</li>
 <li>主要职责<br>Stimulator的主要职责是<strong>模拟与DUT相邻设计的接口协议</strong>。Stimulator不应该违反协议，但不拘束于真实的硬件行为，还可以给出更多丰富的只要协议允许的激励场景。</li>
 <li>接口<br>Stimulator的接口主要是同DUT之间连接<br>较精细的stimulator还可以有其它的配置接口用来控制接口的数据生成。<br>Stimulatort也可以有存储接口数据生成历史的功能。</li>
@@ -458,14 +456,14 @@
 </ul>
 </li>
 </ul>
-<h2 id="检测器"><a href="#检测器" class="headerlink" title="检测器"></a>检测器</h2><ul>
+<h2 id="2-2-检测器"><a href="#2-2-检测器" class="headerlink" title="2.2 检测器"></a>2.2 检测器</h2><ul>
 <li>主要功能<br>Monitor(监测器)的主要功能是用来观察DUT的边界或者内部信号<ul>
 <li>观察DUT边界信号。<br>  对于系统信号如时钟，可以监测其频率变化;对于总线信号，可以监测总线的传输类型和数据内容，以及检查总线时序是否符合协议。</li>
 <li>观察DUT内部信号。<br>  从灰盒验证的手段来看，往往需要探视DUT内部信号，用来指导stimulator的激励发送，或者完成覆盖率收集，又或者完成内部功能的检查。</li>
 </ul>
 </li>
 </ul>
-<h2 id="比较器"><a href="#比较器" class="headerlink" title="比较器"></a>比较器</h2><ul>
+<h2 id="2-3-比较器"><a href="#2-3-比较器" class="headerlink" title="2.3 比较器"></a>2.3 比较器</h2><ul>
 <li>主要功能<br>模拟设计行为和功能检查</li>
 <li>比较方式<ul>
 <li>线上比较(online check)<br>  在仿真时收集数据和在线比较，并且实时报告。</li>
@@ -473,7 +471,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="任务和函数"><a href="#任务和函数" class="headerlink" title="任务和函数"></a>任务和函数</h2><h3 id="任务Task"><a href="#任务Task" class="headerlink" title="任务Task"></a>任务Task</h3><ul>
+<h2 id="2-4-任务和函数"><a href="#2-4-任务和函数" class="headerlink" title="2.4 任务和函数"></a>2.4 任务和函数</h2><h3 id="2-4-1-任务Task"><a href="#2-4-1-任务Task" class="headerlink" title="2.4.1 任务Task"></a>2.4.1 任务Task</h3><ul>
 <li>任务的定义可以指定参数，input、output、inout及ref皆可。</li>
 <li>任务可以消耗仿真时间。</li>
 <li>任务可以调用其它任务或者函数。</li>
@@ -541,14 +539,14 @@ time  8000 c=11
 time  9000 c=11
 time  10000 c=11
 </code></pre>
-<h3 id="函数Funnction"><a href="#函数Funnction" class="headerlink" title="函数Funnction"></a>函数Funnction</h3><ul>
+<h3 id="2-4-2-函数Funnction"><a href="#2-4-2-函数Funnction" class="headerlink" title="2.4.2 函数Funnction"></a>2.4.2 函数Funnction</h3><ul>
 <li>参数方向声明<br>参数方向可声明为input、output、inout、ref，默认input类型。</li>
 <li>函数返回方式<ul>
 <li>可以使用return直接返回值<br>  return会立即返回</li>
 <li>可以将值赋给与函数同名的变量<br>  赋值给函数同名变量后将继续执行后续代码。</li>
 </ul>
 </li>
-<li>代码示例*</li>
+<li>代码示例</li>
 </ul>
 <pre class=" language-systemverilog"><code class="language-systemverilog">module test;
   function automatic void myfunc1 (input [7:0] x
@@ -577,22 +575,18 @@ endmodule
 c = 11
 c = 11
 </code></pre>
-<h3 id="任务和函数的区别"><a href="#任务和函数的区别" class="headerlink" title="任务和函数的区别"></a>任务和函数的区别</h3><p><strong>仿真时间</strong>：function不会消耗仿真时间，而task则可能会消耗仿真时间。<br><strong>调用</strong>：function无法调用task，而task可以调用function。<br><strong>数据返回</strong>：一个可以返回数据的function只能返回一个单─数值，而任务或者void function不会返回数值。一个可以返回数据的function可以作为一个表达式中的操作数，而该操作数的值即function的返回值。</p>
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><ul>
+<h3 id="2-4-3-任务和函数的区别"><a href="#2-4-3-任务和函数的区别" class="headerlink" title="2.4.3 任务和函数的区别"></a>2.4.3 任务和函数的区别</h3><p><strong>仿真时间</strong>：function不会消耗仿真时间，而task则可能会消耗仿真时间。<br><strong>调用</strong>：function无法调用task，而task可以调用function。<br><strong>数据返回</strong>：一个可以返回数据的function只能返回一个单─数值，而任务或者void function不会返回数值。一个可以返回数据的function可以作为一个表达式中的操作数，而该操作数的值即function的返回值。</p>
+<h2 id="2-5-参数传递"><a href="#2-5-参数传递" class="headerlink" title="2.5 参数传递"></a>2.5 参数传递</h2><ul>
 <li>参数默认方向<br>参数方向可声明为input、output、inout、ref，<strong>默认input类型</strong>。</li>
 <li>默认数据类型<br>若没有声明数据类型，<strong>默认为1位宽的logic</strong>。</li>
-<li>参数默认值*<br>带有参数默认值的方法被调用时，如果这些参数没有被传递值，那么编译器将会为这些参数传入对应的默认值。</li>
-</ul>
-<p>![[Pasted image 20220928132645.png|500]]</p>
-<ul>
+<li>参数默认值*<br>带有参数默认值的方法被调用时，如果这些参数没有被传递值，那么编译器将会为这些参数传入对应的默认值。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211657429.png " width="60%" height="60%"></div></li>
 <li>参数与传递方式<ul>
-<li>位置调用<br>  ![[Pasted image 20220928132645.png|500]]</li>
-<li>名字调用<br>  ![[Pasted image 20220928133227.png|500]]</li>
+<li>位置调用  <div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211658865.png " width="60%" height="60%"></div></li>
+<li>名字调用  <div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211211658908.png " width="60%" height="60%"></div></li>
 </ul>
 </li>
 </ul>
-<p><strong>问答题</strong>：</p>
-<ul>
+<h1 id="3-问答题："><a href="#3-问答题：" class="headerlink" title="3. 问答题："></a>3. 问答题：</h1><ul>
 <li>激励器(stimulator)对于它所生成的激励，有什么办法将其所有激励数据保存下来?<br>  Stimulatort也可以有存储接口数据生成历史的功能。</li>
 <li>function和task的比较?<br>  <strong>仿真时间</strong>：function不会消耗仿真时间，而task则可能会消耗仿真时间。<br>  <strong>调用</strong>：function无法调用task，而task可以调用function。<br>  <strong>数据返回</strong>：一个可以返回数据的function只能返回一个单─数值，而任务或者void function不会返回数值。一个可以返回数据的function可以作为一个表达式中的操作数，而该操作数的值即function的返回值。</li>
 <li>参数方向有哪些?差别在哪里?<br>  参数方向可声明为input、output、inout、ref，<strong>默认input类型</strong><ul>
@@ -792,12 +786,12 @@ c = 11
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
-                        <span class="chip bg-color">功能安全仿真</span>
-                    </a>
-                    
                     <a href="/tags/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/">
                         <span class="chip bg-color">车规芯片</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%9F%E8%83%BD%E5%AE%89%E5%85%A8%E4%BB%BF%E7%9C%9F/">
+                        <span class="chip bg-color">功能安全仿真</span>
                     </a>
                     
                 </div>
@@ -1065,7 +1059,7 @@ c = 11
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

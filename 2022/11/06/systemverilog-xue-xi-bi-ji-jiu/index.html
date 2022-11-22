@@ -6,8 +6,10 @@
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(九), Stephen&#39;s Blog">
     <meta name="description" content="本文思维导图如下：
+
+
 1. 线程控制1.1 并行线程Verilog中与顺序线程begin…end相对的是并行线程fork…join。
-1.1.1创建线程SV引入了两种新新的创建线程的方法，fork…join_none和fork…join_an">
+1.1.1创建线程SV引入了两种新新的创建线程的方法，fork…join_none和fork…join_">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -382,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-07
+                    2022-11-21
                 </div>
                 
 
@@ -421,72 +423,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>本文思维导图如下：<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071641178.png"></p>
+                <p>本文思维导图如下：</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071641178.png" width="90%" height="90%"></div>
+
 <h1 id="1-线程控制"><a href="#1-线程控制" class="headerlink" title="1. 线程控制"></a>1. 线程控制</h1><h2 id="1-1-并行线程"><a href="#1-1-并行线程" class="headerlink" title="1.1 并行线程"></a>1.1 并行线程</h2><p>Verilog中与顺序线程begin…end相对的是并行线程fork…join。</p>
 <h3 id="1-1-1创建线程"><a href="#1-1-1创建线程" class="headerlink" title="1.1.1创建线程"></a>1.1.1创建线程</h3><p>SV引入了两种新新的创建线程的方法，<u>fork…join_none</u>和<u>fork…join_any</u>。</p>
 <ul>
 <li><span style="background:rgba(136, 49, 204, 0.2)">fork…join</span><br>fork…join需要所有并行的线程都结束以后才会继续执行。</li>
 <li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_any</span><br>fork…join_any则会等到任何一个线程结束以后就继续执行。</li>
-<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_none</span><br>fork…join_none则不会等待其子线程而继续执行。
-  
-      <meta charset="utf-8">
-      <title>HTML</title>
-  
-      
-          <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061457338.png" width="500" height="200" title=" ">
-      
-
+<li><span style="background:rgba(136, 49, 204, 0.2)">fork…join_none</span><br>fork…join_none则不会等待其子线程而继续执行。<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061457338.png " width="60%" height="60%"></div>
 实例
-
-  
-      <meta charset="utf-8">
-      <title>HTML</title>
-  
-      
-          <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537443.png" width="500" height="500" title=" ">
-      
-</li>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537443.png" width="60%" height="60%"></div></li>
 </ul>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537770.png" width="60%" height="60%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061537770.png" width="500" height="480" title=" ">
-        
-
-
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061539318.png" width="500" height="650" title=" ">
-        
-
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061539318.png " width="60%" height="60%"></div>
 
 <h3 id="1-1-2子程序等待-x2F-停止"><a href="#1-1-2子程序等待-x2F-停止" class="headerlink" title="1.1.2子程序等待/停止"></a>1.1.2子程序等待/停止</h3><p>需要注意的是，fork…join_any和fork. . .join_none继续执行后，其一些未完成的子程序仍将在后台运行。如果要等待这些子程序全部完成，或者停止这些子程序，可以使用<span style="background:rgba(3, 135, 102, 0.2)">wait fork</span>或者<span style="background:rgba(3, 135, 102, 0.2)">disable fork</span>。<br><strong>(1)wait fork</strong></p>
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061547271.png" width="500" height="720" title=" ">
-        
-
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061547271.png" width="60%" height="60%"></div>
 **(2)disable fork**
-
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061549290.png" width="500" height="720" title=" ">
-        
-
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061549290.png " width="60%" height="60%"></div>
 ## 1.2 时序控制
 SV可以通过延迟控制或者事件等待来对过程块完成时序控制。
 ### 1.2.1 延迟控制
@@ -512,23 +468,16 @@ SV可以通过延迟控制或者事件等待来对过程块完成时序控制。
 </blockquote>
 </li>
 </ul>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061714487.png" width="60%" height="60%"></div>
 
-    
-        <meta charset="utf-8">
-        <title>HTML</title>
-    
-        
-            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061714487.png" width="500" height="700" title=" ">
-        
+<h2 id="2-2-旗语"><a href="#2-2-旗语" class="headerlink" title="2.2 旗语"></a>2.2 旗语</h2><p>旗语从概念上讲，是一个容器。在创建旗语的时候，会为其分配固定的钥匙数量。使用旗语的进程必须先获得其钥匙，才可以继续执行。旗语的钥匙数量可以有多个，等待旗语钥匙的进程也可同时有多个。旗语通常用于互斥，对共享资源的访问控制，以及基本的同步</p>
+<div align="center"><img src=" https://img-blog.csdnimg.cn/8bbdaa8efccc4e36b6ece797b80c605a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16" width="60%" height="60%"></div>
+### 2.2.1用法
+* 创建旗语，并为其分配钥匙的方式如下:
+&gt;semaphore sm;
+&gt;sm = new ();
 
-
-<h2 id="2-2-旗语"><a href="#2-2-旗语" class="headerlink" title="2.2 旗语"></a>2.2 旗语</h2><p>旗语从概念上讲，是一个容器。在创建旗语的时候，会为其分配固定的钥匙数量。使用旗语的进程必须先获得其钥匙，才可以继续执行。旗语的钥匙数量可以有多个，等待旗语钥匙的进程也可同时有多个。旗语通常用于互斥，对共享资源的访问控制，以及基本的同步<br><img src="https://img-blog.csdnimg.cn/8bbdaa8efccc4e36b6ece797b80c605a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<h3 id="2-2-1用法"><a href="#2-2-1用法" class="headerlink" title="2.2.1用法"></a>2.2.1用法</h3><ul>
-<li><p>创建旗语，并为其分配钥匙的方式如下:</p>
-<blockquote>
-<p>semaphore sm;<br>sm = new ();</p>
-</blockquote>
-</li>
+<ul>
 <li><p>创建一个具有固定钥匙数量的旗语:</p>
 <blockquote>
 <p>new (N = 0)</p>
@@ -570,29 +519,44 @@ SV可以通过延迟控制或者事件等待来对过程块完成时序控制。
 <p>function int try_get (int keyCount = 1) ;</p>
 </blockquote>
 <p>keyCount指定从旗语处获取所需的钥匙数目，默认值为1。<u>如果指定数量的钥匙可用，则该方法返回正数并继续执行。如果指定数量的钥匙不足，则该方法返回0。</u></p>
-<h3 id="2-2-3实例"><a href="#2-2-3实例" class="headerlink" title="2.2.3实例"></a>2.2.3实例</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715075.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715493.png"></p>
-<h2 id="2-3-信箱"><a href="#2-3-信箱" class="headerlink" title="2.3 信箱"></a>2.3 信箱</h2><p>信箱mailbox可以使得进程之间的信息得以交换，数据可以由一个进程写入信箱，再由另外一个进程获得。<br><img src="https://img-blog.csdnimg.cn/c6469e7241f04c10affb418009c08e36.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16"><br>信箱在创建时可以限制其容量，或者不限制。<u>当信箱容量写满时，后续再写入的动作会被挂起，直到信箱的数据从中读取，使得信箱有空间以后才可以继续写入。</u><br>不限制容量的信箱则不会挂起写入信箱的动作。</p>
-<h3 id="2-3-1-内建方法"><a href="#2-3-1-内建方法" class="headerlink" title="2.3.1 内建方法"></a>2.3.1 内建方法</h3><h4 id="new"><a href="#new" class="headerlink" title="new()"></a>new()</h4><p>new()用于创建信箱。<u>可以在创建信箱的时候限定或者不限定其大小</u>。<u>默认情况下，如果不传入参数，bound默认值为0，表示不限定信箱大小，如果传入的数值大于0，那么表示信箱的最大容量</u>。bound应为正数，如果未负数的话，系统会提示警告和出现无法预期的行为。</p>
-<blockquote>
-<p>function new (int bound = 0) ;</p>
-</blockquote>
+<h3 id="2-2-3实例"><a href="#2-2-3实例" class="headerlink" title="2.2.3实例"></a>2.2.3实例</h3><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715075.png" width="100%" height="100%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211061715493.png" width="100%" height="100%"></div>
+## 2.3 信箱
+信箱mailbox可以使得进程之间的信息得以交换，数据可以由一个进程写入信箱，再由另外一个进程获得。
+<div align="center"><img src=" https://img-blog.csdnimg.cn/c6469e7241f04c10affb418009c08e36.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBASSBDIGUgcg==,size_20,color_FFFFFF,t_70,g_se,x_16" width="60%" height="60%"></div>
+信箱在创建时可以限制其容量，或者不限制。<u>当信箱容量写满时，后续再写入的动作会被挂起，直到信箱的数据从中读取，使得信箱有空间以后才可以继续写入。</u>
+不限制容量的信箱则不会挂起写入信箱的动作。
+### 2.3.1 内建方法
+#### new()
+new()用于创建信箱。<u>可以在创建信箱的时候限定或者不限定其大小</u>。<u>默认情况下，如果不传入参数，bound默认值为0，表示不限定信箱大小，如果传入的数值大于0，那么表示信箱的最大容量</u>。bound应为正数，如果未负数的话，系统会提示警告和出现无法预期的行为。
+&gt;function new (int bound = 0) ;
+
 <h4 id="put"><a href="#put" class="headerlink" title="put()"></a>put()</h4><p>put()会将信息按照FIFO的顺序写入到信箱中，如果信箱此时已满，则put()任务会挂起，直到信箱有新的空间可以容纳消息。</p>
 <h4 id="try-put"><a href="#try-put" class="headerlink" title="try_put()"></a>try_put()</h4><p>try put()试着写入信箱但不会阻塞。try put()也会按照FIFO顺序写入信箱，不会发生阻塞。如果信箱已满，则写入失败，返回0;如果信箱未满，则写入成功，返回1。</p>
 <h4 id="get-x2F-peek"><a href="#get-x2F-peek" class="headerlink" title="get()/peek()"></a>get()/peek()</h4><p>获取信息: get()同时会取出数据，peek()不会取出数据。get()会将信息从信箱中取出，如果信箱此时为空，则get()任务会挂起，直到信箱中有消息可以读取，任务才会返回。该方法会将读取到的消息从信箱中移除。</p>
 <h4 id="try-get-x2F-try-peek"><a href="#try-get-x2F-try-peek" class="headerlink" title="try_get()/try_peek()"></a>try_get()/try_peek()</h4><p>试着从信箱取出数据但不会阻塞。try get()也会将信息从信箱中取出，只是该函数不会发生阻塞。如果信箱为空，则读取失败，返回0;如果信箱不为空，则读取成功，返回1。该方法也会将读取到的消息从信箱中移除。</p>
 <h4 id="num"><a href="#num" class="headerlink" title="num()"></a>num()</h4><p>num()会返回信箱目前的消息数目。可以结合num()与get()或者put()，防止get()/put()方法在信箱为空或者为满的时候被阻塞。</p>
-<h3 id="2-3-2-实例"><a href="#2-3-2-实例" class="headerlink" title="2.3.2 实例"></a>2.3.2 实例</h3><p>mailbox <span style="background:rgba(240, 200, 0, 0.2)">#(int)</span> mb;//声明mailbox句柄，并且指明该mailbox中<span style="background:rgba(240, 200, 0, 0.2)">只能存放int类型</span>的数据<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070937007.png" alt="|800"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070938538.png" alt="|800"></p>
-<h2 id="2-4虚方法"><a href="#2-4虚方法" class="headerlink" title="2.4虚方法"></a>2.4虚方法</h2><p>给pringtB添加关键词virtual，P1扩大查找范围，扩大到子类对象里面。如果子类里面有同名的方法，若有，调用子类里面同名的方法（以子类的实现优先）。<br>子类不添加virtual无影响，父类添加即可。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071005100.png" alt="|500"></p>
-<h1 id="3-类型转换"><a href="#3-类型转换" class="headerlink" title="3. 类型转换"></a>3. 类型转换</h1><h2 id="3-1-静态转换"><a href="#3-1-静态转换" class="headerlink" title="3.1 静态转换"></a>3.1 静态转换</h2><p>静态转换操作符不对转换值进行检查。<br>转换时指定目标类型，并在要转换的表达式前加上单引号即可。Verilog对整数和实数类型，或者不同位宽的向量之间进行隐式转换。</p>
-<blockquote>
-<p>int i;<br>real r;<br>i = int ‘ (10.0 - 0.1); //cast is optional<br>r= real’(42);// cast is optional</p>
-</blockquote>
-<h2 id="3-2-动态转换"><a href="#3-2-动态转换" class="headerlink" title="3.2 动态转换"></a>3.2 动态转换</h2><p>我们总是可以将子类的句柄赋值给父类的句柄。但是在我们将父类的句柄赋值给子类的句柄时，编译将会报错。<br>$cast()系统函数<u>可以将父类句柄转换为子类句柄</u>，只要该父类句柄指向的是一个子类的对象。</p>
-<blockquote>
-<p>function int $cast( singular dest_var, singularsource_exp ) ;</p>
-</blockquote>
+<h3 id="2-3-2-实例"><a href="#2-3-2-实例" class="headerlink" title="2.3.2 实例"></a>2.3.2 实例</h3><p>mailbox <span style="background:rgba(240, 200, 0, 0.2)">#(int)</span> mb;//声明mailbox句柄，并且指明该mailbox中<span style="background:rgba(240, 200, 0, 0.2)">只能存放int类型</span>的数据</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070937007.png" width="90%" height="90%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211070938538.png" width="90%" height="90%"></div>
+
+<h2 id="2-4虚方法"><a href="#2-4虚方法" class="headerlink" title="2.4虚方法"></a>2.4虚方法</h2><p>给pringtB添加关键词virtual，P1扩大查找范围，扩大到子类对象里面。如果子类里面有同名的方法，若有，调用子类里面同名的方法（以子类的实现优先）。<br>子类不添加virtual无影响，父类添加即可。</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211071005100.png " width="60%" height="60%"></div>
+# 3. 类型转换
+## 3.1 静态转换
+静态转换操作符不对转换值进行检查。
+转换时指定目标类型，并在要转换的表达式前加上单引号即可。Verilog对整数和实数类型，或者不同位宽的向量之间进行隐式转换。
+&gt;int i;
+&gt;real r;
+&gt;i = int ' (10.0 - 0.1); //cast is optional
+&gt;r= real'(42);// cast is optional
+## 3.2 动态转换
+我们总是可以将子类的句柄赋值给父类的句柄。但是在我们将父类的句柄赋值给子类的句柄时，编译将会报错。
+$cast()系统函数<u>可以将父类句柄转换为子类句柄</u>，只要该父类句柄指向的是一个子类的对象。
+&gt;function int $cast( singular dest_var, singularsource_exp ) ;
+
 <p>或者</p>
 <blockquote>
 <p>task $cast( singular dest_var, singular source_exp );</p>
@@ -1141,7 +1105,7 @@ endmodule: tb
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             

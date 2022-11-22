@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="SystemVerilog学习笔记(八), Stephen&#39;s Blog">
     <meta name="description" content="
-如何简单产生一个随机常数$randomize$urandom$urandom()，可以生成一个32位的无符号随机数。$urandom_range(maxval, minval=0)，可以生成间与maxval与minval之间的数。
 
-va">
+1. 如何简单产生一个随机常数1.1 $randomize1.2 $urandom$urandom()，可以生成一个32位的无符号随机数。$urandom_range(maxval, minval=0)，可以生成间与maxval与min">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -387,21 +386,21 @@ va">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-02
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -426,43 +425,81 @@ va">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022245932.png"></p>
-<h2 id="如何简单产生一个随机常数"><a href="#如何简单产生一个随机常数" class="headerlink" title="如何简单产生一个随机常数"></a>如何简单产生一个随机常数</h2><h3 id="randomize"><a href="#randomize" class="headerlink" title="$randomize"></a>$randomize</h3><h3 id="urandom"><a href="#urandom" class="headerlink" title="$urandom"></a>$urandom</h3><p>$urandom()，可以生成一个32位的无符号随机数。<br>$urandom_range(maxval, minval=0)，可以生成间与maxval与minval之间的数。</p>
+                <div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022245932.png" width="60%" height="60%"></div>
+
+<h2 id="1-如何简单产生一个随机常数"><a href="#1-如何简单产生一个随机常数" class="headerlink" title="1. 如何简单产生一个随机常数"></a>1. 如何简单产生一个随机常数</h2><h3 id="1-1-randomize"><a href="#1-1-randomize" class="headerlink" title="1.1 $randomize"></a>1.1 $randomize</h3><h3 id="1-2-urandom"><a href="#1-2-urandom" class="headerlink" title="1.2 $urandom"></a>1.2 $urandom</h3><p>$urandom()，可以生成一个32位的无符号随机数。<br>$urandom_range(maxval, minval=0)，可以生成间与maxval与minval之间的数。</p>
 <blockquote>
 <p>val = $urandom_range(7,0)； //结果是[0,7]<br>val = $urandom_range(0,7);   //如果mixval比minval小，参数列表会自动反向<br>val = $urandom_range(7);       //如果minval没有指定，默认为0</p>
 </blockquote>
-<h2 id="系统而有机地组织随机变量"><a href="#系统而有机地组织随机变量" class="headerlink" title="系统而有机地组织随机变量"></a>系统而有机地组织随机变量</h2><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><p>以上独立地生成一些随机数，在面向DUT的随机激励发生过程中，为了符合协议、满足测试需求，还需要添加一些”约束”。这些”约束”会使得变量朝着希望他们变化的方向去随机。不但如此，这些约束也会对变量与变量之间的关系生效。</p>
-<h3 id="约束的载体"><a href="#约束的载体" class="headerlink" title="约束的载体"></a>约束的载体</h3><p>因此，我们需要一个”载体”去容纳这些变量以及它们之间的约束。这个”载体”即是类，而类的成员变量均可声明为”随机”属性，用rand或者randc来表示。</p>
-<h3 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h3><p>任何类中的<span style="background:#d3f8b6">整形(bit/byte/int)变量</span>都可以声明为rand/randc。<br><span style="background:#d3f8b6">定长数组、动态数组、关联数组和队列</span>都可以声明为rand/randc，可以对动态数组和队列的长度加以约束。<br><span style="background:#d3f8b6">指向对象的句柄成员</span>，也可以声明为rand(不能被声明为randc) ，随机时该句柄指向对象中的随机变量也会一并被随机。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011751369.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022220922.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022221417.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022222796.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022222514.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011754978.png"></p>
-<h2 id="约束块"><a href="#约束块" class="headerlink" title="约束块"></a>约束块</h2><p>有用的激励不仅仅是随机值，<span style="background:rgba(240, 200, 0, 0.2)">变量之间也有着相互关系</span>。没有约束的随机变量会包含许多无效的和非法的值，这会使得有效激励的产生</p>
-<h3 id="设置取值范围"><a href="#设置取值范围" class="headerlink" title="设置取值范围"></a>设置取值范围</h3><p>约束块支持整形通过set操作符来设置它们的可取值范围。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011759261.png" alt="|500"></p>
-<h3 id="权重"><a href="#权重" class="headerlink" title="权重"></a>权重</h3><p>除了成员集合设置，约束块也支持设置可取值的同时也为其设置随机时的权重。<br> <span style="background:rgba(240, 200, 0, 0.2)">:=</span>  操作符：表示每一个值的权重是相同的。<br> <span style="background:rgba(240, 200, 0, 0.2)"> :/ </span> 操作符：表示权重会平均分配到每一个值。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011802842.png" alt="|500"></p>
-<h3 id="唯一标识"><a href="#唯一标识" class="headerlink" title="唯一标识"></a>唯一标识</h3><p>unique可以用来约束一组变量，<span style="background:rgba(240, 200, 0, 0.2)">使得其在随机后变量之间不会有相同的数值。</span><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011807987.png" alt="|500"></p>
-<h3 id="条件约束"><a href="#条件约束" class="headerlink" title="条件约束"></a>条件约束</h3><p>使用if-else或者-&gt;操作符来表示条件约束。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011808349.png" alt="|400"></p>
-<h3 id="迭代约束"><a href="#迭代约束" class="headerlink" title="迭代约束"></a>迭代约束</h3><p>foreach可以用来迭代约束数组中的元素，这些数组可以是定长数组、动态数组、关联数组或者队列。<br>也可以使用数组的缩减方法做迭代约束。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011824469.png" alt="|500"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011825775.png" alt="|500"></p>
-<h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><h3 id="软约束"><a href="#软约束" class="headerlink" title="软约束"></a>软约束</h3><p>在没有soft描述时的约束，我们称之为硬约束，而带有soft描述的则是软约束。软约束用来指定变量的默认值和权重。如果用户在使用时，指定了外部约束对同一个变量做二次约束，或者用户定义了子类，也对同一个变量做二次约束时，那么<span style="background:rgba(240, 200, 0, 0.2)">硬约束可以”覆盖”软约束</span>，并且不会导致随机数产生的失败。</p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017431.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017414.png"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017120.png"></p>
-<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012042971.png"></p>
-<h3 id="内嵌约束（指向模糊）"><a href="#内嵌约束（指向模糊）" class="headerlink" title="内嵌约束（指向模糊）"></a>内嵌约束（指向模糊）</h3><p>此处x是加给f的约束，就近句柄f指向类c1，优先找这个类里面有无x<br>若要指向task参数中的x，使用 <span style="background:#fff88f">local::x</span><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012052456.png" alt="|500"></p>
-<h3 id="内嵌约束（指向明确）"><a href="#内嵌约束（指向明确）" class="headerlink" title="内嵌约束（指向明确）"></a>内嵌约束（指向明确）</h3><h3 id="local域指向"><a href="#local域指向" class="headerlink" title="local域指向"></a>local域指向</h3><p>之前在使用内嵌约束随机时，对于同名的变量处在不同的域中，可能会出现指向模糊的情况，之前我们已经给出了一种方法。接下来我们可以通过<span style="background:#fff88f">local::</span> 的域索引方式来明确随机变量的指向，即<u> <span style="background:#fff88f">local::</span> 指向的变量会在包含randomize()方法的对象中</u>。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211021543318.png" alt="|400"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012109025.png" alt="|400"></p>
-<p><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012106238.png" alt="|400"></p>
-<h3 id="随机控制"><a href="#随机控制" class="headerlink" title="随机控制"></a>随机控制</h3><p>rand_mode可以用来使能或者禁止随机变量。<br>当随机数被禁止时，它会同为声明为随机变量的普通变量一样，不会参与到随机化过程当中。<br>从以下两个函数声明可以看到，可以就单个随机变量调用其rand_mode，或者对整个对象调用rand_mode来控制其中所有的随机变量。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012124495.png" alt="|500"></p>
-<h3 id="约束控制"><a href="#约束控制" class="headerlink" title="约束控制"></a>约束控制</h3><p>类似于随机控制，一些约束块或者某个类的约束块集合都可以单个控制或者集体控制。</p>
+<h2 id="2-系统而有机地组织随机变量"><a href="#2-系统而有机地组织随机变量" class="headerlink" title="2. 系统而有机地组织随机变量"></a>2. 系统而有机地组织随机变量</h2><h3 id="2-1-约束"><a href="#2-1-约束" class="headerlink" title="2.1 约束"></a>2.1 约束</h3><p>以上独立地生成一些随机数，在面向DUT的随机激励发生过程中，为了符合协议、满足测试需求，还需要添加一些”约束”。这些”约束”会使得变量朝着希望他们变化的方向去随机。不但如此，这些约束也会对变量与变量之间的关系生效。</p>
+<h3 id="2-2-约束的载体"><a href="#2-2-约束的载体" class="headerlink" title="2.2 约束的载体"></a>2.2 约束的载体</h3><p>因此，我们需要一个”载体”去容纳这些变量以及它们之间的约束。这个”载体”即是类，而类的成员变量均可声明为”随机”属性，用rand或者randc来表示。</p>
+<h3 id="2-3-随机变量"><a href="#2-3-随机变量" class="headerlink" title="2.3 随机变量"></a>2.3 随机变量</h3><p>任何类中的<span style="background:#d3f8b6">整形(bit/byte/int)变量</span>都可以声明为rand/randc。<br><span style="background:#d3f8b6">定长数组、动态数组、关联数组和队列</span>都可以声明为rand/randc，可以对动态数组和队列的长度加以约束。<br><span style="background:#d3f8b6">指向对象的句柄成员</span>，也可以声明为rand(不能被声明为randc) ，随机时该句柄指向对象中的随机变量也会一并被随机。</p>
+<h3 id="2-4-实例"><a href="#2-4-实例" class="headerlink" title="2.4 实例"></a>2.4 实例</h3><div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011751369.png " width="80%" height="80%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022220922.png" width="80%" height="80%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022221417.png" width="80%" height="80%"></div>
+
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022222796.png " width="80%" height="80%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211022222514.png" width="80%" height="80%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011754978.png" width="80%" height="80%"></div>
+
+<h2 id="2-5-约束块"><a href="#2-5-约束块" class="headerlink" title="2.5 约束块"></a>2.5 约束块</h2><p>有用的激励不仅仅是随机值，<span style="background:rgba(240, 200, 0, 0.2)">变量之间也有着相互关系</span>。没有约束的随机变量会包含许多无效的和非法的值，这会使得有效激励的产生</p>
+<h3 id="2-5-1-设置取值范围"><a href="#2-5-1-设置取值范围" class="headerlink" title="2.5.1 设置取值范围"></a>2.5.1 设置取值范围</h3><p>约束块支持整形通过set操作符来设置它们的可取值范围。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011759261.png" width="60%" height="60%"></div>
+
+<h3 id="2-5-2-权重"><a href="#2-5-2-权重" class="headerlink" title="2.5.2 权重"></a>2.5.2 权重</h3><p>除了成员集合设置，约束块也支持设置可取值的同时也为其设置随机时的权重。<br> <span style="background:rgba(240, 200, 0, 0.2)">:=</span>  操作符：表示每一个值的权重是相同的。<br> <span style="background:rgba(240, 200, 0, 0.2)"> :/ </span> 操作符：表示权重会平均分配到每一个值。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011802842.png" width="60%" height="60%"></div>
+
+<h3 id="2-5-3-唯一标识"><a href="#2-5-3-唯一标识" class="headerlink" title="2.5.3 唯一标识"></a>2.5.3 唯一标识</h3><p>unique可以用来约束一组变量，<span style="background:rgba(240, 200, 0, 0.2)">使得其在随机后变量之间不会有相同的数值。</span></p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011807987.png" width="60%" height="60%"></div>
+
+<h3 id="2-5-4-条件约束"><a href="#2-5-4-条件约束" class="headerlink" title="2.5.4 条件约束"></a>2.5.4 条件约束</h3><p>使用if-else或者-&gt;操作符来表示条件约束。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011808349.png" width="50%" height="50%"></div>
+
+<h3 id="2-5-5-迭代约束"><a href="#2-5-5-迭代约束" class="headerlink" title="2.5.5 迭代约束"></a>2.5.5 迭代约束</h3><p>foreach可以用来迭代约束数组中的元素，这些数组可以是定长数组、动态数组、关联数组或者队列。<br>也可以使用数组的缩减方法做迭代约束。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011824469.png" width="50%" height="50%"></div>
+
+<hr>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211011825775.png" width="50%" height="50%"></div>
+
+<h3 id="2-5-6-函数调用"><a href="#2-5-6-函数调用" class="headerlink" title="2.5.6 函数调用"></a>2.5.6 函数调用</h3><h3 id="2-5-7-软约束"><a href="#2-5-7-软约束" class="headerlink" title="2.5.7 软约束"></a>2.5.7 软约束</h3><p>在没有soft描述时的约束，我们称之为硬约束，而带有soft描述的则是软约束。软约束用来指定变量的默认值和权重。如果用户在使用时，指定了外部约束对同一个变量做二次约束，或者用户定义了子类，也对同一个变量做二次约束时，那么<span style="background:rgba(240, 200, 0, 0.2)">硬约束可以”覆盖”软约束</span>，并且不会导致随机数产生的失败。</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017431.png " width="90%" height="90%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017414.png" width="80%" height="80%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012017120.png" width="90%" height="90%"></div>
+
+<h3 id="2-5-8-实例"><a href="#2-5-8-实例" class="headerlink" title="2.5.8 实例"></a>2.5.8 实例</h3><div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012042971.png" width="80%" height="80%"></div>
+
+<h3 id="2-5-9-内嵌约束（指向模糊）"><a href="#2-5-9-内嵌约束（指向模糊）" class="headerlink" title="2.5.9 内嵌约束（指向模糊）"></a>2.5.9 内嵌约束（指向模糊）</h3><p>此处x是加给f的约束，就近句柄f指向类c1，优先找这个类里面有无x<br>若要指向task参数中的x，使用 <span style="background:#fff88f">local::x</span></p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012052456.png " width="60%" height="60%"></div>
+
+<h3 id="2-5-10-内嵌约束（指向明确）"><a href="#2-5-10-内嵌约束（指向明确）" class="headerlink" title="2.5.10 内嵌约束（指向明确）"></a>2.5.10 内嵌约束（指向明确）</h3><h3 id="2-5-11-local域指向"><a href="#2-5-11-local域指向" class="headerlink" title="2.5.11 local域指向"></a>2.5.11 local域指向</h3><p>之前在使用内嵌约束随机时，对于同名的变量处在不同的域中，可能会出现指向模糊的情况，之前我们已经给出了一种方法。接下来我们可以通过<span style="background:#fff88f">local::</span> 的域索引方式来明确随机变量的指向，即<u> <span style="background:#fff88f">local::</span> 指向的变量会在包含randomize()方法的对象中</u>。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211021543318.png" width="60%" height="60%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012109025.png" width="60%" height="60%"></div>
+
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012106238.png " width="60%" height="60%"></div>
+
+<h3 id="2-5-12-随机控制"><a href="#2-5-12-随机控制" class="headerlink" title="2.5.12 随机控制"></a>2.5.12 随机控制</h3><p>rand_mode可以用来使能或者禁止随机变量。<br>当随机数被禁止时，它会同为声明为随机变量的普通变量一样，不会参与到随机化过程当中。<br>从以下两个函数声明可以看到，可以就单个随机变量调用其rand_mode，或者对整个对象调用rand_mode来控制其中所有的随机变量。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012124495.png" width="60%" height="60%"></div>
+
+<h3 id="2-5-13-约束控制"><a href="#2-5-13-约束控制" class="headerlink" title="2.5.13 约束控制"></a>2.5.13 约束控制</h3><p>类似于随机控制，一些约束块或者某个类的约束块集合都可以单个控制或者集体控制。</p>
 <blockquote>
 <p>task object[.constraint_identifier] : :constraint_mode (bit on_off );funetion int object.constraint_identifier : : constraint_mode() ;</p>
 </blockquote>
-<p>可以通过约束控制函数来使能或者关闭某些约束块。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012126652.png" alt="|500"></p>
-<h3 id="内嵌变量控制"><a href="#内嵌变量控制" class="headerlink" title="内嵌变量控制"></a>内嵌变量控制</h3><p>在使用类的随机化函数randomize()时，如果伴有参数，那么只会随机化这些变量，而其余变量无论是否之前被声明为rand/randc，都将不会参与到随机化当中。<br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012130326.png" alt="|500"><br><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012226039.png"></p>
-<h1 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h1><p><strong>1.随机测试相比于定向测试，就你目前的认识，你认为有哪些优缺点?</strong><br>答：当一个项目的功能成倍增加时，编写足够多的定向测试几乎不可能。而且，定向测试很难满足检查功能完整性的要求，随机测试能够产生更加完整复杂的激励场景，去对设计进行测试。缺点：随机测试会使验证环境的复杂度提高，从环境组件上考虑不再只需要发送激励的组件，而且还包括监测器、比较<br>器等。</p>
+<p>可以通过约束控制函数来使能或者关闭某些约束块。</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012126652.png " width="50%" height="50%"></div>
+
+<h3 id="2-5-14-内嵌变量控制"><a href="#2-5-14-内嵌变量控制" class="headerlink" title="2.5.14 内嵌变量控制"></a>2.5.14 内嵌变量控制</h3><p>在使用类的随机化函数randomize()时，如果伴有参数，那么只会随机化这些变量，而其余变量无论是否之前被声明为rand/randc，都将不会参与到随机化当中。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012130326.png" width="50%" height="50%"></div>
+
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211012226039.png" width="60%" height="60%"></div>
+
+<h1 id="3-问答题"><a href="#3-问答题" class="headerlink" title="3. 问答题"></a>3. 问答题</h1><p><strong>1.随机测试相比于定向测试，就你目前的认识，你认为有哪些优缺点?</strong><br>答：当一个项目的功能成倍增加时，编写足够多的定向测试几乎不可能。而且，定向测试很难满足检查功能完整性的要求，随机测试能够产生更加完整复杂的激励场景，去对设计进行测试。缺点：随机测试会使验证环境的复杂度提高，从环境组件上考虑不再只需要发送激励的组件，而且还包括监测器、比较<br>器等。</p>
 <p><strong>2.产生一个随机数有哪些方法呢?请提交代码文本和仿真打印结果。</strong><br><strong>使用randomize</strong></p>
 <pre class=" language-systemverilog"><code class="language-systemverilog">module randnum;
   bit [3:0] a;
@@ -1017,7 +1054,7 @@ endmodule
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">47.9k</span>
+                        class="white-color">51.1k</span>
             
             
             
