@@ -89,9 +89,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -688,6 +688,116 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/11/23/systemverilog-ke-cheng-bi-ji-shi/">
+                        <div class="card-image">
+                            
+                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210231601536.jpeg" class="responsive-img" alt="SystemVerilog课程笔记(十)">
+                            
+                            <span class="card-title">SystemVerilog课程笔记(十)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 从generator收到的数据按照chnl编号分发到16个mailbox里1.1 改进后的rt_tst_pkg.svpackage rt_test_pkg;
+
+class rt_packet;
+  rand bit [3:0] src
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                    数字IC
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                            <span class="chip bg-color">数字前端</span>
+                        </a>
+                        
+                        <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                            <span class="chip bg-color">SystemVerilog验证</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/11/22/systemverilog-ke-cheng-bi-ji-jiu/">
+                        <div class="card-image">
+                            
+                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210231601536.jpeg" class="responsive-img" alt="SystemVerilog课程笔记(九)">
+                            
+                            <span class="card-title">SystemVerilog课程笔记(九)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 将generator、monitor中的队列改为mailbox
+mailbox #(rt_packet) pkts;
+
+2. 将generator、monitor中的mailbox设置上限为12.1 改造后的rt_test_pkgpa
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                    数字IC
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                            <span class="chip bg-color">数字前端</span>
+                        </a>
+                        
+                        <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                            <span class="chip bg-color">SystemVerilog验证</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/11/17/verilog-shu-zi-xi-tong-she-ji-di-san-zhang-zong-jie/">
                         <div class="card-image">
                             
@@ -1014,6 +1124,61 @@ interface router_io(input bit clo
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/11/01/systemverilog-ke-cheng-bi-ji-ba/">
+                        <div class="card-image">
+                            
+                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210231601536.jpeg" class="responsive-img" alt="SystemVerilog课程笔记(八)">
+                            
+                            <span class="card-title">SystemVerilog课程笔记(八)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 改用samephore判断chnl是否被占用2. 对single chnl添加随机2.1 改造后的rt_test_pkg.svpackage rt_test_pkg;
+
+class rt_packet;
+  rand bit [3:0
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                    数字IC
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                            <span class="chip bg-color">数字前端</span>
+                        </a>
+                        
+                        <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                            <span class="chip bg-color">SystemVerilog验证</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/11/01/systemverilog-xue-xi-bi-ji-ba/">
                         <div class="card-image">
                             
@@ -1178,158 +1343,6 @@ interface router_io(input bit clo
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/28/lightroom-hou-qi-si-ju-bu-pu-guang-de-diao-zheng/">
-                        <div class="card-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211351090.jpeg" class="responsive-img" alt="lightroom后期（四）局部曝光的调整">
-                            
-                            <span class="card-title">lightroom后期（四）局部曝光的调整</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、渐变滤镜渐变滤镜的作用呢，是创造有过度的曝光调整，可以是生硬的过度，也可以是柔和的过度。软过度的调整呢，让照片中的光线看起来要更自然。拍日落的时候，当太阳逐渐降低到地平线后，天空的曝光很亮，但是地面的建筑阴影这些背光的位置很暗。这个时候
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%91%84%E5%BD%B1%E5%90%8E%E6%9C%9F/" class="post-category">
-                                    摄影后期
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/lightroom/">
-                            <span class="chip bg-color">lightroom</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/27/lightroom-hou-qi-san-ti-sheng-zhao-pian-zhi-gan/">
-                        <div class="card-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210211351090.jpeg" class="responsive-img" alt="lightroom后期(三) 提升照片质感">
-                            
-                            <span class="card-title">lightroom后期(三) 提升照片质感</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、对比度亮度对比改变光线的明暗差别，可以提高物体的立体感。当有光照到的亮部和阴影位置的暗部差别很大的时候，物体看起来更加立体。所以天气不好或者阴天的时候建筑立体感看起来要差一些。大范围设置：对比度更精细设置：高光和阴影以及黑白色阶设置，它
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%91%84%E5%BD%B1%E5%90%8E%E6%9C%9F/" class="post-category">
-                                    摄影后期
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/lightroom/">
-                            <span class="chip bg-color">lightroom</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%8F%90%E5%8D%87%E8%B4%A8%E6%84%9F/">
-                            <span class="chip bg-color">提升质感</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/10/24/che-gui-xin-pian-si-leon2-chu-li-qi/">
-                        <div class="card-image">
-                            
-                            <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210282036698.jpeg" class="responsive-img" alt="车规芯片(四)  leon2处理器">
-                            
-                            <span class="card-title">车规芯片(四)  leon2处理器</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、简介leon2处理器是一款开源的、符合SPARC(可扩展处理器体系架构) V8规范的、采用RISC 结构的32位处理器I P 核。它可以从互联网上免费下载使用。Leon2是以VHDL 形式存在的软核、完全可综合、内部硬件资源可裁剪、主要
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
-                                    数字IC
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leon2%E5%A4%84%E7%90%86%E5%99%A8/">
-                            <span class="chip bg-color">leon2处理器</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/">
-                            <span class="chip bg-color">车规芯片</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -1432,7 +1445,7 @@ interface router_io(input bit clo
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">51.1k</span>
+                        class="white-color">52.3k</span>
             
             
             

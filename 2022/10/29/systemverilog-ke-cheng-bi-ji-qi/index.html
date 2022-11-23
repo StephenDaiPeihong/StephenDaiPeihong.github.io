@@ -52,9 +52,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -380,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-21
+                    2022-11-23
                 </div>
                 
 
@@ -1454,8 +1454,7 @@ rt_interface intf();//例化接口
 endmodule 
 </code></pre>
 <h2 id="2-3-仿真结果"><a href="#2-3-仿真结果" class="headerlink" title="2.3 仿真结果"></a>2.3 仿真结果</h2><p>同上</p>
-<h1 id="3-package封装与makefile的使用"><a href="#3-package封装与makefile的使用" class="headerlink" title="3.  package封装与makefile的使用"></a>3.  package封装与makefile的使用</h1><h2 id="3-1-改进"><a href="#3-1-改进" class="headerlink" title="3.1 改进"></a>3.1 改进</h2><p><strong>(1)利用package将文件打包，并将package里的内容放入一个单独的文件里面</strong><br><strong>rt_test_pkg.sv如下：</strong></p>
-<pre class=" language-systemverilog"><code class="language-systemverilog">package rt_test_pkg;
+<h1 id="3-package封装与makefile的使用"><a href="#3-package封装与makefile的使用" class="headerlink" title="3.  package封装与makefile的使用"></a>3.  package封装与makefile的使用</h1><h2 id="3-1-利用package将文件打包，并将package里的内容放入一个单独的文件里面"><a href="#3-1-利用package将文件打包，并将package里的内容放入一个单独的文件里面" class="headerlink" title="3.1 利用package将文件打包，并将package里的内容放入一个单独的文件里面"></a>3.1 利用package将文件打包，并将package里的内容放入一个单独的文件里面</h2><h3 id="rt-test-pkg-sv"><a href="#rt-test-pkg-sv" class="headerlink" title="rt_test_pkg.sv"></a>rt_test_pkg.sv</h3><pre class=" language-systemverilog"><code class="language-systemverilog">package rt_test_pkg;
 class rt_packet;
   bit [3:0] src;
   bit [3:0] dst;
@@ -1890,8 +1889,7 @@ endclass
 endpackage
 //********************************** Optional tests **********************************//
 </code></pre>
-<p><strong>lab7tb.sv如下：</strong></p>
-<pre class=" language-systemverilog"><code class="language-systemverilog">//********************************** rt_interface **********************************//
+<h3 id="lab7tb-sv"><a href="#lab7tb-sv" class="headerlink" title="lab7tb.sv"></a>lab7tb.sv</h3><pre class=" language-systemverilog"><code class="language-systemverilog">
 interface rt_interface();
     logic clock;
     logic reset_n;
@@ -1907,11 +1905,11 @@ endinterface
 //********************************** tb **********************************//
 module tb;
 
-  import rt_test_pkg ::*;
-    
-    bit clk,rstn;
-    logic [15:0] din, frame_n, valid_n;
-    logic [15:0] dout, valido_n, busy_n, frameo_n;
+import rt_test_pkg:: * ;
+ 
+bit clk,rstn;
+logic [15:0] din, frame_n, valid_n;
+logic [15:0] dout, valido_n, busy_n, frameo_n;
 
 // 产生时钟，周期为10ns
 initial 
@@ -1944,66 +1942,50 @@ rt_interface intf();//例化接口
     rt_single_ch_test  single_ch_test;
     rt_multi_ch_test   multi_ch_test;
         
-    initial begin : Select_the_test
-    string name;
-      single_ch_test = new(intf);
-      multi_ch_test  = new(intf);
-      //single_ch_test.run();
-      //multi_ch_test.run();
-      if($value$plusargs("TESTNAME=%s",name))begin//$value$plusargs作用：运行仿真时输入参数
-      	  case(name)
-            	"rt_single_ch_test" : single_ch_test.run();//输入rt_single_ch_test，调用对应run，执行输入rt_single_ch_test
-                "rt_multi_ch_test" :multi_ch_test.run();
-            	default:$fatal("[ERRTEST],test name %s is invalid,please specity a valid name!0",name);
-        	endcase
-        end
+    initial begin : inst_init_proc
+            single_ch_test = new(intf);
+            multi_ch_test  = new(intf);
+            //single_ch_test.run();
+            multi_ch_test.run();
     end
     
-endmodule 
+endmodule
 </code></pre>
-<p><strong>VCS命令</strong></p>
-<blockquote>
+<h3 id="VCS命令"><a href="#VCS命令" class="headerlink" title="VCS命令"></a>VCS命令</h3><blockquote>
 <p>vcs -full64 -debug_access+all -sverilog -timescale=1ns/1ps <span style="background:rgba(5, 117, 197, 0.2)">router.v</span> <span style="background:rgba(136, 49, 204, 0.2)">rt_test_pkg.sv</span> <span style="background:#affad1">lab7tb.sv</span>  -top tb<br>//注意文件顺序，lab7tb.sv中的类是在rt_test_pkg.sv中创建的，rt_test_pkg.sv应在前面</p>
 </blockquote>
 <div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211180958453.png" width="45%" height="45%"></div>
-**(2)使用makefile**
 
-<p>使用脚本包含命令及其组合，makefile代码如下：</p>
-<pre class=" language-systemverilog"><code class="language-systemverilog">#############################
-#User variables
-#############################
-TB        =tb
-SEED      =1
-TESTNAME ?= rt_single_ch_test
-FILES     =router.v rt_test_pkg.sv lab7tb.sv
+<h2 id="3-2-使用makefile"><a href="#3-2-使用makefile" class="headerlink" title="3.2 使用makefile"></a>3.2 使用makefile</h2><p>使用脚本包含命令及其组合，makefile代码如下：</p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">###########################
+# User variables
+###########################
+TB       		= tb
+SEED 		 		= 1
+TESTNAME 		?= rt_single_ch_test
+FILES    		= router.v rt_test_pkg.sv lab7tb.sv #User Defination
 
-#############################
-#Environment variables
-#############################
-COMP  = vcs -full64 -sverilog -debug_acc+all -timescale=1ps/1ps -l comp.log $(FILES)
-RUN   = ./$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED)+TESTNAME=$(TESTNAME)
+###########################
+# Environment variables
+###########################
+COMP 								= vcs -full64 -sverilog -debug_access+all -timescale=1ns/1ps -l comp.log $(FILES)
+RUN 								= ./$(TB).simv -l run.log -sml +ntb_random_seed=$(SEED) +TESTNAME=$(TESTNAME)
 
 comp:
     $(COMP) -top $(TB) -o $(TB).simv
+
 run:
     $(RUN)
-    
+
 rung:
-    $(RUN)-gui
+    $(RUN) -gui
 </code></pre>
 <p>相关命令：</p>
 <blockquote>
 <p>make comp    //编译当前路径下的makefile文件，生成命令<br>make run/make rung    //执行run或rung的内容，生成log文件，make rung会调用vcs的可视化窗口</p>
 </blockquote>
-<p><strong>(3)对makefile增加输入参数</strong><br>将外部输入参数添加到tb文件中：</p>
-<pre class=" language-systemverilog"><code class="language-systemverilog">rt_interface intf();//例化接口
-    assign intf.reset_n = rstn;
-    assign intf.clock = clk;
-
-    rt_single_ch_test  single_ch_test;
-    rt_multi_ch_test   multi_ch_test;
-        
-    initial begin : Select_the_test
+<h2 id="3-3对makefile增加输入参数"><a href="#3-3对makefile增加输入参数" class="headerlink" title="3.3对makefile增加输入参数"></a>3.3对makefile增加输入参数</h2><p>将外部输入参数添加到tb文件中：</p>
+<pre class=" language-systemverilog"><code class="language-systemverilog">    initial begin : Select_the_test
     string name;
       single_ch_test = new(intf);
       multi_ch_test  = new(intf);
@@ -2020,9 +2002,9 @@ rung:
 </code></pre>
 <p>相关命令：</p>
 <blockquote>
-<p>make run TESTNAME=rt_multi_ch_test    //传入参数rt_multi_ch_test，进行多通道测试<br>make run TESTNAME=rt_single_ch_test    //传入参数rt_single_ch_test，进行多通道测试</p>
+<p>make rung TESTNAME=rt_multi_ch_test &amp;    //传入参数rt_multi_ch_test，进行多通道测试<br>make rung TESTNAME=rt_single_ch_test &amp;    //传入参数rt_single_ch_test，进行多通道测试</p>
 </blockquote>
-<h2 id="3-2-仿真结果"><a href="#3-2-仿真结果" class="headerlink" title="3.2 仿真结果"></a>3.2 仿真结果</h2><p>同上</p>
+<h2 id="3-4-仿真结果"><a href="#3-4-仿真结果" class="headerlink" title="3.4 仿真结果"></a>3.4 仿真结果</h2><p>同上</p>
 
                 
             </div>
@@ -2496,7 +2478,7 @@ rung:
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">51.1k</span>
+                        class="white-color">52.3k</span>
             
             
             
