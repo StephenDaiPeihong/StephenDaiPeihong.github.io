@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="使用PLI接口实现故障注入, Stephen&#39;s Blog">
+    <meta name="description" content="Verilog PLI即Verilog 编程语言接口，是Verilog提供给用户用来扩展Verilog 仿真器功能的接口。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>使用PLI接口实现故障注入 | Stephen&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Stephen's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Stephen&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Stephen&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/StephenDaiPeihong" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/StephenDaiPeihong" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">使用PLI接口实现故障注入</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/">
+                                <span class="chip bg-color">车规芯片</span>
+                            </a>
+                        
+                            <a href="/tags/PLI%E6%8E%A5%E5%8F%A3/">
+                                <span class="chip bg-color">PLI接口</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                数字IC
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-11-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-12-10
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-PLI相关"><a href="#1-PLI相关" class="headerlink" title="1. PLI相关"></a>1. PLI相关</h1><h2 id="1-1-PLI概念"><a href="#1-1-PLI概念" class="headerlink" title="1.1 PLI概念"></a>1.1 PLI概念</h2><p>Verilog PLI即Verilog 编程语言接口，是Verilog提供给用户用来扩展Verilog 仿真器功能的接口。</p>
+<h2 id="1-2-发展历史"><a href="#1-2-发展历史" class="headerlink" title="1.2 发展历史"></a>1.2 发展历史</h2><p>PLI 的发展主要经历了 3 代。</p>
+<p><strong>1. 1985-TF 接口</strong><br>第一代被称为任务/函数（Task/Function）接口，简称 TF 接口。TF 接口包含一套 C 语言函数库，均以 tf_ 为前缀，定义在 veriuser.h 中。这些 C 函数一般称为 TF 子程序，主要包括用户自定义任务和函数、实用函数、回调机制和数据写输出。</p>
+<p><strong>2. 1989-ACC 接口</strong><br>第二代被称为存取（Access）接口，简称 ACC 接口。ACC 接口中的函数均以 acc_ 为前缀，定义在 acc_user.h 中。ACC 子程序主要用于访问和修改 Verilog 描述的多种对象。ACC 库函数是 TF 库函数的叠加，而非替换。一般 PLI 接口特指是 TF 和 ACC 接口。</p>
+<p><strong>3. 1995-VPI 接口</strong><br>第三代被称为过程接口（Verilog Process Interface），简称 VPI 接口。VPI 子程序是 TF 和 ACC 子程序功能的合集，定义在 vpi_user.h 中。相对于 PLI 子程序又多又乱，VPI 尤显精炼。由于 PLI 诞生之初，没有统一的标准，完全是在实践中发展，导致常用的 PLI 库函数有近百个，写程序时基本都要查手册。而 VPI 是根据一定的标准统筹规划制定的，融入了很多面向对象的思想，库函数精简度远超 PLI。但是 VPI 结构比较复杂，不容易上手。VPI 最大的弱点还是对仿真器的支持并不友好。</p>
+<p><strong>2003-SystemVerilog 与 DPI</strong><br>作为 Verilog 的扩展，2003 年 SystemVerilog 标准发布，支持更多形式的仿真。DPI 接口（Direct Procee Interface）成为软件与 SystemVerilog 交互的接口，目前占主流。一般情况下，使用 PLI 的 TF 和 ACC 接口就能满足仿真需求了。</p>
+<h2 id="1-3-PLI可以完成的功能"><a href="#1-3-PLI可以完成的功能" class="headerlink" title="1.3 PLI可以完成的功能"></a>1.3 PLI可以完成的功能</h2><h3 id="C语言总线功能模型"><a href="#C语言总线功能模型" class="headerlink" title="C语言总线功能模型"></a>C语言总线功能模型</h3><p>抽象的硬件功能模型可以采用C语言实现，而不需要HDL来描述，这样即可以通过隐藏一些具体的实现细节以保护知识产权</p>
+<h3 id="优化仿真的性能"><a href="#优化仿真的性能" class="headerlink" title="优化仿真的性能"></a>优化仿真的性能</h3><p>PLI提供了很多方法用来在Verilog仿真与C语言模型之间传递数据</p>
+<h3 id="访问编程语言库"><a href="#访问编程语言库" class="headerlink" title="访问编程语言库"></a>访问编程语言库</h3><p>PLI使得Verilog 模型和测试程序可以访  问C语言库函数，通过PLI，Verilog可以给C函数传递参数，并可以将函数返回值返回给Verilog仿真器</p>
+<h3 id="读测试向量文件"><a href="#读测试向量文件" class="headerlink" title="读测试向量文件"></a>读测试向量文件</h3><p>测试向量是给仿真输入激励的通用方法，C语言的读文件功能是很容易实现的，因此采用PLI可以很方便的将C程序读取的值传递给Verilog 仿真器</p>
+<h3 id="显示输出"><a href="#显示输出" class="headerlink" title="显示输出"></a>显示输出</h3><p>PLI使得用户输出程序可以动态的读取任意仿真的仿真值，并输出联合仿真，复杂的设计需要有不同层次的逻辑描述结构，各种描述结构有不同的仿真器，PLI为不同的仿真器之间的通信提供接口</p>
+<h3 id="仿真结果分析"><a href="#仿真结果分析" class="headerlink" title="仿真结果分析"></a>仿真结果分析</h3><p>通过PLI可以为HDL模型提供激励，也可以获取模型的输出，对结果进行分析</p>
+<h2 id="1-4-PLI库函数"><a href="#1-4-PLI库函数" class="headerlink" title="1.4 PLI库函数"></a>1.4 PLI库函数</h2><p>PLI 库是Verilog PLI 标准中定义的C 语言函数库，PLI 应用中相关的子例程通过调用这些库函数完成与Verilog 仿真过程的交互。PLI 库函数可分为<span style="background:rgba(240, 200, 0, 0.2)">TF 实用库函数</span>和<span style="background:rgba(240, 200, 0, 0.2)">ACC 访问库函数</span>。</p>
+<h3 id="TF实用库函数"><a href="#TF实用库函数" class="headerlink" title="TF实用库函数"></a>TF实用库函数</h3><p><u>TF实用库函数用于在PLI应用的子例程与Verilog HDL仿真器交互数据</u>，主要处理对象为HDIL任务或函数传递的参数。实用库函数也称为TF库函数。实用库函数总是<strong>以前缀tf_开头</strong>，若一个PLI应用文件中使用了实用库函数，须包含veriuser.h头文件，所有实用库函数的数据类型和常量都必须在该头文件中定义。实用库函数的用途包括:获取系统任务的信息;获取任务参数列表信息;获取任务参数值;把参数新值传递给调用库函数的任务;监视参数值得变化;执行管理维护任务;显示必要的信息;暂时挂起、终止、暂存或恢复仿真环境等。</p>
+<h3 id="ACC访问库函数"><a href="#ACC访问库函数" class="headerlink" title="ACC访问库函数"></a>ACC访问库函数</h3><p><u>ACC访问库函数是提供给PLI应用程序访问HDL设计在仿真过程中的内部数据结构的C语言库函数</u>，可以通过它<u>读取HDL描述的内部数据结构中与某个对象相关的数据</u>，也可以<u>把特定对象的信息数据写入HDL描述的内部数据结构中，完成读写对象信息</u>。存取库函数<strong>以前缀acc_开头</strong>，使用存取库函数的用户自定义的PLI应用相关的子例程必须调用acc_initialize ()库函数，用来初始化环境，退出时，用户自定义的PLI应用相关的子例程必须调用acc_close (）库函数，完成一些相关的处理工作。<br>若一个PLI应用文件中用到存取库函数,必须要包含acc_user.h头文件，所有访问库函数的数据类型和常量都必须在该头文件中定义。存取库函数使用句柄的概念来访问特定对象，句柄是预定义的指向HDL设计中特定对象的数据类型，获取了该对象的句柄就能获得对象的所有信息，同样可以通过该句柄修改对象的信息。存取库函数主要可以分为六类:取值函数，句柄处理函数，后继处理函数，修改函数，值变链接VCL函数和杂项处理函数。</p>
+<h2 id="1-5-PLI应用子例程"><a href="#1-5-PLI应用子例程" class="headerlink" title="1.5 PLI应用子例程"></a>1.5 PLI应用子例程</h2><p>PLI应用子例程主要包括五类： </p>
+<ol>
+<li><strong>calltf例程</strong>：在仿真过程中，系统任务被调用时执行;</li>
+<li><strong>checktf 例程</strong>：在编译时执行，也就是在仿真时刻О之前执行，用来检查系统任务参数合法性;</li>
+<li><strong>sizetf例程</strong>：用于返回标量或向量值的系统函数，sizetf例程在仿真时刻0前被执行一次，此例程反馈给仿真器系统函数返回值的位宽;</li>
+<li><strong>misctf例程</strong>：事件驱动例程，由仿真事件回调或应用例程调度事件的回调，当misctf任务被调用时，仿真器传递参数reason常量，misctf例程执行时检查reason常量判断事件类型，然后执行相应的操作;</li>
+<li><strong>consumer例程</strong>：通过一种称为值变链接VCL的PLI回调机制进行调用,由 calltf或misctf例程为仿真过正中内部数据结构的特定对象添加VCL标记，当指定的对象某逻辑值反生变化时，调用由VCL标记指定的consumer 例程。</li>
+</ol>
+<p>前四类直接与PLI系统任务或函数名相关联，而consumer例程是在仿真过程中监视某个对象的数据信息，当某些逻辑值发生改变时被调用，不与系统任务或函数名直接相关。例程的类型规定了仿真器在仿真过程中触发该例程的机制或调用该例程的时刻。</p>
+<h2 id="1-6-PLI应用的注册与调用"><a href="#1-6-PLI应用的注册与调用" class="headerlink" title="1.6 PLI应用的注册与调用"></a>1.6 PLI应用的注册与调用</h2><p>在仿真过程中PLI 子例程通过调用PLI 提供的库函数来完成任务，但是Verilog 仿真器必须要知道<u>用户自定义的系统任务</u>和<u>相应的用户自定义的PLI 子例程的存在</u>以及<u>它们之间的关联性</u>。<span style="background:rgba(240, 200, 0, 0.2)">PLI 应用的注册就是将四个用户自定义PLI 子例程与用户自定义的PLI 系统任务或函数名相关。</span></p>
+<p>PLI IEEE 标准提供了一种接口机制用于注册PLI 应用，接口机制定义了四项内容：</p>
+<ol>
+<li>PLI 应用的类型，是系统任务还是系统函数；</li>
+<li>用户自定义的系统任务或函数名；</li>
+<li>用户自定义的与 PLI 应用相关的子例程名；</li>
+<li>与系统任务或函数相关的仿真器需要的其他一些信息。</li>
+</ol>
+<p>VCS 是<u>通过table 文件将系统任务或函数与相关的PLI 子例程相关联</u>，table 文件的格式如下</p>
+<div align="center"><img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051923855.png " width="80%" height="80%"></div>
+val_proc 是系统任务名，在源文件中调用系统任务时，在前面加$符号；call 对应的是calltf 例程；check 对应的是checktf 例程；misc 对应的是misctf 例程；data 整型值指定传递给calltf、checktf 及misctf 例程的第一个参数，默认值为0；data 值与系统任务或函数名一一对应，用于区分对应相同C 例程的不同系统任务；acc 后加指定模块内允许的访问操作。
+
+<h2 id="1-7-创建并调用一个PLI-任务的基本流程"><a href="#1-7-创建并调用一个PLI-任务的基本流程" class="headerlink" title="1.7 创建并调用一个PLI 任务的基本流程"></a>1.7 创建并调用一个PLI 任务的基本流程</h2><p>流程如下：</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051942695.png" width="30%" height="30%"></div>
+
+<p>以一个简单的系统任务$hello_verilog 为例<br>首先定义系统任务$hello_verilog，采用C语言实现PLI任务相关的PLI子例程</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051943224.png" width="60%" height="60%"></div>
+其次，将 PLI 任务注册到仿真器中，Synopsys&nbsp; VCS 仿真器的 table 文件名为hello.tab
+![](https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051944224.png)
+然后在Verilog HDL 源文件中调用系统任务
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051944032.png" width="50%" height="50%"></div>
+最后使用VCS 仿真器编译Verilog PLI 源代码，生成一个名为simv的可执行程序，运行simv 程序进行对硬件设计的仿真。
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212051945131.png" width="50%" height="50%"></div>
+
+<h1 id="2-如何利用Verilog-PLI实现故障注入"><a href="#2-如何利用Verilog-PLI实现故障注入" class="headerlink" title="2. 如何利用Verilog PLI实现故障注入"></a>2. 如何利用Verilog PLI实现故障注入</h1><h2 id="2-1-基于Verilog-PLI-技术的故障注入工具VPFIT"><a href="#2-1-基于Verilog-PLI-技术的故障注入工具VPFIT" class="headerlink" title="2.1 基于Verilog PLI 技术的故障注入工具VPFIT"></a>2.1 基于Verilog PLI 技术的故障注入工具VPFIT</h2><p><strong>VPFIT</strong> ：一个系统的故障注入工具，包含配置、控制、监视和数据分析等不同的功能模块<br><strong>关键</strong>：<span style="background:rgba(240, 200, 0, 0.2)">基于PLI 技术的对Verilog HDL 描述的系统模型进行故障注入，故障注入过程主要由PLI 系  </span><br><span style="background:rgba(240, 200, 0, 0.2)">统任务完成</span>。VPFIT 工具的实现主要包括四个PLI 系统任务：Test_Exectime 任务、Inject_Transfault 任务、Inject_Intermfault 任务和Inject_Permfault 任务。主要使用了misctf 例程的回调机制来实现四个基本的系统任务。</p>
+<p>基于Verilog PLI 技术的故障注入工具VPFIT 针对的对象为使用Verilog 硬件描述语言构造的目标系统模拟模型，采用的是PLI 技术，VPFIT 的总体框架主要包括用户配置模块、RTL 源码及Testbench 模块、Verilog PLI 库、Verilog仿真器以及故障注入结果分析与数据统计模块。</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212052113715.png" width="90%" height="90%"></div>
+
+<p><strong>用户配置文件</strong>：主要用于配置故障注入实验的参数，包括故障注入目标模块的选择、故障注入次数、故障持续时间区间选择、工作负载选择和无故障工作负载运行时间等。<br><strong>Verilog RTL源码</strong>：故障注入目标系统HDL源代码。<br><strong>Testbench</strong>：是针对目标系统编写的顶层模块，主要完成的任务是对故障注入系统产生负载激励。<br><strong>Verilog PLI 库</strong>：包括<u>系统PLI库</u>和<u>用户自定义PLI库</u>。系统PLI库提供了一组标准的系统任务和函数，在硬件描述的模块中可以直接使用，除此还包括TF实用库函数和ACC 访问库函数，供自定义的PLI应用的相关子例程调用实现用户自定义系统任务。用户自定义PLI 库是包含PLI应用例程的C语言源代码经过编译后生成的库文件，以动态链接库的形式存放在系统库目录下。</p>
+<h2 id="2-2-故障注入的实现"><a href="#2-2-故障注入的实现" class="headerlink" title="2.2 故障注入的实现"></a>2.2 故障注入的实现</h2><p>VPFIT 工具的实现主要包括四个PLI 系统任务：</p>
+<ol>
+<li>Test_Exectime 任务：测试未注入故障时工作负载的执行时间</li>
+<li>Inject_Transfault 任务：完成瞬时故障的注入</li>
+<li>Inject_Intermfault 任务：完成间歇故障的注入</li>
+<li>Inject_Permfault 任务：完成永久故障的注入<br>主要使用了misctf 例程的回调机制来实现四个基本的系统任务。</li>
+</ol>
+<h3 id="2-2-1-misctf-例程回调"><a href="#2-2-1-misctf-例程回调" class="headerlink" title="2.2.1 misctf 例程回调"></a>2.2.1 misctf 例程回调</h3><p>四个任务都使用了Misctf 例程的回调机制，Misctf 例程由各种仿真事件或 PLI 应用例程调度事件驱动，完成仿真事件的自动回调或 PLI 应用调度事件的回调。当 misctf 任务被调用时，仿真器传递参数reason 常量，<u>misctf 例程被调用时由reason 常量得到回调原因，判断事件类型，然后执行相应的操作。</u></p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061440720.png" width="60%" height="60%"></div>
+Misctf 例程的回调可以分为两类：
+* 基于仿真事件的自动回调
+Misctf 例程由于仿真过程中各种仿真事件驱动而自动调用，通过这种对misctf例程的回调过程来处理各种特殊的操作。Misctf 例程可以由各种原因自动调用，misctf 例程通过检查常量输入参数reason，只需处理PLI 应用相关事件的回调即可。
+* 基于PLI 应用例程调度事件的回调
+TF 库提供了一些库函数，使PLI 应用可以调度它的misctf 例程在未来的仿真时间被调用，当由这三个函数调度的misctf 例程被激活时，仿真器将向misctf 例程传递一个reason参数常量值REASON_REACTIVATE。
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061500681.png" width="80%" height="80%"></div>
+
+<h3 id="2-2-2-TestExectime-任务"><a href="#2-2-2-TestExectime-任务" class="headerlink" title="2.2.2 TestExectime 任务"></a>2.2.2 TestExectime 任务</h3><p>定义 PLI 任务 Test_Exectime，主要目的是测试未注入故障时工作负载的执行时间Tworkload</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061056873.png" width="60%" height="60%"></div>
+当 REASON_ENDOFCOMPILE 事件发生时，在 State_flag=0状态，调用库函数 tf_gettime()获得当前仿真时间；当 REASON_FINISH 事件发生时，在END 状态，同样调用库函数tf_gettime()获得当前仿真时间，通过两个不同状态获得的时间差就可得到未注入故障时工作负载的执行时间Tworkload。
+### 2.2.3 InjectTransfault 任务
+定义 PLI 任务 Inject_Transfault，主要功能是完成<span style="background:rgba(240, 200, 0, 0.2)">瞬时故障</span>的注入
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061250259.png" width="80%" height="80%"></div>
+
+<h3 id="2-2-4-InjectIntermfault-任务"><a href="#2-2-4-InjectIntermfault-任务" class="headerlink" title="2.2.4 InjectIntermfault 任务"></a>2.2.4 InjectIntermfault 任务</h3><p>定义PLI 任务Inject_Intermfault，主要功能是完成<span style="background:rgba(240, 200, 0, 0.2)">间歇故障</span>的注入</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061254169.png" width="80%" height="80%"></div>
+
+<h3 id="2-2-5-InjectPermfault-任务"><a href="#2-2-5-InjectPermfault-任务" class="headerlink" title="2.2.5 InjectPermfault 任务"></a>2.2.5 InjectPermfault 任务</h3><p>定义 PLI 任务 Inject_Permfault，主要功能是完成<span style="background:rgba(240, 200, 0, 0.2)">永久故障</span>的注入</p>
+<div align="center"><img src=" https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202212061258003.png" width="80%" height="80%"></div>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">DPH</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.daipeihong.top/2022/11/21/shi-yong-pli-jie-kou-shi-xian-gu-zhang-zhu-ru/">https://www.daipeihong.top/2022/11/21/shi-yong-pli-jie-kou-shi-xian-gu-zhang-zhu-ru/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">DPH</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BD%A6%E8%A7%84%E8%8A%AF%E7%89%87/">
+                                    <span class="chip bg-color">车规芯片</span>
+                                </a>
+                            
+                                <a href="/tags/PLI%E6%8E%A5%E5%8F%A3/">
+                                    <span class="chip bg-color">PLI接口</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/11/22/systemverilog-ke-cheng-bi-ji-jiu/">
+                    <div class="card-image">
+                        
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202210231601536.jpeg" class="responsive-img" alt="SystemVerilog课程笔记(九)">
+                        
+                        <span class="card-title">SystemVerilog课程笔记(九)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                    数字IC
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E5%AD%97%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">数字前端</span>
+                    </a>
+                    
+                    <a href="/tags/SystemVerilog%E9%AA%8C%E8%AF%81/">
+                        <span class="chip bg-color">SystemVerilog验证</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/17/verilog-shu-zi-xi-tong-she-ji-di-san-zhang-zong-jie/">
+                    <div class="card-image">
+                        
+                        <img src="https://cloudpicture-1313887899.cos.ap-chongqing.myqcloud.com/blog_picture/202211171435117.png" class="responsive-img" alt="Verilog数字系统设计第(三)章总结">
+                        
+                        <span class="card-title">Verilog数字系统设计第(三)章总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E5%AD%97IC/" class="post-category">
+                                    数字IC
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Verilog/">
+                        <span class="chip bg-color">Verilog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Stephen&#39;s Blog<br />'
+            + '文章作者: DaiPeihong<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022</span>
+            
+            <a href="/about" target="_blank">DaiPeihong</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">56.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "9";
+                        var startDate = "24";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/StephenDaiPeihong" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:StephenDai0327@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=815506713" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 815506713" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
